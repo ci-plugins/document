@@ -19,19 +19,19 @@
 
 * [创建你的第一条流水线](tutorials/create-first-pipeline.md)
 * [关联你的第一个代码库](tutorials/link-first-repo.md)
-* [为你的Git工程开启CI](tutorials/enable_git_ci.md)
+* [为你的Git工程开启CI](tutorials/enable-git-ci.md)
 * [示例](tutorials/examples/README.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
 
 ## 部署 BKCI <a id="setup"></a>
 
-* [BKCI 规格要求](setup/bkci-gui-ge-yao-qiu/README.md)
-  * [BKCI 硬件规格指南](setup/bkci-gui-ge-yao-qiu/bkci-ying-jian-gui-ge-zhi-nan.md)
+* [BKCI 系统要求](setup/system-requirements/README.md)
+  * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
 * [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
 * [在生产环境中运行 BKCI](setup/run-bkci-in-prod/README.md)
-  * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/run-bkci-on-tencent-cloud.md)
-  * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/run-bkci-on-bkce.md)
+  * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/on-tencentcloud.md)
+  * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/on-bkce.md)
 
 ## 产品功能 <a id="services"></a>
 
@@ -42,19 +42,19 @@
   * [创建/编辑流水线](services/pipelines/pipeline-edit.md)
   * [流水线任务详情页](services/pipelines/pipeline-build-detail.md)
 * [构建资源](services/pools/README.md)
-  * [将你的构建机托管至 BKCI](services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/README.md)
-    * [第三方构建机环境准备](services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/di-san-fang-gou-jian-ji-huan-jing-zhun-bei.md)
-  * [构建机详情页](services/pools/gou-jian-ji-xiang-qing-ye.md)
+  * [将你的构建机托管至 BKCI](services/pools/self-hosted-agents/README.md)
+    * [第三方构建机环境准备](services/pools/self-hosted-agents/prepara-agent.md)
+  * [构建机详情页](services/pools/agent-detail.md)
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
 
 ## 研发商店 <a id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
-* [流水线模板](store/liu-shui-xian-mo-ban.md)
-* [CI镜像](store/ci-jing-xiang/README.md)
-  * [构建并托管一个CI镜像](store/ci-jing-xiang/gou-jian-bing-tuo-guan-yi-ge-ci-jing-xiang.md)
-  * [发布一个容器镜像](store/ci-jing-xiang/fa-bu-yi-ge-rong-qi-jing-xiang.md)
+* [流水线模板](store/pipeline-templates.md)
+* [CI镜像](store/ci-images/README.md)
+  * [构建并托管一个CI镜像](store/ci-images/image-build.md)
+  * [发布一个CI镜像](store/ci-images/image-release.md)
 * [流水线插件](store/plugins/README.md)
   * [开发一个流水线插件](store/plugins/create-plugin/README.md)
     * [插件开发指引](store/plugins/create-plugin/plugin-dev-guide/README.md)
@@ -67,7 +67,7 @@
     * [插件输出规范](store/plugins/create-plugin/plugin-output.md)
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
-    * [插件自定义UI](store/plugins/create-plugin/cha-jian-zi-ding-yi-ui.md)
+    * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
 
 ## 一起共建 BKCI <a id="contribute"></a>

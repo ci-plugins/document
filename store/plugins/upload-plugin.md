@@ -62,5 +62,5 @@
 3. 继续：测试 OK，满足预期后，确认提交发布
 4. 取消发布：发布过程中，随时可以终止发布
 
-> 注意：当插件开发语言为 Python、Nodejs 时，对插件执行环境有一定要求，请参考[第三方构建机环境准备](../../services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/di-san-fang-gou-jian-ji-huan-jing-zhun-bei.md)
+> 注意：当插件开发语言为 Python、Nodejs 时，对插件执行环境有一定要求，请参考[第三方构建机环境准备](../../services/pools/self-hosted-agents/prepara-agent.md)
 
