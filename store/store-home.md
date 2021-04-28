@@ -14,5 +14,5 @@
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
-* [开发一个流水线插件](liu-shui-xian-cha-jian/create-plugin.md)
+* [开发一个流水线插件](plugins/create-plugin/)
 

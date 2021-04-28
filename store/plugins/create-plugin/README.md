@@ -8,7 +8,7 @@
 
 #### 功能区介绍 <a id="&#x529F;&#x80FD;&#x533A;&#x4ECB;&#x7ECD;"></a>
 
-![](../../.gitbook/assets/image%20%2844%29.png)
+![](../../../.gitbook/assets/image%20%2844%29.png)
 
 1. 切换资源类型
 2. 新增插件
@@ -18,7 +18,7 @@
 
 #### 新增插件 <a id="&#x65B0;&#x589E;&#x63D2;&#x4EF6;"></a>
 
-![](../../.gitbook/assets/image%20%2830%29.png)
+![](../../../.gitbook/assets/image%20%2830%29.png)
 
 1. 标识
    * 插件在平台中的唯一标识，建议取和插件功能相关的可读性好的英文标识
@@ -48,9 +48,9 @@
 
 入口如下，创建后，在插件中通过 SDK 提供的方法即可获取使用 
 
-![](../../.gitbook/assets/image%20%282%29.png)
+![](../../../.gitbook/assets/image%20%282%29.png)
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
-* [在 BKCI 里使用商店插件](upload-plugin.md)
+* [在 BKCI 里使用商店插件](../upload-plugin.md)
 
