@@ -2,7 +2,7 @@
 
 * [首页](README.md)
 
-## 了解基本概念 <a id="overview"></a>
+## 🐤 了解基本概念 <a id="overview"></a>
 
 * [BKCI 是什么？](overview/what-is-bkci.md)
 * [BKCI 组件](overview/components.md)
@@ -15,7 +15,7 @@
   * [Trigger](overview/terminology/trigger.md)
   * [Variables](overview/terminology/variables.md)
 
-## 使用 BKCI <a id="tutorials"></a>
+## 👉 使用 BKCI <a id="tutorials"></a>
 
 * [创建你的第一条流水线](tutorials/create-first-pipeline.md)
 * [关联你的第一个代码库](tutorials/link-first-repo.md)
@@ -24,7 +24,7 @@
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
 
-## 部署 BKCI <a id="setup"></a>
+## 🚀 部署 BKCI <a id="setup"></a>
 
 * [BKCI 系统要求](setup/system-requirements/README.md)
   * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
@@ -33,7 +33,7 @@
   * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/on-tencentcloud.md)
   * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/on-bkce.md)
 
-## 产品功能 <a id="services"></a>
+## 📔 产品功能 <a id="services"></a>
 
 * [控制台](services/console.md)
 * [流水线](services/pipelines/README.md)
@@ -48,7 +48,7 @@
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
 
-## 研发商店 <a id="store"></a>
+## 🏪 研发商店 <a id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
 * [流水线模板](store/pipeline-templates.md)
@@ -70,13 +70,13 @@
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
 
-## 一起共建 BKCI <a id="contribute"></a>
+## 🤝 一起共建 BKCI <a id="contribute"></a>
 
 * [BKCI 架构](contribute/architecture.md)
 * [BKCI 代码结构](contribute/code-framework.md)
 * [设计理念](contribute/design.md)
 
-## 参考信息 <a id="reference"></a>
+## ℹ️ 参考信息 <a id="reference"></a>
 
 * [预定义变量列表](reference/pre-define-var.md)
 
