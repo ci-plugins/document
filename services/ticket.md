@@ -4,7 +4,7 @@
 
 ### 创建凭证
 
-![](../.gitbook/assets/image%20%284%29.png)
+![](../.gitbook/assets/image%20%288%29.png)
 
 目前支持以下几种凭据类型：
 
@@ -20,7 +20,7 @@
 
 可以在这里查看所有有权限的已关联凭据。
 
-![](../.gitbook/assets/image%20%2826%29.png)
+![](../.gitbook/assets/image%20%2840%29.png)
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 

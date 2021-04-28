@@ -16,9 +16,9 @@ description: 欢迎使用 BKCI 文档中心
 | 产品功能 | 插件市场 | 一起共建 BKCI |
 | :--- | :--- | :--- |
 |  | [浏览研发商店](store/store-home.md) |  |
-|  | [开发一个流水线插件](store/create-plugin.md) |  |
-|  | [在 BKCI 里使用商店插件](store/upload-plugin.md) |  |
-|  | [插件开发指南](store/plugin-dev-guide.md) |  |
+|  | [开发一个流水线插件](store/liu-shui-xian-cha-jian/create-plugin.md) |  |
+|  | [在 BKCI 里使用商店插件](store/liu-shui-xian-cha-jian/upload-plugin.md) |  |
+|  | [插件开发指南](store/liu-shui-xian-cha-jian/plugin-dev-guide.md) |  |
 
 | 参考信息 |
 | :--- |

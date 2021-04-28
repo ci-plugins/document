@@ -51,9 +51,14 @@
 ## 研发商店 <a id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
-* [开发一个流水线插件](store/create-plugin.md)
-* [在 BKCI 里使用商店插件](store/upload-plugin.md)
-* [插件开发指南](store/plugin-dev-guide.md)
+* [流水线模板](store/liu-shui-xian-mo-ban.md)
+* [CI镜像](store/ci-jing-xiang/README.md)
+  * [构建并托管一个CI镜像](store/ci-jing-xiang/gou-jian-bing-tuo-guan-yi-ge-ci-jing-xiang.md)
+  * [发布一个容器镜像](store/ci-jing-xiang/fa-bu-yi-ge-rong-qi-jing-xiang.md)
+* [流水线插件](store/liu-shui-xian-cha-jian/README.md)
+  * [开发一个流水线插件](store/liu-shui-xian-cha-jian/create-plugin.md)
+  * [插件开发指南](store/liu-shui-xian-cha-jian/plugin-dev-guide.md)
+  * [在 BKCI 里使用商店插件](store/liu-shui-xian-cha-jian/upload-plugin.md)
 
 ## 一起共建 BKCI <a id="contribute"></a>
 
