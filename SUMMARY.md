@@ -60,9 +60,6 @@
 ## 参考信息 <a id="reference"></a>
 
 * [预定义变量列表](reference/pre-define-var.md)
-* [Markdown Demo](reference/markdown/README.md)
-  * [FAQS](reference/markdown/faqs/README.md)
-    * [STEP BY STEP](reference/markdown/faqs/step-by-step.md)
 
 ---
 
