@@ -6,5 +6,11 @@
 
 {% page-ref page="stage.md" %}
 
+{% page-ref page="job.md" %}
 
+{% page-ref page="task.md" %}
+
+{% page-ref page="trigger.md" %}
+
+{% page-ref page="variables.md" %}
 
