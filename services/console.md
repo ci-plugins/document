@@ -4,7 +4,7 @@
 
 ## 功能区介绍
 
-![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image.png)
+![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image%20%289%29.png)
 
 1. 切换项目
 2. 切换服务
