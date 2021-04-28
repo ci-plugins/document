@@ -4,7 +4,7 @@
 
 ### 关联 gitlab 代码库 <a id="&#x5173;&#x8054; gitlab &#x4EE3;&#x7801;&#x5E93;"></a>
 
-![](../.gitbook/assets/image%20%2814%29.png)
+![](../.gitbook/assets/image%20%2815%29.png)
 
 点击关联代码库后可弹出“关联代码库”的弹窗，会收集代码库的基本信息：
 

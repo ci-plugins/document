@@ -26,7 +26,8 @@
 
 ## 部署 BKCI <a id="setup"></a>
 
-* [BKCI 规格要求](setup/bkci-gui-ge-yao-qiu.md)
+* [BKCI 规格要求](setup/bkci-gui-ge-yao-qiu/README.md)
+  * [BKCI 硬件规格指南](setup/bkci-gui-ge-yao-qiu/bkci-ying-jian-gui-ge-zhi-nan.md)
 * [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
 * [在生产环境中运行 BKCI](setup/run-bkci-in-prod/README.md)
   * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/run-bkci-on-tencent-cloud.md)
