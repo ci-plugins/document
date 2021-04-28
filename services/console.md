@@ -4,7 +4,7 @@
 
 ## 功能区介绍
 
-![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image%20%289%29.png)
+![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image%20%2810%29.png)
 
 1. 切换项目
 2. 切换服务
@@ -17,6 +17,6 @@
 
 * [流水线列表页](pipelines/pipeline-list.md)
 * [代码库](repo.md)
-* [构建资源](pools.md)
+* [构建资源](pools/)
 * [凭证管理](ticket.md)
 

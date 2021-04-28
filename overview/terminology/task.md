@@ -12,7 +12,7 @@ Task 必须包含在 [Job](javascript:void%280%29) 内，同一个 Job 内的 Ta
 
 每个插件都有版本控制，在使用插件时，你必须指定一个版本。
 
-![](../../.gitbook/assets/image%20%2815%29.png)
+![](../../.gitbook/assets/image%20%2816%29.png)
 
 > 插件的版本规范：
 >

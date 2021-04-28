@@ -40,7 +40,10 @@
   * [流水线执行历史](services/pipelines/pipeline-build-history.md)
   * [创建/编辑流水线](services/pipelines/pipeline-edit.md)
   * [流水线任务详情页](services/pipelines/pipeline-build-detail.md)
-* [构建资源](services/pools.md)
+* [构建资源](services/pools/README.md)
+  * [将你的构建机托管至 BKCI](services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/README.md)
+    * [第三方构建机环境准备](services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/di-san-fang-gou-jian-ji-huan-jing-zhun-bei.md)
+  * [构建机详情页](services/pools/gou-jian-ji-xiang-qing-ye.md)
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
 

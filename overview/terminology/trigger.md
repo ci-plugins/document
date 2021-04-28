@@ -20,5 +20,5 @@ bk-ci 支持多种方式触发流水线：
 | 代码库 HOOK 触发 | WEB\_HOOK |
 | API 触发 | SERVICE |
 
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/image%20%2821%29.png)
 
