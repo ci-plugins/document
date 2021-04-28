@@ -5,7 +5,7 @@ Job，可以运行在一个构建环境里，比如运行在 macOS；也可以�
 * 由多个 Tasks\(插件\)组成；
 * 一个 Task 失败，则该 Job 失败，其余 Task 将不会运行；
 
-![](../../.gitbook/assets/image%20%2813%29.png)
+![](../../.gitbook/assets/image%20%2815%29.png)
 
 ### WORKSPACE <a id="WORKSPACE"></a>
 
@@ -25,7 +25,7 @@ Job，可以运行在一个构建环境里，比如运行在 macOS；也可以�
 
 互斥组是为了解决并发构建使用同一构建机时的资源冲突问题而设计的，对不同流水线的不同 Job 设置同一个互斥组。
 
-![](../../.gitbook/assets/image%20%285%29.png)
+![](../../.gitbook/assets/image%20%286%29.png)
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
