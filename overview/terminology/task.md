@@ -12,7 +12,7 @@ Task 必须包含在 [Job](javascript:void%280%29) 内，同一个 Job 内的 Ta
 
 每个插件都有版本控制，在使用插件时，你必须指定一个版本。
 
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/image%20%2820%29.png)
 
 > 插件的版本规范：
 >
@@ -31,7 +31,7 @@ Task 必须包含在 [Job](javascript:void%280%29) 内，同一个 Job 内的 Ta
 
 每个插件在运行之后，会产生一系列的输出变量，通过变量和高级流程控制的有效组合，可以实现各种应用场景。
 
-![](../../.gitbook/assets/image%20%288%29.png)
+![](../../.gitbook/assets/image%20%289%29.png)
 
 > 输出字段命名空间 用于解决流水线下，相同插件有多个实例时，输出字段使用冲突的问题。
 >
