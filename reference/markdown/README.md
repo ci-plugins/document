@@ -83,30 +83,30 @@ If you have many Markdown files, it can be tedious to determine if they display 
 
 GitLab makes full use of the standard \(CommonMark\) formatting, but also includes more helpful features for GitLab users.
 
-It makes use of [new Markdown features](), not found in standard Markdown:
+It makes use of [new Markdown features](./), not found in standard Markdown:
 
-* [Color chips written in HEX, RGB or HSL]()
-* [Diagrams and flowcharts]()
-* [Emoji]()
-* [Front matter]()
-* [Inline diffs]()
-* [Math equations and symbols written in LaTeX]()
-* [Special GitLab references]()
-* [Task Lists]()
-* [Table of Contents]()
-* [Wiki specific Markdown]()
+* [Color chips written in HEX, RGB or HSL](./)
+* [Diagrams and flowcharts](./)
+* [Emoji](./)
+* [Front matter](./)
+* [Inline diffs](./)
+* [Math equations and symbols written in LaTeX](./)
+* [Special GitLab references](./)
+* [Task Lists](./)
+* [Table of Contents](./)
+* [Wiki specific Markdown](./)
 
-It also has [extended Markdown features](), without changing how standard Markdown is used:
+It also has [extended Markdown features](./), without changing how standard Markdown is used:
 
 | Standard Markdown | Extended Markdown in GitLab |
 | :--- | :--- |
-| [blockquotes]() | [multi-line blockquotes]() |
-| [code blocks]() | [colored code and syntax highlighting]() |
-| [emphasis]() | [multiple underscores in words]() |
-| [headers]() | [linkable Header IDs]() |
-| [images]() | [embedded videos]() and [audio]() |
-| [line breaks]() | [more line break control]() |
-| [links]() | [automatically linking URLs]() |
+| [blockquotes](./) | [multi-line blockquotes](./) |
+| [code blocks](./) | [colored code and syntax highlighting](./) |
+| [emphasis](./) | [multiple underscores in words](./) |
+| [headers](./) | [linkable Header IDs](./) |
+| [images](./) | [embedded videos](./) and [audio](./) |
+| [line breaks](./) | [more line break control](./) |
+| [links](./) | [automatically linking URLs](./) |
 
 ## New GitLab Flavored Markdown extensions
 
@@ -118,9 +118,9 @@ It's possible to have color written in HEX, RGB, or HSL format rendered with a c
 
 Supported formats \(named colors are not supported\):
 
-* HEX: ```#RGB[A]```  or ```#RRGGBB[AA]``` 
-* RGB: ```RGB[A](R, G, B[, A])``` 
-* HSL: ```HSL[A](H, S, L[, A])``` 
+* HEX: `#RGB[A]`  or `#RRGGBB[AA]` 
+* RGB: `RGB[A](R, G, B[, A])` 
+* HSL: `HSL[A](H, S, L[, A])` 
 
 Color written inside backticks is followed by a color "chip":
 
@@ -166,8 +166,8 @@ graph TD;
   B-->D;
   C-->D;
 ```
-```
 
+```text
 ```text
 graph TD;
   A-->B;
@@ -195,8 +195,8 @@ graph TB
   SubGraph1 --> FinalThing[Final Thing]
 end
 ```
-```
 
+```text
 ```text
 graph TB
 
@@ -216,11 +216,11 @@ end
 
 #### PlantUML
 
-To make PlantUML available in GitLab, a GitLab administrator needs to enable it first. Read more in [PlantUML & GitLab](../administration/integration/plantuml.md).
+To make PlantUML available in GitLab, a GitLab administrator needs to enable it first. Read more in [PlantUML & GitLab](https://github.com/bkci-robot/document/tree/fc86e5f8ce1ff4c39be1481e2ec7b10fef375355/reference/administration/integration/plantuml.md).
 
 #### Kroki
 
-To make Kroki available in GitLab, a GitLab administrator needs to enable it first. Read more in the [Kroki integration](../administration/integration/kroki.md) page.
+To make Kroki available in GitLab, a GitLab administrator needs to enable it first. Read more in the [Kroki integration](https://github.com/bkci-robot/document/tree/fc86e5f8ce1ff4c39be1481e2ec7b10fef375355/reference/administration/integration/kroki.md) page.
 
 ### Emoji
 
@@ -336,7 +336,7 @@ However, the wrapping tags can't be mixed:
 - [- deletion -}
 ```
 
-If your diff includes words in ```code```  font, make sure to escape each backtick `````  with a backslash `\`, otherwise the diff highlight don't render correctly:
+If your diff includes words in `code` font, make sure to escape each backtick ````````` with a backslash`````\`, otherwise the diff highlight don't render correctly:
 
 ```text
 - {+ Just regular text +}
@@ -350,7 +350,7 @@ If this section is not rendered correctly, [view it in GitLab](https://gitlab.co
 
 It's possible to have math written with LaTeX syntax rendered using [KaTeX](https://github.com/KaTeX/KaTeX).
 
-Math written between dollar signs `$` are rendered inline with the text. Math written inside a [code block]() with the language declared as `math`, are rendered on a separate line:
+Math written between dollar signs `$` are rendered inline with the text. Math written inside a [code block](./) with the language declared as `math`, are rendered on a separate line:
 
 ```text
 This math is inline $`a^2+b^2=c^2`$.
@@ -360,8 +360,8 @@ This is on a separate line
 ```math
 a^2+b^2=c^2
 ```
-```
 
+```text
 This math is inline $`a^2+b^2=c^2`$.
 
 This is on a separate line
@@ -405,7 +405,7 @@ GitLab Flavored Markdown recognizes the following:
 | commit range comparison | `9ba12248...b19a04f5` | `namespace/project@9ba12248...b19a04f5` | `project@9ba12248...b19a04f5` |
 | repository file references | `[README](doc/README.md)` |  |  |
 | repository file line references | `[README](doc/README.md#L13)` |  |  |
-| [alert](../operations/incident_management/alerts.md) | `^alert#123` | `namespace/project^alert#123` | `project^alert#123` |
+| [alert](https://github.com/bkci-robot/document/tree/fc86e5f8ce1ff4c39be1481e2ec7b10fef375355/reference/operations/incident_management/alerts.md) | `^alert#123` | `namespace/project^alert#123` | `project^alert#123` |
 
 1. [Introduced](https://gitlab.com/gitlab-org/gitlab/-/issues/222483) in GitLab 13.7.
 
@@ -526,7 +526,7 @@ This snippet links to `<wiki_root>/miscellaneous.md`:
 
 ### Embedding metrics in GitLab Flavored Markdown
 
-Metric charts can be embedded in GitLab Flavored Markdown. Read [Embedding Metrics in GitLab flavored Markdown](../operations/metrics/embed.md) for more details.
+Metric charts can be embedded in GitLab Flavored Markdown. Read [Embedding Metrics in GitLab flavored Markdown](https://github.com/bkci-robot/document/tree/fc86e5f8ce1ff4c39be1481e2ec7b10fef375355/reference/operations/metrics/embed.md) for more details.
 
 ## Standard Markdown and extensions in GitLab
 
@@ -579,7 +579,7 @@ you can quote that without having to manually prepend `>` to every line!
 
 You can highlight anything that should be viewed as code and not standard text.
 
-Inline code is highlighted with single backticks ````` :
+Inline code is highlighted with single backticks \`\`\`\`\` :
 
 ```text
 Inline `code` has `back-ticks around` it.
@@ -589,7 +589,7 @@ Inline `code` has `back-ticks around` it.
 
 To achieve a similar effect for a larger code example, you can:
 
-* Fence an entire block of code with triple backticks \(``````````` \).
+* Fence an entire block of code with triple backticks \(\`\`\`\`\`\`\`\`\`\`\` \).
 * Fence an entire block of code with triple tildes \(`~~~`\).
 * Indent it four or more spaces.
 
@@ -601,11 +601,13 @@ def function():
     print s
 ```
 
-    Using 4 spaces
-    is like using
-    3-backtick fences.
+```text
+Using 4 spaces
+is like using
+3-backtick fences.
 ```
 
+```text
 ```text
 ~~~
 Tildes are OK too.
@@ -637,7 +639,7 @@ If this section isn't rendered correctly, [view it in GitLab](https://gitlab.com
 
 GitLab uses the [Rouge Ruby library](http://rouge.jneen.net/) for more colorful syntax highlighting in code blocks. For a list of supported languages visit the [Rouge project wiki](https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers). Syntax highlighting is supported only in code blocks, so you can't highlight inline code.
 
-To fence and apply syntax highlighting to a block of code, append the code language to the opening code declaration, three back-ticks \(``````````` \) or three tildes \(`~~~`\):
+To fence and apply syntax highlighting to a block of code, append the code language to the opening code declaration, three back-ticks \(````````````````````` \) or three tildes \(```````````~~~\`\):
 
 ```text
 ```javascript
@@ -658,13 +660,13 @@ markdown = Redcarpet.new("Hello World!")
 puts markdown.to_html
 ```
 
-```
+```text
 No language indicated, so no syntax highlighting.
 s = "There is no highlighting for this."
 But let's throw in a <b>tag</b>.
 ```
-```
 
+```text
 The four examples above render as:
 
 ```javascript
@@ -743,9 +745,9 @@ perform*complicated*task
 do*this*and*do*that*and*another thing
 ```
 
-perform_complicated_task
+perform\_complicated\_task
 
-do_this_and_do_that_and_another thing
+do\_this\_and\_do\_that\_and\_another thing
 
 ### Footnotes
 
@@ -862,8 +864,6 @@ Inline-style (hover to see title text):
 Reference-style (hover to see title text):
 
 ![alt text1][logo]
-
-[logo]: img/markdown_logo.png "Title Text"
 ```
 
 Inline-style \(hover to see title text\):
@@ -972,11 +972,11 @@ Remember to leave a blank line after the `</summary>` tag and before the `</deta
 <summary>Click this to collapse/fold.</summary>
 
 These details _remain_ **hidden** until expanded.
-
 ```
+
 PASTE LOGS HERE
-```
 
+```text
 </details>
 ```
 
@@ -1011,7 +1011,7 @@ This line is also a separate paragraph, but... These lines are only separated by
 
 GitLab Flavored Markdown adheres to the Markdown specification in how [paragraphs and line breaks are handled](https://spec.commonmark.org/current/).
 
-A paragraph is one or more consecutive lines of text, separated by one or more blank lines \(two newlines at the end of the first paragraph\), as [explained above]().
+A paragraph is one or more consecutive lines of text, separated by one or more blank lines \(two newlines at the end of the first paragraph\), as [explained above](./).
 
 Need more control over line breaks or soft returns? Add a single line break by ending a line with a backslash, or two or more spaces. Two newlines in a row create a new paragraph, with a blank line in between:
 
@@ -1048,21 +1048,17 @@ Using references:
 - Or leave it empty and use the [link text itself][], see below.
 
 Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org/en-US/
-[1]: https://slashdot.org
-[link text itself]: https://www.reddit.com
 ```
 
 * This is an [inline-style link](https://www.google.com)
-* This is a [link to a repository file in the same directory]()
-* This is a [relative link to a README one directory higher](../README.md)
+* This is a [link to a repository file in the same directory](./)
+* This is a [relative link to a README one directory higher](https://github.com/bkci-robot/document/tree/fc86e5f8ce1ff4c39be1481e2ec7b10fef375355/reference/README.md)
 * This is a [link that also has title text](https://www.google.com)
 
 Using header ID anchors:
 
-* This links to [a section on a different Markdown page, using a "\#" and the header ID]()
-* This links to [a different section on the same page, using a "\#" and the header ID]()
+* This links to [a section on a different Markdown page, using a "\#" and the header ID](./)
+* This links to [a different section on the same page, using a "\#" and the header ID](./)
 
 Using references:
 
@@ -1264,7 +1260,7 @@ You can use HTML formatting to adjust the rendering of tables. For example, you 
 | Item1 | This is on one line |
 | Item2 | This item has: - Multiple items - That we want listed separately |
 
-You can use HTML formatting in GitLab itself to add [task lists]() with checkboxes, but they do not render properly on `docs.gitlab.com`:
+You can use HTML formatting in GitLab itself to add [task lists](./) with checkboxes, but they do not render properly on `docs.gitlab.com`:
 
 ```text
 | header 1 | header 2 |

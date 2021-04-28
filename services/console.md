@@ -4,7 +4,7 @@
 
 ## 功能区介绍
 
-![png](../assets/service_console.png)
+![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image.png)
 
 1. 切换项目
 2. 切换服务
@@ -15,8 +15,8 @@
 
 ## 接下来你可能需要
 
-- [流水线首页](Pipeline/pipeline-list.md)
-- [制品库首页](Artifactory/Artifactory.md)
-- [代码库首页](Repos/repos-list.md)
-- [构建机管理页](Resource/bkci-hosted.md)
-- [凭证管理页](Ticket/ticket-list.md)
+* [流水线列表页](pipelines/pipeline-list.md)
+* [代码库](repo.md)
+* [构建资源](pools.md)
+* [凭证管理](ticket.md)
+
