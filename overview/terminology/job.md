@@ -5,7 +5,7 @@ Job，可以运行在一个构建环境里，比如运行在 macOS；也可以�
 * 由多个 Tasks\(插件\)组成；
 * 一个 Task 失败，则该 Job 失败，其余 Task 将不会运行；
 
-![](../../.gitbook/assets/image%20%2826%29.png)
+![](../../.gitbook/assets/image%20%2817%29%20%281%29.png)
 
 ### WORKSPACE <a id="WORKSPACE"></a>
 

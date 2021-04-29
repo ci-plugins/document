@@ -9,7 +9,7 @@
 ### 原理简介 <a id="%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B"></a>
 
 * 将流水线编辑插件面板划分出一块区域以iframe的形式加载，iframe的内容由用户自定义实现。
-* 点开插件时，平台上层会把插件的 [atomValue](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atomvalue) 和 [atomModel](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atommodel) 通过 postMessage 的方式传递给 iframe，iframe 内部拿到 atomModel 和 atomValue 后即可以自定义实现插件部分。
+* 点开插件时，平台上层会把插件的 atomValue 和 atomModel 通过 postMessage 的方式传递给 iframe，iframe 内部拿到 atomModel 和 atomValue 后即可以自定义实现插件部分。
 * 当用户输入相应参数后，把值更新到 atomValue 即可，插件面板在关闭时会自动把 atomValue 的值传回给平台上层保存。
 
 对于vue开发者，我们封装了一个基于 vue、集成了蓝鲸 magixbox 组件库、bkci 业务组件、bkci 插件能力的脚手架，并封装了与平台上层通信的 api，使开发者可以只专注于处理的业务逻辑部分。
