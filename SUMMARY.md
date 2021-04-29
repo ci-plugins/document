@@ -79,6 +79,7 @@
 ## ℹ️ 参考信息 <a id="reference"></a>
 
 * [预定义变量列表](reference/pre-define-var.md)
+* [API列表](reference/api.md)
 
 ---
 
