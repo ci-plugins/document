@@ -2,7 +2,7 @@
 description: 常见问题集锦
 ---
 
-# FAQ
+# FAQS
 
 ## gitlab事件触发插件无法触发事件?
 
