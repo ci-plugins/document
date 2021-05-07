@@ -80,6 +80,7 @@
 
 * [预定义变量列表](reference/pre-define-var.md)
 * [API列表](reference/api.md)
+* [FAQ](reference/faq.md)
 
 ---
 
