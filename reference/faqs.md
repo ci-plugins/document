@@ -11,11 +11,15 @@ description: 常见问题集锦
 3. 如果已注册，还是没有触发，
    1. 到gitlab的webhook页面，查看是否有注册成功。
 
-      ![](../.gitbook/assets/image%20%287%29.png)
-
-   2. 如果gitlab中有注册的url，url是[http://域名/external/scm/codegit/commit，](http://xn--eqrt2g/external/scm/codegit/commit%EF%BC%8C) 然后点击编辑，查看发送的详情 ![](../.gitbook/assets/image%20%2832%29.png) 
-   3. 查看gitlab没有发送的详情 ![](../.gitbook/assets/image%20%2826%29.png) 
+   2. 如果gitlab中有注册的url，url是[http://域名/external/scm/codegit/commit，](http://xn--eqrt2g/external/scm/codegit/commit%EF%BC%8C) 然后点击编辑，查看发送的详情  
+   3. 查看gitlab没有发送的详情  
 4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志 
+
+![](../.gitbook/assets/image%20%2826%29.png)
+
+![](../.gitbook/assets/image%20%2832%29.png)
+
+![](../.gitbook/assets/image%20%287%29.png)
 
 ## 
 
