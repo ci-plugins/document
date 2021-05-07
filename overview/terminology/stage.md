@@ -6,7 +6,7 @@
 * 同一个 Stage 下的 Job 执行方式为并行，由于 Job 之间是相互独立的，某个 Job 失败后，其它的 Job 会被运行到完成；
 * 一个 Job 失败，则该 Stage 失败。
 
-![](../../.gitbook/assets/image%20%2825%29.png)
+![](../../.gitbook/assets/image%20%2825%29%20%281%29.png)
 
 ### Stage 的通用选项 <a id="Stage &#x7684;&#x901A;&#x7528;&#x9009;&#x9879;"></a>
 
