@@ -335,8 +335,6 @@
 }
 ```
 
-![](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/vuex-input.png)
-
 * 人名选择器
 
 ```text
@@ -357,8 +355,6 @@
     "desc": "XXX"
 }
 ```
-
-![](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/atom-checkbox.png)
 
 * selector/select-input/devops-select
   * 选项列表在task.json中配置
@@ -450,8 +446,6 @@
 }
 ```
 
-![](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/atom-checkbox-list.png)
-
 * time-picker 日期选择器
 
 ```text
@@ -463,8 +457,6 @@
     "showTime": false
 }
 ```
-
-![](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/time-picker.png)
 
 * tips 提示信息
 
