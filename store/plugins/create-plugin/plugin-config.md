@@ -135,6 +135,7 @@
     ```text
     "fieldName": {
         "label": "",
+        "default": true,
         "type": "atom-checkbox",
         "text": "是否需要Rebuild",
         "desc": "XXX"
