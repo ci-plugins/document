@@ -2,7 +2,7 @@
 
 流水线的核心页面之一，可通过可视化界面生成 CI 流水线。
 
-![](../../.gitbook/assets/image%20%2811%29.png)
+![](../../../.gitbook/assets/image%20%2811%29.png)
 
 
 
@@ -12,7 +12,7 @@
 2. 流水线编辑标签，可以在流水线编排页、基础设置之间互相切换：
    * 流水线编排区：参考 3
    * 流水线基础设置：
-3. 流水线编排区：遵守[流水线核心理念](../../overview/learn-pipeline-in-5-min.md)的可视化编排区域
+3. 流水线编排区：遵守[流水线核心理念](../../../overview/learn-pipeline-in-5-min.md)的可视化编排区域
 4. 流水线操作区，包含如下常用操作集合：
    * 保存：每点一次保存，会生成一个从 1 开始自增的编排版本号，可用于回滚
    * 执行：基于当前的编排版本号，生成一个快照流水线任务
@@ -25,7 +25,7 @@
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
-* [流水线执行历史](pipeline-build-history.md)
-* [流水线列表页](pipeline-list.md)
-* [流水线任务详情页](pipeline-build-detail.md)
+* [流水线执行历史](../pipeline-build-history.md)
+* [流水线列表页](../pipeline-list.md)
+* [流水线任务详情页](../pipeline-build-detail.md)
 

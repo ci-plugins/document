@@ -6,7 +6,7 @@
 
 * 一个 git 工程，可参考[关联你的第一个代码库](link-first-repo.md)
 * 一个 BKCI 项目
-* 熟悉[创建/编辑流水线](../services/pipelines/pipeline-edit.md)页面相关操作
+* 熟悉[创建/编辑流水线](../services/pipelines/pipeline-edit/)页面相关操作
 
 ### 运行你的第一次构建 <a id="&#x8FD0;&#x884C;&#x4F60;&#x7684;&#x7B2C;&#x4E00;&#x6B21;&#x6784;&#x5EFA;"></a>
 

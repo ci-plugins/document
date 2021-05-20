@@ -15,7 +15,7 @@
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
 * [控制台](../console.md)
-* [创建/编辑流水线](pipeline-edit.md)
+* [创建/编辑流水线](pipeline-edit/)
 * [流水线执行历史](pipeline-build-history.md)
 * [流水线任务详情页](pipeline-build-detail.md)
 
