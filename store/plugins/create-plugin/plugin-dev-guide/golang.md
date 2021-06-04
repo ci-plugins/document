@@ -26,8 +26,8 @@
 
 * 实现插件功能
 * 规范：
-  * [插件开发规范](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_dev.md)
-  * [插件产出规范](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_output.md)
+  * [插件开发规范](../plugin-specification.md)
+  * [插件输出规范](../plugin-output.md)
 
 **三、如何打包发布：**
 
@@ -43,7 +43,7 @@ go build -o bin/${executable}
 2. 将步骤 2 生产的执行包拷贝到 ${release\_pkg} 下
 3. 添加 task.json 文件到 ${release\_pkg} 下 task.json 见示例，按照插件功能配置。
 
-   * [插件配置规范](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_config.md)
+   * [插件配置规范](../plugin-config.md)
    * task.json示例：
 
    ```text
