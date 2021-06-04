@@ -41,6 +41,7 @@
   * [流水线执行历史](services/pipelines/pipeline-build-history.md)
   * [创建/编辑流水线](services/pipelines/pipeline-edit/README.md)
     * [为流水线开启自定义构建号](services/pipelines/pipeline-edit/alias-buildno.md)
+    * [锁定流水线](services/pipelines/pipeline-edit/disable-pipeline.md)
   * [流水线任务详情页](services/pipelines/pipeline-build-detail.md)
 * [构建资源](services/pools/README.md)
   * [将你的构建机托管至 BKCI](services/pools/self-hosted-agents/README.md)
