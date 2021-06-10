@@ -88,6 +88,7 @@
 | user-input | 人名选择器 |  | 字符串 |
 | tips | 提示信息 | 支持动态预览用户输入的参数，支持超链接 | 字符串 |
 | parameter | 不定参数列表 | 参数列表支持从接口获取 | 字符串 |
+| dynamic-parameter | 不定参数列表 | 支持从接口获取，支持每行多列，支持动态增删 | 字符串，如：\[{"id":"parameterId","values":\[{"id":123,"value":"3d029fbe08c011e99792fa163e50f2b5,${abc}"},{"id":1233,"value":"ab"},{"id":1235,"value":"id"}\]}\] |
 
 若以上组件不满足需求，请联系 bkci 客服。
 
@@ -289,6 +290,43 @@
         "desc": "可以填写公司任意用户，包括邮件组"
     }
     ```
+
+11、**动态参数组件：dynamic-parameter**
+
+* 组件属性
+
+```text
+"params":{
+  "label": "动态参数",
+  "type": "dynamic-parameter",
+  "required": false,
+  "desc": "动态参数组件",
+  "param": {
+    "paramType": "url", // parameters是从url获取还是直接取列表的值，可以是url或者list
+    "url": "XXXX",      // paramType是url的时候从接口取值，url中的{test}可被替换为当前插件中的值或浏览器url中的参数
+    "dataPath": "",     // 接口返回值，取数的路径，默认为 data.records
+    "parameters": [     // paramType是list的时候从这里取值
+        {
+            "id": "parameterId", //该行的唯一标识，必填
+            "paramModels": [
+                {
+                    "id": "233",     // 该模型的唯一标识，必填
+                    "label": "testLabel",
+                    "type": "input", // 可以是input或者select
+                    "listType": "url", // 获取列表方式，可以是url或者list
+                    "isMultiple": false, // select是否多选
+                    "list": [ { "id": "id", "name": "name" } ], // type是select起作用，需要有id和name字段
+                    "url": '', // type是select且listType是url起作用
+                    "dataPath": "",     // 接口返回值，取数的路径，默认为 data.records
+                    "disabled": false, // 控制是否可编辑
+                    "value": "abc=" // 值，可做为初始化的默认值
+                }
+            ]
+        }
+    ]
+  }
+}
+```
 
 #### 支持的特性 <a id="%E6%94%AF%E6%8C%81%E7%9A%84%E7%89%B9%E6%80%A7"></a>
 
