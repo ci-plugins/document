@@ -17,5 +17,5 @@
 * [控制台](../console.md)
 * [创建/编辑流水线](pipeline-edit/)
 * [流水线执行历史](pipeline-build-history.md)
-* [流水线任务详情页](pipeline-build-detail.md)
+* [流水线任务详情页](pipeline-build-detail/)
 

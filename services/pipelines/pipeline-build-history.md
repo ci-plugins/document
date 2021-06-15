@@ -11,5 +11,5 @@
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
 * [流水线列表页](pipeline-list.md)
-* [流水线任务详情页](pipeline-build-detail.md)
+* [流水线任务详情页](pipeline-build-detail/)
 

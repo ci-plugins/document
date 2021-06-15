@@ -27,5 +27,5 @@
 
 * [流水线执行历史](../pipeline-build-history.md)
 * [流水线列表页](../pipeline-list.md)
-* [流水线任务详情页](../pipeline-build-detail.md)
+* [流水线任务详情页](../pipeline-build-detail/)
 
