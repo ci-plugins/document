@@ -40,6 +40,7 @@
   * [流水线列表页](services/pipelines/pipeline-list.md)
   * [流水线执行历史](services/pipelines/pipeline-build-history.md)
   * [创建/编辑流水线](services/pipelines/pipeline-edit/README.md)
+    * [流水线图形化编排](services/pipelines/pipeline-edit/liu-shui-xian-tu-xing-hua-bian-pai.md)
     * [为流水线开启自定义构建号](services/pipelines/pipeline-edit/alias-buildno.md)
     * [锁定流水线](services/pipelines/pipeline-edit/disable-pipeline.md)
   * [流水线任务详情页](services/pipelines/pipeline-build-detail/README.md)
