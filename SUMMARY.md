@@ -83,7 +83,8 @@
 ## ℹ️ 参考信息 <a id="reference"></a>
 
 * [REST API](reference/rest-api.md)
-* [预定义变量列表](reference/pre-define-var.md)
+* [预定义变量列表](reference/pre-define-var/README.md)
+  * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)

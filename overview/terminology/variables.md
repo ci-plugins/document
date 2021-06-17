@@ -43,5 +43,5 @@
 
 ### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
-* [预定义变量列表](../../reference/pre-define-var.md)
+* [预定义变量列表](../../reference/pre-define-var/)
 
