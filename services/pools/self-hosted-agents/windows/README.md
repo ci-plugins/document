@@ -1,14 +1,14 @@
 # 将Windows构建机托管至BKCI
 
 {% hint style="danger" %}
-1. 托管前，请先准备好执行环境：[第三方构建机环境准备](prepara-agent.md)\*\*\*\*
+1. 托管前，请先准备好执行环境：[第三方构建机环境准备](../prepara-agent.md)\*\*\*\*
 2. **如果您的windows构建需要在流水线中启动UI程序**（比如打开浏览器做自动化测试），关注一下这个iwiki，可能用得上 → 
 3. agent资源是按项目隔离的，如果多个项目导入第三方构建机，需要在不同的项目下各自导入agent，安装在不同的目录下。（每个agent的安装包/安装脚本是不一样的）
 {% endhint %}
 
 ### 在BKCI获取Agent包
 
-根据[将你的构建机托管至 BKCI](./) 指引，选择Windows，下载Agent包
+根据[将你的构建机托管至 BKCI](../) 指引，选择Windows，下载Agent包
 
 ### 在Windows构建机上创建agent安装目录
 
@@ -20,11 +20,11 @@ new-item C:\data\landun -itemtype directory
 
 将下载好的Agent包解压至上一步创建的文件夹下
 
-![](../../../.gitbook/assets/image%20%2854%29.png)
+![](../../../../.gitbook/assets/image%20%2854%29.png)
 
 以管理员身份运行 install.bat
 
-![](../../../.gitbook/assets/image%20%2855%29.png)
+![](../../../../.gitbook/assets/image%20%2855%29.png)
 
 ### 切换agent服务启动用户 <a id="id-&#x6784;&#x5EFA;Agent&#x5BFC;&#x5165;Windows&#x7248;-4&#x5207;&#x6362;agent&#x670D;&#x52A1;&#x542F;&#x52A8;&#x7528;&#x6237;"></a>
 
@@ -38,11 +38,11 @@ new-item C:\data\landun -itemtype directory
 
 输入密码后，点击`确认`按钮
 
-![](../../../.gitbook/assets/image%20%2853%29.png)
+![](../../../../.gitbook/assets/image%20%2853%29.png)
 
 右键-&gt;重新启动，重启服务
 
-![](../../../.gitbook/assets/image%20%2852%29.png)
+![](../../../../.gitbook/assets/image%20%2852%29.png)
 
 ### 检查状态
 
