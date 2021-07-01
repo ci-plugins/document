@@ -1,4 +1,4 @@
-# 将Windows构建机托管至BKCI
+# 导入Windows构建机
 
 {% hint style="danger" %}
 1. 托管前，请先准备好执行环境：[第三方构建机环境准备](../prepara-agent.md)\*\*\*\*

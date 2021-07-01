@@ -48,7 +48,7 @@
 * [构建资源](services/pools/README.md)
   * [将你的构建机托管至 BKCI](services/pools/self-hosted-agents/README.md)
     * [第三方构建机环境准备](services/pools/self-hosted-agents/prepara-agent.md)
-    * [将Windows构建机托管至BKCI](services/pools/self-hosted-agents/windows/README.md)
+    * [导入Windows构建机](services/pools/self-hosted-agents/windows/README.md)
       * [windows agent启动界面程序的解决办法](services/pools/self-hosted-agents/windows/run-ui.md)
   * [构建机详情页](services/pools/agent-detail.md)
 * [凭证管理](services/ticket.md)
