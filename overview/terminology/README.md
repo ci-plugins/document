@@ -10,7 +10,7 @@
 
 {% page-ref page="task.md" %}
 
-{% page-ref page="trigger.md" %}
+{% page-ref page="trigger/" %}
 
 {% page-ref page="variables.md" %}
 

@@ -93,5 +93,5 @@ bk-ci 可以帮你快速实现一条持续交付流水线来编译、测试、�
 * [Job](terminology/job.md)
 * [Stage](terminology/stage.md)
 * [Variables](terminology/variables.md)
-* [Trigger](terminology/trigger.md)
+* [Trigger](terminology/trigger/)
 

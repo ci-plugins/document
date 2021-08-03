@@ -12,7 +12,8 @@
   * [Stage](overview/terminology/stage.md)
   * [Job](overview/terminology/job.md)
   * [Task](overview/terminology/task.md)
-  * [Trigger](overview/terminology/trigger.md)
+  * [Trigger](overview/terminology/trigger/README.md)
+    * [github事件触发](overview/terminology/trigger/github.md)
   * [Variables](overview/terminology/variables.md)
 
 ## 👉 使用 BKCI <a id="tutorials"></a>
