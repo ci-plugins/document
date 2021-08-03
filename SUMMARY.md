@@ -89,6 +89,7 @@
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs/README.md)
+  * [gitlab事件触发插件无法触发事件?](reference/faqs/gitlab-shi-jian-chu-fa-cha-jian-wu-fa-chu-fa-shi-jian.md)
   * [如何让自己的流水线日志显示带上不同颜色](reference/faqs/log-colors.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
