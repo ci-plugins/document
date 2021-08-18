@@ -19,5 +19,5 @@ bk-ci 提供了流水线、代码库、凭证管理、环境管理、研发商�
 * **环境管理**：可以将企业内部的开发编译机托管至 bk-ci
 * **研发商店**：由流水线插件和流水线模板组成，插件用于对接企业内部的各种第三方服务，模板助力企业内部的研发流程规范化
 
-目前，bk-ci 已在GitHub开源：https://github.com/Tencent/bk-ci ，欢迎共建。
+目前，bk-ci 已在GitHub开源：[https://github.com/Tencent/bk-ci](https://github.com/Tencent/bk-ci) ，欢迎共建。
 

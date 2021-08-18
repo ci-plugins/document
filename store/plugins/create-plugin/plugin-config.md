@@ -510,7 +510,7 @@
 }
 ```
 
-- parameter 不定参数列表
+* parameter 不定参数列表
 
 ```text
 "params":{

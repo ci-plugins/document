@@ -42,5 +42,3 @@
 
 {% page-ref page="gitlab.md" %}
 
-
-

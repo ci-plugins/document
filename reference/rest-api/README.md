@@ -40,7 +40,7 @@ Whether the cake should be gluten-free or not.
 Cake successfully retrieved.
 {% endapi-method-response-example-description %}
 
-```
+```text
 {    "name": "Cake's name",    "recipe": "Cake's recipe name",    "cake": "Binary cake"}
 ```
 {% endapi-method-response-example %}
@@ -50,7 +50,7 @@ Cake successfully retrieved.
 Could not find a cake matching this query.
 {% endapi-method-response-example-description %}
 
-```
+```text
 {    "message": "Ain't no cake like that."}
 ```
 {% endapi-method-response-example %}

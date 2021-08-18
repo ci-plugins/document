@@ -85,7 +85,9 @@
 
 ## ℹ️ 参考信息 <a id="reference"></a>
 
-* [REST API](reference/rest-api.md)
+* [REST API](reference/rest-api/README.md)
+  * [OPENAPI-环境管理-构建机管理](reference/rest-api/openapi-huan-jing-guan-li-gou-jian-ji-guan-li/README.md)
+    * [获取用户有权限使用的环境列表](reference/rest-api/openapi-huan-jing-guan-li-gou-jian-ji-guan-li/huo-qu-yong-hu-you-quan-xian-shi-yong-de-huan-jing-lie-biao.md)
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs/README.md)
