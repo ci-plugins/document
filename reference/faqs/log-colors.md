@@ -25,12 +25,12 @@ echo "##[command]uptime"
 uptime
 echo "##[command]python --version"
 python --version
- 
+
 echo "##[info] this is a info log"
 echo "##[warning] this is a warning log"
 echo "##[error] this is a error log"
 echo "##[debug] this is a debug log"
- 
+
 echo "##[group] Print SYSTEM ENV"
 env
 echo "##[endgroup]"
@@ -39,6 +39,4 @@ echo "##[endgroup]"
 你将看到如下图所示效果
 
 ![](../../.gitbook/assets/image2020-1-9_21-59-12.png)
-
-
 

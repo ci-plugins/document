@@ -2,8 +2,6 @@
 
 ![](../.gitbook/assets/image%20%2815%29.png)
 
-
-
 蓝鲸持续集成平台\(简称**bk-ci** \)是基于 kotlin/java/js/go/lua/shell等多种语言编写实现的，采用完全前后分离，插件式开发，具备高可用可扩展的服务架构设计：
 
 * **前端&接口网关\(WebAPI Gateway & FrontEnd\) ：**

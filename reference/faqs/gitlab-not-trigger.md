@@ -11,8 +11,6 @@
    3. 查看gitlab没有发送的详情，如图3
 4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
 
- 
-
 ![](../../.gitbook/assets/image%20%2858%29.png)
 
 ![](../../.gitbook/assets/image%20%2859%29.png)

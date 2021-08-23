@@ -8,19 +8,19 @@
 
 ![](../../.gitbook/assets/image%20%2825%29%20%281%29.png)
 
-### Stage 的通用选项 <a id="Stage &#x7684;&#x901A;&#x7528;&#x9009;&#x9879;"></a>
+## Stage 的通用选项 <a id="Stage &#x7684;&#x901A;&#x7528;&#x9009;&#x9879;"></a>
 
-#### Fastkill <a id="Fastkill"></a>
+### Fastkill <a id="Fastkill"></a>
 
 开启 Fastkill 之后，当 Job 失败时立即结束当前 Stage。
 
-#### 流程控制选项 <a id="&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x9009;&#x9879;"></a>
+### 流程控制选项 <a id="&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#x9009;&#x9879;"></a>
 
 通过高级流程控制，可以定义 Job 的运行逻辑。
 
 ![](../../.gitbook/assets/image%20%2843%29.png)
 
-### 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
+## 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
 * [Task](task.md)
 * [Job](job.md)

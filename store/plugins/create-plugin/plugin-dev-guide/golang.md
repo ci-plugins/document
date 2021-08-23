@@ -11,7 +11,7 @@
     |- cmd
         |- application
             |- main.go
-        
+
     |- hello
         |- hello.go
 ```
@@ -73,7 +73,6 @@ go build -o bin/${executable}
            }
        }
    }
-
    ```
 
 4. 在 ${release\_pkg} 目录下，把所有文件打成 `zip` 包即可

@@ -1,8 +1,6 @@
 # 流水线状态信息汇总
 
-
-
-### Pipeline 状态
+## Pipeline 状态
 
 | KEY | Description | Display Name |
 | :--- | :--- | :--- |
@@ -16,7 +14,7 @@
 | TERMINATE | 最终态： 处于RUNNING状态的Pipeline因环境异常而被强制终止 | 终止 （失败） |
 | QUEUE\_TIMEOUT | 最终态：队列中等待调度导致的超时 | 排队超时 |
 
-### Stage 状态
+## Stage 状态
 
 | KEY | Description | Display Name |
 | :--- | :--- | :--- |
@@ -34,7 +32,7 @@
 | QUEUE\_TIMEOUT | 最终态：队列中等待调度导致的超时 | 排队超时 |
 | STAGE\_SUCCESS | 最终态： 当Stage人工审核 取消运行时，是一个成功的状态 | 阶段性完成 （成功） |
 
-### Job状态
+## Job状态
 
 | KEY | Description | Display Name |
 | :--- | :--- | :--- |
@@ -54,7 +52,7 @@
 | QUEUE\_TIMEOUT | 最终态：队列中等待调度导致的超时 | 排队超时 |
 | HEARTBEAT\_TIMEOUT | 最终态：构建过程中，Agent与服务端失联超过2分钟 | 心跳超时（失败） |
 
-### Task状态
+## Task状态
 
 | KEY | Description | Display Name |
 | :--- | :--- | :--- |
