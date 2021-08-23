@@ -122,7 +122,7 @@
     * [校验项目名称和项目英文名](reference/rest-api/openapi-xiang-mu-zi-yuan/xiao-yan-xiang-mu-ming-cheng-he-xiang-mu-ying-wen-ming.md)
     * [获取项目信息](reference/rest-api/openapi-xiang-mu-zi-yuan/huo-qu-xiang-mu-xin-xi.md)
     * [查询所有项目](reference/rest-api/openapi-xiang-mu-zi-yuan/cha-xun-suo-you-xiang-mu.md)
-  * [webhook-代码事件触发](reference/rest-api/webhook-dai-ma-shi-jian-chu-fa/README.md)
+  * [WEBHOOK-代码事件触发](reference/rest-api/webhook-dai-ma-shi-jian-chu-fa/README.md)
     * [获取流水线的webhook构建日志列表](reference/rest-api/webhook-dai-ma-shi-jian-chu-fa/huo-qu-liu-shui-xian-de-webhook-gou-jian-ri-zhi-lie-biao.md)
     * [获取流水线的webhook列表](reference/rest-api/webhook-dai-ma-shi-jian-chu-fa/huo-qu-liu-shui-xian-de-webhook-lie-biao.md)
   * [OPENAPI-流水线资源](reference/rest-api/openapi-liu-shui-xian-zi-yuan/README.md)
