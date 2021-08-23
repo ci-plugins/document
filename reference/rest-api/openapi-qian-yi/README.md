@@ -1,2 +1,2 @@
-# OPEN-API-迁移
+# OPENAPI-迁移
 
