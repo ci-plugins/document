@@ -86,7 +86,6 @@
 ## ℹ️ 参考信息 <a id="reference"></a>
 
 * [REST API](reference/rest-api/README.md)
-  * [index](reference/rest-api/untitled.md)
   * [OPENAPI-项目模板资源](reference/rest-api/openapi-xiang-mu-mo-ban-zi-yuan/README.md)
     * [批量更新流水线模板实例](reference/rest-api/openapi-xiang-mu-mo-ban-zi-yuan/pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md)
     * [更新流水线模板](reference/rest-api/openapi-xiang-mu-mo-ban-zi-yuan/geng-xin-liu-shui-xian-mo-ban.md)
