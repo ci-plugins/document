@@ -54,11 +54,11 @@
   * [构建机详情页](services/pools/agent-detail.md)
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
-* [编译加速](services/bian-yi-jia-su/README.md)
-  * [Linux C/C++ 编译加速](services/bian-yi-jia-su/linux-cc++-bian-yi-jia-su/README.md)
-    * [定制Linux C/C++加速方案](services/bian-yi-jia-su/linux-cc++-bian-yi-jia-su/ding-zhi-linux-cc++-jia-su-fang-an.md)
-    * [在流水线中进行编译加速](services/bian-yi-jia-su/linux-cc++-bian-yi-jia-su/zai-liu-shui-xian-zhong-jin-hang-bian-yi-jia-su.md)
-    * [在私有构建机上使用加速](services/bian-yi-jia-su/linux-cc++-bian-yi-jia-su/zai-si-you-gou-jian-ji-shang-shi-yong-jia-su.md)
+* [编译加速](services/turbo/README.md)
+  * [Linux C/C++ 编译加速](services/turbo/turbo_linux_c_c++/README.md)
+    * [定制Linux C/C++加速方案](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_plan.md)
+    * [在流水线中进行编译加速](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_pipeline.md)
+    * [在私有构建机上使用加速](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_local.md)
 
 ## 🏪 研发商店 <a id="store"></a>
 
