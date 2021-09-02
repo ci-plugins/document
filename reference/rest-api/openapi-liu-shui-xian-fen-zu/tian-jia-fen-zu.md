@@ -27,13 +27,13 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [PipelineGroupCreate]() | 是 | 流水线标签分组创建请求 |  |
+| body | [PipelineGroupCreate](tian-jia-fen-zu.md) | 是 | 流水线标签分组创建请求 |  |
 
 #### 响应
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](tian-jia-fen-zu.md) |
 
 #### 请求样例
 

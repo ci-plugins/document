@@ -41,7 +41,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型日志查询模型]() |
+| 200 | successful operation | [数据返回包装模型日志查询模型](gen-ju-gou-jian-id-huo-qu-chu-shi-hua-suo-you-ri-zhi.md) |
 
 #### 请求样例
 
@@ -89,7 +89,7 @@ X-DEVOPS-APP-CODE: {X-DEVOPS-APP-CODE}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [日志查询模型]() | 否 | 数据 |
+| data | [日志查询模型](gen-ju-gou-jian-id-huo-qu-chu-shi-hua-suo-you-ri-zhi.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -102,7 +102,7 @@ X-DEVOPS-APP-CODE: {X-DEVOPS-APP-CODE}
 | subTags | List | 是 | 日志子tag列表 |
 | buildId | string | 是 | 构建ID |
 | finished | boolean | 是 | 是否结束 |
-| logs | List&lt;[日志模型]()&gt; | 是 | 日志列表 |
+| logs | List&lt;[日志模型](gen-ju-gou-jian-id-huo-qu-chu-shi-hua-suo-you-ri-zhi.md)&gt; | 是 | 日志列表 |
 | status | integer | 否 | 日志查询状态 |
 
 ## 日志模型

@@ -28,7 +28,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [安装模板到项目请求报文]() | 是 | 安装研发商店模板到项目请求报文体 |  |
+| body | [安装模板到项目请求报文](an-zhuang-yan-fa-shang-dian-mo-ban-dao-xiang-mu.md) | 是 | 安装研发商店模板到项目请求报文体 |  |
 
 #### Path参数
 
@@ -40,7 +40,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](an-zhuang-yan-fa-shang-dian-mo-ban-dao-xiang-mu.md) |
 
 #### 请求样例
 

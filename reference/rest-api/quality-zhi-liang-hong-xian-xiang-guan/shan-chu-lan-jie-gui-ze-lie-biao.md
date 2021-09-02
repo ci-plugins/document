@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](shan-chu-lan-jie-gui-ze-lie-biao.md) |
 
 #### 请求样例
 

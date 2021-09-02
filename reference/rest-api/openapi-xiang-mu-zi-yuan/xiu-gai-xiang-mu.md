@@ -29,7 +29,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [项目-修改模型]() | 是 | 项目信息 |  |
+| body | [项目-修改模型](xiu-gai-xiang-mu.md) | 是 | 项目信息 |  |
 
 #### Path参数
 
@@ -42,7 +42,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](xiu-gai-xiang-mu.md) |
 
 #### 请求样例
 

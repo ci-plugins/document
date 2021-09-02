@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型项目-显示模型]() |
+| 200 | successful operation | [数据返回包装模型项目-显示模型](huo-qu-xiang-mu-xin-xi.md) |
 
 #### 请求样例
 
@@ -118,7 +118,7 @@ X-DEVOPS-ACCESS-TOKEN: {X-DEVOPS-ACCESS-TOKEN}
 | :--- | :--- | :--- | :--- |
 | result | boolean | 否 | 请求结果 |
 | code | integer | 是 | 状态码 |
-| data | [项目-显示模型]() | 否 | 数据 |
+| data | [项目-显示模型](huo-qu-xiang-mu-xin-xi.md) | 否 | 数据 |
 | requestId | string | 否 | 请求ID |
 | message | string | 否 | 错误信息 |
 

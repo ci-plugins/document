@@ -41,7 +41,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-ID]() |
+| 200 | successful operation | [数据返回包装模型构建模型-ID](zhong-shi-gou-jian-zhong-shi-huo-zhe-tiao-guo-shi-bai-cha-jian.md) |
 
 #### 请求样例
 
@@ -74,7 +74,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [构建模型-ID]() | 否 | 数据 |
+| data | [构建模型-ID](zhong-shi-gou-jian-zhong-shi-huo-zhe-tiao-guo-shi-bai-cha-jian.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

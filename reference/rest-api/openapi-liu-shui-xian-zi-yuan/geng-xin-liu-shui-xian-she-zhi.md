@@ -28,7 +28,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [PipelineSetting]() | 是 | 流水线设置 |  |
+| body | [PipelineSetting](geng-xin-liu-shui-xian-she-zhi.md) | 是 | 流水线设置 |  |
 
 #### Path参数
 
@@ -42,7 +42,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](geng-xin-liu-shui-xian-she-zhi.md) |
 
 #### 请求样例
 
@@ -73,7 +73,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| successSubscription | [设置-订阅消息]() | 否 | successSubscription |
+| successSubscription | [设置-订阅消息](geng-xin-liu-shui-xian-she-zhi.md) | 否 | successSubscription |
 | runLockType | ENUM\(MULTIPLE, SINGLE, SINGLE\_LOCK, LOCK, \) | 否 | runLockType |
 | maxPipelineResNum | integer | 否 | maxPipelineResNum |
 | version | integer | 否 | version |
@@ -84,7 +84,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | maxQueueSize | integer | 否 | maxQueueSize |
 | hasPermission | boolean | 否 | hasPermission |
 | waitQueueTimeMinute | integer | 否 | waitQueueTimeMinute |
-| failSubscription | [设置-订阅消息]() | 否 | failSubscription |
+| failSubscription | [设置-订阅消息](geng-xin-liu-shui-xian-she-zhi.md) | 否 | failSubscription |
 | buildNumRule | string | 否 | buildNumRule |
 | projectId | string | 否 | projectId |
 | desc | string | 否 | desc |

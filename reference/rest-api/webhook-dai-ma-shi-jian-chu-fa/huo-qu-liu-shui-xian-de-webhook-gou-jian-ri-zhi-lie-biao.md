@@ -40,7 +40,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型SQLPage流水线webhook-触发日志明细]() |
+| 200 | successful operation | [数据返回包装模型SQLPage流水线webhook-触发日志明细](huo-qu-liu-shui-xian-de-webhook-gou-jian-ri-zhi-lie-biao.md) |
 
 #### 请求样例
 
@@ -87,7 +87,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [SQLPage流水线webhook-触发日志明细]() | 否 | 数据 |
+| data | [SQLPage流水线webhook-触发日志明细](huo-qu-liu-shui-xian-de-webhook-gou-jian-ri-zhi-lie-biao.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -95,7 +95,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| records | List&lt;[流水线webhook-触发日志明细]()&gt; | 否 | records |
+| records | List&lt;[流水线webhook-触发日志明细](huo-qu-liu-shui-xian-de-webhook-gou-jian-ri-zhi-lie-biao.md)&gt; | 否 | records |
 | count | integer | 否 | count |
 
 ## 流水线webhook-触发日志明细

@@ -27,13 +27,13 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [PipelineGroupUpdate]() | 是 | 流水线标签分组更新请求 |  |
+| body | [PipelineGroupUpdate](geng-gai-fen-zu.md) | 是 | 流水线标签分组更新请求 |  |
 
 #### 响应
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](geng-gai-fen-zu.md) |
 
 #### 请求样例
 

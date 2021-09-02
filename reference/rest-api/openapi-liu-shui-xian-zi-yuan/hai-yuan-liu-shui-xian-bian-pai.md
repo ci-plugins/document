@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](hai-yuan-liu-shui-xian-bian-pai.md) |
 
 #### 请求样例
 

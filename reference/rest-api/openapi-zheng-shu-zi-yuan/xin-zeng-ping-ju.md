@@ -28,7 +28,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [凭据-创建时内容]() | 是 | 凭据 |  |
+| body | [凭据-创建时内容](xin-zeng-ping-ju.md) | 是 | 凭据 |  |
 
 #### Path参数
 
@@ -41,7 +41,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](xin-zeng-ping-ju.md) |
 
 #### 请求样例
 

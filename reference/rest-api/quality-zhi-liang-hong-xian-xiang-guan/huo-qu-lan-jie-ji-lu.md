@@ -42,7 +42,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型质量红线-拦截记录]() |
+| 200 | successful operation | [数据返回包装模型分页数据包装模型质量红线-拦截记录](huo-qu-lan-jie-ji-lu.md) |
 
 #### 请求样例
 
@@ -105,7 +105,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型质量红线-拦截记录]() | 否 | 数据 |
+| data | [分页数据包装模型质量红线-拦截记录](huo-qu-lan-jie-ji-lu.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -113,7 +113,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| records | List&lt;[质量红线-拦截记录]()&gt; | 是 | 数据 |
+| records | List&lt;[质量红线-拦截记录](huo-qu-lan-jie-ji-lu.md)&gt; | 是 | 数据 |
 | count | integer | 是 | 总记录行数 |
 | totalPages | integer | 是 | 总共多少页 |
 | pageSize | integer | 是 | 每页多少条 |
@@ -132,7 +132,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | pipelineId | string | 是 | 流水线ID |
 | pipelineName | string | 是 | 流水线名称 |
 | pipelineIsDelete | boolean | 是 | 流水线是否已删除 |
-| interceptList | List&lt;[质量红线-拦截规则拦截记录]()&gt; | 是 | 描述列表 |
+| interceptList | List&lt;[质量红线-拦截规则拦截记录](huo-qu-lan-jie-ji-lu.md)&gt; | 是 | 描述列表 |
 | interceptResult | ENUM\(PASS, FAIL, \) | 是 | 拦截结果 |
 | ruleName | string | 是 | 规则名称 |
 | ruleHashId | string | 是 | 规则HashId |

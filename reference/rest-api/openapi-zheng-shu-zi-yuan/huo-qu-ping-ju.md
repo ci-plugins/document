@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型凭据-凭据内容和权限]() |
+| 200 | successful operation | [数据返回包装模型凭据-凭据内容和权限](huo-qu-ping-ju.md) |
 
 #### 请求样例
 
@@ -83,7 +83,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [凭据-凭据内容和权限]() | 否 | 数据 |
+| data | [凭据-凭据内容和权限](huo-qu-ping-ju.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -94,7 +94,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | credentialType | ENUM\(PASSWORD, ACCESSTOKEN, USERNAME\_PASSWORD, SECRETKEY, APPID\_SECRETKEY, SSH\_PRIVATEKEY, TOKEN\_SSH\_PRIVATEKEY, TOKEN\_USERNAME\_PASSWORD, COS\_APPID\_SECRETID\_SECRETKEY\_REGION, MULTI\_LINE\_PASSWORD, \) | 是 | 凭据类型 |
 | updatedTime | integer | 是 | 最后更新时间 |
 | credentialRemark | string | 否 | 凭据描述 |
-| permissions | [凭证-凭证权限]() | 是 | 权限 |
+| permissions | [凭证-凭证权限](huo-qu-ping-ju.md) | 是 | 权限 |
 | credentialId | string | 是 | 凭据ID |
 | updateUser | string | 是 | 最后更新者 |
 | v1 | string | 是 | 凭据内容 |

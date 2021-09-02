@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型流水线模型-列表信息]() |
+| 200 | successful operation | [数据返回包装模型流水线模型-列表信息](huo-qu-liu-shui-xian-zhuang-tai.md) |
 
 #### 请求样例
 
@@ -295,7 +295,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [流水线模型-列表信息]() | 否 | 数据 |
+| data | [流水线模型-列表信息](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -308,7 +308,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | latestBuildEndTime | integer | 否 | 最后构建结束时间 |
 | buildCount | integer | 是 | 构建次数 |
 | latestBuildTaskName | string | 否 | 最后构建任务名称 |
-| groupLabel | List&lt;[PipelineGroupLabels]()&gt; | 否 | 流水线分组和标签 |
+| groupLabel | List&lt;[PipelineGroupLabels](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | 流水线分组和标签 |
 | updateTime | integer | 是 | 部署时间 |
 | pipelineDesc | string | 否 | 流水线描述 |
 | pipelineId | string | 是 | 流水线ID |
@@ -322,7 +322,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | runningBuildCount | integer | 是 | 当前运行的构建的个数 |
 | latestBuildStatus | ENUM\(SUCCEED, FAILED, CANCELED, RUNNING, TERMINATE, REVIEWING, REVIEW\_ABORT, REVIEW\_PROCESSED, HEARTBEAT\_TIMEOUT, PREPARE\_ENV, UNEXEC, SKIP, QUALITY\_CHECK\_FAIL, QUEUE, LOOP\_WAITING, CALL\_WAITING, TRY\_FINALLY, QUEUE\_TIMEOUT, EXEC\_TIMEOUT, QUEUE\_CACHE, RETRY, PAUSE, STAGE\_SUCCESS, QUOTA\_FAILED, DEPENDENT\_WAITING, UNKNOWN, \) | 否 | 最后构建状态 |
 | lock | boolean | 否 | 运行锁定 |
-| model | [流水线模型-创建信息]() | 否 | 编排详情 |
+| model | [流水线模型-创建信息](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | 编排详情 |
 | latestBuildNum | integer | 否 | 最后构建版本号 |
 | projectId | string | 是 | 项目ID |
 
@@ -340,7 +340,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | latestVersion | integer | 否 | 提交时流水线最新版本号 |
 | pipelineCreator | string | 否 | 创建人 |
 | name | string | 是 | 名称 |
-| stages | List&lt;[流水线模型-阶段]()&gt; | 是 | 阶段集合 |
+| stages | List&lt;[流水线模型-阶段](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 是 | 阶段集合 |
 | templateId | string | 否 | 模板ID |
 | srcTemplateId | string | 否 | 源模版ID |
 | tips | string | 否 | 提示 |
@@ -353,14 +353,14 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | canRetry | boolean | 否 | 当前Stage是否能重试 |
-| checkIn | [StagePauseCheck]() | 否 | 当前Stage是否能重试 |
+| checkIn | [StagePauseCheck](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | 当前Stage是否能重试 |
 | customBuildEnv | object | 否 | 用户自定义环境变量 |
 | finally | boolean | 否 | 标识是否为FinallyStage，每个Model只能包含一个FinallyStage，并且处于最后位置 |
 | name | string | 是 | 阶段名称 |
-| containers | List&lt;[流水线模型-多态基类]()&gt; | 是 | 容器集合 |
+| containers | List&lt;[流水线模型-多态基类](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 是 | 容器集合 |
 | id | string | 否 | 阶段ID |
-| stageControlOption | [StageControlOption]() | 是 | 流程控制选项 |
-| checkOut | [StagePauseCheck]() | 否 | 当前Stage是否能重试 |
+| stageControlOption | [StageControlOption](huo-qu-liu-shui-xian-zhuang-tai.md) | 是 | 流程控制选项 |
+| checkOut | [StagePauseCheck](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | 当前Stage是否能重试 |
 | fastKill | boolean | 否 | 是否启用容器失败快速终止阶段 |
 
 ## StagePauseCheck
@@ -368,11 +368,11 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | ruleIds | List | 否 | ruleIds |
-| reviewParams | List&lt;[人工审核-自定义参数]()&gt; | 否 | reviewParams |
+| reviewParams | List&lt;[人工审核-自定义参数](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | reviewParams |
 | manualTrigger | boolean | 否 | manualTrigger |
 | checkTimes | integer | 否 | checkTimes |
 | reviewDesc | string | 否 | reviewDesc |
-| reviewGroups | List&lt;[Stage审核组信息]()&gt; | 否 | reviewGroups |
+| reviewGroups | List&lt;[Stage审核组信息](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | reviewGroups |
 | timeout | integer | 否 | timeout |
 | status | string | 否 | status |
 
@@ -381,7 +381,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | valueType | ENUM\(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, \) | 否 | 参数类型 |
-| options | List&lt;[人工审核-自定义参数-下拉框列表剑]()&gt; | 否 | 下拉框列表 |
+| options | List&lt;[人工审核-自定义参数-下拉框列表剑](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | 下拉框列表 |
 | chineseName | string | 否 | 中文名称 |
 | value | object | 是 | 参数内容 |
 | key | string | 是 | 参数名 |
@@ -402,7 +402,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | name | string | 是 | 审核组名称 |
 | id | string | 否 | 审核组ID\(后台生成\) |
 | suggest | string | 否 | 审核建议 |
-| params | List&lt;[人工审核-自定义参数]()&gt; | 否 | 审核传入变量 |
+| params | List&lt;[人工审核-自定义参数](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | 审核传入变量 |
 | reviewers | List | 是 | 审核人员 |
 | operator | string | 否 | 审核操作人 |
 | reviewTime | integer | 否 | 审核操作时间 |
@@ -419,7 +419,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | jobId | string | 否 | jobId |
 | containPostTaskFlag | boolean | 否 | containPostTaskFlag |
 | systemElapsed | integer | 否 | systemElapsed |
-| elements | List&lt;[Element]()&gt; | 否 | elements |
+| elements | List&lt;[Element](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | elements |
 | name | string | 否 | name |
 | id | string | 否 | id |
 | startVMStatus | string | 否 | startVMStatus |
@@ -443,7 +443,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | errorMsg | string | 否 | errorMsg |
 | elapsed | integer | 否 | elapsed |
 | atomCode | string | 否 | atomCode |
-| additionalOptions | [ElementAdditionalOptions]() | 否 | additionalOptions |
+| additionalOptions | [ElementAdditionalOptions](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | additionalOptions |
 | taskAtom | string | 否 | taskAtom |
 | name | string | 否 | name |
 | id | string | 否 | id |
@@ -461,15 +461,15 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | retryCount | integer | 否 | retryCount |
 | manualSkip | boolean | 否 | manualSkip |
 | timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue]()&gt; | 否 | customVariables |
+| customVariables | List&lt;[NameAndValue](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | customVariables |
 | otherTask | string | 否 | otherTask |
-| customEnv | List&lt;[NameAndValue]()&gt; | 否 | customEnv |
+| customEnv | List&lt;[NameAndValue](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | customEnv |
 | retryWhenFailed | boolean | 否 | retryWhenFailed |
 | enable | boolean | 否 | enable |
 | subscriptionPauseUser | string | 否 | subscriptionPauseUser |
 | customCondition | string | 否 | customCondition |
 | runCondition | ENUM\(PRE\_TASK\_SUCCESS, PRE\_TASK\_FAILED\_BUT\_CANCEL, PRE\_TASK\_FAILED\_EVEN\_CANCEL, PRE\_TASK\_FAILED\_ONLY, OTHER\_TASK\_RUNNING, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, PARENT\_TASK\_CANCELED\_OR\_TIMEOUT, PARENT\_TASK\_FINISH, \) | 否 | runCondition |
-| elementPostInfo | [元素post信息]() | 否 | elementPostInfo |
+| elementPostInfo | [元素post信息](huo-qu-liu-shui-xian-zhuang-tai.md) | 否 | elementPostInfo |
 
 ## NameAndValue
 
@@ -493,7 +493,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | triggered | boolean | 否 | triggered |
-| reviewParams | List&lt;[人工审核-自定义参数]()&gt; | 否 | reviewParams |
+| reviewParams | List&lt;[人工审核-自定义参数](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | reviewParams |
 | manualTrigger | boolean | 否 | manualTrigger |
 | enable | boolean | 否 | enable |
 | customCondition | string | 否 | customCondition |
@@ -501,5 +501,5 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | reviewDesc | string | 否 | reviewDesc |
 | runCondition | ENUM\(AFTER\_LAST\_FINISHED, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, \) | 否 | runCondition |
 | timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue]()&gt; | 否 | customVariables |
+| customVariables | List&lt;[NameAndValue](huo-qu-liu-shui-xian-zhuang-tai.md)&gt; | 否 | customVariables |
 

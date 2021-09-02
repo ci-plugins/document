@@ -43,7 +43,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型MapStringString]() |
+| 200 | successful operation | [数据返回包装模型MapStringString](huo-qu-gou-jian-zhong-de-bian-liang-zhi.md) |
 
 #### 请求样例
 

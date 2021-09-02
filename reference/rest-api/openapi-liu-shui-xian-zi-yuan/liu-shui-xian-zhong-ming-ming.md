@@ -28,7 +28,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [流水线模型-NAME]() | 是 | 流水线名称 |  |
+| body | [流水线模型-NAME](liu-shui-xian-zhong-ming-ming.md) | 是 | 流水线名称 |  |
 
 #### Path参数
 
@@ -42,7 +42,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](liu-shui-xian-zhong-ming-ming.md) |
 
 #### 请求样例
 

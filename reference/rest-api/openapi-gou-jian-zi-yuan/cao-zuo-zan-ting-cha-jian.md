@@ -27,7 +27,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [流水线暂停操作实体类]() | 否 |  |  |
+| body | [流水线暂停操作实体类](cao-zuo-zan-ting-cha-jian.md) | 否 |  |  |
 
 #### Path参数
 
@@ -41,7 +41,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](cao-zuo-zan-ting-cha-jian.md) |
 
 #### 请求样例
 
@@ -74,7 +74,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | continue | boolean | 否 | continue |
 | containerId | string | 否 | 当前containerId |
 | taskId | string | 否 | 任务ID |
-| element | [Element]() | 否 | element信息,若插件内有变量变更需给出变更后的element |
+| element | [Element](cao-zuo-zan-ting-cha-jian.md) | 否 | element信息,若插件内有变量变更需给出变更后的element |
 | stageId | string | 否 | 当前stageId |
 
 ## Element
@@ -93,7 +93,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | errorMsg | string | 否 | errorMsg |
 | elapsed | integer | 否 | elapsed |
 | atomCode | string | 否 | atomCode |
-| additionalOptions | [ElementAdditionalOptions]() | 否 | additionalOptions |
+| additionalOptions | [ElementAdditionalOptions](cao-zuo-zan-ting-cha-jian.md) | 否 | additionalOptions |
 | taskAtom | string | 否 | taskAtom |
 | name | string | 否 | name |
 | id | string | 否 | id |
@@ -111,15 +111,15 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | retryCount | integer | 否 | retryCount |
 | manualSkip | boolean | 否 | manualSkip |
 | timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue]()&gt; | 否 | customVariables |
+| customVariables | List&lt;[NameAndValue](cao-zuo-zan-ting-cha-jian.md)&gt; | 否 | customVariables |
 | otherTask | string | 否 | otherTask |
-| customEnv | List&lt;[NameAndValue]()&gt; | 否 | customEnv |
+| customEnv | List&lt;[NameAndValue](cao-zuo-zan-ting-cha-jian.md)&gt; | 否 | customEnv |
 | retryWhenFailed | boolean | 否 | retryWhenFailed |
 | enable | boolean | 否 | enable |
 | subscriptionPauseUser | string | 否 | subscriptionPauseUser |
 | customCondition | string | 否 | customCondition |
 | runCondition | ENUM\(PRE\_TASK\_SUCCESS, PRE\_TASK\_FAILED\_BUT\_CANCEL, PRE\_TASK\_FAILED\_EVEN\_CANCEL, PRE\_TASK\_FAILED\_ONLY, OTHER\_TASK\_RUNNING, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, PARENT\_TASK\_CANCELED\_OR\_TIMEOUT, PARENT\_TASK\_FINISH, \) | 否 | runCondition |
-| elementPostInfo | [元素post信息]() | 否 | elementPostInfo |
+| elementPostInfo | [元素post信息](cao-zuo-zan-ting-cha-jian.md) | 否 | elementPostInfo |
 
 ## NameAndValue
 

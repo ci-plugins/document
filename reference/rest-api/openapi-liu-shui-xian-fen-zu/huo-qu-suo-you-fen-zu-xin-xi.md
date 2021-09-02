@@ -33,7 +33,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListPipelineGroup]() |
+| 200 | successful operation | [数据返回包装模型ListPipelineGroup](huo-qu-suo-you-fen-zu-xin-xi.md) |
 
 #### 请求样例
 
@@ -80,7 +80,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | List&lt;[PipelineGroup]()&gt; | 否 | 数据 |
+| data | List&lt;[PipelineGroup](huo-qu-suo-you-fen-zu-xin-xi.md)&gt; | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -95,7 +95,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | createUser | string | 否 | createUser |
 | id | string | 否 | id |
 | projectId | string | 否 | projectId |
-| labels | List&lt;[PipelineLabel]()&gt; | 否 | labels |
+| labels | List&lt;[PipelineLabel](huo-qu-suo-you-fen-zu-xin-xi.md)&gt; | 否 | labels |
 
 ## PipelineLabel
 

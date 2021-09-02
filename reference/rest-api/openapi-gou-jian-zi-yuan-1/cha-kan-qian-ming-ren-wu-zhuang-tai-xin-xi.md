@@ -35,7 +35,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型String]() |
+| 200 | successful operation | [数据返回包装模型String](cha-kan-qian-ming-ren-wu-zhuang-tai-xin-xi.md) |
 
 #### 请求样例
 

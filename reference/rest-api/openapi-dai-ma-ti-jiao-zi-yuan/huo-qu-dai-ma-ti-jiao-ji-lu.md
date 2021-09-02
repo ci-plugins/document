@@ -37,7 +37,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListCommitResponse]() |
+| 200 | successful operation | [数据返回包装模型ListCommitResponse](huo-qu-dai-ma-ti-jiao-ji-lu.md) |
 
 #### 请求样例
 
@@ -84,7 +84,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | List&lt;[CommitResponse]()&gt; | 否 | 数据 |
+| data | List&lt;[CommitResponse](huo-qu-dai-ma-ti-jiao-ji-lu.md)&gt; | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -93,7 +93,7 @@ X-DEVOPS-UID: {X-DEVOPS-UID}
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | elementId | string | 否 | elementId |
-| records | List&lt;[CommitData]()&gt; | 否 | records |
+| records | List&lt;[CommitData](huo-qu-dai-ma-ti-jiao-ji-lu.md)&gt; | 否 | records |
 | name | string | 否 | name |
 
 ## CommitData
