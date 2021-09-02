@@ -55,10 +55,10 @@
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
 * [编译加速](services/turbo/README.md)
-  * [Linux C/C++ 编译加速](services/turbo/turbo_linux_c_c++/README.md)
-    * [定制Linux C/C++加速方案](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_plan.md)
-    * [在流水线中进行编译加速](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_pipeline.md)
-    * [在私有构建机上使用加速](services/turbo/turbo_linux_c_c++/turbo_linux_c_c++_local.md)
+  * [Linux C/C++ 编译加速](services/turbo/linux_c_c++/README.md)
+    * [定制Linux C/C++加速方案](services/turbo/linux_c_c++/new_plan.md)
+    * [在流水线中进行编译加速](services/turbo/linux_c_c++/use_in_pipeline.md)
+    * [在私有构建机上使用加速](services/turbo/linux_c_c++/use_in_local.md)
 
 ## 🏪 研发商店 <a id="store"></a>
 
