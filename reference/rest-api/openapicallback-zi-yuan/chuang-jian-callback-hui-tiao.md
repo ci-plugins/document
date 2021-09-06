@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw-app/v3/projects/{projectId}/callbacks
+#### POST  /apigw/v3/projects/{projectId}/callbacks
 
 ### 资源描述
 
@@ -35,7 +35,7 @@
 #### 请求样例
 
 ```javascript
-curl -X POST '[请替换为API地址栏请求地址]?url={url}&amp;region={region}&amp;event={event}&amp;secretToken={secretToken}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X POST '[请替换为API地址栏请求地址]?url={url}&amp;region={region}&amp;event={event}&amp;secretToken={secretToken}'
 ```
 
 #### HEADER样例

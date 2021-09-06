@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw-app/v3/atoms/{atomCode}/install
+#### POST  /apigw/v3/atoms/{atomCode}/install
 
 ### 资源描述
 
@@ -37,7 +37,7 @@
 #### 请求样例
 
 ```javascript
-curl -X POST '[请替换为API地址栏请求地址]?channelCode={channelCode}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X POST '[请替换为API地址栏请求地址]?channelCode={channelCode}'
 ```
 
 #### HEADER样例

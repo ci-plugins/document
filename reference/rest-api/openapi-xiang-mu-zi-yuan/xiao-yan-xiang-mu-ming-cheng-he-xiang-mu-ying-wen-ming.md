@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw-app/v3/projects/{validateType}/names/validate
+#### GET  /apigw/v3/projects/{validateType}/names/validate
 
 ### 资源描述
 
@@ -33,7 +33,7 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为API地址栏请求地址]?name={name}&amp;english_name={english_name}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X GET '[请替换为API地址栏请求地址]?name={name}&amp;english_name={english_name}'
 ```
 
 #### HEADER样例

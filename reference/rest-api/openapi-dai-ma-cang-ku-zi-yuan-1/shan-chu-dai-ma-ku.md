@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  /apigw-app/v3/repositories/{projectId}/{repositoryHashId}
+#### DELETE  /apigw/v3/repositories/{projectId}/{repositoryHashId}
 
 ### 资源描述
 
@@ -27,7 +27,7 @@
 #### 请求样例
 
 ```javascript
-curl -X DELETE '[请替换为API地址栏请求地址]?app_secret={app_secret}&amp;app_code={app_code}'
+curl -X DELETE '[请替换为API地址栏请求地址]'
 ```
 
 #### HEADER样例

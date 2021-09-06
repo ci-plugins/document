@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw-app/v3/{projectId}/{pipelineId}/webhook/buildLog
+#### GET  /apigw/v3/{projectId}/{pipelineId}/webhook/buildLog
 
 ### 资源描述
 
@@ -36,7 +36,7 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&amp;commitId={commitId}&amp;page={page}&amp;pageSize={pageSize}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&amp;commitId={commitId}&amp;page={page}&amp;pageSize={pageSize}'
 ```
 
 #### HEADER样例

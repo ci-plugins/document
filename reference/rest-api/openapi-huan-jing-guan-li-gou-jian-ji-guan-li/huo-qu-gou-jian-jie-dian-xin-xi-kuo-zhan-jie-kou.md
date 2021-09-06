@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw-app/v3/environment/projects/{projectId}/nodes/{nodeHashId}/listPipelineRef
+#### GET  /apigw/v3/environment/projects/{projectId}/nodes/{nodeHashId}/listPipelineRef
 
 ### 资源描述
 
@@ -34,7 +34,7 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换API地址栏请求地址]?sortBy={sortBy}&amp;sortDirection={sortDirection}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X GET '[请替换API地址栏请求地址]?sortBy={sortBy}&amp;sortDirection={sortDirection}'
 ```
 
 #### HEADER样例

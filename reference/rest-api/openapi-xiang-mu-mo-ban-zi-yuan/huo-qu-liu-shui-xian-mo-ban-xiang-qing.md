@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw-app/v3/projects/{projectId}/templates/{templateId}
+#### GET  /apigw/v3/projects/{projectId}/templates/{templateId}
 
 ### 资源描述
 
@@ -33,7 +33,7 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为API地址栏请求地址]?version={version}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X GET '[请替换为API地址栏请求地址]?version={version}'
 ```
 
 #### HEADER样例

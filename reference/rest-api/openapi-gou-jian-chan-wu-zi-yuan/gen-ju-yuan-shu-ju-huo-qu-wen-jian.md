@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw-app/v3/projects/{projectId}/artifactories
+#### GET  /apigw/v3/projects/{projectId}/artifactories
 
 ### 资源描述
 
@@ -35,7 +35,7 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为API地址栏请求地址]?pipelineId={pipelineId}&amp;buildId={buildId}&amp;page={page}&amp;pageSize={pageSize}&amp;app_secret={app_secret}&amp;app_code={app_code}'
+curl -X GET '[请替换为API地址栏请求地址]?pipelineId={pipelineId}&amp;buildId={buildId}&amp;page={page}&amp;pageSize={pageSize}'
 ```
 
 #### HEADER样例
