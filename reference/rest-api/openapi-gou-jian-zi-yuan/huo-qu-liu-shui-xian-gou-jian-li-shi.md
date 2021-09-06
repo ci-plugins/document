@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/history
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/history
 
 ### 资源描述
 
@@ -29,7 +29,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建历史-分页数据包装模型历史构建模型]() |
+| 200 | successful operation | [数据返回包装模型构建历史-分页数据包装模型历史构建模型](huo-qu-liu-shui-xian-gou-jian-li-shi.md) |
 
 #### 请求样例
 
@@ -143,7 +143,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [构建历史-分页数据包装模型历史构建模型]() | 否 | 数据 |
+| data | [构建历史-分页数据包装模型历史构建模型](huo-qu-liu-shui-xian-gou-jian-li-shi.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -152,7 +152,7 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | pipelineVersion | integer | 是 | 最新的编排版本号 |
-| records | List&lt;[历史构建模型]()&gt; | 是 | 数据 |
+| records | List&lt;[历史构建模型](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 是 | 数据 |
 | count | integer | 是 | 总记录行数 |
 | totalPages | integer | 是 | 总共多少页 |
 | pageSize | integer | 是 | 每页多少条 |
@@ -165,7 +165,7 @@ Content-Type: application/json
 | :--- | :--- | :--- | :--- |
 | buildNum | integer | 是 | 构建号 |
 | buildNumAlias | string | 否 | 自定义构建版本号 |
-| stageStatus | List&lt;[历史构建阶段状态]()&gt; | 是 | 各阶段状态 |
+| stageStatus | List&lt;[历史构建阶段状态](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 是 | 各阶段状态 |
 | remark | string | 否 | 备注 |
 | buildMsg | string | 否 | 构建信息 |
 | startTime | integer | 是 | 开始时间 |
@@ -181,13 +181,13 @@ Content-Type: application/json
 | deleteReason | string | 是 | 结束原因 |
 | queueTime | integer | 否 | 排队于 |
 | pipelineVersion | integer | 是 | 编排文件版本号 |
-| buildParameters | List&lt;[构建模型-构建参数]()&gt; | 否 | 启动参数 |
-| material | List&lt;[PipelineBuildMaterial]()&gt; | 否 | 原材料 |
+| buildParameters | List&lt;[构建模型-构建参数](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 否 | 启动参数 |
+| material | List&lt;[PipelineBuildMaterial](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 否 | 原材料 |
 | currentTimestamp | integer | 是 | 服务器当前时间戳 |
-| artifactList | List&lt;[版本仓库-文件信息]()&gt; | 否 | 构件列表 |
+| artifactList | List&lt;[版本仓库-文件信息](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 否 | 构件列表 |
 | endTime | integer | 是 | 结束时间 |
-| webhookInfo | [WebhookInfo]() | 否 | webhookInfo |
-| errorInfoList | List&lt;[插件错误信息]()&gt; | 否 | 流水线任务执行错误 |
+| webhookInfo | [WebhookInfo](huo-qu-liu-shui-xian-gou-jian-li-shi.md) | 否 | webhookInfo |
+| errorInfoList | List&lt;[插件错误信息](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 否 | 流水线任务执行错误 |
 | status | string | 是 | 状态 |
 | executeTime | integer | 否 | 运行耗时\(秒，不包括人工审核时间\) |
 
@@ -233,7 +233,7 @@ Content-Type: application/json
 | size | integer | 是 | 文件大小\(byte\) |
 | name | string | 是 | 文件名 |
 | artifactoryType | ENUM\(PIPELINE, CUSTOM\_DIR, \) | 是 | 仓库类型 |
-| properties | List&lt;[版本仓库-元数据]()&gt; | 是 | 元数据 |
+| properties | List&lt;[版本仓库-元数据](huo-qu-liu-shui-xian-gou-jian-li-shi.md)&gt; | 是 | 元数据 |
 | md5 | string | 否 | MD5 |
 
 ## 版本仓库-元数据

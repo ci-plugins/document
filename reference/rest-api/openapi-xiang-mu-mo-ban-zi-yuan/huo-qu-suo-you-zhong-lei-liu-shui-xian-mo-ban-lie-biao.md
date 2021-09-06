@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/allTemplates
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/allTemplates
 
 ### 资源描述
 
@@ -20,7 +20,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型OptionalTemplateList]() |
+| 200 | successful operation | [数据返回包装模型OptionalTemplateList](huo-qu-suo-you-zhong-lei-liu-shui-xian-mo-ban-lie-biao.md) |
 
 #### 请求样例
 
@@ -56,7 +56,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [OptionalTemplateList]() | 否 | 数据 |
+| data | [OptionalTemplateList](huo-qu-suo-you-zhong-lei-liu-shui-xian-mo-ban-lie-biao.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

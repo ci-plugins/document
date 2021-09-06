@@ -21,7 +21,7 @@
 
 #### **认证方式**
 
-每个API调用都需要认证，请在query参数中携带accessToken，accessToken通过调用/ms/auth/api/user/token/get接口获取，返回示例如下。
+每个API调用都需要认证，请在query参数中携带access\_token，access\_token通过调用/ms/auth/api/user/token/get接口获取，返回示例如下。
 
 ```javascript
 {
@@ -33,14 +33,29 @@
 
 TOKEN请求示例：
 
-```text
+```javascript
 GET https://{域名/ip}/ms/auth/api/user/token/get
+
+若出现：
+{"status": 401,"data": "","result":true,"message": "用户权限验证失败。"}
+请先登录bk-ci
 ```
 
 API请求示例：
 
-```text
-GET https://{域名/ip}/api/v3/projects?accessToken=PryTxowDezaM6u1QE1KDeZXiDH%2Bayb%2BabHZHOYLR8%2B8Md9QhAXrUrs2z3U4%2FZ3p9CvP4ObZjZJJ2VdNWQqgX3qeQ1TBK7ADhNXRVWn4q2Q0%3D
+```javascript
+GET https://{域名/ip}/ms/openapi/api/apigw/v3/projects?access_token=PryTxowDezaM6u1QE1KDeZXiDH%2Bayb%2BabHZHOYLR8%2B8Md9QhAXrUrs2z3U4%2FZ3p9CvP4ObZjZJJ2VdNWQqgX3qeQ1TBK7ADhNXRVWn4q2Q0%3D
+
+1)若出现：
+Verification failed :  tokentoken过期错误: Access token expired in: 1630919127633
+因access_token已过期，请重新生成。
+2)若出现：
+Request accessToken is empty.
+请检查是否在query参数中携带access_token
+3)若出现：
+verification failed : token参数非法错误: Access token illegal
+请检查access_token是否输入正确
+
 ```
 
 

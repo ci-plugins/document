@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/relationProject
+#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/relationProject
 
 ### 资源描述
 
@@ -26,7 +26,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](guan-lian-iam-xiang-mu.md) |
 
 #### 请求样例
 

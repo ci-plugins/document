@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/labels/{labelId}
+#### DELETE  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/labels/{labelId}
 
 ### 资源描述
 
@@ -20,7 +20,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](shan-chu-biao-qian.md) |
 
 #### 请求样例
 

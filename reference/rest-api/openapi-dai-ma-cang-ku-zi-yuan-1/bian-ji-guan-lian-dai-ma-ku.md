@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
+#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
 
 ### 资源描述
 
@@ -14,7 +14,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [代码库模型-多态基类]() | 是 | 代码库模型 |  |
+| body | [代码库模型-多态基类](bian-ji-guan-lian-dai-ma-ku.md) | 是 | 代码库模型 |  |
 
 #### Path参数
 
@@ -27,7 +27,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](bian-ji-guan-lian-dai-ma-ku.md) |
 
 #### 请求样例
 

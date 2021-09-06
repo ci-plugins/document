@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/retry
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/retry
 
 ### 资源描述
 
@@ -31,7 +31,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-ID]() |
+| 200 | successful operation | [数据返回包装模型构建模型-ID](zhong-shi-gou-jian-zhong-shi-huo-zhe-tiao-guo-shi-bai-cha-jian.md) |
 
 #### 请求样例
 
@@ -62,7 +62,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [构建模型-ID]() | 否 | 数据 |
+| data | [构建模型-ID](zhong-shi-gou-jian-zhong-shi-huo-zhe-tiao-guo-shi-bai-cha-jian.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

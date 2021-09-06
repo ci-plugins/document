@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/repositories/{projectId}/hasPermissionList
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/repositories/{projectId}/hasPermissionList
 
 ### 资源描述
 
@@ -26,7 +26,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型代码库模型-基本信息]() |
+| 200 | successful operation | [数据返回包装模型分页数据包装模型代码库模型-基本信息](dai-ma-ku-lie-biao.md) |
 
 #### 请求样例
 
@@ -68,7 +68,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型代码库模型-基本信息]() | 否 | 数据 |
+| data | [分页数据包装模型代码库模型-基本信息](dai-ma-ku-lie-biao.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| records | List&lt;[代码库模型-基本信息]()&gt; | 是 | 数据 |
+| records | List&lt;[代码库模型-基本信息](dai-ma-ku-lie-biao.md)&gt; | 是 | 数据 |
 | count | integer | 是 | 总记录行数 |
 | totalPages | integer | 是 | 总共多少页 |
 | pageSize | integer | 是 | 每页多少条 |

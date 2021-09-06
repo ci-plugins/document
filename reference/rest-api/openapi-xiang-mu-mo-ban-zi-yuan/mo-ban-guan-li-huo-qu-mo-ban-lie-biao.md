@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/templates
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/templates
 
 ### 资源描述
 
@@ -27,7 +27,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型TemplateListModel]() |
+| 200 | successful operation | [数据返回包装模型TemplateListModel](mo-ban-guan-li-huo-qu-mo-ban-lie-biao.md) |
 
 #### 请求样例
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [TemplateListModel]() | 否 | 数据 |
+| data | [TemplateListModel](mo-ban-guan-li-huo-qu-mo-ban-lie-biao.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -84,7 +84,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| models | List&lt;[TemplateModel]()&gt; | 否 | models |
+| models | List&lt;[TemplateModel](mo-ban-guan-li-huo-qu-mo-ban-lie-biao.md)&gt; | 否 | models |
 | hasPermission | boolean | 否 | hasPermission |
 | count | integer | 否 | count |
 | projectId | string | 否 | projectId |
@@ -94,7 +94,7 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | templateType | string | 是 | 模板类型 |
-| associatePipelines | List&lt;[流水线模型-ID]()&gt; | 是 | 关联的流水线 |
+| associatePipelines | List&lt;[流水线模型-ID](mo-ban-guan-li-huo-qu-mo-ban-lie-biao.md)&gt; | 是 | 关联的流水线 |
 | hasPermission | boolean | 是 | 是否有模版操作权限 |
 | name | string | 是 | 模版名称 |
 | templateTypeDesc | string | 是 | 模板类型描述 |

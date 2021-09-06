@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}
 
 ### 资源描述
 
@@ -20,7 +20,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型项目-显示模型]() |
+| 200 | successful operation | [数据返回包装模型项目-显示模型](huo-qu-xiang-mu-xin-xi.md) |
 
 #### 请求样例
 
@@ -99,7 +99,7 @@ Content-Type: application/json
 | :--- | :--- | :--- | :--- |
 | result | boolean | 否 | 请求结果 |
 | code | integer | 是 | 状态码 |
-| data | [项目-显示模型]() | 否 | 数据 |
+| data | [项目-显示模型](huo-qu-xiang-mu-xin-xi.md) | 否 | 数据 |
 | requestId | string | 否 | 请求ID |
 | message | string | 否 | 错误信息 |
 

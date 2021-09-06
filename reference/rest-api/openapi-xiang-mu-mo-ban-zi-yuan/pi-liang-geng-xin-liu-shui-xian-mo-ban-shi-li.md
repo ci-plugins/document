@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
+#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
 
 ### 资源描述
 
@@ -21,7 +21,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | array&lt;[TemplateInstanceUpdate]()&gt; | 是 | 模板实例 |  |
+| body | array&lt;[TemplateInstanceUpdate](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md)&gt; | 是 | 模板实例 |  |
 
 #### Path参数
 
@@ -34,7 +34,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [TemplateOperationRet]() |
+| 200 | successful operation | [TemplateOperationRet](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md) |
 
 #### 请求样例
 
@@ -71,8 +71,8 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | pipelineName | string | 否 | pipelineName |
-| param | List&lt;[构建模型-表单元素属性]()&gt; | 否 | param |
-| buildNo | [BuildNo]() | 否 | buildNo |
+| param | List&lt;[构建模型-表单元素属性](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md)&gt; | 否 | param |
+| buildNo | [BuildNo](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md) | 否 | buildNo |
 | pipelineId | string | 否 | pipelineId |
 
 ## 构建模型-表单元素属性
@@ -80,7 +80,7 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | defaultValue | object | 是 | 默认值 |
-| containerType | [BuildContainerType]() | 否 | 构建机类型下拉 |
+| containerType | [BuildContainerType](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md) | 否 | 构建机类型下拉 |
 | glob | string | 否 | 自定义仓库通配符 |
 | replaceKey | string | 否 | 替换搜索url中的搜素关键字 |
 | readOnly | boolean | 否 | 是否只读 |
@@ -91,7 +91,7 @@ Content-Type: application/json
 | scmType | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 否 | 代码库类型下拉 |
 | relativePath | string | 否 | relativePath |
 | propertyType | string | 否 | 元素模块 |
-| options | List&lt;[构建模型-下拉框表单元素值]()&gt; | 否 | 下拉框列表 |
+| options | List&lt;[构建模型-下拉框表单元素值](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md)&gt; | 否 | 下拉框列表 |
 | searchUrl | string | 否 | 搜索url, 当是下拉框选项时，列表值从url获取不再从option获取 |
 | id | string | 是 | 元素ID-标识符 |
 | placeholder | string | 否 | 元素placeholder |
@@ -124,7 +124,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [TemplateOperationMessage]() | 否 | data |
+| data | [TemplateOperationMessage](pi-liang-geng-xin-liu-shui-xian-mo-ban-shi-li.md) | 否 | data |
 | message | string | 否 | message |
 | status | integer | 否 | status |
 
