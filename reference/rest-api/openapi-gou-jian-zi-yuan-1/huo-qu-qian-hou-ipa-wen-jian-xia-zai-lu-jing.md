@@ -14,7 +14,6 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| apigwType | string | 是 | apigw Type |  |
 | resignId | string | 是 | 签名任务ID |  |
 
 #### 响应

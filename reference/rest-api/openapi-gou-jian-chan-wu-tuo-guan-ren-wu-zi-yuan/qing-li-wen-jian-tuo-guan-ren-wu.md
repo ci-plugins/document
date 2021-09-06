@@ -14,7 +14,6 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| apigwType | string | 是 | apigw Type |  |
 | projectId | string | 是 | projectId |  |
 | pipelineId | string | 是 | pipelineId |  |
 | buildId | string | 是 | buildId |  |

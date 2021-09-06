@@ -20,7 +20,6 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| apigwType | string | 是 | apigw Type |  |
 | projectCode | string | 是 | 项目Code |  |
 
 #### 响应
