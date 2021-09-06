@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/create
+#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/create
 
 ### 资源描述
 

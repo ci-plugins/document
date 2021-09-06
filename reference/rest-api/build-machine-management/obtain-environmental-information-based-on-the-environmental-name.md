@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/environment/projects/{projectId}/envs/listRawByEnvNames
+#### POST  /ms/openapi/api/apigw/v3/environment/projects/{projectId}/envs/listRawByEnvNames
 
 ### 资源描述
 

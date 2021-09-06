@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
+#### PUT  /ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
 
 ### 资源描述
 

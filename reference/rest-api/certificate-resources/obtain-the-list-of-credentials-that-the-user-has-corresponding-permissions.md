@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/credentials
+#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/credentials
 
 ### 资源描述
 

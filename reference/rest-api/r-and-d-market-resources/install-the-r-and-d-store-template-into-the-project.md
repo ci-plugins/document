@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/market/template/installFromStore
+#### POST  /ms/openapi/api/apigw/v3/market/template/installFromStore
 
 ### 资源描述
 

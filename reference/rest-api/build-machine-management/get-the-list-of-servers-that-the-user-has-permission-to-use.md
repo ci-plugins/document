@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/listUsableServerNodes
+#### GET  /ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/listUsableServerNodes
 
 ### 资源描述
 

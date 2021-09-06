@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/relationProject
+#### PUT  /ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/relationProject
 
 ### 资源描述
 

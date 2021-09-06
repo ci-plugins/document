@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
+#### GET  /ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
 
 ### 资源描述
 

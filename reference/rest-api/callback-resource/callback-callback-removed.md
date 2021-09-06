@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/{id}
+#### DELETE  /ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/{id}
 
 ### 资源描述
 

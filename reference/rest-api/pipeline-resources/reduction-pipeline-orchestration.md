@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/restore
+#### PUT  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/restore
 
 ### 资源描述
 
