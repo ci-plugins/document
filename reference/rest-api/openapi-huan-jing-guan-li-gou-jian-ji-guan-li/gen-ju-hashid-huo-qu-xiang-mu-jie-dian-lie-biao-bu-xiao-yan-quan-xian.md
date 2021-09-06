@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw/v3/environment/projects/{projectId}/nodes/listRawByNodeHashIds
+#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/listRawByNodeHashIds
 
 ### 资源描述
 

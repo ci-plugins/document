@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  /apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
+#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
 
 ### 资源描述
 

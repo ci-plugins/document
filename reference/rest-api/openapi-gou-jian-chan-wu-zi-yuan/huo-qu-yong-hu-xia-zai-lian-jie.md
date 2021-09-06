@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/projects/{projectId}/artifactories/userDownloadUrl
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/artifactories/userDownloadUrl
 
 ### 资源描述
 

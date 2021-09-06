@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/variables
+#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/variables
 
 ### 资源描述
 

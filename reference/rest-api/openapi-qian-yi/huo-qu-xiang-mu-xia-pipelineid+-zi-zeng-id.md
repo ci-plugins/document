@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/permission/move/projects/{projectCode}/pipelineIds/list
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/pipelineIds/list
 
 ### 资源描述
 

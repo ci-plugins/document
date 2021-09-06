@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/status
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/status
 
 ### 资源描述
 

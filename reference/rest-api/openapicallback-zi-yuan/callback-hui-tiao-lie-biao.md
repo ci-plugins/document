@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/projects/{projectId}/callbacks
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks
 
 ### 资源描述
 

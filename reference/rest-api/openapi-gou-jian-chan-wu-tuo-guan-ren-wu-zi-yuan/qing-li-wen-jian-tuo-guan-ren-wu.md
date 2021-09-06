@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  /apigw/v3/artifactory/fileTask/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/tasks/{taskId}/clear
+#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/artifactory/fileTask/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/tasks/{taskId}/clear
 
 ### 资源描述
 

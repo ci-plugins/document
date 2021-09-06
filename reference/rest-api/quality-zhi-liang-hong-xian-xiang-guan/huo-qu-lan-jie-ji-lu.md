@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/projects/{projectId}/quality/intercepts/list
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/intercepts/list
 
 ### 资源描述
 

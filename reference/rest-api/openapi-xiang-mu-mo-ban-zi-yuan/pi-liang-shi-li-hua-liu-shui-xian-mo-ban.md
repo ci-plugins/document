@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
+#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
 
 ### 资源描述
 

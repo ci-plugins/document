@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  /apigw/v3/projects
+#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects
 
 ### 资源描述
 

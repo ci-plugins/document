@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  /apigw/v3/repositories/{projectId}/{repositoryHashId}
+#### DELETE  [yourIpAddress]/ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
 
 ### 资源描述
 

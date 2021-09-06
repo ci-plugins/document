@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  /apigw/v3/projects/{projectId}/pipelineGroups/labels/{labelId}
+#### DELETE  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/labels/{labelId}
 
 ### 资源描述
 

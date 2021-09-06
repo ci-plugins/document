@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  /apigw/v3/sign/ipa/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/getSignToken
+#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/sign/ipa/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/getSignToken
 
 ### 资源描述
 
