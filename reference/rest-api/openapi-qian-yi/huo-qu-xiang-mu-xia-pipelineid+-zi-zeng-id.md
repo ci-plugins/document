@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/pipelineIds/list
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/permission/move/projects/{projectCode}/pipelineIds/list
 
 ### 资源描述
 
@@ -21,7 +21,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListPipelineIdInfo]() |
+| 200 | successful operation | [数据返回包装模型ListPipelineIdInfo](huo-qu-xiang-mu-xia-pipelineid+-zi-zeng-id.md) |
 
 #### 请求样例
 
@@ -53,7 +53,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | List&lt;[PipelineIdInfo]()&gt; | 否 | 数据 |
+| data | List&lt;[PipelineIdInfo](huo-qu-xiang-mu-xia-pipelineid+-zi-zeng-id.md)&gt; | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
+#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
 
 ### 资源描述
 
@@ -14,13 +14,13 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [PipelineGroupUpdate]() | 是 | 流水线标签分组更新请求 |  |
+| body | [PipelineGroupUpdate](geng-gai-fen-zu.md) | 是 | 流水线标签分组更新请求 |  |
 
 #### 响应
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](geng-gai-fen-zu.md) |
 
 #### 请求样例
 

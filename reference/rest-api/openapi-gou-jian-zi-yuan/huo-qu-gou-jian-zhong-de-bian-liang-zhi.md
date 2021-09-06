@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/variables
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/variables
 
 ### 资源描述
 
@@ -29,7 +29,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型MapStringString]() |
+| 200 | successful operation | [数据返回包装模型MapStringString](huo-qu-gou-jian-zhong-de-bian-liang-zhi.md) |
 
 #### 请求样例
 

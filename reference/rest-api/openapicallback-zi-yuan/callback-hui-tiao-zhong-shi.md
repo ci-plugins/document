@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/history/{id}/retry
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/history/{id}/retry
 
 ### 资源描述
 
@@ -22,7 +22,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](callback-hui-tiao-zhong-shi.md) |
 
 #### 请求样例
 

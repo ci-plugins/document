@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/sign/ipa/{resignId}/downloadUrl
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/sign/ipa/{resignId}/downloadUrl
 
 ### 资源描述
 
@@ -21,7 +21,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型String]() |
+| 200 | successful operation | [数据返回包装模型String](huo-qu-qian-hou-ipa-wen-jian-xia-zai-lu-jing.md) |
 
 #### 请求样例
 

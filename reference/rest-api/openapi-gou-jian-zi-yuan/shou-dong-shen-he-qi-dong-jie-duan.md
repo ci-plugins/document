@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stages/{stageId}/manualStart
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stages/{stageId}/manualStart
 
 ### 资源描述
 
@@ -20,7 +20,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [人工审核-自定义参数]() | 否 | 审核请求体 |  |
+| body | [人工审核-自定义参数](shou-dong-shen-he-qi-dong-jie-duan.md) | 否 | 审核请求体 |  |
 
 #### Path参数
 
@@ -36,7 +36,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](shou-dong-shen-he-qi-dong-jie-duan.md) |
 
 #### 请求样例
 
@@ -66,7 +66,7 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | valueType | ENUM\(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, \) | 否 | 参数类型 |
-| options | List&lt;[人工审核-自定义参数-下拉框列表剑]()&gt; | 否 | 下拉框列表 |
+| options | List&lt;[人工审核-自定义参数-下拉框列表剑](shou-dong-shen-he-qi-dong-jie-duan.md)&gt; | 否 | 下拉框列表 |
 | chineseName | string | 否 | 中文名称 |
 | value | object | 是 | 参数内容 |
 | key | string | 是 | 参数名 |

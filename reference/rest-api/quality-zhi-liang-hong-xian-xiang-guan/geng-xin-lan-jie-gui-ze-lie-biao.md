@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### PUT  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/{ruleHashId}/update
+#### PUT  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/{ruleHashId}/update
 
 ### 资源描述
 
@@ -14,7 +14,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [规则更新请求]() | 是 | 规则内容 |  |
+| body | [规则更新请求](geng-xin-lan-jie-gui-ze-lie-biao.md) | 是 | 规则内容 |  |
 
 #### Path参数
 
@@ -28,7 +28,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](geng-xin-lan-jie-gui-ze-lie-biao.md) |
 
 #### 请求样例
 
@@ -67,7 +67,7 @@ Content-Type: application/json
 | name | string | 是 | 规则名称 |
 | notifyGroupList | List | 否 | 通知组名单 |
 | operation | ENUM\(END, AUDIT, \) | 是 | 操作类型 |
-| indicatorIds | List&lt;[CreateRequestIndicator]()&gt; | 是 | 指标类型 |
+| indicatorIds | List&lt;[CreateRequestIndicator](geng-xin-lan-jie-gui-ze-lie-biao.md)&gt; | 是 | 指标类型 |
 | controlPoint | string | 是 | 控制点 |
 | gatewayId | string | 否 | 红线匹配的id |
 | desc | string | 是 | 规则描述 |

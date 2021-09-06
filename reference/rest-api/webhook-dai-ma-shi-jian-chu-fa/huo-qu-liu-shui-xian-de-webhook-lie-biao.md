@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
 
 ### 资源描述
 
@@ -33,7 +33,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListPipelineWebhook]() |
+| 200 | successful operation | [数据返回包装模型ListPipelineWebhook](huo-qu-liu-shui-xian-de-webhook-lie-biao.md) |
 
 #### 请求样例
 
@@ -72,7 +72,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | List&lt;[PipelineWebhook]()&gt; | 否 | 数据 |
+| data | List&lt;[PipelineWebhook](huo-qu-liu-shui-xian-de-webhook-lie-biao.md)&gt; | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

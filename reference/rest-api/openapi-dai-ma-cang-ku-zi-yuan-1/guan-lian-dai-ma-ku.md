@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/repositories/{projectId}
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/repositories/{projectId}
 
 ### 资源描述
 
@@ -14,7 +14,7 @@
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
 | :--- | :--- | :--- | :--- | :--- |
-| body | [代码库模型-多态基类]() | 是 | 代码库模型 |  |
+| body | [代码库模型-多态基类](guan-lian-dai-ma-ku.md) | 是 | 代码库模型 |  |
 
 #### Path参数
 
@@ -27,7 +27,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型代码库模型-ID]() |
+| 200 | successful operation | [数据返回包装模型代码库模型-ID](guan-lian-dai-ma-ku.md) |
 
 #### 请求样例
 
@@ -73,7 +73,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [代码库模型-ID]() | 否 | 数据 |
+| data | [代码库模型-ID](guan-lian-dai-ma-ku.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

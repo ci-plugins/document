@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/sign/ipa/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/getSignToken
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/sign/ipa/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/getSignToken
 
 ### 资源描述
 
@@ -23,7 +23,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型IPA包签名信息]() |
+| 200 | successful operation | [数据返回包装模型IPA包签名信息](huo-qu-qian-ming-jie-kou-token.md) |
 
 #### 请求样例
 
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [IPA包签名信息]() | 否 | 数据 |
+| data | [IPA包签名信息](huo-qu-qian-ming-jie-kou-token.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

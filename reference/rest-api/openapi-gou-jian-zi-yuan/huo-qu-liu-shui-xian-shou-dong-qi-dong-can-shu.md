@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### GET  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/manualStartupInfo
+#### GET  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/manualStartupInfo
 
 ### 资源描述
 
@@ -28,7 +28,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-流水线手动启动信息]() |
+| 200 | successful operation | [数据返回包装模型构建模型-流水线手动启动信息](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md) |
 
 #### 请求样例
 
@@ -95,7 +95,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [构建模型-流水线手动启动信息]() | 否 | 数据 |
+| data | [构建模型-流水线手动启动信息](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 
@@ -105,8 +105,8 @@ Content-Type: application/json
 | :--- | :--- | :--- | :--- |
 | canManualStartup | boolean | 是 | 是否可手工启动 |
 | canElementSkip | boolean | 是 | 是否可跳过插件 |
-| buildNo | [BuildNo]() | 是 | 指定的构建号 |
-| properties | List&lt;[构建模型-表单元素属性]()&gt; | 是 | 启动表单元素列表 |
+| buildNo | [BuildNo](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md) | 是 | 指定的构建号 |
+| properties | List&lt;[构建模型-表单元素属性](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md)&gt; | 是 | 启动表单元素列表 |
 
 ## BuildNo
 
@@ -121,7 +121,7 @@ Content-Type: application/json
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
 | defaultValue | object | 是 | 默认值 |
-| containerType | [BuildContainerType]() | 否 | 构建机类型下拉 |
+| containerType | [BuildContainerType](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md) | 否 | 构建机类型下拉 |
 | glob | string | 否 | 自定义仓库通配符 |
 | replaceKey | string | 否 | 替换搜索url中的搜素关键字 |
 | readOnly | boolean | 否 | 是否只读 |
@@ -132,7 +132,7 @@ Content-Type: application/json
 | scmType | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 否 | 代码库类型下拉 |
 | relativePath | string | 否 | relativePath |
 | propertyType | string | 否 | 元素模块 |
-| options | List&lt;[构建模型-下拉框表单元素值]()&gt; | 否 | 下拉框列表 |
+| options | List&lt;[构建模型-下拉框表单元素值](huo-qu-liu-shui-xian-shou-dong-qi-dong-can-shu.md)&gt; | 否 | 下拉框列表 |
 | searchUrl | string | 否 | 搜索url, 当是下拉框选项时，列表值从url获取不再从option获取 |
 | id | string | 是 | 元素ID-标识符 |
 | placeholder | string | 否 | 元素placeholder |

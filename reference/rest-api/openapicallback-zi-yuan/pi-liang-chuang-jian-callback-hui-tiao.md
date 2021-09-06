@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### POST  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/batch
+#### POST  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/batch
 
 ### 资源描述
 
@@ -30,7 +30,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型项目的流水线回调创建结果]() |
+| 200 | successful operation | [数据返回包装模型项目的流水线回调创建结果](pi-liang-chuang-jian-callback-hui-tiao.md) |
 
 #### 请求样例
 
@@ -64,7 +64,7 @@ Content-Type: application/json
 
 | 参数名称 | 参数类型 | 必须 | 参数说明 |
 | :--- | :--- | :--- | :--- |
-| data | [项目的流水线回调创建结果]() | 否 | 数据 |
+| data | [项目的流水线回调创建结果](pi-liang-chuang-jian-callback-hui-tiao.md) | 否 | 数据 |
 | message | string | 否 | 错误信息 |
 | status | integer | 是 | 状态码 |
 

@@ -2,7 +2,7 @@
 
 ### 请求方法/请求路径
 
-#### DELETE  [yourIpAddress]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/{ruleHashId}/delete
+#### DELETE  \[yourIpAddress\]/ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/{ruleHashId}/delete
 
 ### 资源描述
 
@@ -22,7 +22,7 @@
 
 | HTTP代码 | 说明 | 参数类型 |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean]() |
+| 200 | successful operation | [数据返回包装模型Boolean](shan-chu-lan-jie-gui-ze-lie-biao.md) |
 
 #### 请求样例
 
