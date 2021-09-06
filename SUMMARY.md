@@ -86,7 +86,7 @@
 ## ℹ️ 参考信息 <a id="reference"></a>
 
 * [REST API](reference/rest-api/README.md)
-  * [使用前必读](reference/rest-api/shi-yong-qian-bi-du.md)
+  * [使用前必读](reference/rest-api/read-before-use.md)
   * [OPENAPI-项目模板资源](reference/rest-api/project-template-resources/README.md)
     * [批量更新流水线模板实例](reference/rest-api/project-template-resources/batch-update-pipeline-template-example.md)
     * [更新流水线模板](reference/rest-api/project-template-resources/update-the-pipeline-template.md)
