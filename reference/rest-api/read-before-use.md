@@ -1,6 +1,6 @@
 # 使用前必读
 
-#### **返回值**
+## **返回值**
 
 | 返回值 | 涵义 |
 | :--- | :--- |
@@ -17,9 +17,7 @@
 | `429 Too Many Requests` | 请求被限流 |
 | `500 Server Error` | 服务器出错 |
 
-
-
-#### **认证方式**
+## **认证方式**
 
 每个API调用都需要认证，请在query参数中携带access\_token，access\_token通过调用/ms/auth/api/user/token/get接口获取，返回示例如下。
 
@@ -54,9 +52,6 @@ Request accessToken is empty.
 请检查是否在query参数中携带access_token
 3)若出现：
 verification failed : token参数非法错误: Access token illegal
-请检查access_token是否输入正确
-
+请检查access_token是否输入正确 
 ```
-
-
 
