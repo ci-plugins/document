@@ -2,7 +2,7 @@
 
 * [首页](README.md)
 
-## 🐤 了解基本概念 <a id="overview"></a>
+## 🐤 了解基本概念 <a href="#overview" id="overview"></a>
 
 * [BKCI 是什么？](overview/what-is-bkci.md)
 * [BKCI 组件](overview/components.md)
@@ -16,7 +16,7 @@
     * [github事件触发](overview/terminology/trigger/github.md)
   * [Variables](overview/terminology/variables.md)
 
-## 👉 使用 BKCI <a id="tutorials"></a>
+## 👉 使用 BKCI <a href="#tutorials" id="tutorials"></a>
 
 * [创建你的第一条流水线](tutorials/create-first-pipeline.md)
 * [关联你的第一个代码库](tutorials/link-first-repo.md)
@@ -25,7 +25,7 @@
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
 
-## 🚀 部署 BKCI <a id="setup"></a>
+## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
 * [BKCI 系统要求](setup/system-requirements/README.md)
   * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
@@ -34,7 +34,7 @@
   * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/on-tencentcloud.md)
   * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/on-bkce.md)
 
-## 📔 产品功能 <a id="services"></a>
+## 📔 产品功能 <a href="#services" id="services"></a>
 
 * [控制台](services/console.md)
 * [流水线](services/pipelines/README.md)
@@ -55,12 +55,12 @@
 * [凭证管理](services/ticket.md)
 * [代码库](services/repo.md)
 * [编译加速](services/turbo/README.md)
-  * [Linux C/C++ 编译加速](services/turbo/linux_c_c++/README.md)
-    * [定制Linux C/C++加速方案](services/turbo/linux_c_c++/new_plan.md)
-    * [在流水线中进行编译加速](services/turbo/linux_c_c++/use_in_pipeline.md)
-    * [在私有构建机上使用加速](services/turbo/linux_c_c++/use_in_local.md)
+  * [Linux C/C++ 编译加速](services/turbo/linux\_c\_c++/README.md)
+    * [定制Linux C/C++加速方案](services/turbo/linux\_c\_c++/new\_plan.md)
+    * [在流水线中进行编译加速](services/turbo/linux\_c\_c++/use\_in\_pipeline.md)
+    * [在私有构建机上使用加速](services/turbo/linux\_c\_c++/use\_in\_local.md)
 
-## 🏪 研发商店 <a id="store"></a>
+## 🏪 研发商店 <a href="#store" id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
 * [流水线模板](store/pipeline-templates.md)
@@ -82,13 +82,13 @@
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
 
-## 🤝 一起共建 BKCI <a id="contribute"></a>
+## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 
 * [BKCI 架构](contribute/architecture.md)
 * [BKCI 代码结构](contribute/code-framework.md)
 * [设计理念](contribute/design.md)
 
-## ℹ️ 参考信息 <a id="reference"></a>
+## ℹ️ 参考信息 <a href="#reference" id="reference"></a>
 
 * [REST API](reference/rest-api/README.md)
   * [使用前必读](reference/rest-api/read-before-use.md)
@@ -191,10 +191,10 @@
     * [创建文件托管任务](reference/rest-api/build-product-hosting-task-resources/create-file-hosting-task.md)
     * [查询文件托管任务状态](reference/rest-api/build-product-hosting-task-resources/query-file-hosting-task-status.md)
   * [OPENAPI-环境管理-构建机管理](reference/rest-api/build-machine-management/README.md)
-    * [根据hashId获取项目节点列表\(不校验权限\)](reference/rest-api/build-machine-management/get-the-list-of-project-nodes-according-to-hashid.md)
-    * [根据环境的hashId获取指定项目指定环境下节点列表\(不校验权限\)](reference/rest-api/build-machine-management/get-the-list-of-nodes-in-the-specified-environment-of-the-specified-project-according-to-the-hashid.md)
-    * [根据环境名称获取环境信息\(不校验权限\)](reference/rest-api/build-machine-management/obtain-environmental-information-based-on-the-environmental-name.md)
-    * [根据hashId\(多个\)获取环境信息\(不校验权限\)](reference/rest-api/build-machine-management/obtain-environmental-information-based-on-hashid-multiple.md)
+    * [根据hashId获取项目节点列表(不校验权限)](reference/rest-api/build-machine-management/get-the-list-of-project-nodes-according-to-hashid.md)
+    * [根据环境的hashId获取指定项目指定环境下节点列表(不校验权限)](reference/rest-api/build-machine-management/get-the-list-of-nodes-in-the-specified-environment-of-the-specified-project-according-to-the-hashid.md)
+    * [根据环境名称获取环境信息(不校验权限)](reference/rest-api/build-machine-management/obtain-environmental-information-based-on-the-environmental-name.md)
+    * [根据hashId(多个)获取环境信息(不校验权限)](reference/rest-api/build-machine-management/obtain-environmental-information-based-on-hashid-multiple.md)
     * [获取指定构建机状态](reference/rest-api/build-machine-management/get-the-status-of-the-specified-build-machine.md)
     * [获取项目下第三方构建机列表](reference/rest-api/build-machine-management/get-the-list-of-third-party-build-machines-under-the-project.md)
     * [获取用户有权限使用的服务器列表](reference/rest-api/build-machine-management/get-the-list-of-servers-that-the-user-has-permission-to-use.md)
@@ -210,6 +210,25 @@
   * [WEBHOOK-代码事件触发](reference/rest-api/code-event-trigger/README.md)
     * [获取流水线的webhook构建日志列表](reference/rest-api/code-event-trigger/get-the-pipelines-webhook-build-log-list.md)
     * [获取流水线的webhook列表](reference/rest-api/code-event-trigger/get-the-webhook-list-of-the-pipeline.md)
+* [数据库设计文档](reference/DB-doc/README.md)
+  * [devops\_ci\_auth](reference/DB-doc/devops\_ci\_auth.md)
+  * [devops\_ci\_sign](reference/DB-doc/devops\_ci\_sign.md)
+  * [devops\_ci\_artifactory](reference/DB-doc/devops\_ci\_artifactory.md)
+  * [devops\_ci\_repository](reference/DB-doc/devops\_ci\_repository.md)
+  * [devops\_ci\_plugin](reference/DB-doc/devops\_ci\_plugin.md)
+  * [devops\_ci\_project](reference/DB-doc/devops\_ci\_project.md)
+  * [devops\_ci\_quality](reference/DB-doc/devops\_ci\_quality.md)
+  * [devops\_ci\_store](reference/DB-doc/devops\_ci\_store.md)
+  * [devops\_ci\_log](reference/DB-doc/devops\_ci\_log.md)
+  * [devops\_ci\_dispatch](reference/DB-doc/devops\_ci\_dispatch.md)
+  * [devops\_ci\_image](reference/DB-doc/devops\_ci\_image.md)
+  * [devops\_ci\_environment](reference/DB-doc/devops\_ci\_environment.md)
+  * [devops\_ci\_op](reference/DB-doc/devops\_ci\_op.md)
+  * [devops\_ci\_notify](reference/DB-doc/devops\_ci\_notify.md)
+  * [devops\_ci\_openapi](reference/DB-doc/devops\_ci\_openapi.md)
+  * [devops\_ci\_ticket](reference/DB-doc/devops\_ci\_ticket.md)
+  * [devops\_ci\_process](reference/DB-doc/devops\_ci\_process.md)
+  * [devops\_ci\_measure](reference/DB-doc/devops\_ci\_measure.md)
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs/README.md)
@@ -218,7 +237,6 @@
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
 
----
+***
 
 * [返回 BKCI 官网](https://bkci.net)
-
