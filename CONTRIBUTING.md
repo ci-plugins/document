@@ -1,1 +1,1 @@
-haha
+# Contributing to bkci document
