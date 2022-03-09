@@ -4,7 +4,7 @@
 
 ## 方法
 
-在 GitHub 上提 Issue 或 Pull Request，地址为: https://github.com/bkci-gitbook/document
+在 GitHub 上提 Issue 或 Pull Request，地址为: https://github.com/ci-plugins/document
 
 ## 文档规范
 
@@ -14,7 +14,7 @@
 
 3. 图片名称仅允许大小写字母、数字、`-`、`_`
 
-4. 只允许对`dev`分支发起pull request，dev分支代码最终由管理员合并入master并发布
+4. 共建者可以对master分支发起PR，管理员会对PR进行审核
 
 ## 文档共建流程
 
@@ -26,11 +26,13 @@
 
 ![image-20220306234812651](.gitbook/assets/image-20220306234812651.png)
 
-2. Clone
+2. Clone  
+
+克隆仓库之前，先保证自己fork出来的仓库是否和源仓库保持一致，如果落后于源仓库，可考虑先`Fetch Upstream`，参考步骤4
 
 `git clone https://github.com/xxxx/document`
 
-3. Change&Commit
+3. Change & Commit
 
 ```
 cd /path/to/document
@@ -43,7 +45,7 @@ git commit -m "add xxx"
 
 4. Fetch upstream
 
-在提交到自己的仓库前，查看自己fork出来的代码是否落后于源仓库代码，如果落后，先操作`Fetch upstream`，将源仓库代码的更新下同步到自己仓库。`compare`查看代码差异，`Fetch and merge`将源仓库代码合并到自己仓库
+在将commit提交到自己的仓库前，查看自己fork出来的代码是否落后于源仓库代码，如果落后，先操作`Fetch upstream`，将源仓库代码的更新下同步到自己仓库。`compare`查看代码差异，`Fetch and merge`将源仓库代码合并到自己仓库
 
 ![image-20220307000537768](.gitbook/assets/image-20220307000537768.png)
 
@@ -57,7 +59,7 @@ git commit -m "add xxx"
 
 ```
 git remote add upstream-repo https://github.com/bkci-gitbook/document
-git pull upstream-repo dev:dev
+git pull upstream-repo dev:dev # 如果有冲突无法合并，请自行解决冲突并合并
 ```
 
 5. Git pull
