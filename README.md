@@ -4,7 +4,6 @@ description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构�
 
 # 首页
 
-创建
 
 | 🐤 了解基本概念 | 👉 使用 BKCI | 🚀 部署 BKCI |
 | :--- | :--- | :--- |
@@ -20,5 +19,6 @@ description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构�
 | [凭证管理](services/ticket.md) | [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md) | [设计理念](contribute/design.md) |
 | [构建资源](services/pools/) |  |  |
 
+# 文档共建
 
-
+* [CONTRIBUTING](CONTRIBUTING.md)
