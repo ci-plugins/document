@@ -22,4 +22,3 @@ description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构�
 # 文档共建
 
 * [CONTRIBUTING](contribute/document.md)
-* [设计理念](contribute/design.md)
