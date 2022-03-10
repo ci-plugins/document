@@ -20,7 +20,7 @@
 
 1. Fork repository
 
-首先得拥有github账号，并登录，访问https://github.com/bkci-gitbook/document，fork到自己的github账号下
+首先得拥有github账号，并登录，访问https://github.com/ci-plugins/document，fork到自己的github账号下
 
 ![image-20220306234726724](../.gitbook/assets/image-20220306234726724.png)
 
@@ -58,7 +58,7 @@ git commit -m "add xxx"
 除了在页面上同步最新代码外，还可以在本地仓库里同步最新代码
 
 ```
-git remote add upstream-repo https://github.com/bkci-gitbook/document
+git remote add upstream-repo https://github.com/ci-plugins/document
 git pull upstream-repo dev:dev # 如果有冲突无法合并，请自行解决冲突并合并
 ```
 
