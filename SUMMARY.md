@@ -87,6 +87,7 @@
 * [BKCI 架构](contribute/architecture.md)
 * [BKCI 代码结构](contribute/code-framework.md)
 * [设计理念](contribute/design.md)
+* [文档共建](contribute/document.md)
 
 ## ℹ️ 参考信息 <a href="#reference" id="reference"></a>
 
