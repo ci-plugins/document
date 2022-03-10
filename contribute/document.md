@@ -83,3 +83,6 @@ git push origin dev:dev
 ![image-20220307003446199](../.gitbook/assets/image-20220307003446199.png)
 
 ![image-20220307003639376](../.gitbook/assets/image-20220307003639376.png)
+
+
+发起PR，请求合并到源仓库dev分支，等待管理员审核通过
