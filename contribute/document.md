@@ -83,4 +83,3 @@ git push origin dev:dev
 ![image-20220307003446199](../.gitbook/assets/image-20220307003446199.png)
 
 ![image-20220307003639376](../.gitbook/assets/image-20220307003639376.png)
-![](../.gitbook/assets/image-20211212201111977.png)
