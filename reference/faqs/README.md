@@ -6,7 +6,7 @@ description: 常见问题集锦
 
 {% page-ref page="pipeline-faqs.md" %}
 
-{% page-ref page="codcc-faqs.md" %}
+{% page-ref page="codecc-faqs.md" %}
 
 {% page-ref page="turbo-faqs.md" %}
 
