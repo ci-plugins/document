@@ -2,7 +2,68 @@
 coverY: 0
 ---
 
-# 蓝盾FAQ
+# 流水线FAQ
+
+#### Q: 如何让自己的流水线日志显示带上不同颜色
+
+在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
+
+| 关键字 | 作用 | 备注 |
+| :--- | :--- | :--- |
+| \#\#\[section\] | 一个Job或者插件的开头 | 如果是插件开头，必须包含在一个Job的Starting内 |
+| \#\#\[endsection\] | 一个Job或者插件的结尾 | 如果是插件结尾，必须包含在一个Job的Finishing内 |
+| \#\#\[command\] | 将后面的字符串以ShellScripts高亮 | \#0070BB |
+| \#\#\[info\] | 将后面的字符串标记为info颜色 | \#48BB31 |
+| \#\#\[warning\] | 将后面的字符串标记为warning颜色 | \#BBBB23 |
+| \#\#\[error\] | 将后面的字符串标记为error颜色 | \#DE0A1A |
+| \#\#\[debug\] | 将后面的字符串标记为debug颜色 | \#0D8F61 |
+| \#\#\[group\] | 一个折叠的开始 |  |
+| \#\#\[endgroup\] | 一个折叠的结束 |  |
+
+**以Bash插件为例：**
+
+```bash
+echo "##[command]whoami"
+whoami
+echo "##[command]pwd"
+pwd
+echo "##[command]uptime"
+uptime
+echo "##[command]python --version"
+python --version
+
+echo "##[info] this is a info log"
+echo "##[warning] this is a warning log"
+echo "##[error] this is a error log"
+echo "##[debug] this is a debug log"
+
+echo "##[group] Print SYSTEM ENV"
+env
+echo "##[endgroup]"
+```
+
+你将看到如下图所示效果
+
+![](../../.gitbook/assets/image2020-1-9_21-59-12.png)
+
+#### Q: gitlab事件触发插件无法触发事件?
+
+1. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
+2. 如果没有注册
+   1. 查看repository服务到gitlba的网络是否能通
+   2. 查看gitlab仓库的权限是否是master权限
+   3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
+3. 如果已注册，还是没有触发，
+   1. 到gitlab的webhook页面，查看是否有注册成功，如图1
+   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://域名/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
+   3. 查看gitlab没有发送的详情，如图3
+4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
+
+![](../../.gitbook/assets/image%20%2858%29%20%281%29.png)
+
+![](../../.gitbook/assets/image%20%2859%29.png)
+
+![](../../.gitbook/assets/image%20%2857%29.png)
 
 #### Q: 流水线的各个状态代表什么意思？
 
