@@ -233,7 +233,7 @@
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs/README.md)
-  * [流水线使用FAQ](reference/faqs/pipeline-faqs.md)
+  * [流水线FAQ](reference/faqs/pipeline-faqs.md)
   * [代码检查FAQ](reference/faqs/codecc-faqs.md)
   * [编译加速FAQ](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
