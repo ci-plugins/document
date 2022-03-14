@@ -39,7 +39,7 @@ accesstoken 使用「凭证管理」来进行注册，如果在「凭证管理�
 
 ![](../../.gitbook/assets/image-20220301101202-KMSOc.png)
 
-gitlab accesstoken创建请参考：https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html
+gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html)
 
 然后回到关联代码库页面，选中刚创建的accesstoken，确定
 
