@@ -59,6 +59,11 @@
     * [定制Linux C/C++加速方案](services/turbo/linux\_c\_c++/new\_plan.md)
     * [在流水线中进行编译加速](services/turbo/linux\_c\_c++/use\_in\_pipeline.md)
     * [在私有构建机上使用加速](services/turbo/linux\_c\_c++/use\_in\_local.md)
+* [代码检查](services/codecc/README.md)
+  * [代码检查使用](services/codecc/codecc-usage.md)
+  * [代码检查配置](services/codecc/codecc-config.md)
+  * [代码检查结果](services/codecc/codecc-result.md)
+  * [代码检查规则](services/codecc/codecc-ruleset.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
