@@ -4,5 +4,6 @@
 **注意：** 触发时间以服务器时间为准，建议将蓝盾服务器时区调整到用户所在时区
 
 ![timer插件](../../../.gitbook/assets/image-trigger-timer-plugin.png)
+
 ![定时规则](../../../.gitbook/assets/image-trigger-timer-rule.png)
 

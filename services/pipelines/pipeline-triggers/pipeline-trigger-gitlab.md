@@ -1,6 +1,8 @@
 # gitlab代码事件触发流水线
 **使用场景：** 当出现代码变更，如代码提交、代码合并时会自动触发流水线
+
 ![gitlba触发插件](../../../.gitbook/assets/image-trigger-gitlab-plugin.png)
+
 ![gitlab触发](../../../.gitbook/assets/image-trigger-gitlab.png)
 
 ## 触发方式
