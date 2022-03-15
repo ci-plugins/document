@@ -14,30 +14,31 @@
 3. 将 Linux 构建环境添加到 Job2-1，镜像地址填写：bkci/ci:latest 
    
    ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_java_1.png)
+   
 4. 依次添加如下 4 个插件： 
    1. Checkout Gitlab 
    
-   ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/quickstart_4.png) 
-   
+      ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/quickstart_4.png) 
+
    2. Shell Scripts
 
-   ```text
-      #!/usr/bin/env bash
-      cd initial
-      mvn install
-   ```
-
-   1. Shell Scripts
-
       ```text
-      #!/usr/bin/env bash
-      cd initial
-      mvn test
+         #!/usr/bin/env bash
+         cd initial
+         mvn install
       ```
 
-   2. Upload artifacts 
+   3. Shell Scripts
+
+         ```text
+         #!/usr/bin/env bash
+         cd initial
+         mvn test
+         ```
+
+   4. Upload artifacts 
    
-   ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_java_2.png)
+      ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_java_2.png)
 
 5. 运行流水线，观察结果 
    
