@@ -22,8 +22,15 @@
 * [关联你的第一个代码库](tutorials/link-first-repo.md)
 * [为你的Git工程开启CI](tutorials/enable-git-ci.md)
 * [示例](tutorials/examples/README.md)
+  * [代码拉取+制品上传+制品下载](tutorials/examples/pull-upload-download.md)
+  * [流水线触发方式使用](tutorials/examples/different-triggers.md)
+  * [流水线变量使用](tutorials/examples/vars-usage.md)
+  * [使用模板创建流水线](tutorials/examples/create-pipeline-by-template.md)
+  * [流水线条件判断](tutorials/examples/condition-stage.md)
+  * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
+
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
