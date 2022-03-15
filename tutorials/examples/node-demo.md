@@ -11,15 +11,27 @@
 
 1. 将准备好的 gitlab 代码库关联至 bk-ci，[请参考](../link-first-repo.md)
 2. 创建一条空白流水线
-3. 将 Linux 构建环境添加到 Job2-1，镜像地址填写：bkci/ci:latest ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_java_1.png)
-4. 依次添加如下 3 个插件： 1. Checkout Gitlab ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/quickstart_4.png) 2. Shell Scripts
+3. 将 Linux 构建环境添加到 Job2-1，镜像地址填写：bkci/ci:latest 
+   
+   ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_java_1.png)
 
-   ```text
-      #!/usr/bin/env bash
-      npm run test
-   ```
+4. 依次添加如下 3 个插件： 
+   1. Checkout Gitlab 
+   
+   ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/quickstart_4.png) 
 
-   1. Upload artifacts ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_node_1.png)
+   2. Shell Scripts
 
-5. 运行流水线，观察结果 ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_node_2.png)
+      ```text
+         #!/usr/bin/env bash
+         npm run test
+      ```
+
+   3. Upload artifacts 
+   
+      ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_node_1.png)
+
+5. 运行流水线，观察结果 
+   
+   ![pic](https://bkdocs-1252002024.file.myqcloud.com/ZH/6.0/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E5%B9%B3%E5%8F%B0/%E4%BA%A7%E5%93%81%E7%99%BD%E7%9A%AE%E4%B9%A6/assets/examples_node_2.png)
 
