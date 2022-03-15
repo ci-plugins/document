@@ -38,6 +38,11 @@
 
 * [控制台](services/console.md)
 * [流水线](services/pipelines/README.md)
+  * [流水线触发方式](services/pipelines/pipeline-triggers/README.md)
+    * [手动触发](services/pipelines/pipeline-triggers/pipeline-trigger-manual.md)
+    * [远程触发](services/pipelines/pipeline-triggers/pipeline-trigger-remote.md)
+    * [定时器触发](services/pipelines/pipeline-triggers/pipeline-trigger-timer.md)
+    * [gitlab触发](services/pipelines/pipeline-triggers/pipeline-trigger-gitlab.md)
   * [流水线列表页](services/pipelines/pipeline-list.md)
   * [流水线执行历史](services/pipelines/pipeline-build-history.md)
   * [创建/编辑流水线](services/pipelines/pipeline-edit/README.md)
