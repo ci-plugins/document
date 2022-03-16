@@ -22,8 +22,15 @@
 * [关联你的第一个代码库](tutorials/link-first-repo.md)
 * [为你的Git工程开启CI](tutorials/enable-git-ci.md)
 * [示例](tutorials/examples/README.md)
+  * [代码拉取+制品上传+制品下载](tutorials/examples/pull-upload-download.md)
+  * [流水线触发方式使用](tutorials/examples/different-triggers.md)
+  * [流水线变量使用](tutorials/examples/vars-usage.md)
+  * [使用模板创建流水线](tutorials/examples/create-pipeline-by-template.md)
+  * [流水线条件判断](tutorials/examples/condition-stage.md)
+  * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
+
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
@@ -38,6 +45,11 @@
 
 * [控制台](services/console.md)
 * [流水线](services/pipelines/README.md)
+  * [流水线触发方式](services/pipelines/pipeline-triggers/README.md)
+    * [手动触发](services/pipelines/pipeline-triggers/pipeline-trigger-manual.md)
+    * [远程触发](services/pipelines/pipeline-triggers/pipeline-trigger-remote.md)
+    * [定时器触发](services/pipelines/pipeline-triggers/pipeline-trigger-timer.md)
+    * [gitlab触发](services/pipelines/pipeline-triggers/pipeline-trigger-gitlab.md)
   * [流水线列表页](services/pipelines/pipeline-list.md)
   * [流水线执行历史](services/pipelines/pipeline-build-history.md)
   * [创建/编辑流水线](services/pipelines/pipeline-edit/README.md)
@@ -59,6 +71,11 @@
     * [定制Linux C/C++加速方案](services/turbo/linux\_c\_c++/new\_plan.md)
     * [在流水线中进行编译加速](services/turbo/linux\_c\_c++/use\_in\_pipeline.md)
     * [在私有构建机上使用加速](services/turbo/linux\_c\_c++/use\_in\_local.md)
+* [代码检查](services/codecc/README.md)
+  * [代码检查使用](services/codecc/codecc-usage.md)
+  * [代码检查配置](services/codecc/codecc-config.md)
+  * [代码检查结果](services/codecc/codecc-result.md)
+  * [代码检查规则](services/codecc/codecc-ruleset.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
@@ -87,6 +104,7 @@
 * [BKCI 架构](contribute/architecture.md)
 * [BKCI 代码结构](contribute/code-framework.md)
 * [设计理念](contribute/design.md)
+* [文档共建](contribute/document.md)
 
 ## ℹ️ 参考信息 <a href="#reference" id="reference"></a>
 
@@ -232,8 +250,10 @@
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [gitlab事件触发](reference/pre-define-var/gitlab.md)
 * [FAQS](reference/faqs/README.md)
-  * [gitlab事件触发插件无法触发事件?](reference/faqs/gitlab-not-trigger.md)
-  * [如何让自己的流水线日志显示带上不同颜色](reference/faqs/log-colors.md)
+  * [流水线FAQ](reference/faqs/pipeline-faqs.md)
+  * [代码检查FAQ](reference/faqs/codecc-faqs.md)
+  * [编译加速FAQ](reference/faqs/turbo-faqs.md)
+  * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
 
