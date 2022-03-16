@@ -3,11 +3,15 @@
 ## 执行方式
 插件执行方式分为同步和异步，同步的方式，会在使用插件的同时，创建代码检查任务。异步的方式，需要先在代码检查页面创建好「自建任务」类型的代码检查任务，然后在流水线里选择对应的任务。
 **同步执行方式：**
+
 ![同步执行方式配置](../../.gitbook/assets/image-codecc-sync-config.png)
+
 ![同步执行的任务](../../.gitbook/assets/image-codecc-asynchronize)
 
 **异步执行方式：**
+
 ![异步执行方式配置](../../.gitbook/assets/image-codecc-async-config.png)
+
 ![异步执行的任务](../../.gitbook/assets/image-codecc-asynchronize.png)
 
 推荐用户使用**同步执行方式**
