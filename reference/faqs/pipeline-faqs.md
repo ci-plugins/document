@@ -107,7 +107,7 @@ echo "##[endgroup]"
 
 #### Q: 蓝盾有哪些全局变量？
 
-{% page-ref page="reference/pre-define-var.md" %}
+{% page-ref page="reference/pre-define-var/README.md" %}
 
 #### Q: 查看日志时，如何查看时间戳？
 
