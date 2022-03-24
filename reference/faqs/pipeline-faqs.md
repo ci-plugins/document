@@ -85,7 +85,7 @@ echo "##[endgroup]"
 
 #### Q: 如何获取流水线id？
 
-流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.oa.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
+流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
 
 #### Q: 项目名称是否支持修改？
 
@@ -107,7 +107,7 @@ echo "##[endgroup]"
 
 #### Q: 蓝盾有哪些全局变量？
 
-https://iwiki.woa.com/pages/viewpage.action?pageId=26941983
+{% page-ref page="reference/pre-define-var.md" %}
 
 #### Q: 查看日志时，如何查看时间戳？
 
