@@ -107,7 +107,9 @@ echo "##[endgroup]"
 
 #### Q: 蓝盾有哪些全局变量？
 
-{% page-ref page="reference/pre-define-var.md" %}
+{% content-ref url="../pre-define-var/" %}
+[pre-define-var](../pre-define-var/)
+{% endcontent-ref %}
 
 #### Q: 查看日志时，如何查看时间戳？
 
@@ -167,7 +169,7 @@ setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的
 
 可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
 
-#### **Q:**使用docker build生成镜像是不是只能使用私有构建机才行？
+#### Q:使用docker build生成镜像是不是只能使用私有构建机才行？
 
 建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.&#x20;
 
@@ -457,13 +459,13 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 ![](../../.gitbook/assets/image-20220301101202-pxOZb.png)
 
-**Q: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的**
+#### Q: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
 
 不需要配置这个hook，蓝蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
 
 ![](../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
 
-**Q: gitlab触发失败**
+#### Q: gitlab触发失败
 
 1. 检查分支是否匹配
 2. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
@@ -499,7 +501,7 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 ![](../../.gitbook/assets/wecom-temp-93d79eaa40a0ebdfaeff197d3016e1ee.png)
 
-**Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的**
+#### Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
 ![](../../.gitbook/assets/企业微信截图_16285831782937.png)
 
@@ -517,58 +519,58 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 打开任务管理器，查看进程devopsDaemon.exe和的vopsAgent.exe是否存在，查看两个进程的启动的用户名是否为当前登录用户
 
-**Q: batchscript中的命令路径有空格，执行失败**
+#### Q: batchscript中的命令路径有空格，执行失败
 
 ![](../../.gitbook/assets/企业微信截图_16285852671573.png)
 
 可以将有空格的命令用引号""括起来
 
-**Q: 怎么通过接口获取项目**
+#### Q: 怎么通过接口获取项目**
 
 curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://devops.bktencent.com/prod/v3/apigw-app/projects/) -H "Content-Type: application/json" -H "X-DEVOPS-UID: admin"
 
-**Q: 这个「只有在前面插件运行失败才执行」条件，感觉没有用，成功了也执行了**\
+#### Q: 这个「只有在前面插件运行失败才执行」条件，感觉没有用，成功了也执行了
 
 
 ![](../../.gitbook/assets/wecom-temp-c6aa0d74275116c38ff7f592563616c7.png)
 
 这个条件的实际意思是：在这个插件前面的任何一个插件运行失败，就符合触发条件，而不是指『上一个』插件失败时运行
 
-**Q:项目的英文名称可以修改吗**
+#### Q:项目的英文名称可以修改吗
 
 暂不支持修改
 
-**Q: 怎么获取项目名称，我想要在企业微信通知消息里带上**
+#### Q: 怎么获取项目名称，我想要在企业微信通知消息里带上
 
 使用全局变量`${BK_CI_PROJECT_NAME}`
 
-**Q: 在浏览器里完成了蓝盾登录，在同一浏览器不同tab访问蓝盾，还需要再次登录**
+#### Q: 在浏览器里完成了蓝盾登录，在同一浏览器不同tab访问蓝盾，还需要再次登录
 
 这种情况是登录cookie过期了，现在默认应该是两小时，过期时间可调
 
-**Q: 有条流水线是通过gitlab触发的，但查看代码变更记录为空，说明此次触发的构建，并没有新代码变更，那为啥为触发**
+#### Q: 有条流水线是通过gitlab触发的，但查看代码变更记录为空，说明此次触发的构建，并没有新代码变更，那为啥为触发
 
 可能的原因是，触发器监听了整个代码库的commit事件，但代码拉取插件只拉取了某一个特定分支的代码，而此分支并没有代码变更，比如，插件监听了整个代码库commit事件，但代码拉取插件只拉取了master分支的代码，而提交commit的是dev分支，代码变更记录显示的是所拉取的分支相交上一次体检的变更，master分支没有变更，所以没有变更记录。
 
-**Q: 流水线跟流水线可以设置互斥吗? 或者流水线A 启动, 流水线B启动的时候, 流水线B等待流水线A结束**
+#### Q: 流水线跟流水线可以设置互斥吗? 或者流水线A 启动, 流水线B启动的时候, 流水线B等待流水线A结束
 
 现在只能对流水线中的JOB进行互斥组配置，如果这两个流水线只有一个JOB，那就这个JOB配置一个相同的互斥组就可以了。如果流水线有多个JOB，需要给两个流水线上再套一个流水线，然后在两条主流水线上配置互斥组，通过这个主流水线拉起任务。
 
 ![](../../.gitbook/assets/wecom-temp-0427b67401a386578f79c2495a2009f8.png)
 
-**Q: 蓝盾脚本里会起一个gradle daemon进程。最近发现，构建完就关闭。怀疑是不是devops agent处理的？**
+#### Q: 蓝盾脚本里会起一个gradle daemon进程。最近发现，构建完就关闭。怀疑是不是devops agent处理的？
 
 ![](../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
 
 蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true，在bash脚本里设置`setEnv "DEVOPS_DONT_KILL_PROCESS_TREE" "true"`
 
-**Q: 可以设置 一个变量值, 根据这个变量, 判断是否运行某个 插件 吗**
+#### Q: 可以设置 一个变量值, 根据这个变量, 判断是否运行某个 插件 吗
 
 在插件下方选择「自定义变量全部满足时才运行」，自定义变量写需要依赖的变量名称和值
 
 ![](../../.gitbook/assets/image-20220210120321712.png)
 
-**Q: 插件变量的值怎么获取、怎么写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？**
+#### Q: 插件变量的值怎么获取、怎么写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
 
 ![](../../.gitbook/assets/企业微信截图_16318512177997.png)
 
@@ -580,19 +582,19 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/wecom-temp-edfeb72810d972dae34d3f8d98232ec6.png)
 
-**Q: 如何在日志每一行前面加上时间戳**
+#### Q: 如何在日志每一行前面加上时间戳
 
 占位，待解决
 
-**Q:运行锁定, 有没有同一个时间最多运行一个构建任务, 后执行的强制取消先执行的任务**
+#### Q:运行锁定, 有没有同一个时间最多运行一个构建任务, 后执行的强制取消先执行的任务
 
 目前还没有这样的功能
 
-**Q: 我们有用一个 cat 去显示Log, 这个方式能用, 但有个问题, 每次打开速度都很慢, 差不多要3秒以上才显示Log 数据, 有没什么其他的比较好的方式显示log**
+#### Q: 我们有用一个 cat 去显示Log, 这个方式能用, 但有个问题, 每次打开速度都很慢, 差不多要3秒以上才显示Log 数据, 有没什么其他的比较好的方式显示log
 
 关于3秒以上的问题，主要因为这个task对应的日志数据较大，日志内容在3MB，所以时间花在download上
 
-**Q: 流水线在执行中，unity的构建日志不会实时显示**
+#### Q: 流水线在执行中，unity的构建日志不会实时显示
 
 其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
 
@@ -600,71 +602,71 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
  nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
 ```
 
-**Q:怎么有条件的执行CallPipeline插件**
+#### Q:怎么有条件的执行CallPipeline插件
 
 插件下面有一个流程控制，在流程控制中根据需要添加运行条件可以满足需求
 
 ![](../../.gitbook/assets/wecom-temp-70083f622bd2a6c839f9eb1b9436aac2.png)
 
-**Q: CallPipeline 这样传递参数好像不行？**
+#### Q: CallPipeline 这样传递参数好像不行？
 
 ![](../../.gitbook/assets/wecom-temp-3d80fac2503d5be8620e76b0d8175798.png)
 
 需要这样引用变量`${flushDB}`
 
-**Q: 怎么引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行**
+#### Q: 怎么引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
 
 变量引用需要加花括号`${BK_CI_BUILD_FAIL_TASKS}`
 
-**Q: 选中的参数改变的时候能不能隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event**
+#### Q: 选中的参数改变的时候能不能隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
 
 ![](../../.gitbook/assets/企业微信截图_1634710197325.png)
 
 暂时还不支持
 
-**Q: 我点击执行的时候，参数下拉列表里的值是能通过自定义的接口获取来吗？**
+#### Q: 我点击执行的时候，参数下拉列表里的值是能通过自定义的接口获取来吗？
 
 不支持接口自定义
 
-**Q: 服务器磁盘满了，这些目录文件可以删吗**
+#### Q: 服务器磁盘满了，这些目录文件可以删吗
 
 ![](../../.gitbook/assets/企业微信截图_1635304491832.png)
 
 这些都是构建产物，目前对构建产物没有过期清理策略，用户可以视情况删除
 
-**Q: 怎么在流水线执行过程中改变参数的值？**
+#### Q: 怎么在流水线执行过程中改变参数的值？
 
 如果是shell插件的话，可以这么修改参数的值`setEnv "{KEY}" "{VALUE}"`
 
-**Q: 1.5.4版本CI，怎么调用openapi**
+#### Q: 1.5.4版本CI，怎么调用openapi
 
 版本还未开启OpenAPI。可以升级到1.5.30及以上版本，该版本已开启OpenAPI。
 
-**Q: 怎么查看凭证里的信息**
+#### Q: 怎么查看凭证里的信息
 
 ![](../../.gitbook/assets/企业微信截图_16372883269771-4480877.png)
 
 出于安全考虑，该内容为加密的，不支持查看
 
-**Q: 代码检查是否支持lua**
+#### Q: 代码检查是否支持lua
 
 代码检查暂不支持lua
 
-**Q: 我是否可以自行扩展代码检查的规则**
+#### Q: 我是否可以自行扩展代码检查的规则
 
 目前自行扩展功能还在开发中，暂不支持用户自行扩展代码检查的规则
 
-**Q: 怎么让流水线task变成可选**
+#### Q: 怎么让流水线task变成可选
 
 `在插件里选择「Skip some on manual trigger」`
 
 ![](../../.gitbook/assets/wecom-temp-ef4f873c64f962cc9582479c26442f2f.png)
 
-**Q: 让蓝盾的日志窗口保留颜色吗？想让失败的案例更明显点**
+#### Q: 让蓝盾的日志窗口保留颜色吗？想让失败的案例更明显点
 
 参考[https://docs.bkci.net/reference/faqs/log-colors](https://docs.bkci.net/reference/faqs/log-colors)
 
-**Q:job-作业执行插件是灰色的，但我已经安装了**
+#### Q:job-作业执行插件是灰色的，但我已经安装了
 
 ![](../../.gitbook/assets/企业微信截图_16384260669700.png)
 
@@ -672,7 +674,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220210193855866.png)
 
-**Q: 这个业务ID是啥**
+#### Q: 这个业务ID是啥
 
 ![](../../.gitbook/assets/企业微信截图_1638426248456.png)
 
@@ -682,7 +684,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220210194135210.png)
 
-**Q: 如果我想通过shell或者bat执行一个python任务，那么蓝盾的变量我只有通过python命令行透传进去嘛,而且无法将变量回写到蓝盾？**
+#### Q: 如果我想通过shell或者bat执行一个python任务，那么蓝盾的变量我只有通过python命令行透传进去嘛,而且无法将变量回写到蓝盾？
 
 问题一：可以通过获取环境变量的方式来获取蓝盾的变量
 
@@ -696,11 +698,11 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
  # 如果是常量，shell可以使用setEnv，bat可以使用call:setEnv来将变量回写到蓝盾 setEnv "var_name" "var_value" # shell call:setEnv "var_name" "var_value"  # bat ​ # 将python脚本输出结果写回蓝盾 var_value=`python script.py` # script.py里需要有print输出，如print("test") setEnv "var_name" "${var_value}" # var_name="test" ​ # 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv python script.py > env.sh # 假设env.sh里为file_name="test.txt" source env.sh setEnv "var_name" "${file_name}"
 ```
 
-**Q: gitlab webhook 报错 URL '**[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)**' is blocked: Host cannot be resolved or invalid**
+#### Q: gitlab webhook 报错 URL '**[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)**' is blocked: Host cannot be resolved or invalid
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
 
-**Q: 请问这个红框框怎么进入？**
+#### Q: 请问这个红框框怎么进入？
 
 ![](../../.gitbook/assets/企业微信截图_16257162702433.png)
 
@@ -708,23 +710,23 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/wecom-temp-f1631f05683e7125be01a6b4e79492dd.png)
 
-**Q: 我看每个job是有自己独立的workspace的，那是否存在多个job公用一个workspace的情况呢？**
+#### Q: 我看每个job是有自己独立的workspace的，那是否存在多个job公用一个workspace的情况呢？
 
 如果用的单构建机（私有构建机），多个job就会共用一个workspace
 
-**Q: 请问下使用 "git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥**
+#### Q: 请问下使用 "git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥
 
 ![](../../.gitbook/assets/企业微信截图_16266633248073.png)
 
 这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
 
-**Q: bkiam v3 failed错误？**
+#### Q: bkiam v3 failed错误？
 
 ![](../../.gitbook/assets/企业微信截图_16273862334714.png)
 
 这个问题一般是由于机器重启导致权限中心的saas容器没有启动导致，将容器重新拉起即可解决
 
-**Q: 如果我想在提pr的时候强制做一次代码扫描，应该如何配置？**
+#### Q: 如果我想在提pr的时候强制做一次代码扫描，应该如何配置？
 
 如果是使用gitlab托管代码，直接配置gitlab触发器，触发的事件类型有：
 
@@ -733,11 +735,11 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 3. Merge Request Hook 当有代码合并时触发
 4. Merge Request Accept Hook 当代码合并后触发
 
-**Q: 代码检查里某些规则不适用于我们公司，怎么修改规则？**
+#### Q: 代码检查里某些规则不适用于我们公司，怎么修改规则？
 
 规则的内容不支持修改，但是规则集可以修改。代码检查是以规则集为单位进行代码扫描的，如果发现有些规则不适用，可以将其从规则集中去掉，如果该规则集是默认规则集不允许用户增删，可以选择在此基础上创建自定义规则集，创建的规则集就可以由用户自行增删其中的某些具体的规则了
 
-**Q: 代码检查失败，Unknown Error：Unexpected char 0x5468 at 0 in X-DEVOPS-UID value：xxx**
+#### Q: 代码检查失败，Unknown Error：Unexpected char 0x5468 at 0 in X-DEVOPS-UID value：xxx
 
 ![](../../.gitbook/assets/企业微信截图_1630326503372.png)
 
@@ -745,15 +747,15 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/企业微信截图_16303286841990.png)
 
-**Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该怎么构造附件的下载链接？**
+#### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该怎么构造附件的下载链接？
 
 [http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/](http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/)${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
 
-**Q: docker公共构建 支持自己的镜像吗？**
+#### Q: docker公共构建 支持自己的镜像吗？
 
 支持，参考[https://docs.bkci.net/store/ci-images](https://docs.bkci.net/store/ci-images)
 
-**Q: 蓝盾支持私有构建集群里选一台空闲的机器运行流水线吗，比如我们编译打包服务器，可能同时会有多个人操作不同分支的打包。**
+#### Q: 蓝盾支持私有构建集群里选一台空闲的机器运行流水线吗，比如我们编译打包服务器，可能同时会有多个人操作不同分支的打包。
 
 如果有多台私有构建机，可以构成私有构建集群，选择这个集群后，蓝盾流水线按照一定的算法选择其中一台进行构建：
 
@@ -781,21 +783,21 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 1. 都没有满足以上条件的
 
-**Q:** [**https://docs.bkci.net/**](https://docs.bkci.net)**打不开**
+#### Q: [**https://docs.bkci.net/**](https://docs.bkci.net)打不开
 
 ![](../../.gitbook/assets/企业微信截图_16342628987332.png)
 
 这个文档是由gitbook托管的，需要访问谷歌的一些资源，如果用户网络访问不了谷歌，会出现这样的问题
 
-**Q: 机器断电后重启，但蓝鲸有些服务没起来，这些服务没有设置开机自启动吗？**
+#### Q: 机器断电后重启，但蓝鲸有些服务没起来，这些服务没有设置开机自启动吗？
 
 服务之间有依赖关系，比如蓝鲸的一些服务依赖于mysql，如果这些服务先于mysql启动，那就会出现启动失败的情况
 
-**Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种怎么做互斥呢**
+#### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种怎么做互斥呢
 
 **占位，待补充**
 
-**Q: 可以针对流水线设置权限嘛，比如一个项目下的十个流水线，A可以看到一部分，B只能看到另一部分，想根据职能划分一下**
+#### Q: 可以针对流水线设置权限嘛，比如一个项目下的十个流水线，A可以看到一部分，B只能看到另一部分，想根据职能划分一下
 
 权限中心可以针对单个流水线进行管理，首先要给特定用户授予项目的权限，然后再授予单个流水线的权限
 
@@ -805,24 +807,24 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/wecom-temp-1e44f6048453bb9873ad1cc81c869a5e.png)
 
-**Q: 请问流水线的变量能联动吗，比如我下拉选择了变量1的值为A，变量2的值自动变为A？**
+#### Q: 请问流水线的变量能联动吗，比如我下拉选择了变量1的值为A，变量2的值自动变为A？
 
 暂时还不支持联动，如果值没什么变化，可以设置默认值
 
-**Q: 有支持git push的插件吗，想push一些东西到代码仓库上**
+#### Q: 有支持git push的插件吗，想push一些东西到代码仓库上
 
 可以试着用账密的方式push： git push [http://username:passwd@xxx](http://username:passwd@xxx)，username和passwd可以使用凭证管理起来，username和passwd不允许有特殊字符，蓝盾在渲染变量的时候，不会转义特殊字符
 
-**Q: 怎么重启私有构建上的蓝盾agent**
+#### Q: 怎么重启私有构建上的蓝盾agent
 
 可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
 
-**Q: 私有构建机怎么重装蓝盾agent**
+#### Q: 私有构建机怎么重装蓝盾agent
 
 1. 在linux/Mac上，可以支持重新执行安装命令，如果之前遇到安装错误，建议先uninstall，然后删除干净安装目录，重新跑安装命令
 2. windows上需要先uninstall，然后删除安装目录，重新下载安装包，重复安装过程即可
 
-**Q: 怎么使用流水线的视图功能**
+#### Q: 怎么使用流水线的视图功能
 
 视图可以将流水线分类，允许用户根据流水线的创建人或者流水线的名称来进行分类，多个条件之间支持与/或关系，条件的键值是include的逻辑，不支持模糊匹配以及正则表达式，比如当流水线的名称对应的键值为`vinco`时，会匹配到该项目中所有流水线名称中包含`vinco`字样的流水线
 
@@ -830,17 +832,17 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220125152350168.png)
 
-**Q: TGit插件无法选择gitlab代码库**
+#### Q: TGit插件无法选择gitlab代码库
 
 TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
-**Q: 定时触发的流水线，时间显示不对，触发时间也不对**
+#### Q: 定时触发的流水线，时间显示不对，触发时间也不对
 
 ![](../../.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)
 
 请检查蓝盾服务器的时间是否正常
 
-**Q:流水线的历史页面，能显示自定义内容吗，比如同一条流水线，有时候是打包安卓，有时候是打包ios，单看历史页面，无法分辨出来构建内容**
+#### Q:流水线的历史页面，能显示自定义内容吗，比如同一条流水线，有时候是打包安卓，有时候是打包ios，单看历史页面，无法分辨出来构建内容
 
 ![](../../.gitbook/assets/企业微信截图_16364221097534.png)
 
@@ -850,17 +852,17 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ![](../../.gitbook/assets/wecom-temp-9418a7960b89c65268c6947f46d95f72.png)
 
-**Q: windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问**
+#### Q: windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问
 
 ![](../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
 
 这种情况一般是由于用户重复安装蓝盾agent导致，可以先执行uninstall脚本，卸载当前agent，然后删除该agent的安装目录，然后重新下载agent包，再次安装
 
-**Q: 蓝盾的执行历史有设置上限的地方，我这个定时流水线可能1分钟一次，数据会浪费磁盘**
+#### Q: 蓝盾的执行历史有设置上限的地方，我这个定时流水线可能1分钟一次，数据会浪费磁盘
 
 频率高的定时任务，建议使用蓝鲸的作业平台
 
-**Q: Ubuntu蓝鲸agent安装失败，no enough space left in /tmp，但机器是有磁盘空间剩余的**
+#### Q: Ubuntu蓝鲸agent安装失败，no enough space left in /tmp，但机器是有磁盘空间剩余的
 
 ![](../../.gitbook/assets/企业微信截图_16316948048063.png)
 
@@ -872,7 +874,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ![](../../.gitbook/assets/wecom-temp-62020c1b6e41f1f9e6e421bfe0a7dc70.png)
 
-**Q: 关联镜像的时候，镜像验证不通过**
+#### Q: 关联镜像的时候，镜像验证不通过
 
 ![](../../.gitbook/assets/企业微信截图_16328099498489.png)
 
@@ -882,11 +884,11 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ![](../../.gitbook/assets/image-20220301101202-lncwv.png)
 
-**Q: bkci的镜像有基于Ubuntu系统的吗**
+#### Q: bkci的镜像有基于Ubuntu系统的吗
 
 没有现成的基于Ubuntu的bkci镜像，用户可以根据指引来打包自己的镜像：[https://bk.tencent.com/docs/document/6.0/129/7518](https://bk.tencent.com/docs/document/6.0/129/7518)
 
-**Q: 如果我有多个公共构建机，公共构建机的调度算法是怎么样的，什么情况任务会调度到另一台构建机上执行？**
+#### Q: 如果我有多个公共构建机，公共构建机的调度算法是怎么样的，什么情况任务会调度到另一台构建机上执行？
 
 算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
 
@@ -894,7 +896,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
  内存阈值：80% 磁盘IO：85% 磁盘空间：90%
 ```
 
-**Q: 如何调整调度算法中的资源阈值**
+#### Q: 如何调整调度算法中的资源阈值
 
 目前只支持调整内存阈值，默认是80%，即当公共构建机的内存使用率达到80%时，如果其他构建机还有空闲资源，任务会被调度到其他构建机，这个阈值是可以修改的，修改方法如下，登录到蓝盾dispatch-docker服务的机器上， 执行：
 
@@ -902,15 +904,15 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
  # threshold的值即为阈值百分比，这里以将内存阈值调整为70%为例 curl -H 'Accept:application/json;charset="utf-8"' -H 'Content-Type:application/json;charset="utf-8"' -H "X-DEVOPS-UID: admin" -X POST --data '{"threshold":"70"}' http://127.0.0.1:21938/api/op/dispatchDocker/docker/threshold/update
 ```
 
-**Q: 偶现启动构建机启动失败，Get credential failed**
+#### Q: 偶现启动构建机启动失败，Get credential failed
 
 已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
 
-**Q: 怎么删除公共构建机**
+#### Q: 怎么删除公共构建机
 
 登录到蓝盾dispatch-docker服务的机器上，执行`/data/src/ci/scripts/bkci-op.sh list`获取所有的公共构建机，执行`/data/src/ci/scripts/bkci-op.sh del`操作
 
-**Q: 构建步骤卡在准备构建环境这一环**
+#### Q: 构建步骤卡在准备构建环境这一环
 
 ![](../../.gitbook/assets/企业微信截图_16419529383724.png)
 
@@ -928,6 +930,6 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ![](../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
 
-**Q: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态**
+#### Q: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态
 
 常见于在公共构建机上运行耗费内存的编译任务，导致容器oom，在公共构建机上执行`grep oom /var/log/messages`通常能看到匹配记录，如果是因为多个任务同时跑在同一台构建机上导致oom，可以通过调整调度算法的内存阈值，避免单台构建机上运行过多任务；如果单个编译任务就触发oom，建议调高构建机的内存，或者使用内存更高的私有构建机
