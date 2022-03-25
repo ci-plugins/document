@@ -471,35 +471,35 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 2. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
 3. 如果gitlab webhook页面没有注册webhook的记录，如
 
-![](../../.gitbook/assets/image-20220128124536187.png)
+    ![](../../.gitbook/assets/image-20220128124536187.png)
 
-&#x20;           ① 查看repository服务到gitlab的网络是否能通，比如是否配置gitlab的域名解析
+    1. 查看repository服务到gitlab的网络是否能通，比如是否配置gitlab的域名解析
 
-&#x20;           ② 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的maintainer角色
+    2. 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的maintainer角色
 
-![](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
+        ![](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
 
-&#x20;           ③ 在repository服务部署的机器上，执行`grep "Start to add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
+    3. 在repository服务部署的机器上，执行`grep "Start to add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
 
-4\. 如果gitlab上有webhook注册记录，如
+4. 如果gitlab上有webhook注册记录，如
 
-![](../../.gitbook/assets/assets%2F-MZIuzLgCmrIqRRM_hhk%2F-MgARdPL7ztbRh6yVUi1%2F-MgAS60psAU1Q-JTs5Pa%2Fimage.png)
+    ![](../../.gitbook/assets/image-gitlab-webhook-edit.png)
 
-如果还是没有触发：
+    如果还是没有触发：
 
-&#x20;           ① 点击对应webhook的Edit，查看webhook的发送详情，查看View detail
+    1. 点击对应webhook的Edit，查看webhook的发送详情，查看View detail
 
-![](../../.gitbook/assets/assets%2F-MZIuzLgCmrIqRRM_hhk%2F-MgARdPL7ztbRh6yVUi1%2F-MgASDVq3jLHct1KQO9i%2Fimage.png)
+        ![](../../.gitbook/assets/image-gitlab-webhook-viewdetail.png)
 
-&#x20;           ② 查看发送的错误详情，检查gitlab到蓝盾机器的网络是否可达，如gitlab服务器是否能解析蓝盾域名
+    2. 查看发送的错误详情，检查gitlab到蓝盾机器的网络是否可达，如gitlab服务器是否能解析蓝盾域名
 
-![](../../.gitbook/assets/assets%2F-MZIuzLgCmrIqRRM_hhk%2F-MgARdPL7ztbRh6yVUi1%2F-MgASGYgduJyox9T6_lE%2Fimage.png)
+        ![](../../.gitbook/assets/image-gitlab-webhook-request-detail.png)
 
-4\. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配
+5. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配，如下所示：
 
-![](../../.gitbook/assets/企业微信截图_65730911-c804-494c-80c4-d574ad843749.png)
+    ![](../../.gitbook/assets/企业微信截图_65730911-c804-494c-80c4-d574ad843749.png)
 
-![](../../.gitbook/assets/wecom-temp-93d79eaa40a0ebdfaeff197d3016e1ee.png)
+    ![](../../.gitbook/assets/wecom-temp-93d79eaa40a0ebdfaeff197d3016e1ee.png)
 
 ### Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
