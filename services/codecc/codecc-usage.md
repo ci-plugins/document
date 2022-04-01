@@ -26,7 +26,7 @@
 
 1. 使用accesstoken来关联
 2. 创建accesstoken的所有者须是目标仓库的maintainer角色
-3. accesstoken至少需要read\_api的权限
+3. accesstoken至少需要api的权限
 4. 源代码地址是http/https协议的
 
 accesstoken 使用「凭证管理」来进行注册，如果在「凭证管理」已经注册accesstoken，关联代码库时，可直接选中对应的accesstoken

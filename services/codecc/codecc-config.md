@@ -6,7 +6,7 @@
 
 ![同步执行方式配置](../../.gitbook/assets/image-codecc-sync-config.png)
 
-![同步执行的任务](../../.gitbook/assets/image-codecc-asynchronize)
+![同步执行的任务](../../.gitbook/assets/image-codecc-asynchronize.png)
 
 **异步执行方式：**
 
