@@ -71,7 +71,7 @@ echo "##[endgroup]"
 
 ![](../../.gitbook/assets/image-20220301101202-uphlD.png)
 
-### Q: 蓝盾流水线进度条是怎么计算的？
+### Q: 蓝盾流水线进度条是如何计算的？
 
 进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。&#x20;
 
@@ -135,7 +135,7 @@ echo "##[endgroup]"
 
 蓝盾git插件暂无push功能。用户可将ssh私钥放置构建机上，在Batch Script插件或者Bash插件里使用git命令push产物达到临时解决方案。
 
-### Q: 怎么在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
+### Q: 如何在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
 
 蓝盾为bash插件提供了 setEnv 命令来设置蓝盾的全局变量, `setEnv '变量名' '变量值'` 如：
 
@@ -165,7 +165,7 @@ setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的
 
 流水线stage-1 trigger选择remote. 然后标准运维调用job快速执行脚本, 调用remote插件里提示的url.
 
-### Q:构建里面怎么使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
+### Q:构建里面如何使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
 
 可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
 
@@ -278,7 +278,7 @@ docker run -it --rm centos
 curl -v paas.service.consul
 ```
 
-### Q:agent里面需要连网下docker，服务器连不了网，要怎么处理呢？
+### Q:agent里面需要连网下docker，服务器连不了网，要如何处理呢？
 
 目前公共构建机可以使用任意镜像, 无编译环境需要联网下载镜像.&#x20;
 
@@ -294,7 +294,7 @@ curl -v paas.service.consul
 
 如果是普通用户创建的, 可以切换到管理员账户查看是否成功创建.&#x20;
 
-### Q: 挂载怎么用， 下拉框没数据
+### Q: 挂载如何使用， 下拉框没数据
 
 ![](../../.gitbook/assets/image-20220301101202-sxXbU.png)
 
@@ -449,7 +449,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ![](../../.gitbook/assets/wecom-temp-ac68ebc38b2022819c8540b00100d2fb.png)
 
-### Q: 怎么使用Merge-Request-Accept-Hook，我的怎么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
+### Q: 如何使用Merge-Request-Accept-Hook，我为什么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
 
 ![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
@@ -525,7 +525,7 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 可以将有空格的命令用引号""括起来
 
-### Q: 怎么通过接口获取项目**
+### Q: 如何通过接口获取项目**
 
 curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://devops.bktencent.com/prod/v3/apigw-app/projects/) -H "Content-Type: application/json" -H "X-DEVOPS-UID: admin"
 
@@ -540,7 +540,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 暂不支持修改
 
-### Q: 怎么获取项目名称，我想要在企业微信通知消息里带上
+### Q: 如何获取项目名称，我想要在企业微信通知消息里带上
 
 使用全局变量`${BK_CI_PROJECT_NAME}`
 
@@ -570,7 +570,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220210120321712.png)
 
-### Q: 插件变量的值怎么获取、怎么写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
+### Q: 插件变量的值如何获取、如何写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
 
 ![](../../.gitbook/assets/企业微信截图_16318512177997.png)
 
@@ -602,7 +602,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
  nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
 ```
 
-### Q:怎么有条件的执行CallPipeline插件
+### Q:如何有条件的执行CallPipeline插件
 
 插件下面有一个流程控制，在流程控制中根据需要添加运行条件可以满足需求
 
@@ -614,7 +614,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 需要这样引用变量`${flushDB}`
 
-### Q: 怎么引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
+### Q: 如何引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
 
 变量引用需要加花括号`${BK_CI_BUILD_FAIL_TASKS}`
 
@@ -634,15 +634,15 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 这些都是构建产物，目前对构建产物没有过期清理策略，用户可以视情况删除
 
-### Q: 怎么在流水线执行过程中改变参数的值？
+### Q: 如何在流水线执行过程中改变参数的值？
 
 如果是shell插件的话，可以这么修改参数的值`setEnv "{KEY}" "{VALUE}"`
 
-### Q: 1.5.4版本CI，怎么调用openapi
+### Q: 1.5.4版本CI，如何调用openapi
 
 版本还未开启OpenAPI。可以升级到1.5.30及以上版本，该版本已开启OpenAPI。
 
-### Q: 怎么查看凭证里的信息
+### Q: 如何查看凭证里的信息
 
 ![](../../.gitbook/assets/企业微信截图_16372883269771-4480877.png)
 
@@ -656,7 +656,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 目前自行扩展功能还在开发中，暂不支持用户自行扩展代码检查的规则
 
-### Q: 怎么让流水线task变成可选
+### Q: 如何让流水线task变成可选
 
 `在插件里选择「Skip some on manual trigger」`
 
@@ -702,7 +702,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
 
-### Q: 请问这个红框框怎么进入？
+### Q: 请问这个红框框如何进入？
 
 ![](../../.gitbook/assets/企业微信截图_16257162702433.png)
 
@@ -735,7 +735,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 3. Merge Request Hook 当有代码合并时触发
 4. Merge Request Accept Hook 当代码合并后触发
 
-### Q: 代码检查里某些规则不适用于我们公司，怎么修改规则？
+### Q: 代码检查里某些规则不适用于我们公司，如何修改规则？
 
 规则的内容不支持修改，但是规则集可以修改。代码检查是以规则集为单位进行代码扫描的，如果发现有些规则不适用，可以将其从规则集中去掉，如果该规则集是默认规则集不允许用户增删，可以选择在此基础上创建自定义规则集，创建的规则集就可以由用户自行增删其中的某些具体的规则了
 
@@ -747,7 +747,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/企业微信截图_16303286841990.png)
 
-### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该怎么构造附件的下载链接？
+### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该如何构造附件的下载链接？
 
 [http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/](http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/)${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
 
@@ -793,7 +793,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 服务之间有依赖关系，比如蓝鲸的一些服务依赖于mysql，如果这些服务先于mysql启动，那就会出现启动失败的情况
 
-### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种怎么做互斥呢
+### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种如何做互斥呢
 
 **占位，待补充**
 
@@ -815,16 +815,16 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 可以试着用账密的方式push： git push [http://username:passwd@xxx](http://username:passwd@xxx)，username和passwd可以使用凭证管理起来，username和passwd不允许有特殊字符，蓝盾在渲染变量的时候，不会转义特殊字符
 
-### Q: 怎么重启私有构建上的蓝盾agent
+### Q: 如何重启私有构建上的蓝盾agent
 
 可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
 
-### Q: 私有构建机怎么重装蓝盾agent
+### Q: 私有构建机如何重装蓝盾agent
 
 1. 在linux/Mac上，可以支持重新执行安装命令，如果之前遇到安装错误，建议先uninstall，然后删除干净安装目录，重新跑安装命令
 2. windows上需要先uninstall，然后删除安装目录，重新下载安装包，重复安装过程即可
 
-### Q: 怎么使用流水线的视图功能
+### Q: 如何使用流水线的视图功能
 
 视图可以将流水线分类，允许用户根据流水线的创建人或者流水线的名称来进行分类，多个条件之间支持与/或关系，条件的键值是include的逻辑，不支持模糊匹配以及正则表达式，比如当流水线的名称对应的键值为`vinco`时，会匹配到该项目中所有流水线名称中包含`vinco`字样的流水线
 
@@ -888,7 +888,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 没有现成的基于Ubuntu的bkci镜像，用户可以根据指引来打包自己的镜像：[https://bk.tencent.com/docs/document/6.0/129/7518](https://bk.tencent.com/docs/document/6.0/129/7518)
 
-### Q: 如果我有多个公共构建机，公共构建机的调度算法是怎么样的，什么情况任务会调度到另一台构建机上执行？
+### Q: 如果我有多个公共构建机，公共构建机的调度算法是什么样的，什么情况任务会调度到另一台构建机上执行？
 
 算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
 
@@ -908,7 +908,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
 
-### Q: 怎么删除公共构建机
+### Q: 如何删除公共构建机
 
 登录到蓝盾dispatch-docker服务的机器上，执行`/data/src/ci/scripts/bkci-op.sh list`获取所有的公共构建机，执行`/data/src/ci/scripts/bkci-op.sh del`操作
 
