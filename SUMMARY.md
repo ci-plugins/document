@@ -76,6 +76,7 @@
   * [代码检查配置](services/codecc/codecc-config.md)
   * [代码检查结果](services/codecc/codecc-result.md)
   * [代码检查规则](services/codecc/codecc-ruleset.md)
+  * [代码检查部署所需资源](services/codecc/codecc-cost.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
