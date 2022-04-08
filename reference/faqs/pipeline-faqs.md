@@ -483,7 +483,7 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
         ![需要是maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png)
 
-    3. 在repository服务部署的机器上，执行`grep "Start to add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
+    3. 在repository服务部署的机器上，执行`grep "add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
 
 4. 如果gitlab上有webhook注册记录，如
 
