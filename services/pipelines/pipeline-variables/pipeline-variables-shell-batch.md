@@ -12,6 +12,11 @@ setEnv 'version' '3.2.16'
 
 setEnv 设置的是当前shell的输出参数，在下游才会生效，当前的shell里打印不出来的。
 
+```shell
+# 在后续的shell插件中引用version
+echo ${version}
+```
+
 ## 在Batchscript插件里使用变量
 
 ```bat
@@ -23,4 +28,10 @@ REM call:setEnv "FILENAME" "package.zip"
 REM 然后在后续的插件的表单中使用%FILENAME%引用这个变量
 call:setEnv "FILENAME" "package.zip"
 
+```
+
+在后续Batchscript插件中引用FILENAME
+```bat
+echo on
+echo %FILENAME%
 ```

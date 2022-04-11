@@ -1,9 +1,9 @@
 # 使用变量来控制流水线
 
 用户可以通过自定义变量来控制后续task的执行，从而达到控制流水线执行流的目的
-场景：当stage2的shell脚本执行成功的时候，stage3的shell脚本才执行
+**假设一种场景：** 当stage2的shell脚本执行成功的时候，stage3的shell脚本才执行
 
-1. 设置status变量
+1. stage2 shell插件设置status变量
 
 ![shell脚本末尾设置status变量](../../../.gitbook/assets/image-variables-set-status-success.png)
 
