@@ -107,6 +107,21 @@
 | hidden | 是否隐藏 | 布尔 | 非必填 |
 | isSensitive | 是否敏感 | 布尔 | 非必填，敏感信息在日志中不会展示明文 |
 | rely | 根据条件显示/隐藏当前字段 | 对象 | 非必填 |
+| rule | 值有效性限制 | 对象 | 非必填<br/>支持如下属性：<br/>alpha: 只允许英文字符，布尔，true/false <br/>numeric: 只允许数字，布尔，true/false <br/>alpha_dash: 可以包含英文、数字、下划线、中划线，布尔，true/ false <br/>alpha_num: 可以包含英文和数字，布尔，true/false<br/>max: 字符串最大长度, int <br/>min: 字符串最小长度, int <br/>regex: 正则表达式字符串 |
+
+
+**rule 配置示例：**
+```json
+// 只允许填写字母，且字符串长度为3-7
+"rule": {
+    "min": 3,
+    "max": 7,
+    "alpha": true
+}
+
+// 正则匹配以数字开头的字符串
+"rule": { "regex": "^[0-9]" }
+```
 
 **针对不同type的组件，有个性化的属性**
 
@@ -331,6 +346,62 @@
 执行时传给插件后台的数据示例：
 
 \[{"id":"parameterId","values":\[{"id":123,"value":"3d029fbe08c011e99792fa163e50f2b5,${abc}"},{"id":1233,"value":"ab"},{"id":1235,"value":"id"}\]}\]
+
+12、**简化版动态参数组件：dynamic-parameter-simple**
+
+* 组件属性
+
+| 属性名	| 属性说明	| 必填	| 格式	| 备注 | 
+| :--- | :--- | :--- | :--- | :--- |
+| rowAttributes[N].id	| 该属性的唯一ID, | 必填| 	是| 	String	| 
+| rowAttributes[N].type	| 可选项: ["input", "select"]	| 是| 	String| 	当使用"select"时，需带有rowAttributes[N].options项| 
+| rowAttributes[N].options| 	在页面上的下拉框选项| 	当rowAttributes[N].type为"select", 则为是| 	Array Of Instance Option	| 
+| rowAttributes[N].options[M].name| 	在页面上的显示值| 	当rowAttributes[N].type为"select", 则为是	| String	| 
+| rowAttributes[N].options[M].id	| 实际选取的值	| 当rowAttributes[N].type为"select", 则为是	| String	| 
+
+* 配置示例
+```
+{
+  "input": {
+    "input_dynamic_parameter_simple": {
+      "label": "动态参数(简易版)",
+      "type": "dynamic-parameter-simple",
+      "parameters": [
+        {
+          "rowAttributes": [
+            {
+              "id": "ip",               # 该属性的唯一ID, 必填
+              "label": "IP",
+              "type": "input",          # 可选值:["input", "select"], 如使用"input", 则"options"不填写
+              "placeholder": "IP",
+              "desc": "IP信息",
+              "default": "8.8.8.8"
+            },
+            {
+              "id": "protocol_port",
+              "label": "协议\\端口",
+              "type": "select",         # 可选值:["input", "select"], 如使用"select", 则必须带有"options"项
+              "options": [              # 当type为"select"时, 则必须填写
+                {
+                  "id": "80",           # 实际选取的值
+                  "name": "HTTP\\80"    # 在页面上的显示值
+                },
+                {
+                  "id": "443",          # 实际选取的值
+                  "name": "HTTPS\\443"  # 在页面上的显示值
+                }
+              ],
+              "desc": "协议\\端口"
+            }
+          ]
+        }
+      ],
+      "desc": "动态参数(简易版)输入示例"
+    }
+  }
+}
+
+```
 
 #### 支持的特性 <a id="%E6%94%AF%E6%8C%81%E7%9A%84%E7%89%B9%E6%80%A7"></a>
 
