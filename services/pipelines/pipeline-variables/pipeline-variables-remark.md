@@ -6,14 +6,14 @@
 
 1. 设置备注变量
 
-![设置备注变量](../../../.gitbook/assets/image-variables-set-remark.png)
+    ![设置备注变量](../../../.gitbook/assets/image-variables-set-remark.png)
 
 2. 展示备注变量
 
-![设置显示列](../../../.gitbook/assets/image-variables-config-column.png)
+    ![设置显示列](../../../.gitbook/assets/image-variables-config-column.png)
 
-![选择备注](../../../.gitbook/assets/image-variables-select-remark.png)
+    ![选择备注](../../../.gitbook/assets/image-variables-select-remark.png)
 
-![展示备注变量](../../../.gitbook/assets/image-variables-remark-view.png)
+    ![展示备注变量](../../../.gitbook/assets/image-variables-remark-view.png)
 
 **注意**：备注变量只有当流水线执行结束才会展示
