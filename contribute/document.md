@@ -22,9 +22,9 @@
 
 首先得拥有github账号，并登录，访问https://github.com/ci-plugins/document，fork到自己的github账号下
 
-![image-20220306234726724](../.gitbook/assets/image-20220306234726724.png)
+![image-contributing-fork-repo](../.gitbook/assets/image-contributing-fork-repo.png)
 
-![image-20220306234812651](../.gitbook/assets/image-20220306234812651.png)
+![image-contributing-fork-success](../.gitbook/assets/image-contributing-fork-success.png)
 
 ### 2. Clone  
 
@@ -38,8 +38,7 @@
 cd /path/to/document
 git config user.name "${你的github用户名}"
 git config user.mail "${你的邮箱}"
-git checkout -b dev origin/dev
-echo "add xxx" > xxx.md
+echo "add xxx" > xxx.md  # 模拟用户编辑文档操作
 git commit -m "add xxx"
 ```
 
@@ -47,39 +46,34 @@ git commit -m "add xxx"
 
 在将commit提交到自己的仓库前，查看自己fork出来的代码是否落后于源仓库代码，如果落后，先操作`Fetch upstream`，将源仓库代码的更新下同步到自己仓库。`compare`查看代码差异，`Fetch and merge`将源仓库代码合并到自己仓库
 
-![image-20220307000537768](../.gitbook/assets/image-20220307000537768.png)
+![image-contributing-fetch-upstream](../.gitbook/assets/image-contributing-fetch-upstream.png)
 
-![image-20220307000634161](../.gitbook/assets/image-20220307000634161.png)
+![image-contributing-fetch-merge](../.gitbook/assets/image-contributing-fetch-merge.png)
 
-![image-20220307000819055](../.gitbook/assets/image-20220307000819055.png)
+![image-contributing-merge-upstream-success](../.gitbook/assets/image-contributing-merge-upstream-success.png)
 
-
-
-除了在页面上同步最新代码外，还可以在本地仓库里同步最新代码
-
-```
-git remote add upstream-repo https://github.com/ci-plugins/document
-git pull upstream-repo dev:dev # 如果有冲突无法合并，请自行解决冲突并合并
-```
 
 ### 5. Git pull
 
-更新本地代码
+除了在页面上同步最新代码外，还要在本地仓库里同步最新代码
+更新本地代码（建议每次在修改文档之前都先执行一次git pull）：
 
 ```
-git pull origin dev:dev # 如果有冲突无法合并，请自行解决冲突并合并
+git pull # 如果有冲突无法合并，请自行解决冲突并合并,并重新提交
 ```
 
 ### 6. Git push
 
 ```
-git push origin dev:dev
+git push -u origin master
 ```
 
 ### 7. Pull request
 
 发起PR，请求合并到源仓库dev分支，等待管理员审核通过
 
-![image-20220307003446199](../.gitbook/assets/image-20220307003446199.png)
+![image-contributing-view-pr](../.gitbook/assets/image-contributing-view-pr.png)
 
-![image-20220307003639376](../.gitbook/assets/image-20220307003639376.png)
+![image-contributing-new-pr](../.gitbook/assets/image-contributing-new-pr.png)
+
+![image-contributing-create-pr](../.gitbook/assets/image-contributing-create-pr.png)
