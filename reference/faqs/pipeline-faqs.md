@@ -8,17 +8,17 @@ coverY: 0
 
 在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
 
-| 关键字 | 作用 | 备注 |
-| :--- | :--- | :--- |
-| \#\#\[section\] | 一个Job或者插件的开头 | 如果是插件开头，必须包含在一个Job的Starting内 |
-| \#\#\[endsection\] | 一个Job或者插件的结尾 | 如果是插件结尾，必须包含在一个Job的Finishing内 |
-| \#\#\[command\] | 将后面的字符串以ShellScripts高亮 | \#0070BB |
-| \#\#\[info\] | 将后面的字符串标记为info颜色 | \#48BB31 |
-| \#\#\[warning\] | 将后面的字符串标记为warning颜色 | \#BBBB23 |
-| \#\#\[error\] | 将后面的字符串标记为error颜色 | \#DE0A1A |
-| \#\#\[debug\] | 将后面的字符串标记为debug颜色 | \#0D8F61 |
-| \#\#\[group\] | 一个折叠的开始 |  |
-| \#\#\[endgroup\] | 一个折叠的结束 |  |
+| 关键字             | 作用                     | 备注                            |
+| --------------- | ---------------------- | ----------------------------- |
+| ##\[section]    | 一个Job或者插件的开头           | 如果是插件开头，必须包含在一个Job的Starting内  |
+| ##\[endsection] | 一个Job或者插件的结尾           | 如果是插件结尾，必须包含在一个Job的Finishing内 |
+| ##\[command]    | 将后面的字符串以ShellScripts高亮 | #0070BB                       |
+| ##\[info]       | 将后面的字符串标记为info颜色       | #48BB31                       |
+| ##\[warning]    | 将后面的字符串标记为warning颜色    | #BBBB23                       |
+| ##\[error]      | 将后面的字符串标记为error颜色      | #DE0A1A                       |
+| ##\[debug]      | 将后面的字符串标记为debug颜色      | #0D8F61                       |
+| ##\[group]      | 一个折叠的开始                |                               |
+| ##\[endgroup]   | 一个折叠的结束                |                               |
 
 **以Bash插件为例：**
 
@@ -44,7 +44,7 @@ echo "##[endgroup]"
 
 你将看到如下图所示效果
 
-![](../../.gitbook/assets/image2020-1-9_21-59-12.png)
+![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
 
 ### Q: gitlab事件触发插件无法触发事件?
 
@@ -55,31 +55,31 @@ echo "##[endgroup]"
    3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
 3. 如果已注册，还是没有触发，
    1. 到gitlab的webhook页面，查看是否有注册成功，如图1
-   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://域名/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
+   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://xn--eqrt2g/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
    3. 查看gitlab没有发送的详情，如图3
 4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
 
-![](../../.gitbook/assets/image%20%2858%29%20%281%29.png)
+![](<../../.gitbook/assets/image (58) (1).png>)
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![](<../../.gitbook/assets/image (59).png>)
 
-![](../../.gitbook/assets/image%20%2857%29.png)
+![](<../../.gitbook/assets/image (57).png>)
 
 ### Q: 流水线的各个状态代表什么意思？
 
-流水线的状态汇总如下：&#x20;
+流水线的状态汇总如下：
 
 ![](../../.gitbook/assets/image-20220301101202-uphlD.png)
 
-### Q: 蓝盾流水线进度条是怎么计算的？
+### Q: 蓝盾流水线进度条是如何计算的？
 
-进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。&#x20;
+进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
 
 ![](../../.gitbook/assets/进度条.png)
 
 ### Q: 蓝盾流水线构建出的产物如何支持服务器分发限速配置?
 
-调整分发源的限速，如下图。 对于已经安装agent的机器，可以先移除，再安装。 分发源机器IP: 192.168.5.134&#x20;
+调整分发源的限速，如下图。 对于已经安装agent的机器，可以先移除，再安装。 分发源机器IP: 192.168.5.134
 
 ![](../../.gitbook/assets/image-20220301101202-PluSB.png)
 
@@ -89,7 +89,7 @@ echo "##[endgroup]"
 
 ### Q: 项目名称是否支持修改？
 
-项目名称可在项目管理内更改，项目英文缩写（即项目id）不能更改。 &#x20;
+项目名称可在项目管理内更改，项目英文缩写（即项目id）不能更改。
 
 ![](../../.gitbook/assets/image-20220301101202-qTzdw.png)
 
@@ -101,7 +101,7 @@ echo "##[endgroup]"
 
 ### Q: 如何通过蓝盾将构建产物自动分发到指定服务器？
 
-有了部署机器，我们可以将构件分发至测试机上了。首先添加一个无编译环境Job 3-1，添加插件作业平台-构件分发并完成配置。&#x20;
+有了部署机器，我们可以将构件分发至测试机上了。首先添加一个无编译环境Job 3-1，添加插件作业平台-构件分发并完成配置。
 
 ![](../../.gitbook/assets/image-20220301101202-vGRcA.png)
 
@@ -113,7 +113,7 @@ echo "##[endgroup]"
 
 ### Q: 查看日志时，如何查看时间戳？
 
-查看日志页，Show/Hide Timestamp&#x20;
+查看日志页，Show/Hide Timestamp
 
 ![](../../.gitbook/assets/image-20220301101202-QERjn.png)
 
@@ -123,7 +123,7 @@ echo "##[endgroup]"
 
 ### Q: 为什么有时候会出现需要申请流水线权限的情况，但是F5刷新之后恢复？
 
-存在权限冲突，在用户组权限里，是有多个流水线的权限。 但是自定义里面只有一个流水线的权限。 后续更新版本会修复这个问题。解决方案为删除自定义权限。后续会通过版本更新修复该问题。&#x20;
+存在权限冲突，在用户组权限里，是有多个流水线的权限。 但是自定义里面只有一个流水线的权限。 后续更新版本会修复这个问题。解决方案为删除自定义权限。后续会通过版本更新修复该问题。
 
 ![](../../.gitbook/assets/image-20220301101202-HIaKn.png)
 
@@ -135,7 +135,7 @@ echo "##[endgroup]"
 
 蓝盾git插件暂无push功能。用户可将ssh私钥放置构建机上，在Batch Script插件或者Bash插件里使用git命令push产物达到临时解决方案。
 
-### Q: 怎么在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
+### Q: 如何在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
 
 蓝盾为bash插件提供了 setEnv 命令来设置蓝盾的全局变量, `setEnv '变量名' '变量值'` 如：
 
@@ -165,13 +165,13 @@ setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的
 
 流水线stage-1 trigger选择remote. 然后标准运维调用job快速执行脚本, 调用remote插件里提示的url.
 
-### Q:构建里面怎么使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
+### Q:构建里面如何使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
 
 可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
 
 ### Q:使用docker build生成镜像是不是只能使用私有构建机才行？
 
-建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.&#x20;
+建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.
 
 如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
 
@@ -218,7 +218,7 @@ docker默认是https的, 这个要改服务端的docker. 需要在dockerhost机�
 
 BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名配置进insecure
 
-走https的话如果仓库域名不是docker客户端开始装的时候对应的那个证书的话，需要在构建机导入这个域名对应的证书 &#x20;
+走https的话如果仓库域名不是docker客户端开始装的时候对应的那个证书的话，需要在构建机导入这个域名对应的证书
 
 ### Q:no available Docker VM
 
@@ -228,7 +228,7 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 1\. 在ci-dispatch节点执行 /data/src/ci/scripts/bkci-op.sh list 查看是否有状态为true的行.
 
-2\. 如果依旧无法调度, 需要检查ci-dispatch的日志有无异常. 或者涉及dockerhost ip的日志.&#x20;
+2\. 如果依旧无法调度, 需要检查ci-dispatch的日志有无异常. 或者涉及dockerhost ip的日志.
 
 原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
 
@@ -254,13 +254,13 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 windows下，agent无法拉起有UI界面的exe
 
-这个是windows  session 0 限制
+这个是windows session 0 限制
 
 ### Q: failed to connect to gitlib.xxx.com port 443:connection timed out 构建失败 提示连接443端口超时
 
 ![](../../.gitbook/assets/image-20220301101202-AaxCJ.png)
 
-这里断网的原因是dockerhost启动后, 执行过sysctl -p等价的命令, 导致 net.ipv4.ip\_forward 被重置为0, 导致容器断网.&#x20;
+这里断网的原因是dockerhost启动后, 执行过sysctl -p等价的命令, 导致 net.ipv4.ip\_forward 被重置为0, 导致容器断网.
 
 ```
 sysctl -p | grep -F net.ipv4.ip_forward
@@ -278,11 +278,11 @@ docker run -it --rm centos
 curl -v paas.service.consul
 ```
 
-### Q:agent里面需要连网下docker，服务器连不了网，要怎么处理呢？
+### Q:agent里面需要连网下docker，服务器连不了网，要如何处理呢？
 
-目前公共构建机可以使用任意镜像, 无编译环境需要联网下载镜像.&#x20;
+目前公共构建机可以使用任意镜像, 无编译环境需要联网下载镜像.
 
-目前需要你将无编译环境部署到可联网的区域, 并放行访问docker hub的地址.&#x20;
+目前需要你将无编译环境部署到可联网的区域, 并放行访问docker hub的地址.
 
 公共构建机填写镜像地址为你们的私有docker registry.
 
@@ -290,23 +290,23 @@ curl -v paas.service.consul
 
 ### Q:新增完凭据之后 选择的时候没有
 
-检查创建完毕后浏览器有无报错, 检查 ci-auth 及 ci-ticket 的日志有无异常.&#x20;
+检查创建完毕后浏览器有无报错, 检查 ci-auth 及 ci-ticket 的日志有无异常.
 
-如果是普通用户创建的, 可以切换到管理员账户查看是否成功创建.&#x20;
+如果是普通用户创建的, 可以切换到管理员账户查看是否成功创建.
 
-### Q: 挂载怎么用， 下拉框没数据
+### Q: 挂载如何使用， 下拉框没数据
 
 ![](../../.gitbook/assets/image-20220301101202-sxXbU.png)
 
 这个需要维护一个NFS共享存储服务，不太推荐使用了，后续有可能移除
 
-最好的做法是，将依赖工具打包到镜像里，有2个阶段&#x20;
+最好的做法是，将依赖工具打包到镜像里，有2个阶段
 
 阶段A 里面的 job 有个 task-A ：是克隆git 代码后构建编译打包jar
 
-阶段B 里面的 job 有个 task-B：是把 task-A 中构建好的 jar  scp 到部署发布到服务器 。
+阶段B 里面的 job 有个 task-B：是把 task-A 中构建好的 jar scp 到部署发布到服务器 。
 
-验证下来的结果是 这两个阶段的 workspace 是不共通的。目前的做法是我都放到一个  Job里面才行，这样才能共用一个 workspace 里面构建生产的 jar文件。
+验证下来的结果是 这两个阶段的 workspace 是不共通的。目前的做法是我都放到一个 Job里面才行，这样才能共用一个 workspace 里面构建生产的 jar文件。
 
 设计如此，CI的产物如果要部署出去，必须走到制品库，用maven私服的思路没错
 
@@ -401,7 +401,7 @@ job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobS
 
 ### Q: 发送邮件插件不可用
 
-![](../../.gitbook/assets/企业微信截图_16408694122894.png)
+![](../../.gitbook/assets/企业微信截图\_16408694122894.png)
 
 插件的执行环境分为有编译和无编译，发送邮件插件的执行环境为无编译环境，在创建Job的步骤时，需要选Job类型为无编译环境，即Agentless
 
@@ -438,18 +438,16 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ### Q: 配置平台里的业务，如何关联到容器管理平台？
 
-![](../../.gitbook/assets/企业微信截图_16412880662873.png)
+![](../../.gitbook/assets/企业微信截图\_16412880662873.png)
 
-![](../../.gitbook/assets/企业微信截图_16412881057362.png)
-
-
+![](../../.gitbook/assets/企业微信截图\_16412881057362.png)
 
 1. 权限中心中检查，该用户账号是否具有local-k8s」的配置平台权限
 2. 配置平台中检查，「资源-业务-运维人员」中是否有配置该账号用户
 
 ![](../../.gitbook/assets/wecom-temp-ac68ebc38b2022819c8540b00100d2fb.png)
 
-### Q: 怎么使用Merge-Request-Accept-Hook，我的怎么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
+### Q: 如何使用Merge-Request-Accept-Hook，我为什么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
 
 ![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
@@ -475,11 +473,15 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
     1. 查看repository服务到gitlab的网络是否能通，比如是否配置gitlab的域名解析
 
-    2. 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的maintainer角色
+    2. 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的`maintainer`角色，且accesstoken需要的Scopes是`api`
 
         ![](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
 
-    3. 在repository服务部署的机器上，执行`grep "Start to add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
+        ![需要选择maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-maintainer.png)
+
+        ![需要是maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png)
+
+    3. 在repository服务部署的机器上，执行`grep "add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
 
 4. 如果gitlab上有webhook注册记录，如
 
@@ -497,13 +499,13 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 5. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配，如下所示：
 
-    ![](../../.gitbook/assets/企业微信截图_65730911-c804-494c-80c4-d574ad843749.png)
+    ![](../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png)
 
-    ![](../../.gitbook/assets/wecom-temp-93d79eaa40a0ebdfaeff197d3016e1ee.png)
+    ![](../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png)
 
 ### Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
-![](../../.gitbook/assets/企业微信截图_16285831782937.png)
+![](../../.gitbook/assets/企业微信截图\_16285831782937.png)
 
 将对应的agent服务的启动用户改为当前用户，执行命令`services.msc`打开windows服务管理界面，找到服务`devops_agent_${agent_id}`(注意：每个agent\_id是不同的，agent\_id的值可以在配置文件.agent.properties中找到)
 
@@ -521,11 +523,11 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 ### Q: batchscript中的命令路径有空格，执行失败
 
-![](../../.gitbook/assets/企业微信截图_16285852671573.png)
+![](../../.gitbook/assets/企业微信截图\_16285852671573.png)
 
 可以将有空格的命令用引号""括起来
 
-### Q: 怎么通过接口获取项目**
+### Q: 如何通过接口获取项目**
 
 curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://devops.bktencent.com/prod/v3/apigw-app/projects/) -H "Content-Type: application/json" -H "X-DEVOPS-UID: admin"
 
@@ -540,7 +542,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 暂不支持修改
 
-### Q: 怎么获取项目名称，我想要在企业微信通知消息里带上
+### Q: 如何获取项目名称，我想要在企业微信通知消息里带上
 
 使用全局变量`${BK_CI_PROJECT_NAME}`
 
@@ -570,13 +572,13 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220210120321712.png)
 
-### Q: 插件变量的值怎么获取、怎么写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
+### Q: 插件变量的值如何获取、如何写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
 
-![](../../.gitbook/assets/企业微信截图_16318512177997.png)
+![](../../.gitbook/assets/企业微信截图\_16318512177997.png)
 
-![](../../.gitbook/assets/企业微信截图_16318512474377.png)
+![](../../.gitbook/assets/企业微信截图\_16318512474377.png)
 
-![](../../.gitbook/assets/企业微信截图_16318513189348.png)
+![](../../.gitbook/assets/企业微信截图\_16318513189348.png)
 
 右上角点击引用变量，然后点右边复制变量，然后粘贴到你需要的地方就可以
 
@@ -602,7 +604,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
  nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
 ```
 
-### Q:怎么有条件的执行CallPipeline插件
+### Q:如何有条件的执行CallPipeline插件
 
 插件下面有一个流程控制，在流程控制中根据需要添加运行条件可以满足需求
 
@@ -614,13 +616,13 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 需要这样引用变量`${flushDB}`
 
-### Q: 怎么引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
+### Q: 如何引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
 
 变量引用需要加花括号`${BK_CI_BUILD_FAIL_TASKS}`
 
 ### Q: 选中的参数改变的时候能不能隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
 
-![](../../.gitbook/assets/企业微信截图_1634710197325.png)
+![](../../.gitbook/assets/企业微信截图\_1634710197325.png)
 
 暂时还不支持
 
@@ -630,21 +632,21 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ### Q: 服务器磁盘满了，这些目录文件可以删吗
 
-![](../../.gitbook/assets/企业微信截图_1635304491832.png)
+![](../../.gitbook/assets/企业微信截图\_1635304491832.png)
 
 这些都是构建产物，目前对构建产物没有过期清理策略，用户可以视情况删除
 
-### Q: 怎么在流水线执行过程中改变参数的值？
+### Q: 如何在流水线执行过程中改变参数的值？
 
 如果是shell插件的话，可以这么修改参数的值`setEnv "{KEY}" "{VALUE}"`
 
-### Q: 1.5.4版本CI，怎么调用openapi
+### Q: 1.5.4版本CI，如何调用openapi
 
 版本还未开启OpenAPI。可以升级到1.5.30及以上版本，该版本已开启OpenAPI。
 
-### Q: 怎么查看凭证里的信息
+### Q: 如何查看凭证里的信息
 
-![](../../.gitbook/assets/企业微信截图_16372883269771-4480877.png)
+![](../../.gitbook/assets/企业微信截图\_16372883269771-4480877.png)
 
 出于安全考虑，该内容为加密的，不支持查看
 
@@ -656,7 +658,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 目前自行扩展功能还在开发中，暂不支持用户自行扩展代码检查的规则
 
-### Q: 怎么让流水线task变成可选
+### Q: 如何让流水线task变成可选
 
 `在插件里选择「Skip some on manual trigger」`
 
@@ -668,7 +670,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ### Q:job-作业执行插件是灰色的，但我已经安装了
 
-![](../../.gitbook/assets/企业微信截图_16384260669700.png)
+![](../../.gitbook/assets/企业微信截图\_16384260669700.png)
 
 这个是无编译环境使用的插件，需要在选择JOB类型时选择linux编译环境
 
@@ -676,7 +678,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ### Q: 这个业务ID是啥
 
-![](../../.gitbook/assets/企业微信截图_1638426248456.png)
+![](../../.gitbook/assets/企业微信截图\_1638426248456.png)
 
 配置平台中的「业务ID」，作业平台里也可看到
 
@@ -702,9 +704,9 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
 
-### Q: 请问这个红框框怎么进入？
+### Q: 请问这个红框框如何进入？
 
-![](../../.gitbook/assets/企业微信截图_16257162702433.png)
+![](../../.gitbook/assets/企业微信截图\_16257162702433.png)
 
 「研发商店 」-「工作台」
 
@@ -716,13 +718,13 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ### Q: 请问下使用 "git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥
 
-![](../../.gitbook/assets/企业微信截图_16266633248073.png)
+![](../../.gitbook/assets/企业微信截图\_16266633248073.png)
 
 这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
 
 ### Q: bkiam v3 failed错误？
 
-![](../../.gitbook/assets/企业微信截图_16273862334714.png)
+![](../../.gitbook/assets/企业微信截图\_16273862334714.png)
 
 这个问题一般是由于机器重启导致权限中心的saas容器没有启动导致，将容器重新拉起即可解决
 
@@ -735,19 +737,19 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 3. Merge Request Hook 当有代码合并时触发
 4. Merge Request Accept Hook 当代码合并后触发
 
-### Q: 代码检查里某些规则不适用于我们公司，怎么修改规则？
+### Q: 代码检查里某些规则不适用于我们公司，如何修改规则？
 
 规则的内容不支持修改，但是规则集可以修改。代码检查是以规则集为单位进行代码扫描的，如果发现有些规则不适用，可以将其从规则集中去掉，如果该规则集是默认规则集不允许用户增删，可以选择在此基础上创建自定义规则集，创建的规则集就可以由用户自行增删其中的某些具体的规则了
 
 ### Q: 代码检查失败，Unknown Error：Unexpected char 0x5468 at 0 in X-DEVOPS-UID value：xxx
 
-![](../../.gitbook/assets/企业微信截图_1630326503372.png)
+![](../../.gitbook/assets/企业微信截图\_1630326503372.png)
 
 这一步会读取gitlab 的fullname，设置为英文可以解决问题，暂时还不支持中文的gitlab fullname，个人信息用户名显示上方就是fullname，如这里的vinco huang，可以通过这里的「Edit profile」进入修改页面
 
-![](../../.gitbook/assets/企业微信截图_16303286841990.png)
+![](../../.gitbook/assets/企业微信截图\_16303286841990.png)
 
-### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该怎么构造附件的下载链接？
+### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该如何构造附件的下载链接？
 
 [http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/](http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/)${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
 
@@ -785,7 +787,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ### Q: [**https://docs.bkci.net/**](https://docs.bkci.net)打不开
 
-![](../../.gitbook/assets/企业微信截图_16342628987332.png)
+![](../../.gitbook/assets/企业微信截图\_16342628987332.png)
 
 这个文档是由gitbook托管的，需要访问谷歌的一些资源，如果用户网络访问不了谷歌，会出现这样的问题
 
@@ -793,7 +795,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 服务之间有依赖关系，比如蓝鲸的一些服务依赖于mysql，如果这些服务先于mysql启动，那就会出现启动失败的情况
 
-### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种怎么做互斥呢
+### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种如何做互斥呢
 
 **占位，待补充**
 
@@ -815,16 +817,16 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 可以试着用账密的方式push： git push [http://username:passwd@xxx](http://username:passwd@xxx)，username和passwd可以使用凭证管理起来，username和passwd不允许有特殊字符，蓝盾在渲染变量的时候，不会转义特殊字符
 
-### Q: 怎么重启私有构建上的蓝盾agent
+### Q: 如何重启私有构建上的蓝盾agent
 
 可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
 
-### Q: 私有构建机怎么重装蓝盾agent
+### Q: 私有构建机如何重装蓝盾agent
 
 1. 在linux/Mac上，可以支持重新执行安装命令，如果之前遇到安装错误，建议先uninstall，然后删除干净安装目录，重新跑安装命令
 2. windows上需要先uninstall，然后删除安装目录，重新下载安装包，重复安装过程即可
 
-### Q: 怎么使用流水线的视图功能
+### Q: 如何使用流水线的视图功能
 
 视图可以将流水线分类，允许用户根据流水线的创建人或者流水线的名称来进行分类，多个条件之间支持与/或关系，条件的键值是include的逻辑，不支持模糊匹配以及正则表达式，比如当流水线的名称对应的键值为`vinco`时，会匹配到该项目中所有流水线名称中包含`vinco`字样的流水线
 
@@ -844,7 +846,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ### Q:流水线的历史页面，能显示自定义内容吗，比如同一条流水线，有时候是打包安卓，有时候是打包ios，单看历史页面，无法分辨出来构建内容
 
-![](../../.gitbook/assets/企业微信截图_16364221097534.png)
+![](../../.gitbook/assets/企业微信截图\_16364221097534.png)
 
 可以在流水线里加个shell**插件**，通过设置`BK_CI_BUILD_REMARK`这全局变量的值，来实现想要的备注，流水线结束了，该字段才会显示
 
@@ -854,7 +856,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ### Q: windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问
 
-![](../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
+![](../../.gitbook/assets/企业微信截图\_16393825053890-3096967.png)
 
 这种情况一般是由于用户重复安装蓝盾agent导致，可以先执行uninstall脚本，卸载当前agent，然后删除该agent的安装目录，然后重新下载agent包，再次安装
 
@@ -864,7 +866,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ### Q: Ubuntu蓝鲸agent安装失败，no enough space left in /tmp，但机器是有磁盘空间剩余的
 
-![](../../.gitbook/assets/企业微信截图_16316948048063.png)
+![](../../.gitbook/assets/企业微信截图\_16316948048063.png)
 
 一般是由于Ubuntu机器无法正常执行awk命令导致的，执行awk会有如下报错：
 
@@ -876,7 +878,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 ### Q: 关联镜像的时候，镜像验证不通过
 
-![](../../.gitbook/assets/企业微信截图_16328099498489.png)
+![](../../.gitbook/assets/企业微信截图\_16328099498489.png)
 
 ![](../../.gitbook/assets/wecom-temp-96f388a0cface3bdddafa174084719a1.png)
 
@@ -888,7 +890,7 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 没有现成的基于Ubuntu的bkci镜像，用户可以根据指引来打包自己的镜像：[https://bk.tencent.com/docs/document/6.0/129/7518](https://bk.tencent.com/docs/document/6.0/129/7518)
 
-### Q: 如果我有多个公共构建机，公共构建机的调度算法是怎么样的，什么情况任务会调度到另一台构建机上执行？
+### Q: 如果我有多个公共构建机，公共构建机的调度算法是什么样的，什么情况任务会调度到另一台构建机上执行？
 
 算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
 
@@ -908,15 +910,13 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
 
-### Q: 怎么删除公共构建机
+### Q: 如何删除公共构建机
 
 登录到蓝盾dispatch-docker服务的机器上，执行`/data/src/ci/scripts/bkci-op.sh list`获取所有的公共构建机，执行`/data/src/ci/scripts/bkci-op.sh del`操作
 
 ### Q: 构建步骤卡在准备构建环境这一环
 
-![](../../.gitbook/assets/企业微信截图_16419529383724.png)
-
-
+![](../../.gitbook/assets/企业微信截图\_16419529383724.png)
 
 如果是公共构建机，优先考虑公共构建机bk-ci-dockerhost.service服务是否正常
 
