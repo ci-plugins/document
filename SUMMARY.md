@@ -30,7 +30,7 @@
   * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
-  * [Plugin Install Demo](tutorials/examples/plugi_install_demo.md)
+  * [Plugin Install Demo](tutorials/examples/plugin_install_demo.md)
 
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>

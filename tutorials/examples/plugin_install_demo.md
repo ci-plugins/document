@@ -2,7 +2,7 @@
 
 ## 插件下载地址
 
-**pushJobFile**
+* **pushJobFile**
 
 > 利用作业平台分发制品到目标服务器
 
@@ -14,7 +14,7 @@ https://github.com/ci-plugins/pushJobFile
 
 
 
-**executeJob**
+* **executeJob**
 
 > 调用作业平台执行作业
 
@@ -26,7 +26,7 @@ https://github.com/ci-plugins/executeJob
 
 
 
-**executeJobScript**
+* **executeJobScript**
 
 > 调用作业平台执行脚本
 
@@ -38,7 +38,7 @@ https://github.com/ci-plugins/executeJobScript
 
 
 
-**sendEmail**
+* **sendEmail**
 
 > 发送通知邮件
 
@@ -50,7 +50,7 @@ https://github.com/ci-plugins/sendEmail
 
 
 
-**checkout**
+* **checkout**
 
 > git 拉取代码
 
@@ -62,7 +62,7 @@ https://github.com/TencentBlueKing/ci-checkout
 
 
 
-**sendmsg**
+* **sendmsg**
 
 > 1. 发送企业微信消息(需要配置ESB)
 > 2. 发送邮件消息(需要配置ESB)
@@ -84,9 +84,9 @@ https://github.com/wenchao-h/bkci-plugin-sendmsg
 
 按照插件下载地址，先下载好安装包。
 
-![image-20220401160430568](../../.gitbook/assets/download_plugin_zip.png)
+![](../../.gitbook/assets/download_plugin_zip.png)
 
-![image-20220401160511428](../../.gitbook/assets/download_plugin_zip2.png)
+![](../../.gitbook/assets/download_plugin_zip2.png)
 
 ---
 
@@ -96,13 +96,13 @@ https://github.com/wenchao-h/bkci-plugin-sendmsg
 
 蓝盾----->研发商店---->工作台
 
-![image-20220401160738696](../../.gitbook/assets/toworktable.png)
+![](../../.gitbook/assets/toworktable.png)
 
 ---
 
 ### 三、新增插件
 
-![image-20220401161007837](../../.gitbook/assets/add_plugin.png)
+![](../../.gitbook/assets/add_plugin.png)
 
 名称：可以自定义填写。
 
@@ -134,7 +134,7 @@ pushJobFile 需要配置：
 
 插件上架时，需要配置蓝鲸智云相关参数，路径：设置->私有配置
 
-![image-20220401161404647](../../.gitbook/assets/private_config.png)
+![](../../.gitbook/assets/private_config.png)
 
 在 蓝鲸中控机 中，按照 GitHub 中指引，获取相关变量。
 
@@ -155,7 +155,7 @@ JOB_HOST       http://job.bktencent.com:80
 
 获取变量后，**新增配置** 填入各个变量
 
-![image-20220401162406243](../../.gitbook/assets/add_plugin_var.png)
+![](../../.gitbook/assets/add_plugin_var.png)
 
 
 
@@ -173,9 +173,9 @@ cat /data/install/install.config| grep artifctory
 
 2、在作业平台中，把IP添加至白名单
 
-![image-20220401162613444](../../.gitbook/assets/image-20220401162613444.png)
+![](../../.gitbook/assets/image-20220401162613444.png)
 
-![image-20220401163005167](../../.gitbook/assets/image-20220401163005167.png)
+![](../../.gitbook/assets/image-20220401163005167.png)
 
 ---
 
@@ -183,14 +183,14 @@ cat /data/install/install.config| grep artifctory
 
 配置完成后，返回工作台，选择上架插件
 
-![image-20220401163151231](../../.gitbook/assets/image-20220401163151231.png)
+![](../../.gitbook/assets/image-20220401163151231.png)
 
 按照指引填写各信息，并上传从 GitHub 获取到的插件安装包
 
-![image-20220401163739926](../../.gitbook/assets/image-20220401163739926.png)
+![](../../.gitbook/assets/image-20220401163739926.png)
 
 点击提交后，会进入到插件测试阶段。此处插件都是已经开发完成的，直接点击**继续**跳过测试即可。
 
-![image-20220401163907672](../../.gitbook/assets/image-20220401163907672.png)
+![](../../.gitbook/assets/image-20220401163907672.png)
 
 至此，插件 **pushJobFile**安装完毕，可以按照此流程继续安装其他插件。
