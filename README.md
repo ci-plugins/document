@@ -1,24 +1,24 @@
 ---
-description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构建-测试-发布工作流，持续、快速、高质量地交付你的产品。
+description: a free & open source CI server, bk-ci(BlueKing Continuous Integration) helps you automate your build-test-release workflows, continuous delivery of your product faster, easier, with fewer bugs.
 ---
 
-# 首页
+# Navigation
 
 
-| 🐤 了解基本概念 | 👉 使用 BKCI | 🚀 部署 BKCI |
+| 🐤 Concepts | 👉 Use BKCI | 🚀 Deploy BKCI |
 | :--- | :--- | :--- |
-| [BKCI 是什么？](overview/what-is-bkci.md) | [创建你的第一条流水线](tutorials/create-first-pipeline.md) | [运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md) |
-| [BKCI 组件](overview/components.md) | [关联你的第一个代码库](tutorials/link-first-repo.md) | [在蓝鲸社区版中使用 BKCI](setup/run-bkci-in-prod/on-bkce.md) |
-| [快速熟悉流水线](overview/learn-pipeline-in-5-min.md) | [为你的Git工程开启CI](tutorials/enable-git-ci.md) | [BKCI 规格要求](setup/system-requirements/) |
-| [术语解释](overview/terminology/) | [示例](tutorials/examples/) |  |
+| [What is BKCI ?](overview/what-is-bkci.md) | [Create your first pipeline](tutorials/create-first-pipeline.md) | [Run bkci in docker](setup/run-bkci-in-one-docker.md) |
+| [Componets](overview/components.md) | [Link your first repository to bkci](tutorials/link-first-repo.md) | [Run bkci in blueking](setup/run-bkci-in-prod/on-bkce.md) |
+| [Learn pipeline in 5 minitues](overview/learn-pipeline-in-5-min.md) | [Run bkci in your git repository ](tutorials/enable-git-ci.md) | [System-requirments](setup/system-requirements/) |
+| [Terminology](overview/terminology/) | [Examples](tutorials/examples/) |  |
 
-| 📔 产品功能 | 🏪 研发商店 | 🤝 一起共建 BKCI |
+| 📔 Productions | 🏪 CI Store | 🤝 Contribute |
 | :--- | :--- | :--- |
-| [流水线](services/pipelines/) | [浏览研发商店](store/store-home.md) | [BKCI 架构](contribute/architecture.md) |
-| [控制台](services/console.md) | [开发一个流水线插件](store/plugins/create-plugin/) | [BKCI 代码结构](contribute/code-framework.md) |
-| [凭证管理](services/ticket.md) | [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md) | [设计理念](contribute/design.md) |
-| [构建资源](services/pools/) |  |  |
+| [Pipelines](services/pipelines/) | [Explore ci store](store/store-home.md) | [Architecture](contribute/architecture.md) |
+| [Console](services/console.md) | [Develop a ci plugin](store/plugins/create-plugin/) | [Code framework](contribute/code-framework.md) |
+| [Ticket](services/ticket.md) | [Upload a plugin to bkci](store/plugins/upload-plugin.md) | [Design](contribute/design.md) |
+| [Pools](services/pools/) |  |  |
 
-# 文档共建
+# How to contribute a document ?
 
 * [CONTRIBUTING](contribute/document.md)
