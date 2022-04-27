@@ -39,9 +39,11 @@
 从企业微信工作台中选择「版本体验」应用。
 
 ![image-client-experience-app1.png](../../.gitbook/assets/image-client-experience-app1.png)
+
 选择需要体验的应用，点击「下载」可快速下载应用，ipa会提示跳转safari进行下载。
 
 ![image-client-experience-app2.png](../../.gitbook/assets/image-client-experience-app2.png)
+ 
  点击应用标题即可进入应用详情，应用负责人可对应用进行管理：
    - 产品负责人有权限修改人员信息和体验过期时间。
    - 体验人员仅可查看和下载该应用。
