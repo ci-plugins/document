@@ -51,8 +51,10 @@
 达到过期时间后，体验人员将无法从版本体验首页看到该应用，产品负责人仍然可查看该应用，同时该应用会有一个“已过期”的TAG。
 
 (如果应用有多个版本，可通过历史版本进行下载。)
+
+
 ![image-client-experience-app3.png](../../.gitbook/assets/image-client-experience-app3.png)
 
 版本体验插件在勾选「通知」后，在应用上传成功后给有权限的人员发送企业微信通知消息，点击立即前往可快速访问到「版本体验」应用。
 
-![image-client-experience-app4.png](.gitbook/assets/image-client-experience-app4.png)
+![image-client-experience-app4.png](../../.gitbook/assets/image-client-experience-app4.png)
