@@ -82,6 +82,9 @@
   * [代码检查结果](services/codecc/codecc-result.md)
   * [代码检查规则](services/codecc/codecc-ruleset.md)
   * [代码检查部署所需资源](services/codecc/codecc-cost.md)
+* [移动端版本体验]（services/client-experience/README.md）
+  * [部署移动端版本体验需要的硬件资源](services/client-experience/client-experience-cost.md)
+  * [移动端版本体验使用指南](services/client-experience/client-experience-usage.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
