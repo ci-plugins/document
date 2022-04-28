@@ -19,7 +19,7 @@
 |故障自愈|“故障自动化处理”解决方案，提升企业的服务可用性和降低故障处理的人力投入，实现故障自愈从“人工处理”到“无人值守”的变革!|[文档](https://bk.tencent.com/docs/document/6.0/133/7369)|同上||
 |容器管理平台BCS|高度可扩展、灵活易用的容器管理服务平台，支持社区原生 Kubernetes 编排引擎。|[文档](https://bk.tencent.com/docs/document/6.0/144/6523?r=1)|[容器管理平台](https://bk.tencent.com/docs/document/6.0/142/6568)|[助力企业实现容器化的实践](https://ke.qq.com/webcourse/index.html#cid=3101748&term_id=103224098&taid=10650552529540148&type=1024&vid=5285890812975359660)|
 
-### **其他材料：**
+**其他材料：**
 官网文档：https://bk.tencent.com/docs/   <br>
 [深度进阶使用（视频）](https://bk.tencent.com/s-mart/video?id=3-15)
 
