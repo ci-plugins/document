@@ -266,6 +266,8 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
+* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
+  * [蓝鲸使用入门](reference/bk-tutorial/bk-user-guide.md)
 
 ***
 
