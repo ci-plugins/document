@@ -30,6 +30,8 @@
   * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
+* [场景实践](tutorials/scene/README.md)
+  * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
 
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
