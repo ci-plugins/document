@@ -30,6 +30,8 @@
   * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
+* [场景实践](tutorials/scene/README.md)
+  * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
 
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
@@ -76,6 +78,8 @@
     * [定制Linux C/C++加速方案](services/turbo/linux\_c\_c++/new\_plan.md)
     * [在流水线中进行编译加速](services/turbo/linux\_c\_c++/use\_in\_pipeline.md)
     * [在私有构建机上使用加速](services/turbo/linux\_c\_c++/use\_in\_local.md)
+* [制品库](services/bkrepo/README.md)
+  * [元数据规范](services/bkrepo/meta.md)
 * [代码检查](services/codecc/README.md)
   * [代码检查使用](services/codecc/codecc-usage.md)
   * [代码检查配置](services/codecc/codecc-config.md)
@@ -86,12 +90,16 @@
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
+
 * [流水线模板](store/pipeline-templates.md)
+
 * [CI镜像](store/ci-images/README.md)
   * [构建并托管一个CI镜像](store/ci-images/image-build.md)
   * [发布一个CI镜像](store/ci-images/image-release.md)
+  
 * [流水线插件](store/plugins/README.md)
   * [开发一个流水线插件](store/plugins/create-plugin/README.md)
+    
     * [插件开发指引](store/plugins/create-plugin/plugin-dev-guide/README.md)
       * [Java 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/java.md)
       * [Python 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/python.md)
@@ -103,7 +111,12 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
+    
+  * [常用插件安装](store/plugins/plugin_install_demo.md)
+  
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
+  
+    
 
 ## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 
