@@ -32,8 +32,8 @@
   * [Node Demo](tutorials/examples/node-demo.md)
 * [场景实践](tutorials/scene/README.md)
   * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
-
-
+* [客户案例](tutorials/case-study/README.md)
+  * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
 * [BKCI 系统要求](setup/system-requirements/README.md)
@@ -86,16 +86,23 @@
   * [代码检查结果](services/codecc/codecc-result.md)
   * [代码检查规则](services/codecc/codecc-ruleset.md)
   * [代码检查部署所需资源](services/codecc/codecc-cost.md)
+* [移动端版本体验](services/client-experience/README.md)
+  * [部署移动端版本体验需要的硬件资源](services/client-experience/client-experience-cost.md)
+  * [移动端版本体验使用指南](services/client-experience/client-experience-usage.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
+
 * [流水线模板](store/pipeline-templates.md)
+
 * [CI镜像](store/ci-images/README.md)
   * [构建并托管一个CI镜像](store/ci-images/image-build.md)
   * [发布一个CI镜像](store/ci-images/image-release.md)
+  
 * [流水线插件](store/plugins/README.md)
   * [开发一个流水线插件](store/plugins/create-plugin/README.md)
+    
     * [插件开发指引](store/plugins/create-plugin/plugin-dev-guide/README.md)
       * [Java 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/java.md)
       * [Python 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/python.md)
@@ -107,7 +114,12 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
+    
+  * [常用插件安装](store/plugins/plugin_install_demo.md)
+  
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
+  
+    
 
 ## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 
@@ -266,6 +278,7 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
+* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
 
 ***
 
