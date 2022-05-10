@@ -35,6 +35,8 @@
   * [运营人员发布游戏内运营活动](tutorials/scene/operators-upload-resources.md)
   * [客户端多版本构建保持一致](tutorials/scene/client-multi-Consistent.md)
   * [c/c++后台代码的编译加速](tutorials/scene/code-compilation-acceleration.md)
+  * [管理大量流水线](tutorials/scene/Manage-large-pipelines.md)
+  * [UE4编译加速](tutorials/scene/UE4-compilation-acceleration.md)
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
