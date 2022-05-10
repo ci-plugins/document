@@ -39,6 +39,11 @@
   * [UE4编译加速](tutorials/scene/UE4-compilation-acceleration.md)
   * [实现发布与回滚](tutorials/scene/Implement-publishing-rollback.md)
   * [客户端自动化性能测试](tutorials/scene/Client-performance-testing.md)
+  * [Pipeline失败的问题定位](tutorials/scene/pipeline-failure-location.md)
+  * [移动端内测版本发布管理](tutorials/scene/version-release-management.md)
+  * [在转测/发布时使用质量红线](tutorials/scene/release-quality-redline.md)
+  * [在Merge Request时使用质量红线](tutorials/scene/mr-quality-redline.md)
+  * [集成P4代码库](tutorials/scene/p4-code-base.md)
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
