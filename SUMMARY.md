@@ -32,8 +32,9 @@
   * [Node Demo](tutorials/examples/node-demo.md)
 * [场景实践](tutorials/scene/README.md)
   * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
+  * [运营人员发布游戏内运营活动](tutorials/scene/operators-upload-resources.md)
 * [客户案例](tutorials/case-study/README.md)
-  * [\[呦尔哈--通过蓝盾提升CI/CD效率\](tutorials/case-study/yorha.md](tutorials/case-study/you-er-ha-tong-guo-lan-dun-ti-sheng-cicd-xiao-shuai-tutorialscasestudyyorha.md.md)
+  * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/you-er-ha-tong-guo-lan-dun-ti-sheng-cicd-xiao-shuai-tutorialscasestudyyorha.md.md)
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
