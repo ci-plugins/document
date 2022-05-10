@@ -37,6 +37,8 @@
   * [c/c++后台代码的编译加速](tutorials/scene/code-compilation-acceleration.md)
   * [管理大量流水线](tutorials/scene/Manage-large-pipelines.md)
   * [UE4编译加速](tutorials/scene/UE4-compilation-acceleration.md)
+  * [实现发布与回滚](tutorials/scene/Implement-publishing-rollback.md)
+  * [客户端自动化性能测试](tutorials/scene/Client-performance-testing.md)
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
