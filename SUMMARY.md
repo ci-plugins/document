@@ -32,6 +32,18 @@
   * [Node Demo](tutorials/examples/node-demo.md)
 * [场景实践](tutorials/scene/README.md)
   * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
+  * [运营人员发布游戏内运营活动](tutorials/scene/operators-upload-resources.md)
+  * [客户端多版本构建保持一致](tutorials/scene/client-multi-Consistent.md)
+  * [c/c++后台代码的编译加速](tutorials/scene/code-compilation-acceleration.md)
+  * [客户端自动化性能测试](tutorials/scene/Client-performance-testing.md)
+  * [Pipeline失败的问题定位](tutorials/scene/pipeline-failure-location.md)
+  * [移动端内测版本发布管理](tutorials/scene/version-release-management.md)
+  * [在转测/发布时使用质量红线](tutorials/scene/release-quality-redline.md)
+  * [MergeRequest时使用质量红线](tutorials/scene/mr-quality-redline.md)
+  * [管理大量流水线](tutorials/scene/Manage-large-pipelines.md)
+  * [UE引擎编译加速](tutorials/scene/UE4-compilation-acceleration.md)
+  * [实现发布与回滚](tutorials/scene/Implement-publishing-rollback.md)
+  * [集成P4代码库](tutorials/scene/p4-code-base.md)
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
@@ -94,16 +106,12 @@
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
 * [浏览研发商店](store/store-home.md)
-
 * [流水线模板](store/pipeline-templates.md)
-
 * [CI镜像](store/ci-images/README.md)
   * [构建并托管一个CI镜像](store/ci-images/image-build.md)
   * [发布一个CI镜像](store/ci-images/image-release.md)
-  
 * [流水线插件](store/plugins/README.md)
   * [开发一个流水线插件](store/plugins/create-plugin/README.md)
-    
     * [插件开发指引](store/plugins/create-plugin/plugin-dev-guide/README.md)
       * [Java 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/java.md)
       * [Python 插件开发指引](store/plugins/create-plugin/plugin-dev-guide/python.md)
@@ -115,12 +123,8 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
-    
-  * [常用插件安装](store/plugins/plugin_install_demo.md)
-  
+  * [常用插件安装](store/plugins/plugin\_install\_demo.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
-  
-    
 
 ## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 

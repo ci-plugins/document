@@ -232,7 +232,7 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
 
-### Q: 哪里可以查看上传到 制品库 的jar包？使用默认方式&#x20;
+### Q: 哪里可以查看上传到 制品库 的jar包？使用默认方式
 
 蓝鲸社区参考：[https://bk.tencent.com/s-mart/community/question/2380](https://bk.tencent.com/s-mart/community/question/2380)
 
@@ -326,7 +326,7 @@ curl -v paas.service.consul
 
 然后检查artifactory日志文件, 看看报错.
 
-### Q: 蓝盾添加节点的时候报错 bkiam v3 failed&#x20;
+### Q: 蓝盾添加节点的时候报错 bkiam v3 failed
 
 ![](../../.gitbook/assets/image-20220301101202-MyIAk.png)
 
@@ -359,7 +359,7 @@ iam_callback="support-files/ms-init/auth/iam-callback-resource-registere.conf"
 ./pcmd.sh -H "$BK_CI_AUTH_IP0" curl -vsX POST "http://localhost:$BK_CI_AUTH_API_PORT/api/op/auth/iam/callback/" -H "Content-Type:application/json" -d @${BK_PKG_SRC_PATH:-/data/src}/ci/support-files/ms-init/auth/iam-callback-resource-registere.conf
 ```
 
-### Q: Upload artifacts这个上传功能是上传到当前使用stage的构建的构建机里面还是有单独的仓库位置&#x20;
+### Q: Upload artifacts这个上传功能是上传到当前使用stage的构建的构建机里面还是有单独的仓库位置
 
 归档构件，是把构建机上的产物归档到专用的产物仓库，产物仓库和构建机无关，由 Artifactory 服务决定。
 
@@ -467,41 +467,36 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 1. 检查分支是否匹配
 2. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
-3. 如果gitlab webhook页面没有注册webhook的记录，如
+3.  如果gitlab webhook页面没有注册webhook的记录，如
 
-    ![](../../.gitbook/assets/image-20220128124536187.png)
+    <img src="../../.gitbook/assets/image-20220128124536187.png" alt="" data-size="original">
 
     1. 查看repository服务到gitlab的网络是否能通，比如是否配置gitlab的域名解析
+    2.  查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的`maintainer`角色，且accesstoken需要的Scopes是`api`
 
-    2. 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的`maintainer`角色，且accesstoken需要的Scopes是`api`
+        <img src="../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png" alt="" data-size="original">
 
-        ![](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
+        <img src="../../.gitbook/assets/image-trigger-gitlab-accesstoken-maintainer.png" alt="需要选择maintainer" data-size="original">
 
-        ![需要选择maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-maintainer.png)
-
-        ![需要是maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png)
-
+        <img src="../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png" alt="需要是maintainer" data-size="original">
     3. 在repository服务部署的机器上，执行`grep "add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
+4.  如果gitlab上有webhook注册记录，如
 
-4. 如果gitlab上有webhook注册记录，如
-
-    ![](../../.gitbook/assets/image-gitlab-webhook-edit.png)
+    <img src="../../.gitbook/assets/image (58) (1) (1).png" alt="" data-size="original">
 
     如果还是没有触发：
 
-    1. 点击对应webhook的Edit，查看webhook的发送详情，查看View detail
+    1.  点击对应webhook的Edit，查看webhook的发送详情，查看View detail
 
-        ![](../../.gitbook/assets/image-gitlab-webhook-viewdetail.png)
+        <img src="../../.gitbook/assets/image-gitlab-webhook-viewdetail.png" alt="" data-size="original">
+    2.  查看发送的错误详情，检查gitlab到蓝盾机器的网络是否可达，如gitlab服务器是否能解析蓝盾域名
 
-    2. 查看发送的错误详情，检查gitlab到蓝盾机器的网络是否可达，如gitlab服务器是否能解析蓝盾域名
+        <img src="../../.gitbook/assets/image-gitlab-webhook-request-detail.png" alt="" data-size="original">
+5.  如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配，如下所示：
 
-        ![](../../.gitbook/assets/image-gitlab-webhook-request-detail.png)
+    <img src="../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original">
 
-5. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配，如下所示：
-
-    ![](../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png)
-
-    ![](../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png)
+    <img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
 
 ### Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
@@ -527,12 +522,11 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 可以将有空格的命令用引号""括起来
 
-### Q: 如何通过接口获取项目**
+### Q: 如何通过接口获取项目\*\*
 
 curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://devops.bktencent.com/prod/v3/apigw-app/projects/) -H "Content-Type: application/json" -H "X-DEVOPS-UID: admin"
 
 ### Q: 这个「只有在前面插件运行失败才执行」条件，感觉没有用，成功了也执行了
-
 
 ![](../../.gitbook/assets/wecom-temp-c6aa0d74275116c38ff7f592563616c7.png)
 
@@ -700,7 +694,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
  # 如果是常量，shell可以使用setEnv，bat可以使用call:setEnv来将变量回写到蓝盾 setEnv "var_name" "var_value" # shell call:setEnv "var_name" "var_value"  # bat ​ # 将python脚本输出结果写回蓝盾 var_value=`python script.py` # script.py里需要有print输出，如print("test") setEnv "var_name" "${var_value}" # var_name="test" ​ # 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv python script.py > env.sh # 假设env.sh里为file_name="test.txt" source env.sh setEnv "var_name" "${file_name}"
 ```
 
-### Q: gitlab webhook 报错 URL '**[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)**' is blocked: Host cannot be resolved or invalid
+### Q: gitlab webhook 报错 URL '[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)' is blocked: Host cannot be resolved or invalid
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
 
