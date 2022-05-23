@@ -40,10 +40,18 @@
   * [移动端内测版本发布管理](tutorials/scene/version-release-management.md)
   * [在转测/发布时使用质量红线](tutorials/scene/release-quality-redline.md)
   * [MergeRequest时使用质量红线](tutorials/scene/mr-quality-redline.md)
+  * [企业微信机器人执行流水线](tutorials/scene/wechat-robot-exe.md)
+  * [流水线的模版和复制](tutorials/scene/Template-copy-pipeline.md)
   * [管理大量流水线](tutorials/scene/Manage-large-pipelines.md)
   * [UE引擎编译加速](tutorials/scene/UE4-compilation-acceleration.md)
   * [实现发布与回滚](tutorials/scene/Implement-publishing-rollback.md)
   * [集成P4代码库](tutorials/scene/p4-code-base.md)
+  * [云环境异常定位](tutorials/scene/Cloud-anomaly-location.md)
+  * [流水线互斥及排队](tutorials/scene/Pipeline-exclusion-queue.md)
+  * [组建私有构建集群](tutorials/scene/Build-private-clusters.md)
+  * [不同流水线间调用](tutorials/scene/call-pipeline-diff.md)
+  * [通知发送到钉钉](tutorials/scene/notification-sent-nail.md)
+
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
