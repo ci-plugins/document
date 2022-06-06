@@ -137,13 +137,7 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
-<<<<<<< HEAD
-    
-  * [常用插件安装](store/plugins/plugin_install_demo.md)
-  
-=======
   * [常用插件安装](store/plugins/plugin\_install\_demo.md)
->>>>>>> zany-repo/zh-cn
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
     
