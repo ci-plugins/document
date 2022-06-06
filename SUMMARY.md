@@ -30,7 +30,30 @@
   * [子流水线](tutorials/examples/children-pipeline.md)
   * [Java Maven Demo](tutorials/examples/java-maven-demo.md)
   * [Node Demo](tutorials/examples/node-demo.md)
+* [场景实践](tutorials/scene/README.md)
+  * [美术人员自助更新游戏资源](tutorials/scene/Arts-upload-resources.md)
+  * [运营人员发布游戏内运营活动](tutorials/scene/operators-upload-resources.md)
+  * [客户端多版本构建保持一致](tutorials/scene/client-multi-Consistent.md)
+  * [c/c++后台代码的编译加速](tutorials/scene/code-compilation-acceleration.md)
+  * [客户端自动化性能测试](tutorials/scene/Client-performance-testing.md)
+  * [Pipeline失败的问题定位](tutorials/scene/pipeline-failure-location.md)
+  * [移动端内测版本发布管理](tutorials/scene/version-release-management.md)
+  * [在转测/发布时使用质量红线](tutorials/scene/release-quality-redline.md)
+  * [MergeRequest时使用质量红线](tutorials/scene/mr-quality-redline.md)
+  * [企业微信机器人执行流水线](tutorials/scene/wechat-robot-exe.md)
+  * [流水线的模版和复制](tutorials/scene/Template-copy-pipeline.md)
+  * [管理大量流水线](tutorials/scene/Manage-large-pipelines.md)
+  * [UE引擎编译加速](tutorials/scene/UE4-compilation-acceleration.md)
+  * [实现发布与回滚](tutorials/scene/Implement-publishing-rollback.md)
+  * [集成P4代码库](tutorials/scene/p4-code-base.md)
+  * [云环境异常定位](tutorials/scene/Cloud-anomaly-location.md)
+  * [流水线互斥及排队](tutorials/scene/Pipeline-exclusion-queue.md)
+  * [组建私有构建集群](tutorials/scene/Build-private-clusters.md)
+  * [不同流水线间调用](tutorials/scene/call-pipeline-diff.md)
+  * [通知发送到钉钉](tutorials/scene/notification-sent-nail.md)
 
+* [客户案例](tutorials/case-study/README.md)
+  * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
@@ -76,12 +99,19 @@
     * [定制Linux C/C++加速方案](services/turbo/linux\_c\_c++/new\_plan.md)
     * [在流水线中进行编译加速](services/turbo/linux\_c\_c++/use\_in\_pipeline.md)
     * [在私有构建机上使用加速](services/turbo/linux\_c\_c++/use\_in\_local.md)
+* [制品库](services/bkrepo/README.md)
+  * [元数据规范](services/bkrepo/meta.md)
 * [代码检查](services/codecc/README.md)
   * [代码检查使用](services/codecc/codecc-usage.md)
   * [代码检查配置](services/codecc/codecc-config.md)
   * [代码检查结果](services/codecc/codecc-result.md)
   * [代码检查规则](services/codecc/codecc-ruleset.md)
   * [代码检查部署所需资源](services/codecc/codecc-cost.md)
+* [移动端版本体验](services/client-experience/README.md)
+  * [部署移动端版本体验需要的硬件资源](services/client-experience/client-experience-cost.md)
+  * [移动端版本体验使用指南](services/client-experience/client-experience-usage.md)
+* [bkchat机器人](services/bkchat/README.md)
+  * [bkchat使用说明](services/bkchat/bkchatbot-usage.md)
 
 ## 🏪 研发商店 <a href="#store" id="store"></a>
 
@@ -107,9 +137,13 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
+<<<<<<< HEAD
     
   * [常用插件安装](store/plugins/plugin_install_demo.md)
   
+=======
+  * [常用插件安装](store/plugins/plugin\_install\_demo.md)
+>>>>>>> zany-repo/zh-cn
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
     
@@ -271,6 +305,7 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
+* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
 
 ***
 
