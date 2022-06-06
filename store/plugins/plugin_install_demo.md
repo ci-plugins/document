@@ -211,15 +211,15 @@ cat /data/install/install.config| grep artifctory
 
 **进入研发商店、选择对应插件**
 
-![image-20220606160525103](../../.gitbook/assets/image-20220606160525103.png)
+![](../../.gitbook/assets/image-20220606160525103.png)
 
 **选择安装插件**
 
-![image-20220606160351809](../../.gitbook/assets/image-20220606160351809.png)
+![](../../.gitbook/assets/image-20220606160351809.png)
 
 **选择插件要安装到的项目**
 
-![image-20220606160702553](../../.gitbook/assets/image-20220606160702553.png)
+![](../../.gitbook/assets/image-20220606160702553.png)
 
 
 
