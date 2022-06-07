@@ -927,3 +927,25 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 ### Q: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态
 
 常见于在公共构建机上运行耗费内存的编译任务，导致容器oom，在公共构建机上执行`grep oom /var/log/messages`通常能看到匹配记录，如果是因为多个任务同时跑在同一台构建机上导致oom，可以通过调整调度算法的内存阈值，避免单台构建机上运行过多任务；如果单个编译任务就触发oom，建议调高构建机的内存，或者使用内存更高的私有构建机
+
+### Q: trigger 的监听和排除有优先级吗？
+
+监听 > 排除
+
+假设 trigger 既配置了监听选项，又配置了排除选项，且事件中既包含监听又包含排除，那么将会触发该流水线。
+
+### Q：监听的路径可以进行通配吗？
+
+不支持通配符功能。目前可以支持前缀匹配功能。
+
+例如在监听目录中填写 source，而 sourceabc 目录进行了变更，也会监听到该事件。
+
+### Q:制品 upload 的绝对路径是什么？Artifacts 是什么？
+
+![image-20220607165825062](../../.gitbook/assets/image-20220607165825062.png)
+
+Artifacts应该是/data/bkce/public/ci/artifactory/bk-archive/${项目名称}，
+
+比如项目名称是vincotest，114514.txt实际存放路径就是蓝盾机器上/data/bkce/public/ci/artifactory/bk-archive/${项目名称}/${流水线id}/${构建id}/114514.txt，
+
+项目名称可以从url里读取到
