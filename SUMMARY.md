@@ -140,9 +140,6 @@
 
 ## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 
-* [BKCI 架构](contribute/architecture.md)
-* [BKCI 代码结构](contribute/code-framework.md)
-* [设计理念](contribute/design.md)
 * [文档共建](contribute/document.md)
 
 ## ℹ️ 参考信息 <a href="#reference" id="reference"></a>
@@ -287,7 +284,7 @@
   * [devops\_ci\_process](reference/DB-doc/devops\_ci\_process.md)
   * [devops\_ci\_measure](reference/DB-doc/devops\_ci\_measure.md)
 * [预定义变量列表](reference/pre-define-var/README.md)
-  * [GITHUB常量合集](reference/pre-define-var/gitlab.md)
+  * [GITHUB常量合集](reference/pre-define-var/github.md)
   * [GIT常量合集](reference/pre-define-var/git.md)
 * [FAQS](reference/faqs/README.md)
   * [流水线FAQ](reference/faqs/pipeline-faqs.md)
