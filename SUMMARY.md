@@ -8,7 +8,6 @@
 * [BKCI 组件](overview/components.md)
 * [5分钟读懂 BKCI 流水线](overview/learn-pipeline-in-5-min.md)
 * [术语解释](overview/terminology/README.md)
-  * [Pipelines](overview/terminology/pipelines.md)
   * [Stage](overview/terminology/stage.md)
   * [Job](overview/terminology/job.md)
   * [Task](overview/terminology/task.md)
@@ -60,9 +59,6 @@
 * [BKCI 系统要求](setup/system-requirements/README.md)
   * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
 * [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
-* [在生产环境中运行 BKCI](setup/run-bkci-in-prod/README.md)
-  * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/on-tencentcloud.md)
-  * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/on-bkce.md)
 
 ## 📔 产品功能 <a href="#services" id="services"></a>
 
