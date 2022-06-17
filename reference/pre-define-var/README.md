@@ -44,5 +44,6 @@
 | BK_CI_ATOM_NAME| 当前插件名称| |
 | | | | 
 
-{% page-ref page="gitlab.md" %}
+{% page-ref page="git.md" %}
+{% page-ref page="github.md" %}
 

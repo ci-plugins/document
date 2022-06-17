@@ -43,7 +43,7 @@ gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/
 
 然后回到关联代码库页面，选中刚创建的accesstoken，确定
 
-![](../../.gitbook/assets/image-20220301101202-ZPLrE.png)
+![](<../../.gitbook/assets/image-20220301101202-KMSOc (1).png>)
 
 **其他类型凭证使用请参考：**[凭证管理](../ticket.md)
 
@@ -85,8 +85,7 @@ gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/
 
 ![](../../.gitbook/assets/image-20211130172345727.png)
 
-配置代码检查，选择同步方式，「基础设置」根据代码库语言选择对应的工程语言，选择对应的规则集，规则集就是codecc进行代码扫描遵循的标准，codecc会提供默认的规则集，如果规则集不满足需求，可以自定义规则集。自定义规则集请参考：[代码检查规则](codecc-ruleset.md)
-「扫描配置」选择增量扫描，「路径屏蔽」可以设置路径白名单，一旦设置后，代码检查只会扫描白名单路径下的文件；配置路径黑名单，则代码检查插件不会扫描该路径下的文件。
+配置代码检查，选择同步方式，「基础设置」根据代码库语言选择对应的工程语言，选择对应的规则集，规则集就是codecc进行代码扫描遵循的标准，codecc会提供默认的规则集，如果规则集不满足需求，可以自定义规则集。自定义规则集请参考：[代码检查规则](codecc-ruleset.md) 「扫描配置」选择增量扫描，「路径屏蔽」可以设置路径白名单，一旦设置后，代码检查只会扫描白名单路径下的文件；配置路径黑名单，则代码检查插件不会扫描该路径下的文件。
 
 ![](../../.gitbook/assets/image-20211130173035272.png)
 
@@ -127,5 +126,3 @@ gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/
 点击数字可以跳转查看具体的问题
 
 ![](../../.gitbook/assets/image-20211201151908164.png)
-
-
