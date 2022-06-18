@@ -1,7 +1,7 @@
 # 构建资源
 用户可以通过在自己机器上安装蓝盾agent，将自己的机器托管到蓝盾上，使其成为私有构建机资源，在流水线里可以选择私有构建机。
 
-## 私有构建机
+## 私有构建机agent包
 蓝盾私有构建支持Mac、linux、windows，蓝盾部署完成后，默认只有linux系统的蓝盾agent安装包，Mac和windows需要手动打包。打包步骤：
 
 1. 下载mac和windows的jdk8，将jdk包上传到中控机/data/src下，下载链接：https://adoptium.net/temurin/releases/?version=8
@@ -28,4 +28,8 @@
     ![image-unzip-download](../../.gitbook/assets/image-unzip-download.png)
 
 4. 然后重新部署蓝盾，从标准运维模板 “蓝鲸持续集成部署或升级流水线” 新建任务并执行，版本号和上次部署一样
+5. 机器安装蓝盾agent，添加为私有构建机
 
+{% content-ref url="self-hosted-agents/" %}
+[pre-define-var](self-hosted-agents/)
+{% endcontent-ref %}
