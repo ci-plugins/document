@@ -53,6 +53,7 @@
 
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
+  * [永航--通过蓝鲸蓝盾实现跨环境CICD互通](tutorials/case-study/yonghang.md)
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
