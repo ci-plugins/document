@@ -680,7 +680,7 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 
 ![](../../.gitbook/assets/image-20220210194135210.png)
 
-### Q: 如果我想通过shell或者bat执行一个python任务，那么蓝盾的变量我只有通过python命令行透传进去嘛,而且无法将变量回写到蓝盾？
+### Q: 如果我想通过shell或者bat执行一个python任务，那蓝盾的变量我只有通过python命令行透传进去嘛,而且无法将变量回写到蓝盾？
 
 问题一：可以通过获取环境变量的方式来获取蓝盾的变量
 
