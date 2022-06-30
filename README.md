@@ -14,9 +14,9 @@ description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构�
 
 | 📔 产品功能 | 🏪 研发商店 | 🤝 一起共建 BKCI |
 | :--- | :--- | :--- |
-| [流水线](services/pipelines/) | [浏览研发商店](store/store-home.md) | [BKCI 架构](contribute/architecture.md) |
-| [控制台](services/console.md) | [开发一个流水线插件](store/plugins/create-plugin/) | [BKCI 代码结构](contribute/code-framework.md) |
-| [凭证管理](services/ticket.md) | [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md) | [设计理念](contribute/design.md) |
+| [流水线](services/pipelines/) | [浏览研发商店](store/store-home.md) |  |
+| [控制台](services/console.md) | [开发一个流水线插件](store/plugins/create-plugin/) |  |
+| [凭证管理](services/ticket.md) | [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md) |  |
 | [构建资源](services/pools/) |  |  |
 
 # 文档共建
