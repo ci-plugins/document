@@ -685,13 +685,33 @@ curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://d
 问题一：可以通过获取环境变量的方式来获取蓝盾的变量
 
 ```
- # 单行python例子，var为用户在本步骤或者其他步骤定义的变量名，BK_CI_START_USER_NAME是蓝盾的全局变量 python -c "import os; print(os.environ.get('var'))" python -c "import os; print(os.environ.get('BK_CI_START_USER_NAME'))" ​ # 如果你知道自己定义的变量名字，也可以在自己的python文件里通过os.envion.get('var')来获取 cat << EOF > test.py import os print(os.environ.get('var')) EOF python test.py
+# 单行python例子，var为用户在本步骤或者其他步骤定义的变量名，BK_CI_START_USER_NAME是蓝盾的全局变量
+python -c "import os; print(os.environ.get('var'))"
+python -c "import os; print(os.environ.get('BK_CI_START_USER_NAME'))"
+
+# 如果你知道自己定义的变量名字，也可以在自己的python文件里通过os.envion.get('var')来获取
+cat << EOF > test.py
+import os
+print(os.environ.get('var'))
+EOF
+python test.py
 ```
 
 问题二：如何将变量回写到蓝盾
 
 ```
- # 如果是常量，shell可以使用setEnv，bat可以使用call:setEnv来将变量回写到蓝盾 setEnv "var_name" "var_value" # shell call:setEnv "var_name" "var_value"  # bat ​ # 将python脚本输出结果写回蓝盾 var_value=`python script.py` # script.py里需要有print输出，如print("test") setEnv "var_name" "${var_value}" # var_name="test" ​ # 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv python script.py > env.sh # 假设env.sh里为file_name="test.txt" source env.sh setEnv "var_name" "${file_name}"
+# 如果是常量，shell可以使用setEnv，bat可以使用call:setEnv来将变量回写到蓝盾
+setEnv "var_name" "var_value" # shell
+call:setEnv "var_name" "var_value"  # bat
+
+# 将python脚本输出结果写回蓝盾
+var_value=`python script.py` # script.py里需要有print输出，如print("test")
+setEnv "var_name" "${var_value}" # var_name="test"
+
+# 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv
+python script.py > env.sh # 假设env.sh里为file_name="test.txt"
+source env.sh
+setEnv "var_name" "${file_name}"
 ```
 
 ### Q: gitlab webhook 报错 URL '[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)' is blocked: Host cannot be resolved or invalid
