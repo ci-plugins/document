@@ -58,9 +58,10 @@
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
+* [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
-  * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
-* [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
+
+
 
 ## 📔 产品功能 <a href="#services" id="services"></a>
 
