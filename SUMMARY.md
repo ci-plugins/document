@@ -294,7 +294,8 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
+* [蓝鲸相关材料](reference/bk-info/README.md)  
+  * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
 
 ***
 
