@@ -53,13 +53,15 @@
 
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
+  * [永航--通过蓝鲸蓝盾实现跨环境CICD互通](tutorials/case-study/yonghang.md)
 
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
+* [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
-  * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
-* [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
+
+
 
 ## 📔 产品功能 <a href="#services" id="services"></a>
 
@@ -294,7 +296,8 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
+* [蓝鲸相关材料](reference/bk-info/README.md)  
+  * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
 
 ***
 

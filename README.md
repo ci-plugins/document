@@ -7,9 +7,9 @@ description: BKCI 是一个免费并开源的 CI 服务，可助你自动化构�
 
 | 🐤 了解基本概念 | 👉 使用 BKCI | 🚀 部署 BKCI |
 | :--- | :--- | :--- |
-| [BKCI 是什么？](overview/what-is-bkci.md) | [创建你的第一条流水线](tutorials/create-first-pipeline.md) | [运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md) |
-| [BKCI 组件](overview/components.md) | [关联你的第一个代码库](tutorials/link-first-repo.md) | [在蓝鲸社区版中使用 BKCI](setup/run-bkci-in-prod/on-bkce.md) |
-| [快速熟悉流水线](overview/learn-pipeline-in-5-min.md) | [为你的Git工程开启CI](tutorials/enable-git-ci.md) | [BKCI 规格要求](setup/system-requirements/) |
+| [BKCI 是什么？](overview/what-is-bkci.md) | [创建你的第一条流水线](tutorials/create-first-pipeline.md) | [BKCI 硬件规格指南](setup/system-requirements/hardware.md) |
+| [BKCI 组件](overview/components.md) | [关联你的第一个代码库](tutorials/link-first-repo.md) | [BKCI 系统要求](setup/system-requirements/)  |
+| [快速熟悉流水线](overview/learn-pipeline-in-5-min.md) | [为你的Git工程开启CI](tutorials/enable-git-ci.md) | |
 | [术语解释](overview/terminology/) | [示例](tutorials/examples/) |  |
 
 | 📔 产品功能 | 🏪 研发商店 | 🤝 一起共建 BKCI |
