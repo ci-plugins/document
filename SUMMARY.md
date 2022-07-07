@@ -8,7 +8,6 @@
 * [BKCI 组件](overview/components.md)
 * [5分钟读懂 BKCI 流水线](overview/learn-pipeline-in-5-min.md)
 * [术语解释](overview/terminology/README.md)
-  * [Pipelines](overview/terminology/pipelines.md)
   * [Stage](overview/terminology/stage.md)
   * [Job](overview/terminology/job.md)
   * [Task](overview/terminology/task.md)
@@ -54,15 +53,15 @@
 
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
+  * [永航--通过蓝鲸蓝盾实现跨环境CICD互通](tutorials/case-study/yonghang.md)
+
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
+* [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
-  * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
-* [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
-* [在生产环境中运行 BKCI](setup/run-bkci-in-prod/README.md)
-  * [将 BKCI 一键部署至腾讯云](setup/run-bkci-in-prod/on-tencentcloud.md)
-  * [在蓝鲸社区版中部署 BKCI](setup/run-bkci-in-prod/on-bkce.md)
+
+
 
 ## 📔 产品功能 <a href="#services" id="services"></a>
 
@@ -144,9 +143,6 @@
 
 ## 🤝 一起共建 BKCI <a href="#contribute" id="contribute"></a>
 
-* [BKCI 架构](contribute/architecture.md)
-* [BKCI 代码结构](contribute/code-framework.md)
-* [设计理念](contribute/design.md)
 * [文档共建](contribute/document.md)
 
 ## ℹ️ 参考信息 <a href="#reference" id="reference"></a>
@@ -291,7 +287,8 @@
   * [devops\_ci\_process](reference/DB-doc/devops\_ci\_process.md)
   * [devops\_ci\_measure](reference/DB-doc/devops\_ci\_measure.md)
 * [预定义变量列表](reference/pre-define-var/README.md)
-  * [gitlab事件触发](reference/pre-define-var/gitlab.md)
+  * [GITHUB常量合集](reference/pre-define-var/github.md)
+  * [GIT常量合集](reference/pre-define-var/git.md)
 * [FAQS](reference/faqs/README.md)
   * [流水线FAQ](reference/faqs/pipeline-faqs.md)
   * [代码检查FAQ](reference/faqs/codecc-faqs.md)
@@ -299,7 +296,8 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
+* [蓝鲸相关材料](reference/bk-info/README.md)  
+  * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
 
 ***
 
