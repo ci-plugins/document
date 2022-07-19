@@ -17,9 +17,40 @@
 | `429 Too Many Requests` | 请求被限流 |
 | `500 Server Error` | 服务器出错 |
 
+
+
+## **开启 acces_token 认证**
+
+API 调用需要携带access_Token。需要先修改配置文件，开启access_Token认证后才可以获取到口令。
+
+登录CI服务器，编辑配置文件 /data/bkce/etc/ci/common.yml 的 auth 段下的 accessToken 段的内容。示例如下
+
+```
+  accessToken:
+    enabled: false
+    secret: ea0950b9-79e3-4193-8bf3-1f22856ca075
+    expirationTime: 86400000
+```
+
+
+
+![image-20220707143212672](<../../.gitbook/assets/common.yml_demo.png>)
+
+
+
+
+
 ## **认证方式**
 
-每个API调用都需要认证，请在query参数中携带access\_token，access\_token通过调用/ms/auth/api/user/token/get接口获取，返回示例如下。
+每个API调用都需要认证，请在query参数中携带access_Token，access_Token通过调用/ms/auth/api/user/token/get接口获取
+
+
+
+**accessToken 获取示例**
+
+浏览器访问  https://{域名}/ms/auth/api/user/token/get  获取
+
+返回示例如下。
 
 ```javascript
 {
@@ -27,22 +58,20 @@
     "expirationTime" : 1630565380912,
     "accessToken" : "PryTxowDezaM6u1QE1KDeZXiDH%2Bayb%2BabHZHOYLR8%2B8Md9QhAXrUrs2z3U4%2FZ3p9CvP4ObZjZJJ2VdNWQqgX3qeQ1TBK7ADhNXRVWn4q2Q0%3D"
 }
-```
-
-TOKEN请求示例：
-
-```javascript
-GET https://{域名/ip}/ms/auth/api/user/token/get
 
 若出现：
 {"status": 401,"data": "","result":true,"message": "用户权限验证失败。"}
-请先登录bk-ci
+请先网页登录bk-ci
 ```
 
-API请求示例：
+
+
+**API请求示例**
+
+需添加 header 信息 X-DEVOPS-UID：用户名
 
 ```javascript
-GET https://{域名/ip}/ms/openapi/api/apigw/v3/projects?access_token=PryTxowDezaM6u1QE1KDeZXiDH%2Bayb%2BabHZHOYLR8%2B8Md9QhAXrUrs2z3U4%2FZ3p9CvP4ObZjZJJ2VdNWQqgX3qeQ1TBK7ADhNXRVWn4q2Q0%3D
+GET https://{域名/ip}/ms/openapi/api/apigw/v3/projects?access_token=PryTxowDezaM6u1QE1KDeZXiDH%2Bayb%2BabHZHOYLR8%2B8Md9QhAXrUrs2z3U4%2FZ3p9CvP4ObZjZJJ2VdNWQqgX3qeQ1TBK7ADhNXRVWn4q2Q0%3D -H "X-DEVOPS-UID: admin"
 
 1)若出现：
 Verification failed : token过期错误: Access token expired in: 1630919127633
@@ -54,4 +83,6 @@ Request accessToken is empty.
 verification failed : token参数非法错误: Access token illegal
 请检查access_token是否输入正确 
 ```
+
+
 
