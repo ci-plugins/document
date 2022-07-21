@@ -150,6 +150,7 @@
 
 * [REST API](reference/rest-api/README.md)
   * [使用前必读](reference/rest-api/read-before-use.md)
+  * [API使用示例](reference/rest-api/api-use-demo.md)
   * [OPENAPI-项目模板资源](reference/rest-api/project-template-resources/README.md)
     * [批量更新流水线模板实例](reference/rest-api/project-template-resources/batch-update-pipeline-template-example.md)
     * [更新流水线模板](reference/rest-api/project-template-resources/update-the-pipeline-template.md)
