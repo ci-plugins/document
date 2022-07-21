@@ -21,13 +21,15 @@
 
 ## **开启 acces_token 认证**
 
-API 调用需要携带access_Token。需要先修改配置文件，开启access_Token认证后才可以获取到口令。
+API 调用需要携带access_Token。需要先修改配置文件，开启access_Token认证后才可以获取到口令，登录CI服务器，编辑配置文件 /data/bkce/etc/ci/common.yml 的 auth 段下的 accessToken 段的内容。
 
-登录CI服务器，编辑配置文件 /data/bkce/etc/ci/common.yml 的 auth 段下的 accessToken 段的内容。示例如下
+将enabled设为true，secret设为任意字符串string，expirationTime过期时间（毫秒）。
+
+示例如下
 
 ```
   accessToken:
-    enabled: false
+    enabled: true
     secret: ea0950b9-79e3-4193-8bf3-1f22856ca075
     expirationTime: 86400000
 ```
@@ -35,6 +37,15 @@ API 调用需要携带access_Token。需要先修改配置文件，开启access_
 
 
 ![image-20220707143212672](<../../.gitbook/assets/common.yml_demo.png>)
+
+
+
+修改后，需要重启相应的服务
+
+```
+systemctl restart bk-ci-auth.service
+systemctl restart bk-ci-openapi.service
+```
 
 
 
