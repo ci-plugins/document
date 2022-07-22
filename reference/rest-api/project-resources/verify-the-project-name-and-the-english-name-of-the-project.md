@@ -32,7 +32,8 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为API地址栏请求地址]?name={name}&amp;english_name={english_name}'
+curl -X GET '[请替换为API地址栏请求地址]?name={name}&amp;english_name={english_name}' \
+-H 'X-DEVOPS-UID:xxx'
 ```
 
 #### HEADER样例
@@ -40,6 +41,7 @@ curl -X GET '[请替换为API地址栏请求地址]?name={name}&amp;english_name
 ```javascript
 accept: application/json
 Content-Type: application/json
+X-DEVOPS-UID:xxx
 ```
 
 ### 返回样例-200
