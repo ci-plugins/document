@@ -1,4 +1,4 @@
-# python_atom_sdk接口示例
+# python_atom_sdk接口指引
 
 ## sdk代码结构
 ```text
