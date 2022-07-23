@@ -86,7 +86,7 @@
 更多sdk接口，请参考：[python_atom_sdk接口示例](../python-atom-sdk-examples.md)
 更多task.json配置信息，请参考：[插件配置规范](../plugin-config.md)
 更多UI组件使用案例，请参考：[UI组件示例](../UI-components-examples.md)
-更多的插件开发案例，请参考：[插件开发案例]()
+更多的插件开发案例，请参考：[插件开发案例](../../case-stduy/README.md)
 ```python
 # -*- coding: utf-8 -*-
 
