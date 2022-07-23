@@ -53,13 +53,16 @@
 
 * [客户案例](tutorials/case-study/README.md)
   * [呦尔哈--通过蓝盾提升CI/CD效率](tutorials/case-study/yorha.md)
+  * [永航--通过蓝鲸蓝盾实现跨环境CICD互通](tutorials/case-study/yonghang.md)
+  * [宝可拉--通过按量计费的编译加速方案提升服务器端75%编译速度](tutorials/case-study/bokura.md)
 
 
 ## 🚀 部署 BKCI <a href="#setup" id="setup"></a>
 
+* [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
-  * [BKCI 硬件规格指南](setup/system-requirements/hardware-specifications.md)
-* [使用 One-Docker 运行 BKCI 的学习环境](setup/run-bkci-in-one-docker.md)
+
+
 
 ## 📔 产品功能 <a href="#services" id="services"></a>
 
@@ -134,6 +137,8 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
+    * [流水线插件开发案例](store/plugins/case-stduy/README.md)
+      * [sendmsg插件的诞生](store/plugins/case-stduy/sendmsg.md)
   * [常用插件安装](store/plugins/plugin\_install\_demo.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
@@ -147,6 +152,7 @@
 
 * [REST API](reference/rest-api/README.md)
   * [使用前必读](reference/rest-api/read-before-use.md)
+  * [API使用示例](reference/rest-api/api-use-demo.md)
   * [OPENAPI-项目模板资源](reference/rest-api/project-template-resources/README.md)
     * [批量更新流水线模板实例](reference/rest-api/project-template-resources/batch-update-pipeline-template-example.md)
     * [更新流水线模板](reference/rest-api/project-template-resources/update-the-pipeline-template.md)
@@ -294,7 +300,8 @@
   * [已知问题](reference/faqs/known-issues.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝鲸使用学习材料](reference/bk-tutorial/README.md)
+* [蓝鲸相关材料](reference/bk-info/README.md)  
+  * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
 
 ***
 

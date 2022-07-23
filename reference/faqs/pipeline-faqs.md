@@ -232,6 +232,8 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
 
+3、主机资源不足时也会导致启动失败。请确认 DISK_LOAD<95%，CPU_LOAD<100%，MEM_LOAD <80%
+
 ### Q: 哪里可以查看上传到 制品库 的jar包？使用默认方式
 
 蓝鲸社区参考：[https://bk.tencent.com/s-mart/community/question/2380](https://bk.tencent.com/s-mart/community/question/2380)
@@ -714,6 +716,18 @@ source env.sh
 setEnv "var_name" "${file_name}"
 ```
 
+问题三：bat 脚本中调用 python ，将 python 输出回写到蓝盾
+
+````
+for /F %%i in('python3 D:\mytest.py') do (set res=%%i)
+echo %res%
+call:setEnv "var_name" %res%
+````
+
+
+
+
+
 ### Q: gitlab webhook 报错 URL '[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)' is blocked: Host cannot be resolved or invalid
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
@@ -969,3 +983,4 @@ Artifacts应该是/data/bkce/public/ci/artifactory/bk-archive/${项目名称}，
 比如项目名称是vincotest，114514.txt实际存放路径就是蓝盾机器上/data/bkce/public/ci/artifactory/bk-archive/${项目名称}/${流水线id}/${构建id}/114514.txt，
 
 项目名称可以从url里读取到
+
