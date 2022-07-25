@@ -180,4 +180,4 @@ if __name__ == "__main__":
 3. 获取私有配置，私有配置通常配置了插件的全局变量或者普通用户不可见的账密信息，比如蓝鲸esb网关地址、请求第三方服务的地址等，调用方法：`sdk.get_sensitive_conf(key)`，key表示配置名称，如`sdk.get_sensitive_conf("BK_PAAS_URL")`
 4. 获取凭证，`get_credential`，用户的私密配置，可以通过凭证管理配置，插件可以通过`get_credential`获取到这部分信息，调用方法：`sdk.get_credential("credential_id")`，credential_id为凭证英文名称
 5. 获取内置变量，除上述4类外， 剩余的接口均是获取内置变量的接口
-
+6. 此外还有日志打印的接口`sdk.log.info("info")、sdk.log.error("error")`

@@ -63,6 +63,7 @@ import python_atom_sdk as sdk
 username = sdk.get_input().get("username")
 ```
 **组件可视化效果：**
+
 ![vuex-input](../../../.gitbook/assets/image-plugin-ui-vuex-input.png)
 
 ## vuex-textarea
@@ -88,6 +89,7 @@ import python_atom_sdk as sdk
 message = sdk.get_input().get("message")
 ```
 **组件可视化效果：**
+
 ![vuex-textarea](../../../.gitbook/assets/image-plugin-ui-vuex-textarea.png)
 
 ## atom-ace-editor
@@ -114,6 +116,7 @@ import python_atom_sdk as sdk
 username = sdk.get_input().get("script")
 ```
 **组件可视化效果：**
+
 ![atom-ace-editor](../../../.gitbook/assets/image-plugin-ui-atom-ace-editor.png)
 
 ## selector
@@ -156,6 +159,7 @@ credentials = sdk.get_input().get("credential")
 credential_list = json.loads(credentials)
 ```
 **组件可视化效果：**
+
 ![selector](../../../.gitbook/assets/image-plugin-ui-selector.png)
 
 **使用示例2：**
@@ -211,6 +215,7 @@ citys = sdk.get_input().get("citys")
 city_list = json.loads(citys)   # 拿到的是id列表：["sz", "sh"]
 ```
 **组件可视化效果：**
+
 ![selector](../../../.gitbook/assets/image-plugin-ui-selector-options.png)
 
 ## select-input
@@ -258,6 +263,7 @@ import python_atom_sdk as sdk
 city = sdk.get_input().get("city")
 ```
 **组件可视化效果：**
+
 ![select-input](../../../.gitbook/assets/image-plugin-ui-select-input.png)
 
 ## devops-select
@@ -305,6 +311,7 @@ import python_atom_sdk as sdk
 city = sdk.get_input().get("city")
 ```
 **组件可视化效果：**
+
 ![devops-select](../../../.gitbook/assets/image-plugin-ui-devops-select.png)
 
 ## atom-checkbox-list
@@ -371,6 +378,7 @@ citys = sdk.get_input().get("city")
 city_list = json.loads(citys) # ["sz", "bj"]
 ```
 **组件可视化效果：**
+
 ![atom-checkbox-list](../../../.gitbook/assets/image-plugin-ui-atom-checkbox-list.png)
 
 ## atom-checkbox
@@ -400,6 +408,7 @@ isEnabled = sdk.get_input().get("isEnabled") # 字符串'true'
 is_enabled = True if isEnabled == 'true' else False  # 转为True
 ```
 **组件可视化效果：**
+
 ![atom-checkbox](../../../.gitbook/assets/image-plugin-ui-atom-checkbox.png)
 
 ## enum-input
@@ -436,6 +445,7 @@ import json
 lang = sdk.get_input().get("lang")
 ```
 **组件可视化效果：**
+
 ![enum-input](../../../.gitbook/assets/image-plugin-ui-enum-input.png)
 
 ## cron-timer
@@ -463,6 +473,7 @@ runtime = sdk.get_input().get("runtime") # 获取到的是字符串，需要解�
 runtime_list = json.loads(runtime) # ['0 0 9 ? * 2', '0 30 15 ? * 2']
 ```
 **组件可视化效果：**
+
 ![cron-timer](../../../.gitbook/assets/image-plugin-ui-cron-timer.png)
 
 ## time-picker
@@ -494,6 +505,7 @@ uptime = sdk.get_input().get("uptime") # 获取到的是字符串，需要转换
 uptime_int= int(uptime) # 1658509200000  以毫秒为单位的unix timestamp 
 ```
 **组件可视化效果：**
+
 ![time-picker](../../../.gitbook/assets/image-plugin-ui-time-picker.png)
 
 ## user-input
@@ -521,6 +533,7 @@ receiver = sdk.get_input().get("receiver")  # 字符串
 receiver_list= json.loads(receiver)  # 转换成列表 [ "ponyma", "jackma" ]
 ```
 **组件可视化效果：**
+
 ![user-input](../../../.gitbook/assets/image-plugin-ui-user-input.png)
 
 ## tips
@@ -549,6 +562,7 @@ tips给用户提供提示信息，支持引用插件内置变量，支持动态�
 ```
 
 **组件可视化效果：**
+
 ![tips](../../../.gitbook/assets/image-plugin-ui-tips.png)
 
 
@@ -572,6 +586,7 @@ tips给用户提供提示信息，支持引用插件内置变量，支持动态�
 }
 ```
 **组件可视化效果：**
+
 ![inputType](../../../.gitbook/assets/image-plugin-ui-inputType.png)
 
 ### groupName
@@ -656,6 +671,7 @@ tips给用户提供提示信息，支持引用插件内置变量，支持动态�
 ```
 
 **组件可视化效果：**
+
 ![groupName](../../../.gitbook/assets/image-plugin-ui-groupName.png)
 
 ### isSensitive
@@ -679,6 +695,7 @@ tips给用户提供提示信息，支持引用插件内置变量，支持动态�
 ```
 
 **组件可视化效果：**
+
 ![isSensitive](../../../.gitbook/assets/image-plugin-ui-isSensitive.png)
 
 ### rely
@@ -814,6 +831,7 @@ rely可以让用户根据条件显示/隐藏当前组件，通常用在组件间
 ```
 
 **组件可视化效果：**
+
 ![rely-and](../../../.gitbook/assets/image-plugin-ui-rely-and.png)
 
 **使用OR示例：**
@@ -867,6 +885,7 @@ rely可以让用户根据条件显示/隐藏当前组件，通常用在组件间
 ```
 
 **组件可视化效果：**
+
 ![rely-or](../../../.gitbook/assets/image-plugin-ui-rely-or.png)
 
 ### rule
@@ -903,4 +922,5 @@ rule属性限制用户输入，支持如下属性：
 ```
 
 **组件可视化效果：**
+
 ![rule](../../../.gitbook/assets/image-plugin-ui-rule.png)
