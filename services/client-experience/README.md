@@ -37,4 +37,4 @@
 ![](../../.gitbook\assets\image-client-experince-notification.png)
 
 ## **部署成本**
-- [部署移动端版本体验需要的硬件资源](services\client-experience\client-experience-cost.md)
+- [部署移动端版本体验需要的硬件资源](../../services\client-experience\client-experience-cost.md)
