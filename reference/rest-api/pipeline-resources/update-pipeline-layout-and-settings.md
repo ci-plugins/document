@@ -38,7 +38,8 @@
 #### 请求样例
 
 ```javascript
-curl -X PUT '[请替换为API地址栏请求地址]?channelCode={channelCode}'
+curl -X PUT '[请替换为API地址栏请求地址]?channelCode={channelCode}' \
+-H 'X-DEVOPS-UID:xxx'
 ```
 
 #### HEADER样例
@@ -46,6 +47,7 @@ curl -X PUT '[请替换为API地址栏请求地址]?channelCode={channelCode}'
 ```javascript
 accept: application/json
 Content-Type: application/json
+X-DEVOPS-UID:xxx
 ```
 
 ### 返回样例-200

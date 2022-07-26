@@ -35,7 +35,8 @@
 #### 请求样例
 
 ```javascript
-curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&amp;commitId={commitId}&amp;page={page}&amp;pageSize={pageSize}'
+curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&amp;commitId={commitId}&amp;page={page}&amp;pageSize={pageSize}' \
+-H 'X-DEVOPS-UID:xxx'
 ```
 
 #### HEADER样例
@@ -43,6 +44,7 @@ curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&am
 ```javascript
 accept: application/json
 Content-Type: application/json
+X-DEVOPS-UID:xxx
 ```
 
 ### 返回样例-200

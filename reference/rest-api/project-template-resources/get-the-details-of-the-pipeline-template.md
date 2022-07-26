@@ -40,6 +40,7 @@ curl -X GET '[请替换为API地址栏请求地址]?version={version}'
 ```javascript
 accept: application/json
 Content-Type: application/json
+X-DEVOPS-UID:xxx
 ```
 
 ### 返回样例-200
