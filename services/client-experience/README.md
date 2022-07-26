@@ -20,7 +20,9 @@
 ## **应用管理**
 - 通过企业微信「工作台」（版本体验），你可以快速进行应用的体验和管理
 
-![](../../.gitbook/assets/image-client-experience-application.png)
+![](../../.gitbook/assets/image-client-experience-application-1.png)
+
+![](../../.gitbook/assets/image-client-experience-application-2.png)
 
 
 ## **应用下载**
