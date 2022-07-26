@@ -137,8 +137,10 @@
     * [插件错误码规范](store/plugins/create-plugin/plugin-error-code.md)
     * [插件发布规范](store/plugins/create-plugin/release.md)
     * [插件自定义UI](store/plugins/create-plugin/plugin-custom-ui.md)
+    * [插件UI组件使用示例](store/plugins/create-plugin/UI-components-examples.md)
+    * [python sdk接口指引](store/plugins/create-plugin/python-atom-sdk-examples.md)
     * [流水线插件开发案例](store/plugins/case-stduy/README.md)
-      * [sendmsg插件的诞生](store/plugins/case-stduy/sendmsg.md)
+      * [sendmsg-通用消息发送插件](store/plugins/case-stduy/sendmsg.md)
   * [常用插件安装](store/plugins/plugin\_install\_demo.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
