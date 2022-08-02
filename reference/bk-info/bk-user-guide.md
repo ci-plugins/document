@@ -97,3 +97,134 @@
 ![](../../.gitbook/assets/image-reference-bkuserguide-28.png)
 
 ![](../../.gitbook/assets/image-reference-bkuserguide-29.png)
+
+
+## **4. 为业务添加一台主机**
+
+进入首页，点击“节点管理”。
+
+![](../../.gitbook/assets/image-reference-bkuserguide-30.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-31.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-32.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-33.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-34.png)
+
+
+## **5. 在“配置平台”中管理主机**
+
+下面，我们要在刚新加的主机上面部署一个叫做“dataserver”的服务。为了方便后续管理，我们先在“配置平台”上创建一些信息。
+
+### **5.1 创建一个set（集群）和module（模块）**
+
+![](../../.gitbook/assets/image-reference-bkuserguide-35.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-36.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-37.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-38.png)
+
+
+### **5.2 移动主机到模块并修改主机相关信息**
+
+![](../../.gitbook/assets/image-reference-bkuserguide-39.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-40.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-41.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-42.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-43.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-44.png)
+
+
+
+## **6. 使用“作业平台”，部署dataserver服务**
+
+![](../../.gitbook/assets/image-reference-bkuserguide-45.png)
+
+### **6.1 上传本地文件至主机**
+
+https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tgz
+
+![](../../.gitbook/assets/image-reference-bkuserguide-46.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-47.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-48.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-49.png)
+
+
+### **6.2 使用“脚本执行”部署服务**
+
+![](../../.gitbook/assets/image-reference-bkuserguide-50.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-51.png)
+
+    
+    cd /data
+    yum install -y gcc python39-devel bzip2-devel sqlite-devel openssl-devel readline-devel xz-devel tk-devel gdbm-devel
+
+    mkdir -p /data/corefile
+    chmod 777 /data/corefile
+    echo 'ulimit -c unlimited' >> /etc/profile
+    sed -i "/^kernel.core_pattern =/d" /etc/sysctl.conf 
+    echo 'kernel.core_pattern = /data/corefile/core_%e_%t' >> /etc/sysctl.conf
+    sysctl -p /etc/sysctl.conf
+
+    tar zxvf Python-3.9.4.tgz 
+    cd Python-3.9.4
+    ./configure
+    make && make install
+    make clean && make distclean
+
+    mkdir -p /data/app
+    pip3 install Flask
+    pip3 freeze > /data/app/requirements.txt
+    cat > /data/app/app.py <<EOF
+    from flask import Flask
+    app = Flask(__name__)
+
+    @app.route('/')
+    def hello_world():
+        return 'Hello, World'
+    EOF
+
+    cd /data/app
+    nohup python3 -m flask run >/dev/null 2>&1 &
+
+
+## **7. 使用“监控平台”监控主机和进程**
+
+### **7.1 在“配置平台”创建进程相关信息**
+
+![](../../.gitbook/assets/image-reference-bkuserguide-52.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-53.png)
+
+
+### **7.2 监控平台配置告警**
+![](../../.gitbook/assets/image-reference-bkuserguide-54.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-55.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-56.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-57.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-58.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-59.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-60.png)
+
+![](../../.gitbook/assets/image-reference-bkuserguide-61.png)
+
+
