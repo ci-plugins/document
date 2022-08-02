@@ -304,7 +304,7 @@
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
 * [蓝鲸相关材料](reference/bk-info/README.md)  
   * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
-  * [蓝鲸入门使用文档](reference\bk-info\bk-user-guide.md)
+  * [蓝鲸入门使用文档](reference/bk-info/bk-user-guide.md)
 
 ***
 
