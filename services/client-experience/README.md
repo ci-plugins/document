@@ -11,3 +11,36 @@
 - 支持版本体验的人员和时间管理，体验人员从企业微信通讯录同步
 - 支持新版本的消息通知
 - 后台服务支持横向扩展
+
+
+## **技术架构**
+![](../../.gitbook/assets/image-client-experince-instructure.png)
+
+
+## **应用管理**
+- 通过企业微信「工作台」（版本体验），你可以快速进行应用的体验和管理
+
+![](../../.gitbook/assets/image-client-experience-application-1.png)
+
+![](../../.gitbook/assets/image-client-experience-application-2.png)
+
+
+## **应用下载**
+- 点击「下载」，你可以快速下载应用，ipa会提示跳转safari进行下载，该下载链接为动态生成，可配置按下载次数或有效时间进行访问限制管理
+
+![](../../.gitbook/assets/image-client-experince-download.png)
+
+
+## **流水线插件**
+- 「版本体验插件」与编译构建流水线整合，并提供体验权限的管理，新版本通知等功能
+
+![](../../.gitbook/assets/image-client-experince-plugin.png)
+
+
+## **版本通知**
+- 版本体验插件在勾选「通知」后，在应用上传成功后给有权限的人员发送企业微信通知消息
+
+![](../../.gitbook/assets/image-client-experince-notification.png)
+
+## **部署成本**
+- [部署移动端版本体验需要的硬件资源](client-experience-cost.md)
