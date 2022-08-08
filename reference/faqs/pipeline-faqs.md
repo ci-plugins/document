@@ -744,12 +744,6 @@ call:setEnv "var_name" %res%
 
 如果用的单构建机（私有构建机），多个job就会共用一个workspace
 
-### Q: 请问下使用 "git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥
-
-![](../../.gitbook/assets/企业微信截图\_16266633248073.png)
-
-这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
-
 ### Q: bkiam v3 failed错误？
 
 ![](../../.gitbook/assets/企业微信截图\_16273862334714.png)
@@ -974,13 +968,106 @@ TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
 
 例如在监听目录中填写 source，而 sourceabc 目录进行了变更，也会监听到该事件。
 
-### Q:制品 upload 的绝对路径是什么？Artifacts 是什么？
+Q:download
+
+### Q:upload 常见问题
+
+**使用类问题**
+
+1、upload后文件去哪了？制品 upload 的绝对路径是什么？Artifacts 是什么？
 
 ![image-20220607165825062](../../.gitbook/assets/image-20220607165825062.png)
 
-Artifacts应该是/data/bkce/public/ci/artifactory/bk-archive/${项目名称}，
+upload 后，文件上传到了蓝盾服务器当中。
 
-比如项目名称是vincotest，114514.txt实际存放路径就是蓝盾机器上/data/bkce/public/ci/artifactory/bk-archive/${项目名称}/${流水线id}/${构建id}/114514.txt，
+Artifacts是/data/bkce/public/ci/artifactory/bk-archive/${项目名称}，
 
-项目名称可以从url里读取到
+比如项目名称是vincotest，114514.txt实际存放路径就是蓝盾机器上/data/bkce/public/ci/artifactory/bk-archive/vincotest/${流水线id}/${构建id}/114514.txt
+
+项目名称、流水线ID、构建ID都可以从流水线url里读取到
+
+
+
+**报错类常见问题**
+
+1、制品源问题
+
+![image-20220808183628231](../../.gitbook/assets/uploadsrcfile.png)
+
+原因：没有匹配到对应的文件
+
+常见于文件路径问题导致的报错。upload时默认从蓝盾的 ${WORKSPACE} 开始以相对路径匹配制品。
+
+因此如果对应的制品在${WORKSPACE}的更下一级目录时，需要填写 路径/文件
+
+2、空间不足
+
+upload 时会使用到 /tmp 目录，因此 /tmp 也需要保持足够的空间。
+
+
+
+### Q:checkout 常见问题
+
+**常见报错**
+
+**1、checkout 卡死在 Fetching the repository 阶段**
+
+![image-20220808182440099](../../.gitbook/assets/check_ugit.png)
+
+构建机使用的是Ugit
+
+蓝盾需要使用原生的 git 拉取代码。如果构建机使用了 Ugit 则会导致蓝盾 checkout 失败。需要重新安装一次原生 git 。
+
+**2、"git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥**
+
+![](../../.gitbook/assets/企业微信截图_16266633248073.png)
+
+这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
+
+**3、checkout 拉取代码时，偶现报错**
+
+![image-20220808183022417](../../.gitbook/assets/checkout_error_sometimes.png)
+
+①此为旧版插件的问题，现已修复。
+
+②如果仍有报错，一般是由于蓝盾服务器和构建机上 bcprov-jdk 版本不一致导致的问题。
+
+请检查版本是否一致：
+
+构建机：agent目录\jre\lib\ext
+
+蓝盾服务器：/data/bkce/ci/ticket/lib/
+
+如不一致，进行重装构建机agent重装即可解决。
+
+### Q：关联GitLab代码库常见问题
+
+![image-20220808172034756](../../.gitbook/assets/repo_gitlab.png)
+
+1、应该使用 Personal Access Tokens 而非项目令牌。
+
+2、确认Access_Tokens生成时是否给予了对应权限。必须要包含对应的API权限。
+
+3、如果是自建的 GitLab，请确认”repository/branches“API接口是否能通。
+
+https://docs.gitlab.com/ee/api/branches.html
+
+4、如果GitLab为https访问。请确认代码库是否有做 http-->https 跳转。蓝盾默认以 http 方式进行代码库访问。
+
+若未做跳转，请按此临时方案，修改蓝盾文件：
+
+```bash
+vim /data/bkce/etc/ci/application-repository.yml
+
+#修改application-repository.yml文件，把apiUrl 修改为 https
+#gitlab v4.
+gitlab:
+apiUrl: https://devops.bktencent.com/api/v4
+```
+
+重启 bk-ci-repository.service 服务
+
+systemctl restart bk-ci-repository.service
+
+
 
