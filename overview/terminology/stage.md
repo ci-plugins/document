@@ -20,6 +20,15 @@
 
 ![](<../../.gitbook/assets/image (43).png>)
 
+## Final Stage
+
+* 整个流水线的最后一个Stage，其后不能再增加Stage；
+* 无论之前Stage成功还是失败，Final Stage 一定会执行。
+
+![image-20220808163743636](../../.gitbook/assets/finalstage.png)
+
+
+
 ## 接下来你可能需要 <a href="#jie-xia-lai-ni-ke-neng-xu-yao" id="jie-xia-lai-ni-ke-neng-xu-yao"></a>
 
 * [Task](task.md)
