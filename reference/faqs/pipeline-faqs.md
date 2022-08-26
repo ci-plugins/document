@@ -72,6 +72,16 @@ http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/
 
 [使用备注变量](https://docs.bkci.net/services/pipelines/pipeline-variables/pipeline-variables-remark)
 
+### Q14: 选中的参数改变的时能否隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
+
+![](../../.gitbook/assets/企业微信截图_1634710197325.png)
+
+暂时还不支持
+
+### Q15: 执行时，参数下拉列表里的值能通过自定义的接口获取吗？
+
+不支持接口自定义
+
 ---
 
 # 关联代码库
@@ -336,6 +346,16 @@ echo "##[endgroup]"
 
 ![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
 
+### Q2: 流水线在执行中，unity的构建日志不会实时显示
+
+其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
+
+```
+ nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
+```
+
+### 
+
 ## 系统报错
 
 ### Q1:ci不显示日志
@@ -513,7 +533,7 @@ job 插件为无编译环境插件，需要选择无编译环境的stage才可�
 
 <img src="../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
 
-### Q2: 如何使用Merge-Request-Accept-Hook，我为什么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
+### Q2: 如何使用Merge-Request-Accept-Hook
 
 ![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
@@ -767,7 +787,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ### Q2: batchscript中的命令路径有空格，执行失败
 
-![](D:\document\document\.gitbook\assets\企业微信截图_16285852671573.png)
+![](../../.gitbook/assets/企业微信截图_16285852671573.png)
 
 可以将有空格的命令用引号""括起来
 
@@ -783,22 +803,3 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 
 
-# 没想好分类
-
-### Q: 流水线在执行中，unity的构建日志不会实时显示
-
-其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
-
-```
- nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
-```
-
-### Q: 选中的参数改变的时候能不能隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
-
-![](../../.gitbook/assets/企业微信截图_1634710197325.png)
-
-暂时还不支持
-
-### Q: 我点击执行的时候，参数下拉列表里的值是能通过自定义的接口获取来吗？
-
-不支持接口自定义

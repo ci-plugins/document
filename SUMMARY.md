@@ -301,7 +301,7 @@
   * [代码检查FAQ](reference/faqs/codecc-faqs.md)
   * [编译加速FAQ](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
-  * [现有问题汇总](reference/faqs/pipeline-faqs - all.md)
+  * [现有问题汇总](reference/pipeline-faqs-all.md)
   * [错误信息及日志的获取](reference/faqs/error-message-get.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
