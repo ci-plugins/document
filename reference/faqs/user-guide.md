@@ -1,6 +1,6 @@
 # 问题指引
 
-蓝盾产品功能的介绍：[产品功能](../../services/console)
+蓝盾产品功能的介绍：[产品功能](../..//services/console.md)
 
 蓝盾流水线基础示例：[示例](../..//tutorials/examples)
 
