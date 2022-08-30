@@ -40,13 +40,13 @@
 
 蓝盾---环境管理---节点---{对应使用的构建机}---安装路径
 
-![agent安装目录](D:\document\document\.gitbook\assets\build_log_url.png)
+![agent安装目录](../../.gitbook/assets/build_log_url.png)
 
 **构建号怎么看**：
 
 流水线 URL 中，最后一串以 b- 开头的字符串即为构建号
 
-![构建号](D:\document\document\.gitbook\assets\build_id.png)
+![构建号](../../.gitbook/assets/build_id.png)
 
 ### 服务日志收集
 
@@ -62,13 +62,13 @@
 
 ①、打开 network 标签，点击错误的请求并截图。
 
-![error_request](D:\document\document\.gitbook\assets\error_request.png)
+![error_request](../../.gitbook/assets/error_request.png)
 
 
 
 ②、打开 console 标签，并截图。
 
-![error_console](D:\document\document\.gitbook\assets\weberror_console.png)
+![error_console](../../.gitbook/assets/weberror_console.png)
 
 
 
