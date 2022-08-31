@@ -137,7 +137,7 @@ no available Docker VM
 
 3、主机资源不足时也会导致启动失败。请确认公共构建机节点 DISK_LOAD<95%，CPU_LOAD<100%，MEM_LOAD <80%
 
-### Q2: 有多个公共构建机时，调度策略是什么？
+### Q2: 有多个公共构建机时，流水线调度策略是什么？
 
 算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
 
@@ -233,20 +233,9 @@ no available Docker VM
 
 1. 都没有满足以上条件的
 
-### Q2: windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问
 
-![](../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
 
-这种情况一般是由于用户重复安装蓝盾agent导致，可以先执行uninstall脚本，卸载当前agent，然后删除该agent的安装目录，然后重新下载agent包，再次安装
 
-### Q3: 私有构建机，一台mac只能装一个agent吗
-
-可以多个, 在不同目录启动agent即可. 每个agent实例需要全新安装, 不能直接复制已有agent目录.
-
-### Q4: 私有构建机如何重装蓝盾agent
-
-1. 在linux/Mac上，可以支持重新执行安装命令，如果之前遇到安装错误，建议先uninstall，然后删除干净安装目录，重新跑安装命令
-2. windows上需要先uninstall，然后删除安装目录，重新下载安装包，重复安装过程即可
 
 ### Q5: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
 
@@ -254,15 +243,15 @@ no available Docker VM
 
 是的。蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true，在bash脚本里设置`setEnv "DEVOPS_DONT_KILL_PROCESS_TREE" "true"`
 
-### Q6: 如何重启私有构建上的蓝盾agent
 
-可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
 
 ### Q7: 偶现启动构建机启动失败
 
 **Get credential failed**
 
 已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
+
+
 
 ---
 
@@ -274,11 +263,9 @@ no available Docker VM
 
 如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
 
-### Q2:私有构建机必须是物理机吗？可以是docker容器吗?
+---
 
-私有构建机和项目绑定, 且需安装agent并注册. 建议使用物理机/虚拟机等变动少的场景. 容器化使用公共构建机即可.
-
-### Q3: 构建步骤卡在准备构建环境中
+### Q2: 构建步骤卡在准备构建环境中
 
 ![](../../.gitbook/assets/企业微信截图_16419529383724.png)
 
@@ -294,7 +281,17 @@ no available Docker VM
 
 ![](../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
 
+4. 如果查看构建日志发现如下报错：
 
+   UnknownHostException|request(Request{method=PUT,url=http://devgw.xxxx.xxx.com/ms/process/api/build/builds/started,tag=null}),error is :java.net.UnknownHostException: devgw.devops.oa.com: nodename nor servname provided, or not known, try to retry 5
+
+   ![image-20220831154517326](C:\Users\v_cshenchen\AppData\Roaming\Typora\typora-user-images\image-20220831154517326.png)
+
+   
+
+   原因：说明本地应该是安装了Proxifier之类的代理软件，拦截了构建机启动任务时的网络请求。
+
+   解决办法：停止代理软件。
 
 
 
@@ -801,5 +798,82 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 解决办法：需增加系统可开启的进程数。
 
+---
+
+### Q4：无法执行带UI界面的程序
+
+具体表现：同样的脚本在目标机器执行bat脚本没问题， 在蓝盾或者job平台不能执行
+
+蓝盾开发团队给出的解释：
+
+蓝盾第三方构建机windows agent默认以系统服务的方式启动，通过agent启动带界面UI的程序时会报错或者碰到界面被不可见的问题
+
+原因：Windows Service启动的进程都运行在Session0内，Session0限制了不能向桌面用户弹出信息窗口、UI 窗口等信息。
+
+ 
+
+碰到这种情况可以换一种方式启动agent，方式如下：
+
+1. 如果agent已经安装成系统服务，执行 uninstall.bat 卸载agent服务
+
+2. 双击 devopsDaemon.exe启动agent，注意**不要关掉弹出窗口**
 
 
+
+**注1：这种方式启动的agent没有开机启动功能。**
+
+**注2：蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS_DONT_KILL_PROCESS_TREE=true**
+
+**目前只有这种临时解决方式， 因为agent最开始设计就是如此**
+
+---
+
+## Shell script
+
+### Q1 macos机器无法执行 shell 和 python 插件
+
+问题如下：macOs的私有构建机使用shell插件执行命令报错， 什么命令都无法执行
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png)
+
+使用python插件如下报错：
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+
+排查问题：
+
+1. 确认macOs的默认shell环境是否正常cat /etc/shells、echo $SHELL，如下显示为正常
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png)
+
+2. 查看构建机日志set up job日志，查看环境变量，查看环境变量是否都正常
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+
+ 本次案例排查出环境变量LANG异常， 字符集LANG设置为zh_CN.eucCN 是错误的， 应该设置为zh_CN.UTF-8
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image005.png)
+
+原因：LANG字符集影响了中文值的变量export，导致整个sh脚本出错
+
+解决方案：修改字符集为正确的字符集即可解决
+
+ 
+
+### Q2 shell脚本执行异常
+
+报错：java.io.IOException: No such file or directory
+
+![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+
+ 排查问题：
+
+1. 检查是否设置workspace，如设置先去掉再执行shell看是否成功， 如成功则是workspace设置问题
+
+2. 检查workspace的目录创建的位置是否在用户目录下， 如果不是流水线无法访问到
+
+ 
+
+原因：workspace权限问题
+
+解决方法：正确创建workspace位置， 把权限设置对
