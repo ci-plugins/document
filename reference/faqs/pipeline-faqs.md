@@ -237,7 +237,7 @@ no available Docker VM
 
 
 
-### Q5: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
+### Q2: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
 
 ![](../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
 
@@ -245,7 +245,7 @@ no available Docker VM
 
 
 
-### Q7: 偶现启动构建机启动失败
+### Q3: 偶现启动构建机启动失败
 
 **Get credential failed**
 
@@ -269,9 +269,9 @@ no available Docker VM
 
 ![](../../.gitbook/assets/企业微信截图_16419529383724.png)
 
-如果是公共构建机，优先考虑公共构建机bk-ci-dockerhost.service服务是否正常
+如果是**公共构建机**，优先考虑公共构建机bk-ci-dockerhost.service服务是否正常
 
-这种情况多见于私有构建机，多为agent安装异常导致，这里列举一些已知的原因：
+这种情况多见于**私有构建机**，多为agent安装异常导致，这里列举一些已知的原因：
 
 1. 网络原因，如无法解析蓝盾域名、蓝盾服务不可达等
 2. agent版本安装错误，如在mac上安装linux的agent包，这种情况，将蓝盾agent安装包删除，重新安装对应版本agent即可
@@ -281,11 +281,15 @@ no available Docker VM
 
 ![](../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
 
-4. 如果查看构建日志发现如下报错：
+
+
+
+
+4. **如果查看构建日志发现如下报错：
 
    UnknownHostException|request(Request{method=PUT,url=http://devgw.xxxx.xxx.com/ms/process/api/build/builds/started,tag=null}),error is :java.net.UnknownHostException: devgw.devops.oa.com: nodename nor servname provided, or not known, try to retry 5
 
-   ![image-20220831154517326](C:\Users\v_cshenchen\AppData\Roaming\Typora\typora-user-images\image-20220831154517326.png)
+   ![](../../.gitbook/assets/start_agent_fail.png)
 
    
 
@@ -834,25 +838,25 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 问题如下：macOs的私有构建机使用shell插件执行命令报错， 什么命令都无法执行
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image001.png)
+![img](../../.gitbook/assets/clip_image001.png)
 
 使用python插件如下报错：
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+![img](../../.gitbook/assets/clip_image002.png)
 
 排查问题：
 
 1. 确认macOs的默认shell环境是否正常cat /etc/shells、echo $SHELL，如下显示为正常
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png)
+![img](../../.gitbook/assets/clip_image003.png)
 
 2. 查看构建机日志set up job日志，查看环境变量，查看环境变量是否都正常
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+![img](../../.gitbook/assets/clip_image004.png)
 
  本次案例排查出环境变量LANG异常， 字符集LANG设置为zh_CN.eucCN 是错误的， 应该设置为zh_CN.UTF-8
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image005.png)
+![img](../../.gitbook/assets/clip_image005.png)
 
 原因：LANG字符集影响了中文值的变量export，导致整个sh脚本出错
 
@@ -864,7 +868,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 报错：java.io.IOException: No such file or directory
 
-![img](file:///C:/Users/V_CSHE~1/AppData/Local/Temp/msohtmlclip1/01/clip_image006.png)
+![img](../../.gitbook/assets/clip_image006.png)
 
  排查问题：
 

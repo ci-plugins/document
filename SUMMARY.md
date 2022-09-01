@@ -298,6 +298,7 @@
 * [FAQS](reference/faqs/README.md)
   * [问题指引](reference/faqs/user-guide.md)
   * [流水线FAQ](reference/faqs/pipeline-faqs.md)
+  * [环境管理FAQ](reference/faqs/environment-faqs.md)
   * [代码检查FAQ](reference/faqs/codecc-faqs.md)
   * [编译加速FAQ](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
