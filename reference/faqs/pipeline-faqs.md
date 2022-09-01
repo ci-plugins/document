@@ -285,7 +285,7 @@ no available Docker VM
 
 
 
-4. **如果查看构建日志发现如下报错：
+4. 如果查看构建日志发现如下报错：
 
    UnknownHostException|request(Request{method=PUT,url=http://devgw.xxxx.xxx.com/ms/process/api/build/builds/started,tag=null}),error is :java.net.UnknownHostException: devgw.devops.oa.com: nodename nor servname provided, or not known, try to retry 5
 
@@ -838,25 +838,25 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 问题如下：macOs的私有构建机使用shell插件执行命令报错， 什么命令都无法执行
 
-![img](../../.gitbook/assets/clip_image001.png)
+![](../../.gitbook/assets/clip_image001.png)
 
 使用python插件如下报错：
 
-![img](../../.gitbook/assets/clip_image002.png)
+![](../../.gitbook/assets/clip_image002.png)
 
 排查问题：
 
 1. 确认macOs的默认shell环境是否正常cat /etc/shells、echo $SHELL，如下显示为正常
 
-![img](../../.gitbook/assets/clip_image003.png)
+![](../../.gitbook/assets/clip_image003.png)
 
 2. 查看构建机日志set up job日志，查看环境变量，查看环境变量是否都正常
 
-![img](../../.gitbook/assets/clip_image004.png)
+![](../../.gitbook/assets/clip_image004.png)
 
  本次案例排查出环境变量LANG异常， 字符集LANG设置为zh_CN.eucCN 是错误的， 应该设置为zh_CN.UTF-8
 
-![img](../../.gitbook/assets/clip_image005.png)
+![](../../.gitbook/assets/clip_image005.png)
 
 原因：LANG字符集影响了中文值的变量export，导致整个sh脚本出错
 
@@ -868,7 +868,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 报错：java.io.IOException: No such file or directory
 
-![img](../../.gitbook/assets/clip_image006.png)
+![](../../.gitbook/assets/clip_image006.png)
 
  排查问题：
 
