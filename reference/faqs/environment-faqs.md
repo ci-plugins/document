@@ -40,7 +40,7 @@
 
 如果执行agent安装命令后，点击刷新仍无法刷出节点，请按以下步骤排查：
 
-![](../../.gitbook/assets/image-get-node.png)
+![](../../.gitbook/assets/get-node-error.png)
 
 1. 检查agent是否安装成功，如果失败：
 
@@ -52,7 +52,7 @@
 
 2. 检查复制的命令是否与目标机器的系统一致
 
-![image-20220831184628259](../../.gitbook/assets/image-20220831184628259.png)
+![](../../.gitbook/assets/image-20220831184628259.png)
 
 3. 确保安装命令是通过点击下图红框按钮复制的
 
