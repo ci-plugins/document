@@ -297,9 +297,7 @@
   * [GIT常量合集](reference/pre-define-var/git.md)
 * [FAQS](reference/faqs/README.md)
   * [问题指引](reference/faqs/user-guide.md)
-  * [流水线FAQ](reference/faqs/README.md)
-    - [流水线报错FAQ](reference/faqs/pipeline-faqs.md)
-    - [流水线使用FAQ](reference/faqs/pipeline-use-faqs.md)
+  * - 
   * [流水线使用FAQ]()
   * [环境管理FAQ](reference/faqs/environment-faqs.md)
   * [代码检查FAQ](reference/faqs/codecc-faqs.md)
@@ -313,6 +311,12 @@
 * [蓝鲸相关材料](reference/bk-info/README.md)  
   * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
   * [蓝鲸入门使用文档](reference/bk-info/bk-user-guide.md)
+
+---
+
+- [流水线FAQ](reference/faqs/README.md)
+  - [流水线报错FAQ](reference/faqs/pipeline-faqs.md)
+  - [流水线使用FAQ](reference/faqs/pipeline-use-faqs.md)
 
 ***
 
