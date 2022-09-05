@@ -1,92 +1,6 @@
-# 流水线使用常见问题
-
-### Q1: 流水线的各个状态代表什么意思？
-
-流水线的状态汇总如下：
-
-![](../../.gitbook/assets/image-20220301101202-uphlD.png)
-
-### Q2: 蓝盾流水线进度条是如何计算的？
-
-进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
-
-![](../../.gitbook/assets/进度条.png)
-
-### Q3: 如何获取流水线id？
-
-流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
-
-### Q4: 流水线执行失败了，插件为什么没有重试按钮？
-
-只有最新一次的构建可以重试。
-
-### Q5: 蓝盾流水线中的视图管理、标签管理有什么用？
-
-对流水线进行分类，当流水线数量较多时，标签、视图会有更大作用。
-
-### Q6: 查看日志时，如何查看时间戳？
-
-查看日志页，Show/Hide Timestamp
-
-![](../../.gitbook/assets/image-20220301101202-QERjn.png)
-
-### Q7: 多个job是共用一个workspace吗？
-
-如果用的单构建机（私有构建机），多个job就会共用一个 workspace 目录。
-
-如果是公共构建机，那么每个job在workspace下会有一个单独的目录 。
-
-私有构建机和公共构建机，默认每个流水线都建立一个独立的 workspace 目录。
-
-### Q8：如何获取构建产物的URL
-
-http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/${项目名称}/${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
-
-### Q9：流水线之间如何做互斥
-
-流水线的互斥及排队可以参考
-
-[流水线互斥](https://docs.bkci.net/tutorials/scene/pipeline-exclusion-queue)
-
-### Q10：有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种如何做互斥呢
-
-使用 call pipeline 调用子流水线。选择同步执行即可，触发后继续等待执行结果，有结果后再决定是否继续
-
-### Q11: 如何使用流水线的视图功能
-
-视图可以将流水线分类，允许用户根据流水线的创建人或者流水线的名称来进行分类，多个条件之间支持与/或关系，条件的键值是include的逻辑，不支持模糊匹配以及正则表达式，比如当流水线的名称对应的键值为`vinco`时，会匹配到该项目中所有流水线名称中包含`vinco`字样的流水线
-
-![](../../.gitbook/assets/image-20220125152014075.png)
-
-![](../../.gitbook/assets/image-20220125152350168.png)
-
-### Q12: 定时触发的流水线，时间显示不对，触发时间也不对
-
-![](../../.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)请检查蓝盾服务器的时间是否正常
-
-### Q13:流水线的历史页面，能显示自定义内容吗？
-
-可以在流水线里加个shell**插件**，通过设置`BK_CI_BUILD_REMARK`这全局变量的值，来实现想要的备注。流水线结束了，该字段才会显示。
-
-并且在流水线历史页面添加备注字段。具体请参考：
-
-[使用备注变量](https://docs.bkci.net/services/pipelines/pipeline-variables/pipeline-variables-remark)
-
-### Q14: 选中的参数改变的时能否隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
-
-![](../../.gitbook/assets/企业微信截图_1634710197325.png)
-
-暂时还不支持
-
-### Q15: 执行时，参数下拉列表里的值能通过自定义的接口获取吗？
-
-不支持接口自定义
-
----
-
 # 关联代码库
 
-### Q1:关联GitLab代码库报错常见原因
+## Q1:关联GitLab代码库报错常见原因
 
 ![](../../.gitbook/assets/repo_gitlab.png)
 
@@ -121,7 +35,7 @@ systemctl restart bk-ci-repository.service
 
 ## 公共构建机
 
-### Q1:公共构建机启动失败
+## Q1:公共构建机启动失败
 
 no available Docker VM
 
@@ -137,7 +51,7 @@ no available Docker VM
 
 3、主机资源不足时也会导致启动失败。请确认公共构建机节点 DISK_LOAD<95%，CPU_LOAD<100%，MEM_LOAD <80%
 
-### Q2: 有多个公共构建机时，流水线调度策略是什么？
+## Q2: 有多个公共构建机时，流水线调度策略是什么？
 
 算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
 
@@ -145,7 +59,7 @@ no available Docker VM
  内存阈值：80% 磁盘IO：85% 磁盘空间：90%
 ```
 
-### Q3：是否可以修改调度策略的阈值？
+## Q3：是否可以修改调度策略的阈值？
 
 目前只支持调整内存阈值，默认是80%，即当公共构建机的内存使用率达到80%时，如果其他构建机还有空闲资源，任务会被调度到其他构建机，这个阈值是可以修改的，修改方法如下，登录到蓝盾dispatch-docker服务的机器上， 执行：
 
@@ -153,7 +67,7 @@ no available Docker VM
  # threshold的值即为阈值百分比，这里以将内存阈值调整为70%为例 curl -H 'Accept:application/json;charset="utf-8"' -H 'Content-Type:application/json;charset="utf-8"' -H "X-DEVOPS-UID: admin" -X POST --data '{"threshold":"70"}' http://127.0.0.1:21938/api/op/dispatchDocker/docker/threshold/update
 ```
 
-### Q4: 公共构建机挂载如何使用？
+## Q4: 公共构建机挂载如何使用？
 
 ![](../../.gitbook/assets/image-20220301101202-sxXbU.png)
 
@@ -169,7 +83,7 @@ no available Docker VM
 
 设计如此，CI的产物如果要部署出去，必须走到制品库，用maven私服的思路没错
 
-### Q5:公共构建机，支持哪些系统？
+## Q5:公共构建机，支持哪些系统？
 
 ![](../../.gitbook/assets/image-1646103610029.png)
 
@@ -177,7 +91,7 @@ no available Docker VM
 
 ---
 
-### Q6:机器无法连网，公共构建机/无编译环境无法下载镜像
+## Q6:机器无法连网，公共构建机/无编译环境无法下载镜像
 
 目前公共构建机可以使用任意镜像, 无编译环境需要联网下载镜像.
 
@@ -187,17 +101,17 @@ no available Docker VM
 
 并人工转存docker hub上的bkci/ci:latest到私有docker registry.
 
-### Q7: 公共构建机可以使用自己的镜像吗？
+## Q7: 公共构建机可以使用自己的镜像吗？
 
 可以，参考[https://docs.bkci.net/store/ci-images](https://docs.bkci.net/store/ci-images)
 
-### Q8: 偶现启动构建机启动失败
+## Q8: 偶现启动构建机启动失败
 
 **Get credential failed**
 
 已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
 
-### Q9: 如何删除公共构建机
+## Q9: 如何删除公共构建机
 
 登录到蓝盾dispatch-docker服务的机器上，执行`/data/src/ci/scripts/bkci-op.sh list`获取所有的公共构建机，执行`/data/src/ci/scripts/bkci-op.sh del`操作
 
@@ -205,7 +119,7 @@ no available Docker VM
 
 ## 私有构建机
 
-### Q1：私有构建集群的调度策略是什么？
+## Q1：私有构建集群的调度策略是什么？
 
 如果有多台私有构建机，可以构成私有构建集群，选择这个集群后，蓝盾流水线按照一定的算法选择其中一台进行构建：
 
@@ -237,7 +151,7 @@ no available Docker VM
 
 
 
-### Q2: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
+## Q2: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
 
 ![](../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
 
@@ -245,7 +159,7 @@ no available Docker VM
 
 
 
-### Q3: 偶现启动构建机启动失败
+## Q3: 偶现启动构建机启动失败
 
 **Get credential failed**
 
@@ -257,7 +171,7 @@ no available Docker VM
 
 ## 公共&私有
 
-### Q1:使用docker build生成镜像是不是只能使用私有构建机才行？
+## Q1:使用docker build生成镜像是不是只能使用私有构建机才行？
 
 建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.
 
@@ -265,7 +179,7 @@ no available Docker VM
 
 ---
 
-### Q2: 构建步骤卡在准备构建环境中
+## Q2: 构建步骤卡在准备构建环境中
 
 ![](../../.gitbook/assets/企业微信截图_16419529383724.png)
 
@@ -305,7 +219,7 @@ no available Docker VM
 
 ## 使用问题
 
-### Q1: 如何让自己的流水线日志显示带上不同颜色
+## Q1: 如何让自己的流水线日志显示带上不同颜色
 
 在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
 
@@ -347,7 +261,7 @@ echo "##[endgroup]"
 
 ![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
 
-### Q2: 流水线在执行中，unity的构建日志不会实时显示
+## Q2: 流水线在执行中，unity的构建日志不会实时显示
 
 其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
 
@@ -355,11 +269,11 @@ echo "##[endgroup]"
  nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
 ```
 
-### 
+## 
 
 ## 系统报错
 
-### Q1:ci不显示日志
+## Q1:ci不显示日志
 
 ![](../../.gitbook/assets/image-20220301101202-xwkmo.png)
 
@@ -388,7 +302,7 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 ## 常见问题
 
-### Q1: 插件变量值的获取及引用
+## Q1: 插件变量值的获取及引用
 
 右上角点击引用变量，然后点右边复制变量，然后粘贴到你需要的地方就可以
 
@@ -398,7 +312,7 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 [变量定义及引用](https://docs.bkci.net/overview/terminology/variables)
 
-### Q2: 使用 shell 或 bat 执行任务python脚本时，如何将变量回写到蓝盾中？
+## Q2: 使用 shell 或 bat 执行任务python脚本时，如何将变量回写到蓝盾中？
 
 问题一：可以通过获取环境变量的方式来获取蓝盾的变量
 
@@ -442,13 +356,13 @@ call:setEnv "var_name" %res%
 
 ---
 
-### Q3：如何有条件的执行插件
+## Q3：如何有条件的执行插件
 
 每个插件都为一个 task，通过高级流程控制，可以定义插件的运行逻辑。
 
 [task 说明](https://docs.bkci.net/overview/terminology/task)
 
-### Q4：插件安装后无法使用
+## Q4：插件安装后无法使用
 
 大致分为两种情况
 
@@ -468,25 +382,25 @@ call:setEnv "var_name" %res%
 
 job 插件为无编译环境插件，需要选择无编译环境的stage才可以。
 
-### Q5: 请问流水线的变量能联动吗，比如我下拉选择了变量1的值为A，变量2的值自动变为A？
+## Q5: 请问流水线的变量能联动吗，比如我下拉选择了变量1的值为A，变量2的值自动变为A？
 
 暂时还不支持联动，如果值没什么变化，可以设置默认值
 
-### Q6: 如何执行 git push 的操作
+## Q6: 如何执行 git push 的操作
 
 可以试着用账密的方式push： git push [http://username:passwd@xxx](http://username:passwd@xxx)，username和passwd可以使用凭证管理起来，username和passwd不允许有特殊字符，蓝盾在渲染变量的时候，不会转义特殊字符
 
-### Q7: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态
+## Q7: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态
 
 常见于在公共构建机上运行耗费内存的编译任务，导致容器oom，在公共构建机上执行`grep oom /var/log/messages`通常能看到匹配记录，如果是因为多个任务同时跑在同一台构建机上导致oom，可以通过调整调度算法的内存阈值，避免单台构建机上运行过多任务；如果单个编译任务就触发oom，建议调高构建机的内存，或者使用内存更高的私有构建机
 
-### Q8：插件执行失败download plugin execute file fail
+## Q8：插件执行失败download plugin execute file fail
 
 通常是由于 mongodb 服务异常导致的问题。
 
 在中控机中，执行 ```./bkcli restart mongodb``` 恢复服务即可
 
-### Q9：构建任务中插件长时间卡住（超过超时时间仍未终止）
+## Q9：构建任务中插件长时间卡住（超过超时时间仍未终止）
 
 插件默认的超时时间为 900min，若超过超时时间仍未终止，通常是 process 或 project 服务出现了异常。
 
@@ -500,7 +414,7 @@ job 插件为无编译环境插件，需要选择无编译环境的stage才可�
 
 ## gitlab 触发插件
 
-### Q1: gitlab触发插件无法触发流水线
+## Q1: gitlab触发插件无法触发流水线
 
 1. 检查分支是否匹配
 
@@ -534,7 +448,7 @@ job 插件为无编译环境插件，需要选择无编译环境的stage才可�
 
 <img src="../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
 
-### Q2: 如何使用Merge-Request-Accept-Hook
+## Q2: 如何使用Merge-Request-Accept-Hook
 
 ![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
@@ -544,7 +458,7 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 ![](../../.gitbook/assets/image-20220301101202-pxOZb.png)
 
-### Q3: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
+## Q3: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
 
 不需要配置这个hook，蓝蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
 
@@ -552,11 +466,11 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 
 
-### Q4: 有条流水线通过gitlab提交触发了，但查看代码变更记录为空。说明此次触发的构建，并没有新代码变更，却仍然触发了流水线
+## Q4: 有条流水线通过gitlab提交触发了，但查看代码变更记录为空。说明此次触发的构建，并没有新代码变更，却仍然触发了流水线
 
 可能的原因是，触发器监听了整个代码库的commit事件，但代码拉取插件只拉取了某一个特定分支的代码，而此分支并没有代码变更，比如，插件监听了整个代码库commit事件，但代码拉取插件只拉取了master分支的代码，而提交commit的是dev分支，代码变更记录显示的是所拉取的分支相交上一次体检的变更，master分支没有变更，所以没有变更记录。
 
-### Q5：gitlab webhook 报错 
+## Q5：gitlab webhook 报错 
 
 URL '[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)' is blocked: Host cannot be resolved or invalid
 
@@ -564,7 +478,7 @@ gitlab 无法解析蓝盾的域名。
 
 需要在gitlab的机器上配置devops.bktencent.com的hosts解析
 
-### Q6: 提pr时想触发流水线应该如何配置
+## Q6: 提pr时想触发流水线应该如何配置
 
 如果是使用gitlab托管代码，直接配置gitlab触发器，触发的事件类型有：
 
@@ -573,13 +487,13 @@ gitlab 无法解析蓝盾的域名。
 3. Merge Request Hook 当有代码合并时触发
 4. Merge Request Accept Hook 当代码合并后触发
 
-### Q7: 监听和排除有优先级吗？
+## Q7: 监听和排除有优先级吗？
 
 监听 > 排除
 
 假设 trigger 既配置了监听选项，又配置了排除选项，且事件中既包含监听又包含排除，那么将会触发该流水线。
 
-### Q8:监听的路径可以进行通配吗？
+## Q8:监听的路径可以进行通配吗？
 
 不支持通配符功能。目前可以支持前缀匹配功能。
 
@@ -589,17 +503,17 @@ gitlab 无法解析蓝盾的域名。
 
 ## Upload artifacts
 
-### Q1、upload后文件去哪了？
+## Q1、upload后文件去哪了？
 
 upload 后，文件上传到了蓝盾服务器当中。
 
-### Q2、Artifacts 是什么？
+## Q2、Artifacts 是什么？
 
 Artifacts 是蓝盾服务器的路径。
 
  /data/bkce/public/ci/artifactory/bk-archive/${项目名称}
 
-### Q3、制品 upload 的绝对路径是什么？
+## Q3、制品 upload 的绝对路径是什么？
 
 比如项目名称是vincotest，114514.txt实际存放路径就是蓝盾机器上：
 
@@ -609,7 +523,7 @@ Artifacts 是蓝盾服务器的路径。
 
 ![](../../.gitbook/assets/image-20220607165825062.png)
 
-### Q4：上传时报错
+## Q4：上传时报错
 
 **①：没有匹配到任何待归档文件**
 
@@ -635,17 +549,17 @@ Artifacts 是蓝盾服务器的路径。
 
 ## python 插件
 
-### Q1: python的环境变量添加后，在job执行的时候未生效。（job报错“系统找不到指定的文件”）
+## Q1: python的环境变量添加后，在job执行的时候未生效。（job报错“系统找不到指定的文件”）
 
 因为蓝盾agent和蓝鲸agent使用的账户是system，所以加到administrator的环境变量不生效 需要把python.exe和pip3.exe pip.exe加入到系统环境变量里，再重启操作系统
 
-### Q2: windows构建机 流水线执行用python去打开exe 失败
+## Q2: windows构建机 流水线执行用python去打开exe 失败
 
 windows下，agent无法拉起有UI界面的exe
 
 这个是windows session 0 限制
 
-### Q3：windows构建机，python 打印工作空间失败
+## Q3：windows构建机，python 打印工作空间失败
 
 如果构建机指定了工作路径，例如 **D:\testworkspace\source** , 在python中直接 print 打印工作空间将会失败。
 
@@ -657,7 +571,7 @@ print(r'${workspace}')
 
 ## checkout 插件
 
-### Q1: failed to connect to gitlib.xxx.com port 443:connection timed out 构建失败 提示连接443端口超时
+## Q1: failed to connect to gitlib.xxx.com port 443:connection timed out 构建失败 提示连接443端口超时
 
 ![](../../.gitbook/assets/image-20220301101202-AaxCJ.png)
 
@@ -679,7 +593,7 @@ docker run -it --rm centos
 curl -v paas.service.consul
 ```
 
-### Q2：卡死在 Fetching the repository
+## Q2：卡死在 Fetching the repository
 
 ![](../../.gitbook/assets/check_ugit.png)
 
@@ -687,13 +601,13 @@ curl -v paas.service.consul
 
 蓝盾需要使用原生的 git 拉取代码。如果构建机使用了 Ugit 则会导致蓝盾 checkout 失败。需要重新安装一次原生 git 。
 
-### Q3: 获取凭证失败
+## Q3: 获取凭证失败
 
 ![](../../.gitbook/assets/企业微信截图_16266633248073.png)
 
 这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
 
-### Q4:拉取代码时，偶现报错
+## Q4:拉取代码时，偶现报错
 
 Such issues can arise if a bad key is used during decryption.
 
@@ -715,7 +629,7 @@ Such issues can arise if a bad key is used during decryption.
 
 ## Upload artifacts
 
-### Q1: Upload artifacts这个上传功能是上传到当前使用stage的构建的构建机里面还是有单独的仓库位置
+## Q1: Upload artifacts这个上传功能是上传到当前使用stage的构建的构建机里面还是有单独的仓库位置
 
 归档构件，是把构建机上的产物归档到专用的产物仓库，产物仓库和构建机无关，由 Artifactory 服务决定。
 
@@ -727,7 +641,7 @@ CI 的归档，是将产物暂存到仓库，方便流水线下游操作使用�
 
 ## executeJobScript
 
-### Q1: private configuration of key JOB\_HOST is missing
+## Q1: private configuration of key JOB\_HOST is missing
 
 ![](../../.gitbook/assets/image-20220301101202-QtZoR.png)
 
@@ -739,12 +653,12 @@ job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobS
 
 ## sendmail
 
-### Q1: 发送邮件插件执行成功，但没收到邮件
+## Q1: 发送邮件插件执行成功，但没收到邮件
 
 1. 首先配置ESB的邮件信息，参考：[https://bk.tencent.com/s-mart/community/question/2532](https://bk.tencent.com/s-mart/community/question/2532)
 2. 配置插件的私有配置，参考：[https://github.com/TencentBlueKing/ci-sendEmail](https://github.com/TencentBlueKing/ci-sendEmail)
 
-### Q2: 发送邮件插件的sender配置不是我配置的sender
+## Q2: 发送邮件插件的sender配置不是我配置的sender
 
 ![](../../.gitbook/assets/image-20220301101202-gdDMH.png)
 
@@ -768,7 +682,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ## batchscript
 
-### Q1: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
+## Q1: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
 ![](../../.gitbook/assets/企业微信截图\_16285831782937.png)
 
@@ -786,13 +700,13 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 打开任务管理器，查看进程devopsDaemon.exe和的vopsAgent.exe是否存在，查看两个进程的启动的用户名是否为当前登录用户
 
-### Q2: batchscript中的命令路径有空格，执行失败
+## Q2: batchscript中的命令路径有空格，执行失败
 
 ![](../../.gitbook/assets/企业微信截图_16285852671573.png)
 
 可以将有空格的命令用引号""括起来
 
-### Q3：构建机本地执行 Unity bat 脚本时成功，蓝盾执行报错
+## Q3：构建机本地执行 Unity bat 脚本时成功，蓝盾执行报错
 
 查看**脚本执行日志**后发现，本地执行时开启了88个线程的UnityShaderCompiler，但是蓝盾执行时，有些UnityShaderCompiler就吊起失败了。
 
@@ -804,7 +718,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ---
 
-### Q4：无法执行带UI界面的程序
+## Q4：无法执行带UI界面的程序
 
 具体表现：同样的脚本在目标机器执行bat脚本没问题， 在蓝盾或者job平台不能执行
 
@@ -834,7 +748,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ## Shell script
 
-### Q1 macos机器无法执行 shell 和 python 插件
+## Q1 macos机器无法执行 shell 和 python 插件
 
 问题如下：macOs的私有构建机使用shell插件执行命令报错， 什么命令都无法执行
 
@@ -864,7 +778,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
  
 
-### Q2 shell脚本执行异常
+## Q2 shell脚本执行异常
 
 报错：java.io.IOException: No such file or directory
 
