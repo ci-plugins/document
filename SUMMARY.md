@@ -300,6 +300,8 @@
   * [流水线FAQ]()
     - [使用常见问题](reference/faqs/pipeline-use-faqs.md)
     - [报错常见问题](reference/faqs/pipeline-faqs.md)
+      - [构建机]()
+      - [插件报错](reference/faqs/pipeline-faqs-plugin.md)
   * [环境管理FAQ](reference/faqs/environment-faqs.md)
     - [使用常见问题]()
     - [报错常见问题]()
