@@ -4,10 +4,26 @@ description: 常见问题集锦
 
 # FAQS
 
-{% page-ref page="pipeline-faqs.md" %}
+## 蓝盾功能使用指引
 
-{% page-ref page="codecc-faqs.md" %}
+* 蓝盾产品功能介绍：[产品功能](../..//services/console.md)
 
-{% page-ref page="turbo-faqs.md" %}
+* 蓝盾流水线功能使用示例：[示例](../..//tutorials/examples)
 
-{% page-ref page="known-issues.md" %}
+* 蓝盾流水线常见场景案例：[场景实践](../..//tutorials/scene)
+
+---
+
+## 故障排查流程自助：
+
+1. 问答指引FAQ：[FAQ](../../reference/faqs)  
+
+2. FAQ无法找到解决方案，请按如下要求提供反馈信息：
+
+   2.1  提供蓝盾版本号（蓝盾首页可获取）
+
+   2.2  问题现象描述及报错截图（是否必现，操作内容，配置截图等）
+
+   2.3  提供构建日志   （获取方式如下）
+
+   2.4  提供服务日志   （可选）
