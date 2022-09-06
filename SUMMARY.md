@@ -299,6 +299,8 @@
   * [问题指引](reference/faqs/user-guide.md)
   * [流水线FAQ]()
     - [使用常见问题](reference/faqs/pipeline-use-faqs.md)
+      - [构建机]()
+      - [插件]()
     - [报错常见问题](reference/faqs/pipeline-faqs.md)
       - [构建机]()
       - [插件报错](reference/faqs/pipeline-faqs-plugin.md)
