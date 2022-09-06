@@ -295,8 +295,8 @@
 * [预定义变量列表](reference/pre-define-var/README.md)
   * [GITHUB常量合集](reference/pre-define-var/github.md)
   * [GIT常量合集](reference/pre-define-var/git.md)
+* [基本概念]()
 * [FAQS](reference/faqs/README.md)
-  * [基本概念]()
   * [流水线]()
     * [流水线执行问题]()
     * [使用常见问题](reference/faqs/pipeline-faqs.md)
@@ -318,7 +318,6 @@
   * [编译加速](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
   * [现有问题汇总](reference/pipeline-faqs-all.md)
-  
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
 * [蓝盾备份方案](reference/backup.md)
