@@ -302,7 +302,7 @@
       - [构建机](reference/faqs/pipeline-use-faqs-node.md)
       - [插件](reference/faqs/pipeline-use-faqs-plugin.md)
     - [报错常见问题](reference/faqs/pipeline-faqs-all.md)
-      - [构建机](reference/faqs/pipeline-error-faqs-plugin.md)
+      - [构建机](reference/faqs/pipeline-error-faqs-node.md)
       - [插件报错](reference/faqs/pipeline-error-faqs-plugin.md)
   * [环境管理FAQ](reference/faqs/environment-faqs.md)
     - [使用常见问题]()
