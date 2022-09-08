@@ -308,10 +308,11 @@
       * [触发器]()
       * [构建机](reference/faqs/pipeline-error-faqs-node.md)
       * [插件报错](reference/faqs/pipeline-error-faqs-plugin.md)
-      * [页面报错](reference/faqs/pipeline-faqs-change.md)
-      * [服务异常]()
-      * [机器重启]()
-        * [层级测试]()
+  * [页面报错]()
+  * [服务异常]()
+  * [机器重启]()
+
+
   * [环境管理](reference/faqs/environment-faqs.md)
     - [使用常见问题]()
     - [报错常见问题]()
