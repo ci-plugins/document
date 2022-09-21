@@ -44,4 +44,4 @@ echo "##[endgroup]"
 
 你将看到如下图所示效果
 
-![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
+![](../../../../.gitbook/assets/image2020-1-9_21-59-12.png)

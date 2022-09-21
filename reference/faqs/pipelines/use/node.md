@@ -18,7 +18,7 @@
 
 ## Q3: 公共构建机挂载如何使用？
 
-![](D:\document\outline\document\reference\.gitbook\assets\image-20220301101202-sxXbU.png)
+![](../../../../.gitbook/assets/image-20220301101202-sxXbU.png)
 
 这个需要维护一个NFS共享存储服务，不太推荐使用了，后续有可能移除
 
@@ -34,7 +34,7 @@
 
 ## Q4:公共构建机，支持哪些系统？
 
-![](D:\document\outline\document\reference\.gitbook\assets\image-1646103610029.png)
+![](../../../../.gitbook/assets/image-1646103610029.png)
 
 公共构建机依赖docker, 只能运行linux. 目前只能运行基于我们 bkci/ci:alpine (debian系统)制作的构建镜像.
 
@@ -86,7 +86,7 @@
 
 ## Q2: 蓝盾脚本启动gradle daemon进程，每次构建完会关闭，是由devops agent管控的吗？
 
-![](D:\document\outline\document\reference\.gitbook\assets\wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
+![](../../../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
 
 是的。蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true，在bash脚本里设置`setEnv "DEVOPS_DONT_KILL_PROCESS_TREE" "true"`
 

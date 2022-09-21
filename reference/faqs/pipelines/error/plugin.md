@@ -12,7 +12,7 @@
 
 ②：插件安装后，插件为灰色状态无法选择
 
-![](../../.gitbook/assets/企业微信截图_16384260669700.png)
+![](../../../../.gitbook/assets/企业微信截图_16384260669700.png)
 
 插件分为：有编译插件和无编译插件。编译插件又分三种环境：Linux、windows、macOS
 
@@ -36,7 +36,7 @@ job 插件为无编译环境插件，需要选择无编译环境的stage才可�
 
 ## Q1: failed to connect to gitlib.xxx.com port 443:connection timed out 构建失败 提示连接443端口超时
 
-![](D:\document\outline\document\reference\.gitbook\assets\image-20220301101202-AaxCJ.png)
+![](../../../../.gitbook/assets/image-20220301101202-AaxCJ.png)
 
 这里断网的原因是dockerhost启动后, 执行过sysctl -p等价的命令, 导致 net.ipv4.ip\_forward 被重置为0, 导致容器断网.
 
@@ -58,7 +58,7 @@ curl -v paas.service.consul
 
 ## Q2：卡死在 Fetching the repository
 
-![](D:\document\outline\document\reference\.gitbook\assets\check_ugit.png)
+![](../../../../.gitbook/assets/check_ugit.png)
 
 构建机使用的是Ugit
 
@@ -66,7 +66,7 @@ curl -v paas.service.consul
 
 ## Q3: 获取凭证失败
 
-![](D:\document\outline\document\reference\.gitbook\assets\企业微信截图_16266633248073.png)
+![](../../../../.gitbook/assets/企业微信截图_16266633248073.png)
 
 这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
 
@@ -74,7 +74,7 @@ curl -v paas.service.consul
 
 Such issues can arise if a bad key is used during decryption.
 
-![](D:\document\outline\document\reference\.gitbook\assets\checkout_error_sometimes.png)
+![](../../../../.gitbook/assets/checkout_error_sometimes.png)
 
 ①此为旧版checkout插件的问题，现已修复。
 
@@ -92,7 +92,7 @@ Such issues can arise if a bad key is used during decryption.
 
 **①：没有匹配到任何待归档文件**
 
-![](../../.gitbook/assets/uploadsrcfile.png)
+![](../../../../.gitbook/assets/uploadsrcfile.png)
 
 原因：没有匹配到对应的文件
 
@@ -138,19 +138,21 @@ print(r'${workspace}')
 
 # Upload artifacts
 
+暂无
 
+---
 
 # executeJobScript
 
 ## Q1: private configuration of key JOB\_HOST is missing
 
-![](../../.gitbook/assets/image-20220301101202-QtZoR.png)
+![](../../../../.gitbook/assets/image-20220301101202-QtZoR.png)
 
 job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobScript](https://github.com/TencentBlueKing/ci-executeJobScript)
 
 私有配置缺少JOB\_HOST字段，按照上图配置好即可
 
-![](../../.gitbook/assets/脚本执行配置1.png)
+![](../../../../.gitbook/assets/脚本执行配置1.png)
 
 # sendmail
 
@@ -161,23 +163,23 @@ job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobS
 
 ## Q2: 发送邮件插件的sender配置不是我配置的sender
 
-![](../../.gitbook/assets/image-20220301101202-gdDMH.png)
+![](../../../../.gitbook/assets/image-20220301101202-gdDMH.png)
 
 sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sender
 
 「研发商店」-「流水线插件」-「工作台」-「选择发送邮件插件」-「基本设置」-「私有配置」-「增加sender字段」
 
-![](../../.gitbook/assets/wecom-temp-de1f999781431e708256b5e9a9ecc1d6.png)
+![](../../../../.gitbook/assets/wecom-temp-de1f999781431e708256b5e9a9ecc1d6.png)
 
-![](../../.gitbook/assets/wecom-temp-79503b33558fb2f05c4579c99280f8e7.png)
+![](../../../../.gitbook/assets/wecom-temp-79503b33558fb2f05c4579c99280f8e7.png)
 
-![](../../.gitbook/assets/wecom-temp-ad2da5032b4af609e41012bd4113bf84.png)
+![](../../../../.gitbook/assets/wecom-temp-ad2da5032b4af609e41012bd4113bf84.png)
 
-![](../../.gitbook/assets/wecom-temp-888da4cdb34f2bbcdc3869f7f4ff6dda.png)
+![](../../../../.gitbook/assets/wecom-temp-888da4cdb34f2bbcdc3869f7f4ff6dda.png)
 
-![](../../.gitbook/assets/wecom-temp-8f040f0a22d3e9b0ff75a6b3ff40410b.png)
+![](../../../../.gitbook/assets/wecom-temp-8f040f0a22d3e9b0ff75a6b3ff40410b.png)
 
-![](../../.gitbook/assets/wecom-temp-db0217ab76483f286bfb63cd7047f353.png)
+![](../../../../.gitbook/assets/wecom-temp-db0217ab76483f286bfb63cd7047f353.png)
 
 除了sender字段，还需要配置其他字段，请参考：[https://github.com/TencentBlueKing/ci-sendEmail](
 
@@ -185,7 +187,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ## Q1: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
-![](../../.gitbook/assets/企业微信截图/_16285831782937.png)
+![](../../../../.gitbook/assets/企业微信截图/_16285831782937.png)
 
 将对应的agent服务的启动用户改为当前用户，执行命令`services.msc`打开windows服务管理界面，找到服务`devops_agent_${agent_id}`(注意：每个agent\_id是不同的，agent\_id的值可以在配置文件.agent.properties中找到)
 
@@ -193,17 +195,17 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 如果是如入域构建机，账户名填写`域名\用户名`，例如`tencent\zhangsan`;如果没有入域的构建机，账户名填入`.\用户名`,例如`.\admin、.\administrator、.\bkdevops`，输入密码后，点击确认按钮
 
-![](../../.gitbook/assets/image-20220128181627246.png)
+![](../../../../.gitbook/assets/image-20220128181627246.png)
 
 右键 -> 重新启动，重启服务
 
-![](../../.gitbook/assets/image-20220128181720819.png)
+![](../../../../.gitbook/assets/image-20220128181720819.png)
 
 打开任务管理器，查看进程devopsDaemon.exe和的vopsAgent.exe是否存在，查看两个进程的启动的用户名是否为当前登录用户
 
 ## Q2: batchscript中的命令路径有空格，执行失败
 
-![](../../.gitbook/assets/企业微信截图_16285852671573.png)
+![](../../../../.gitbook/assets/企业微信截图_16285852671573.png)
 
 可以将有空格的命令用引号""括起来
 
@@ -255,25 +257,25 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 问题如下：macOs的私有构建机使用shell插件执行命令报错， 什么命令都无法执行
 
-![](../../.gitbook/assets/clip_image001.png)
+![](../../../../.gitbook/assets/clip_image001.png)
 
 使用python插件如下报错：
 
-![](../../.gitbook/assets/clip_image002.png)
+![](../../../../.gitbook/assets/clip_image002.png)
 
 排查问题：
 
 1. 确认macOs的默认shell环境是否正常cat /etc/shells、echo $SHELL，如下显示为正常
 
-![](../../.gitbook/assets/clip_image003.png)
+![](../../../../.gitbook/assets/clip_image003.png)
 
 2. 查看构建机日志set up job日志，查看环境变量，查看环境变量是否都正常
 
-![](../../.gitbook/assets/clip_image004.png)
+![](../../../../.gitbook/assets/clip_image004.png)
 
  本次案例排查出环境变量LANG异常， 字符集LANG设置为zh_CN.eucCN 是错误的， 应该设置为zh_CN.UTF-8
 
-![](../../.gitbook/assets/clip_image005.png)
+![](../../../../.gitbook/assets/clip_image005.png)
 
 原因：LANG字符集影响了中文值的变量export，导致整个sh脚本出错
 
@@ -285,7 +287,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 报错：java.io.IOException: No such file or directory
 
-![](../../.gitbook/assets/clip_image006.png)
+![](../../../../.gitbook/assets/clip_image006.png)
 
  排查问题：
 

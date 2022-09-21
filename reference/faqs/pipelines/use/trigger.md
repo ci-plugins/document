@@ -1,18 +1,18 @@
 ## Q1: 如何使用Merge-Request-Accept-Hook
 
-![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
+![](../../../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
 Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 比如，需要将feat\_1合并到dev分支时，分支名称写dev，监听源分支写feat\_1（也可以使用\*号的模糊匹配功能，如feat\_\*）
 
-![](../../.gitbook/assets/image-20220301101202-pxOZb.png)
+![](../../../../.gitbook/assets/image-20220301101202-pxOZb.png)
 
 ## Q2: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
 
 不需要配置这个hook，蓝蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
 
-![](../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
+![](../../../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
 
 
 

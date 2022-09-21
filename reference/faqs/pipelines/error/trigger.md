@@ -1,4 +1,4 @@
-Q1: gitlab触发插件无法触发流水线
+## Q1: gitlab触发插件无法触发流水线
 
 1. 检查分支是否匹配
 
@@ -24,13 +24,13 @@ Q1: gitlab触发插件无法触发流水线
 
    注意查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配。如图4、图5
 
-![](<../../.gitbook/assets/image (58) (1).png>)
+![](<../../../../.gitbook/assets/image (58) (1).png>)
 
-![](<../../.gitbook/assets/image (59).png>)
+![](<../../../../.gitbook/assets/image (59).png>)
 
-![](<../../.gitbook/assets/image (57).png>)
+![](<../../../../.gitbook/assets/image (57).png>)
 
-<img src="../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
 
 
 

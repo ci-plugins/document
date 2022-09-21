@@ -4,7 +4,7 @@
 
 右上角点击引用变量，然后点右边复制变量，然后粘贴到你需要的地方就可以
 
-![](D:\document\outline\document\reference\.gitbook\assets\wecom-temp-edfeb72810d972dae34d3f8d98232ec6.png)
+![](../../../../.gitbook/assets/wecom-temp-edfeb72810d972dae34d3f8d98232ec6.png)
 
 自定义的变量如何定义及如何引用，可以参考文档：
 
@@ -68,21 +68,22 @@ call:setEnv "var_name" %res%
 
 ---
 
-# Upload artifacts
-
-
-
-# Download artifacts
-
-
-
 # python
 
 ## Q1:python如何设置蓝盾变量
 
 python 插件无法直接设置蓝盾变量。只可通过调用shell 或 bat 的方式写入变量。
 
+```
+# 将python脚本输出结果写回蓝盾
+var_value=`python script.py` # script.py里需要有print输出，如print("test")
+setEnv "var_name" "${var_value}" # var_name="test"
 
+# 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv
+python script.py > env.sh # 假设env.sh里为file_name="test.txt"
+source env.sh
+setEnv "var_name" "${file_name}"
+```
 
 ---
 
@@ -106,15 +107,11 @@ Artifacts 是蓝盾服务器的路径。
 
 项目名称、流水线ID、构建ID都可以从流水线url里读取到
 
-![](../../.gitbook/assets/image-20220607165825062.png)
-
-# executeJobScript
+![](../../../../.gitbook/assets/image-20220607165825062.png)
 
 
 
-# sendmail
-
-
+---
 
 # batchscript
 
@@ -128,9 +125,5 @@ call:setEnv "var_name" %res%
 
 ---
 
-
-
----
-
-# Shell script
+# 
 

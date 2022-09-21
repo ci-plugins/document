@@ -2,7 +2,7 @@
 
 no available Docker VM
 
-![](D:\document\outline\document\reference\.gitbook\assets\image-20220301101202-ceNsG.png)
+![](../../../../.gitbook/assets/image-20220301101202-ceNsG.png)
 
 没有可用的ci-dockerhost，需要检查:
 
@@ -46,7 +46,7 @@ no available Docker VM
 
 ## Q5: 公共/私有构建步骤卡在准备构建环境中
 
-![](D:/document/outline/document/reference/.gitbook/assets/企业微信截图_16419529383724.png)
+![](../../../../.gitbook/assets/企业微信截图_16419529383724.png)
 
 如果是**公共构建机**，优先考虑公共构建机bk-ci-dockerhost.service服务是否正常
 
@@ -56,9 +56,9 @@ no available Docker VM
 2. agent版本安装错误，如在mac上安装linux的agent包，这种情况，将蓝盾agent安装包删除，重新安装对应版本agent即可
 3. 在蓝盾agent安装目录的logs下的agentDaemon.log日志里可见`too many open files`,在机器上执行`ulimit -n`结果显示，可打开的文件数值太小，默认为1024，将其数值调大，重新安装蓝盾agent即可
 
-![](D:/document/outline/document/reference/.gitbook/assets/wecom-temp-2cf366a83acf24ef09ae7dff30c47354.png)
+![](../../../../.gitbook/assets/wecom-temp-2cf366a83acf24ef09ae7dff30c47354.png)
 
-![](D:/document/outline/document/reference/.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
+![](../../../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
 
 
 
@@ -66,7 +66,7 @@ no available Docker VM
 
    UnknownHostException|request(Request{method=PUT,url=http://devgw.xxxx.xxx.com/ms/process/api/build/builds/started,tag=null}),error is :java.net.UnknownHostException: devgw.devops.oa.com: nodename nor servname provided, or not known, try to retry 5
 
-   ![](D:/document/outline/document/reference/.gitbook/assets/start_agent_fail.png)
+   ![](../../../../.gitbook/assets/start_agent_fail.png)
 
    
 
