@@ -16,13 +16,13 @@
 
 流水线的状态汇总如下：
 
-![](D:/document/outline/document/.gitbook/assets/image-20220301101202-uphlD.png)
+![](../../../.gitbook/assets/image-20220301101202-uphlD.png)
 
 ## Q4: 蓝盾流水线进度条是如何计算的？
 
 进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
 
-![](D:/document/outline/document/.gitbook/assets/进度条.png)
+![](../../../.gitbook/assets/进度条.png)
 
 ## Q5: 如何获取流水线id？
 
@@ -39,6 +39,8 @@
 如果是公共构建机，那么每个job在workspace下会有一个单独的目录 。
 
 私有构建机和公共构建机，默认每个流水线都建立一个独立的 workspace 目录。
+
+
 
 ## Q8：如何获取构建产物的URL
 
@@ -58,7 +60,7 @@ http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/
 
 ## Q10: 选中的参数改变的时能否隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
 
-![](D:/document/outline/document/.gitbook/assets/企业微信截图_1634710197325.png)
+![](../../../.gitbook/assets/企业微信截图_1634710197325.png)
 
 暂时还不支持
 
