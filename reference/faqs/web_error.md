@@ -24,7 +24,7 @@
 
 ## Q3: 插件包上传失败（研发商店）
 
-![](D:/document/outline/document/.gitbook/assets/image-20220301101202-iJWQt.png)
+![](../../.gitbook/assets/image-20220301101202-iJWQt.png)
 
 可以先检查下blueking用户能否正常读写 artifactory数据目录: /data/bkce/public/ci/artifactory/
 
@@ -34,7 +34,7 @@
 
 ## Q4: 蓝盾添加节点的时候报错 bkiam v3 failed（环境管理）（构建机）
 
-![](D:/document/outline/document/.gitbook/assets/image-20220301101202-MyIAk.png)
+![](../../.gitbook/assets/image-20220301101202-MyIAk.png)
 
 然后根据给出的文档排查了日志
 
@@ -42,7 +42,7 @@
 
 /data/bkce/ci/environment/logs/auth-devops.log
 
-![](D:/document/outline/document/.gitbook/assets/image-20220301101202-GyIic.png)
+![](../../.gitbook/assets/image-20220301101202-GyIic.png)
 
 排查发现ci auth库下的 T\_AUTH\_IAM\_CALLBACK表 为空
 
@@ -69,7 +69,7 @@ iam_callback="support-files/ms-init/auth/iam-callback-resource-registere.conf"
 
 ## Q5: JOOQ;uncategorized SQLException for SQL（研发商店）（插件）
 
-![](D:/document/outline/document/.gitbook/assets/image-20220301101202-rtxbB.png)
+![](../../.gitbook/assets/image-20220301101202-rtxbB.png)
 
 旧sql没有清理的缘故
 
