@@ -54,15 +54,35 @@ call:setEnv "var_name" %res%
 
 ---
 
+## Q3：在插件中使用构建机系统变量
+
+在 batch、shell 中可以直接获取到构建机的系统变量。但其他插件无法直接读取系统变量，因此需要将系统变量转换为蓝盾自定义变量，然后在插件中使用蓝盾变量。
+
+windows 示例：
+
+① 先使用  batch 插件，将系统变量 cs_test 赋值给蓝盾变量
+
+```
+call:setEnv "cs_test" "%cs_test%"
+```
 
 
-## Q3：如何有条件的执行插件
+
+② 在其他插件中用 ${cs_test} 引用变量
+
+![](../../../../.gitbook/assets/use_ci_val.png)
+
+
+
+
+
+## Q4：如何有条件的执行插件
 
 每个插件都为一个 task，通过高级流程控制，可以定义插件的运行逻辑。
 
 [task 说明](https://docs.bkci.net/overview/terminology/task)
 
-## Q4: 流水线的变量能联动吗，例如变量B的值跟随变量A变化
+## Q5: 流水线的变量能联动吗，例如变量B的值跟随变量A变化
 
 暂时还不支持联动，如果值没什么变化，可以设置默认值
 

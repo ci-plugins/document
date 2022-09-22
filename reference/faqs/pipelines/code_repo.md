@@ -2,7 +2,7 @@
 
 ## Q1:关联GitLab代码库报错常见原因
 
-![](D:\document\outline\document\reference\.gitbook\assets\repo_gitlab.png)
+![](../../../.gitbook/assets/repo_gitlab.png)
 
 1、应该使用 Personal Access Tokens 而非项目令牌。
 
@@ -27,4 +27,4 @@ apiUrl: https://devops.bktencent.com/api/v4
 
 重启 bk-ci-repository.service 服务
 
-systemctl restart bk-ci-repository.service
+```systemctl restart bk-ci-repository.service```

@@ -20,7 +20,31 @@
 
 job 插件为无编译环境插件，需要选择无编译环境的stage才可以。
 
-## Q2：构建任务中插件长时间卡住（超过超时时间仍未终止）
+## Q2：插件报错 bk_username can not empty
+
+![](../../../../.gitbook/assets/bk_username_empty.png)
+
+插件的私有配置未进行配置。私有配置的方法请参考
+
+[插件私有配置](https://docs.bkci.net/store/plugins/plugin_install_demo#si-cha-jian-pei-zhi)
+
+
+
+## Q3：插件执行报错 download plugin fail
+
+![](../../../../.gitbook/assets/download_plugin_fail.png)
+
+常见于 mongodb 异常导致。
+
+中控机执行 ``` /data/install/bkcli restart mongod```
+
+随后检查 mongodb 状态是否正常 ``` /data/install/bkcli status mongod```
+
+
+
+
+
+## Q4：构建任务中插件长时间卡住
 
 插件默认的超时时间为 900min，若超过超时时间仍未终止，通常是 process 或 project 服务出现了异常。
 
@@ -167,21 +191,16 @@ job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobS
 
 sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sender
 
-「研发商店」-「流水线插件」-「工作台」-「选择发送邮件插件」-「基本设置」-「私有配置」-「增加sender字段」
+1. 首先配置ESB的邮件信息，参考：[https://bk.tencent.com/s-mart/community/question/2532](https://bk.tencent.com/s-mart/community/question/2532)
+2. 配置插件的私有配置，参考：[https://github.com/TencentBlueKing/ci-sendEmail](https://github.com/TencentBlueKing/ci-sendEmail)
 
-![](../../../../.gitbook/assets/wecom-temp-de1f999781431e708256b5e9a9ecc1d6.png)
+## Q3：插件执行时报错缺少依赖 not recognized
 
-![](../../../../.gitbook/assets/wecom-temp-79503b33558fb2f05c4579c99280f8e7.png)
+![](../../../../.gitbook/assets/not_recognized.png)
 
-![](../../../../.gitbook/assets/wecom-temp-ad2da5032b4af609e41012bd4113bf84.png)
+插件执行时，机器上缺少pip，需要在对应的stage选择的构建机上安装相应的依赖程序。
 
-![](../../../../.gitbook/assets/wecom-temp-888da4cdb34f2bbcdc3869f7f4ff6dda.png)
 
-![](../../../../.gitbook/assets/wecom-temp-8f040f0a22d3e9b0ff75a6b3ff40410b.png)
-
-![](../../../../.gitbook/assets/wecom-temp-db0217ab76483f286bfb63cd7047f353.png)
-
-除了sender字段，还需要配置其他字段，请参考：[https://github.com/TencentBlueKing/ci-sendEmail](
 
 # batchscript
 

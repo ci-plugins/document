@@ -318,9 +318,9 @@
   * [机器重启](reference/faqs/restart.md)
 
 
-  * [环境管理](reference/faqs/environment-faqs.md)
-    - [使用常见问题]()
-    - [报错常见问题]()
+  * [环境管理](reference/faqs/environment/README.md)
+    - [使用常见问题](reference/faqs/environment/use.md)
+    - [报错常见问题](reference/faqs/environment/error.md)
   * [代码检查](reference/faqs/codecc-faqs.md)
   * [编译加速](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
