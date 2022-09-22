@@ -169,7 +169,7 @@ JOB_HOST       http://job.bktencent.com:80
 
 1、先在中控机中获取 artifactory 机器的 IP
 
-cat /data/install/install.config| grep artifctory
+cat /data/install/install.config| grep artifactory
 
 
 
