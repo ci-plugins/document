@@ -1,4 +1,4 @@
-## Q1: 如何使用Merge-Request-Accept-Hook
+## Q1: Merge-Request-Accept-Hook
 
 ![](../../../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
@@ -8,9 +8,11 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 
 ![](../../../../.gitbook/assets/image-20220301101202-pxOZb.png)
 
-## Q2: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
 
-不需要配置这个hook，蓝蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
+
+## Q2: gitlab触发器在哪里配置webhook地址
+
+不需要配置这个hook，蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
 
 ![](../../../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
 
@@ -31,14 +33,28 @@ Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
 3. Merge Request Hook 当有代码合并时触发
 4. Merge Request Accept Hook 当代码合并后触发
 
+
+
 ## Q5: 监听和排除有优先级吗？
 
 监听 > 排除
 
 假设 trigger 既配置了监听选项，又配置了排除选项，且事件中既包含监听又包含排除，那么将会触发该流水线。
 
+
+
 ## Q6:监听的路径可以进行通配吗？
 
 不支持通配符功能。目前可以支持前缀匹配功能。
 
 例如在监听目录中填写 source，而 sourceabc 目录进行了变更，也会监听到该事件。
+
+
+
+## Q7:配置了监听路径，但生成的 trigger 为监听根目录
+
+符合预期。服务端是监听根目录的，但是蓝盾会根据这个路径来做过滤。
+
+这个触发器是针对的蓝盾，蓝盾也会根据配置的监听路径做过滤，决定是否触发流水线。
+
+如果是只想局限到某个路径下的话，需要手动改一下。

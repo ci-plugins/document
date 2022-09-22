@@ -82,9 +82,7 @@ call:setEnv "cs_test" "%cs_test%"
 
 [task 说明](https://docs.bkci.net/overview/terminology/task)
 
-## Q5: 流水线的变量能联动吗，例如变量B的值跟随变量A变化
 
-暂时还不支持联动，如果值没什么变化，可以设置默认值
 
 ---
 
@@ -145,5 +143,5 @@ call:setEnv "var_name" %res%
 
 ---
 
-# 
+
 

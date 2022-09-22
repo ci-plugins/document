@@ -28,3 +28,10 @@ apiUrl: https://devops.bktencent.com/api/v4
 重启 bk-ci-repository.service 服务
 
 ```systemctl restart bk-ci-repository.service```
+
+
+
+## Q2:无法关联 GitHub 代码库
+
+目前蓝盾与 GItHub 的对接还存在一些问题。如果一定要使用 GitHub 代码库，请按照此方法进行配
+[如何关联 GitHub 代码库](https://bk.tencent.com/s-mart/community/question/3184?type=article)

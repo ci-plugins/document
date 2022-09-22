@@ -4,6 +4,11 @@
 
 ---
 
+# 流水线ID
+
+流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
+
+
 
 # 构建日志
 
@@ -34,6 +39,8 @@
 ```find /data/bkce/logs/ci/ -name \*-devops.log -o -name \*-devops-error.log |xargs tar zcvf /root/bkci-log.tar.gz```
 
 然后发送打包好的 **/root/bkci-log.tar.gz** 日志
+
+
 
 # 页面报错信息
 
