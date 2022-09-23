@@ -12,11 +12,11 @@
 
 ## Q2:ci不显示日志
 
-![](../../../.gitbook\assets\image-20220301101202-xwkmo.png)
+![](../../../.gitbook/assets/image-20220301101202-xwkmo.png)
 
 查看对应微服务日志 /data/bkce/logs/ci/log/
 
-![](../../../.gitbook\assets\image-20220301101202-bduGg.png)
+![](../../../.gitbook/assets/image-20220301101202-bduGg.png)
 
 一个index占了12个shards，超过了es7 设置的shards最大值，这是es7的限制
 
@@ -31,7 +31,7 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 # 注意：不能删除 .security-7
 ```
 
-![](D:\document\outline\document\.gitbook\assets\image-20220301101202-RWPNo.png)
+![](./../../../.gitbook/assets/image-20220301101202-RWPNo.png)
 
 **另一种可能是用户未安装es7**
 
@@ -50,6 +50,8 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 
 
+
+Q4：渲染测试
 
 
 
