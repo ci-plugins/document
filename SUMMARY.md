@@ -61,6 +61,7 @@
 
 * [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
+* [蓝盾备份方案](setup/backup.md)
 
 
 
@@ -327,7 +328,8 @@
   * [现有问题汇总](reference/pipeline-faqs-all.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝盾备份方案](reference/backup.md)
+
+
 * [蓝鲸相关材料](reference/bk-info/README.md)  
   * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
   * [蓝鲸入门使用文档](reference/bk-info/bk-user-guide.md)
