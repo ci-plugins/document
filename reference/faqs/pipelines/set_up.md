@@ -29,3 +29,30 @@
 ## Q4: 流水线的变量能联动吗，例如变量B的值跟随变量A变化
 
 暂时还不支持联动，如果值没什么变化，可以设置默认值。
+
+
+
+## Q5：流水线执行时，参数下拉列表值能通过自定义接口获取么？
+
+不支持接口自定义
+
+
+
+## Q6: 多个job是共用一个workspace吗？
+
+如果用的单构建机（私有构建机），多个job就会共用一个 workspace 目录。
+
+如果是公共构建机，那么每个job在workspace下会有一个单独的目录 。
+
+私有构建机和公共构建机，默认每个流水线都建立一个独立的 workspace 目录。
+
+
+
+## Q7：如何获取构建产物的URL
+
+http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/${项目名称}/${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
+
+
+
+---
+

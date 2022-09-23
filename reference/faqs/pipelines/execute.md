@@ -1,38 +1,67 @@
-# 流水线执行常见问题
+# 流水线执行常见错误
 
-## Q3: 流水线的各个状态代表什么意思？
+## Q1: 流水线在执行中，unity的构建日志不会实时显示
 
-流水线的状态汇总如下：
+其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
 
-![](../../../.gitbook/assets/image-20220301101202-uphlD.png)
-
-## Q4: 蓝盾流水线进度条是如何计算的？
-
-进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
-
-![](../../../.gitbook/assets/进度条.png)
-
-## Q7: 多个job是共用一个workspace吗？
-
-如果用的单构建机（私有构建机），多个job就会共用一个 workspace 目录。
-
-如果是公共构建机，那么每个job在workspace下会有一个单独的目录 。
-
-私有构建机和公共构建机，默认每个流水线都建立一个独立的 workspace 目录。
-
-
-
-## Q8：如何获取构建产物的URL
-
-http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/${项目名称}/${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
-
-
+```
+ nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
+```
 
 ---
 
-## Q11: 执行时，参数下拉列表里的值能通过自定义的接口获取吗？
+## Q2:ci不显示日志
 
-不支持接口自定义
+![](../../../.gitbook\assets\image-20220301101202-xwkmo.png)
+
+查看对应微服务日志 /data/bkce/logs/ci/log/
+
+![](../../../.gitbook\assets\image-20220301101202-bduGg.png)
+
+一个index占了12个shards，超过了es7 设置的shards最大值，这是es7的限制
+
+解决方法：清理一些无用的索引
+
+```
+查看目前所有的索引
+source /data/install/utils.fc
+curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X GET http://$BK_ES7_IP:9200/_cat/indices?v
+删除索引 # index 是索引名称
+curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
+# 注意：不能删除 .security-7
+```
+
+![](D:\document\outline\document\.gitbook\assets\image-20220301101202-RWPNo.png)
+
+**另一种可能是用户未安装es7**
+
+
+
+## Q3：构建任务中插件长时间卡住
+
+插件默认的超时时间为 900min，若超过超时时间仍未终止，通常是 process 或 project 服务出现了异常。
+
+需进入蓝盾机器，重启服务 
+
+```systemctl status bk-ci-project.service ```
+
+```systemctl status bk-ci-process.service``` 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 

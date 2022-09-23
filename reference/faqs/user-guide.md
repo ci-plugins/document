@@ -34,6 +34,16 @@
 
 # 服务日志
 
+蓝盾的日志分服务进行存储。
+
+日志存放路径为：/data/bkce/logs/ci/
+
+
+
+---
+
+### 获取全部服务日志：
+
 进入蓝盾后台服务机器
 
 ```find /data/bkce/logs/ci/ -name \*-devops.log -o -name \*-devops-error.log |xargs tar zcvf /root/bkci-log.tar.gz```
