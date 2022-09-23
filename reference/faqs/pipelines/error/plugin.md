@@ -186,7 +186,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ## Q1: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
-![](../../../../.gitbook/assets/企业微信截图/_16285831782937.png)
+![](../../../../.gitbook/assets/企业微信截图/16285831782937.png)
 
 将对应的agent服务的启动用户改为当前用户，执行命令`services.msc`打开windows服务管理界面，找到服务`devops_agent_${agent_id}`(注意：每个agent\_id是不同的，agent\_id的值可以在配置文件.agent.properties中找到)
 

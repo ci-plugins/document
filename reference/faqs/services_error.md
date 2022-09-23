@@ -1,6 +1,6 @@
 ## Q1：bkiam v3 failed
 
-![](../../.gitbook\assets\bkiam_failed.png)
+![](../../.gitbook/assets/bkiam_failed.png)
 
 此错误一般是由于机器重启后，权限中心SaaS 未启动导致的。需要手动拉起 SaaS
 
@@ -12,7 +12,7 @@
 
 ## Q2：点击插件时报错：服务正在部署中，请稍候
 
-![](../../.gitbook\assets\touch_plugin.png)
+![](../../.gitbook/assets/touch_plugin.png)
 
 常见于 mongodb 异常导致。
 

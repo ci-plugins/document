@@ -143,7 +143,7 @@
     * [python sdk接口指引](store/plugins/create-plugin/python-atom-sdk-examples.md)
     * [流水线插件开发案例](store/plugins/case-stduy/README.md)
       * [sendmsg-通用消息发送插件](store/plugins/case-stduy/sendmsg.md)
-  * [常用插件安装](store/plugins/plugin\_install\_demo.md)
+  * [常用插件安装](store/plugins/plugin_install_demo.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
     
