@@ -47,24 +47,6 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 ```systemctl status bk-ci-process.service``` 
 
-
-
-
-
-Q4：渲染测试
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 
