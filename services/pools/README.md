@@ -17,11 +17,12 @@
     mkdir -p /data/src/bkci-agent-package-patch/jre/macos /data/src/bkci-agent-package-patch/jre/windows
     /data/src/ci/scripts/bk-ci-gen-jrezip.sh macos "$jdk_macos" /data/src/bkci-agent-package-patch/jre/macos/jre.zip
     /data/src/ci/scripts/bk-ci-gen-jrezip.sh windows "$jdk_windows" /data/src/bkci-agent-package-patch/jre/windows/jre.zip
-
+    
     cd /data/src/bkci-agent-package-patch/jre/macos
     mkdir -p Contents/Home
     unzip jre.zip -d Contents/Home/
     zip -r jre.zip Contents
+    mkdir -p /data/src/bkci-agent-package-patch/packages/windows/
     ```
 3. 下载unzip二进制包并解压，将bin/unzip.exe上传到中控机/data/src/bkci-agent-package-patch/packages/windows/目录下，unzip包下载链接参考：http://gnuwin32.sourceforge.net/packages/unzip.htm
    

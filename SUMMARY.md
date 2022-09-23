@@ -61,6 +61,7 @@
 
 * [BKCI 硬件规格指南](setup/system-requirements/hardware.md)
 * [BKCI 系统要求](setup/system-requirements/README.md)
+* [蓝盾备份方案](setup/backup.md)
 
 
 
@@ -86,6 +87,8 @@
     * [使用变量控制流水线流程](services/pipelines/pipeline-variables/pipeline-variables-flow-control.md)
     * [使用备注变量](services/pipelines/pipeline-variables/pipeline-variables-remark.md)
     * [凭证变量](services/pipelines/pipeline-variables/pipeline-variables-ticket.md)
+  * [流水线视图](services/pipelines/pipeline-view/README.md)
+    * [流水线视图的使用](services/pipelines/pipeline-view/use.md)
 * [构建资源](services/pools/README.md)
   * [将你的构建机托管至 BKCI](services/pools/self-hosted-agents/README.md)
     * [第三方构建机环境准备](services/pools/self-hosted-agents/prepara-agent.md)
@@ -141,7 +144,7 @@
     * [python sdk接口指引](store/plugins/create-plugin/python-atom-sdk-examples.md)
     * [流水线插件开发案例](store/plugins/case-stduy/README.md)
       * [sendmsg-通用消息发送插件](store/plugins/case-stduy/sendmsg.md)
-  * [常用插件安装](store/plugins/plugin\_install\_demo.md)
+  * [常用插件安装](store/plugins/plugin_install_demo.md)
   * [在 BKCI 里使用商店插件](store/plugins/upload-plugin.md)
   
     
@@ -296,13 +299,37 @@
   * [GITHUB常量合集](reference/pre-define-var/github.md)
   * [GIT常量合集](reference/pre-define-var/git.md)
 * [FAQS](reference/faqs/README.md)
-  * [流水线FAQ](reference/faqs/pipeline-faqs.md)
-  * [代码检查FAQ](reference/faqs/codecc-faqs.md)
-  * [编译加速FAQ](reference/faqs/turbo-faqs.md)
+  * [基本概念](reference/faqs/user-guide.md)
+  * [自检思路](reference/faqs/check-myself.md)
+  * [流水线](reference/faqs/pipelines/README.md)
+    * [流水线执行时相关问题](reference/faqs/pipelines/execute.md)
+    * [使用常见问题](reference/faqs/pipelines/use/README.md)
+      * [流水线编排](reference/faqs/pipelines/set_up.md)
+      * [触发器](reference/faqs/pipelines/use/trigger.md)
+      * [构建机](reference/faqs/pipelines/use/node.md)
+      * [插件](reference/faqs/pipelines/use/plugin.md)
+    
+    * [报错常见问题](reference/faqs/pipelines/error/README.md)
+      * [触发器](reference/faqs/pipelines/error/trigger.md)
+      * [构建机](reference/faqs/pipelines/error/node.md)
+      * [插件报错](reference/faqs/pipelines/error/plugin.md)
+  * [代码库](reference/faqs/pipelines/code_repo.md)
+  * [页面报错](reference/faqs/web_error.md)
+  * [服务异常](reference/faqs/services_error.md)
+  * [机器重启](reference/faqs/restart.md)
+
+
+  * [环境管理](reference/faqs/environment/README.md)
+    - [使用常见问题](reference/faqs/environment/use.md)
+    - [报错常见问题](reference/faqs/environment/error.md)
+  * [代码检查](reference/faqs/codecc-faqs.md)
+  * [编译加速](reference/faqs/turbo-faqs.md)
   * [已知问题](reference/faqs/known-issues.md)
+  * [现有问题汇总](reference/pipeline-faqs-all.md)
 * [系统限制](reference/limit/README.md)
   * [流水线复杂度限制](reference/limit/pipeline-limit.md)
-* [蓝盾备份方案](reference/backup.md)
+
+
 * [蓝鲸相关材料](reference/bk-info/README.md)  
   * [蓝鲸使用学习材料](reference/bk-info/bk-tutorial.md)
   * [蓝鲸入门使用文档](reference/bk-info/bk-user-guide.md)

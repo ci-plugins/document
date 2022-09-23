@@ -12,6 +12,8 @@
 
 ![](../../../.gitbook/assets/image%20%2850%29.png)
 
+此处的 Stage 审核人应填写蓝鲸用户名
+
 ![](../../../.gitbook/assets/image%20%2849%29.png)
 
 #### 开启后的效果

@@ -4,21 +4,258 @@ coverY: 0
 
 # 流水线FAQ
 
-### Q: 如何让自己的流水线日志显示带上不同颜色
+## GitLab FAQ
+
+### Q1: gitlab事件触发插件无法触发事件?
+
+1. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
+2. 如果没有注册
+   1. 查看repository服务到gitlba的网络是否能通
+   2. 查看gitlab仓库的权限是否是master权限
+   3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
+3. 如果已注册，还是没有触发，
+   1. 到gitlab的webhook页面，查看是否有注册成功，如图1
+   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://xn--eqrt2g/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
+   3. 查看gitlab没有发送的详情，如图3
+4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
+
+![](<../../.gitbook/assets/image (58) (1).png>)
+
+![](<../../.gitbook/assets/image (59).png>)
+
+![](<../../.gitbook/assets/image (57).png>)
+
+### Q2:关联GitLab代码库报错常见原因
+
+![](../../.gitbook/assets/repo_gitlab.png)
+
+1、应该使用 Personal Access Tokens 而非项目令牌。
+
+2、确认Access_Tokens生成时是否给予了对应权限。必须要包含对应的API权限。
+
+3、如果是自建的 GitLab，请确认”repository/branches“API接口是否能通。
+
+https://docs.gitlab.com/ee/api/branches.html
+
+4、如果GitLab为https访问。请确认代码库是否有做 http-->https 跳转。蓝盾默认以 http 方式进行代码库访问。
+
+若未做跳转，请按此临时方案，修改蓝盾文件：
+
+```bash
+vim /data/bkce/etc/ci/application-repository.yml
+
+#修改application-repository.yml文件，把apiUrl 修改为 https
+#gitlab v4.
+gitlab:
+apiUrl: https://devops.bktencent.com/api/v4
+```
+
+重启 bk-ci-repository.service 服务
+
+systemctl restart bk-ci-repository.service
+
+## 流水线信息 FAQ
+
+### Q1: 流水线的各个状态代表什么意思？
+
+流水线的状态汇总如下：
+
+![](../../.gitbook/assets/image-20220301101202-uphlD.png)
+
+### Q2: 蓝盾流水线进度条是如何计算的？
+
+进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
+
+![](../../.gitbook/assets/进度条.png)
+
+
+
+### Q4: 蓝盾有哪些全局变量？
+
+{% content-ref url="../pre-define-var/" %}
+[pre-define-var](../pre-define-var/)
+{% endcontent-ref %}
+
+### Q5: 如何获取流水线id？
+
+流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
+
+### Q6: 流水线执行失败了，插件为什么没有重试按钮？
+
+只有最新一次的构建可以重试。
+
+### Q7: 蓝盾流水线中的视图管理、标签管理有什么用？
+
+对流水线进行分类，当流水线数量较多时，标签、视图会有更大作用。
+
+### Q8: 查看日志时，如何查看时间戳？
+
+查看日志页，Show/Hide Timestamp
+
+![](../../.gitbook/assets/image-20220301101202-QERjn.png)
+
+## 构建机 FAQ
+
+### Q1:使用docker build生成镜像是不是只能使用私有构建机才行？
+
+建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.
+
+如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
+
+### Q2: 一台mac只能装一个agent吗
+
+可以多个, 在不同目录启动agent即可. 每个agent实例需要全新安装, 不能直接复制已有agent目录.
+
+### Q3:公共构建机，这几类都支持吗？
+
+![](../../.gitbook/assets/image-1646103610029.png)
+
+公共构建机依赖docker, 只能运行linux. 目前只能运行基于我们 bkci/ci:alpine (debian系统)制作的构建镜像.
+
+### Q4:私有构建机必须是物理机吗？可以是docker容器吗?
+
+私有构建机和项目绑定, 且需安装agent并注册. 建议使用物理机/虚拟机等变动少的场景. 容器化使用公共构建机即可.
+
+### Q5:公共构建机 no available Docker VM
+
+![](../../.gitbook/assets/image-20220301101202-ceNsG.png)
+
+是没有可用的ci-dockerhost.需要:
+
+1\. 在ci-dispatch节点执行 /data/src/ci/scripts/bkci-op.sh list 查看是否有状态为true的行.
+
+2\. 如果依旧无法调度, 需要检查ci-dispatch的日志有无异常. 或者涉及dockerhost ip的日志.
+
+原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
+
+3、主机资源不足时也会导致启动失败。请确认 DISK_LOAD<95%，CPU_LOAD<100%，MEM_LOAD <80%
+
+----
+
+## 还没想好要怎么归类 FAQ
+
+### Q1: 蓝盾流水线构建出的产物如何支持服务器分发限速配置?
+
+调整分发源的限速，如下图。 对于已经安装agent的机器，可以先移除，再安装。 分发源机器IP: 192.168.5.134
+
+![](../../.gitbook/assets/image-20220301101202-PluSB.png)
+
+
+
+### Q2: 项目名称是否支持修改？
+
+项目名称可在项目管理内更改，项目英文缩写（即项目id）不能更改。
+
+![](../../.gitbook/assets/image-20220301101202-qTzdw.png)
+
+![](../../.gitbook/assets/image-20220301101202-FyiDk.png)
+
+
+
+### Q3: 如何通过蓝盾将构建产物自动分发到指定服务器？
+
+有了部署机器，我们可以将构件分发至测试机上了。首先添加一个无编译环境Job 3-1，添加插件作业平台-构件分发并完成配置。
+
+![](../../.gitbook/assets/image-20220301101202-vGRcA.png)
+
+### Q4: python的环境变量添加后，在job执行的时候未生效。（job报错“系统找不到指定的文件”）
+
+因为蓝盾agent和蓝鲸agent使用的账户是system，所以加到administrator的环境变量不生效 需要把python.exe和pip3.exe pip.exe加入到系统环境变量里，再重启操作系统
+
+### Q5: 可以通过蓝盾流水线上传构建产物到指定私有GitLab仓库吗？
+
+蓝盾git插件暂无push功能。用户可将ssh私钥放置构建机上，在Batch Script插件或者Bash插件里使用git命令push产物达到临时解决方案。
+
+### Q6: 节点机器，显示正常，为什么监控网络io没有数据？
+
+![](../../.gitbook/assets/image-20220301101202-Lkelb.png)
+
+没有启用. 这个监控并无意义, 也不影响调度. 建议使用蓝鲸监控等专门的监控系统负责.
+
+如果要启用:
+
+```
+1. 配置 bin/03-userdef/ci.env 
+2. 添加 BK_CI_ENVIRONMENT_AGENT_COLLECTOR_ON=true
+3. 然后添加 influxdb相关的配置项.
+4. 重新安装ci-environment. 可以直接使用 ./bk_install ci 安装.
+5. 修改已有agent:编辑.agent.properties , 配置devops.agent.collectorOn=true, 重启agent.
+```
+
+### Q7:构建里面如何使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
+
+可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
+
+---
+
+## 权限相关 FAQ
+
+### Q1: 为什么有时候会出现需要申请流水线权限的情况，但是F5刷新之后恢复？
+
+存在权限冲突，在用户组权限里，是有多个流水线的权限。 但是自定义里面只有一个流水线的权限。 后续更新版本会修复这个问题。解决方案为删除自定义权限。后续会通过版本更新修复该问题。
+
+![](../../.gitbook/assets/image-20220301101202-HIaKn.png)
+
+## 是否还需要存在的FAQ
+
+### Q1: 如何在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
+
+蓝盾为bash插件提供了 setEnv 命令来设置蓝盾的全局变量, `setEnv '变量名' '变量值'` 如：
+
+`setEnv 'cmdb' '3.2.16'`
+
+setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的bash里打印不出来的。
+
+在windows batchscript插件里使用`call:setEnv "FILENAME" "package.zip"` 然后在后续的batchscript插件中使用%FILENAME%引用这个变量
+
+## 蓝鲸相关
+
+### Q1: 有方法可以从标准运维调用蓝盾吗？
+
+流水线stage-1 trigger选择remote. 然后标准运维调用job快速执行脚本, 调用remote插件里提示的url.
+
+## 日志相关FAQ
+
+### Q1:ci不显示日志
+
+![](../../.gitbook/assets/image-20220301101202-xwkmo.png)
+
+查看对应微服务日志 /data/bkce/logs/ci/log/
+
+![](../../.gitbook/assets/image-20220301101202-bduGg.png)
+
+一个index占了12个shards，超过了es7 设置的shards最大值，这是es7的限制
+
+解决方法：清理一些无用的索引
+
+```
+查看目前所有的索引
+source /data/install/utils.fc
+curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X GET http://$BK_ES7_IP:9200/_cat/indices?v
+删除索引 # index 是索引名称
+curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
+# 注意：不能删除 .security-7
+```
+
+![](../../.gitbook/assets/image-20220301101202-RWPNo.png)
+
+**另一种可能是用户未安装es7**
+
+### Q2: 如何让自己的流水线日志显示带上不同颜色
 
 在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
 
-| 关键字             | 作用                     | 备注                            |
-| --------------- | ---------------------- | ----------------------------- |
-| ##\[section]    | 一个Job或者插件的开头           | 如果是插件开头，必须包含在一个Job的Starting内  |
-| ##\[endsection] | 一个Job或者插件的结尾           | 如果是插件结尾，必须包含在一个Job的Finishing内 |
-| ##\[command]    | 将后面的字符串以ShellScripts高亮 | #0070BB                       |
-| ##\[info]       | 将后面的字符串标记为info颜色       | #48BB31                       |
-| ##\[warning]    | 将后面的字符串标记为warning颜色    | #BBBB23                       |
-| ##\[error]      | 将后面的字符串标记为error颜色      | #DE0A1A                       |
-| ##\[debug]      | 将后面的字符串标记为debug颜色      | #0D8F61                       |
-| ##\[group]      | 一个折叠的开始                |                               |
-| ##\[endgroup]   | 一个折叠的结束                |                               |
+| 关键字          | 作用                             | 备注                                           |
+| --------------- | -------------------------------- | ---------------------------------------------- |
+| ##\[section]    | 一个Job或者插件的开头            | 如果是插件开头，必须包含在一个Job的Starting内  |
+| ##\[endsection] | 一个Job或者插件的结尾            | 如果是插件结尾，必须包含在一个Job的Finishing内 |
+| ##\[command]    | 将后面的字符串以ShellScripts高亮 | #0070BB                                        |
+| ##\[info]       | 将后面的字符串标记为info颜色     | #48BB31                                        |
+| ##\[warning]    | 将后面的字符串标记为warning颜色  | #BBBB23                                        |
+| ##\[error]      | 将后面的字符串标记为error颜色    | #DE0A1A                                        |
+| ##\[debug]      | 将后面的字符串标记为debug颜色    | #0D8F61                                        |
+| ##\[group]      | 一个折叠的开始                   |                                                |
+| ##\[endgroup]   | 一个折叠的结束                   |                                                |
 
 **以Bash插件为例：**
 
@@ -46,171 +283,9 @@ echo "##[endgroup]"
 
 ![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
 
-### Q: gitlab事件触发插件无法触发事件?
+## 镜像相关
 
-1. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
-2. 如果没有注册
-   1. 查看repository服务到gitlba的网络是否能通
-   2. 查看gitlab仓库的权限是否是master权限
-   3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
-3. 如果已注册，还是没有触发，
-   1. 到gitlab的webhook页面，查看是否有注册成功，如图1
-   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://xn--eqrt2g/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
-   3. 查看gitlab没有发送的详情，如图3
-4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
-
-![](<../../.gitbook/assets/image (58) (1).png>)
-
-![](<../../.gitbook/assets/image (59).png>)
-
-![](<../../.gitbook/assets/image (57).png>)
-
-### Q: 流水线的各个状态代表什么意思？
-
-流水线的状态汇总如下：
-
-![](../../.gitbook/assets/image-20220301101202-uphlD.png)
-
-### Q: 蓝盾流水线进度条是如何计算的？
-
-进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
-
-![](../../.gitbook/assets/进度条.png)
-
-### Q: 蓝盾流水线构建出的产物如何支持服务器分发限速配置?
-
-调整分发源的限速，如下图。 对于已经安装agent的机器，可以先移除，再安装。 分发源机器IP: 192.168.5.134
-
-![](../../.gitbook/assets/image-20220301101202-PluSB.png)
-
-### Q: 如何获取流水线id？
-
-流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
-
-### Q: 项目名称是否支持修改？
-
-项目名称可在项目管理内更改，项目英文缩写（即项目id）不能更改。
-
-![](../../.gitbook/assets/image-20220301101202-qTzdw.png)
-
-![](../../.gitbook/assets/image-20220301101202-FyiDk.png)
-
-### Q: 流水线执行失败了，插件为什么没有重试按钮？
-
-只有最新一次的构建可以重试。
-
-### Q: 如何通过蓝盾将构建产物自动分发到指定服务器？
-
-有了部署机器，我们可以将构件分发至测试机上了。首先添加一个无编译环境Job 3-1，添加插件作业平台-构件分发并完成配置。
-
-![](../../.gitbook/assets/image-20220301101202-vGRcA.png)
-
-### Q: 蓝盾有哪些全局变量？
-
-{% content-ref url="../pre-define-var/" %}
-[pre-define-var](../pre-define-var/)
-{% endcontent-ref %}
-
-### Q: 查看日志时，如何查看时间戳？
-
-查看日志页，Show/Hide Timestamp
-
-![](../../.gitbook/assets/image-20220301101202-QERjn.png)
-
-### Q: 蓝盾流水线中的视图管理、标签管理有什么用？
-
-对流水线进行分类，当流水线数量较多时，标签、视图会有更大作用。
-
-### Q: 为什么有时候会出现需要申请流水线权限的情况，但是F5刷新之后恢复？
-
-存在权限冲突，在用户组权限里，是有多个流水线的权限。 但是自定义里面只有一个流水线的权限。 后续更新版本会修复这个问题。解决方案为删除自定义权限。后续会通过版本更新修复该问题。
-
-![](../../.gitbook/assets/image-20220301101202-HIaKn.png)
-
-### Q: python的环境变量添加后，在job执行的时候未生效。（job报错“系统找不到指定的文件”）
-
-因为蓝盾agent和蓝鲸agent使用的账户是system，所以加到administrator的环境变量不生效 需要把python.exe和pip3.exe pip.exe加入到系统环境变量里，再重启操作系统
-
-### Q: 可以通过蓝盾流水线上传构建产物到指定私有GitLab仓库吗？
-
-蓝盾git插件暂无push功能。用户可将ssh私钥放置构建机上，在Batch Script插件或者Bash插件里使用git命令push产物达到临时解决方案。
-
-### Q: 如何在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
-
-蓝盾为bash插件提供了 setEnv 命令来设置蓝盾的全局变量, `setEnv '变量名' '变量值'` 如：
-
-`setEnv 'cmdb' '3.2.16'`
-
-setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的bash里打印不出来的。
-
-在windows batchscript插件里使用`call:setEnv "FILENAME" "package.zip"` 然后在后续的batchscript插件中使用%FILENAME%引用这个变量
-
-### Q: 节点机器，显示正常，为什么监控网络io没有数据？
-
-![](../../.gitbook/assets/image-20220301101202-Lkelb.png)
-
-没有启用. 这个监控并无意义, 也不影响调度. 建议使用蓝鲸监控等专门的监控系统负责.
-
-如果要启用:
-
-```
-1. 配置 bin/03-userdef/ci.env 
-2. 添加 BK_CI_ENVIRONMENT_AGENT_COLLECTOR_ON=true
-3. 然后添加 influxdb相关的配置项.
-4. 重新安装ci-environment. 可以直接使用 ./bk_install ci 安装.
-5. 修改已有agent:编辑.agent.properties , 配置devops.agent.collectorOn=true, 重启agent.
-```
-
-### Q: 有方法可以从标准运维调用蓝盾吗？
-
-流水线stage-1 trigger选择remote. 然后标准运维调用job快速执行脚本, 调用remote插件里提示的url.
-
-### Q:构建里面如何使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
-
-可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
-
-### Q:使用docker build生成镜像是不是只能使用私有构建机才行？
-
-建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.
-
-如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
-
-### Q:ci不显示日志
-
-![](../../.gitbook/assets/image-20220301101202-xwkmo.png)
-
-查看对应微服务日志 /data/bkce/logs/ci/log/
-
-![](../../.gitbook/assets/image-20220301101202-bduGg.png)
-
-一个index占了12个shards，超过了es7 设置的shards最大值，这是es7的限制
-
-解决方法：清理一些无用的索引
-
-```
-查看目前所有的索引
-source /data/install/utils.fc
-curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X GET http://$BK_ES7_IP:9200/_cat/indices?v
-删除索引 # index 是索引名称
-curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
-# 注意：不能删除 .security-7
-```
-
-![](../../.gitbook/assets/image-20220301101202-RWPNo.png)
-
-**另一种可能是用户未安装es7**
-
-### Q:公共构建机，这几类都支持吗？
-
-![](../../.gitbook/assets/image-1646103610029.png)
-
-公共构建机依赖docker, 只能运行linux. 目前只能运行基于我们 bkci/ci:alpine (debian系统)制作的构建镜像.
-
-### Q:私有构建机必须是物理机吗？可以是docker容器吗?
-
-私有构建机和项目绑定, 且需安装agent并注册. 建议使用物理机/虚拟机等变动少的场景. 容器化使用公共构建机即可.
-
-### Q:上传镜像报错，程序默认把http方式换成https了
+### Q1:上传镜像报错，程序默认把http方式换成https了
 
 ![](../../.gitbook/assets/image-20220301101202-UayBz.png)
 
@@ -220,27 +295,9 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 走https的话如果仓库域名不是docker客户端开始装的时候对应的那个证书的话，需要在构建机导入这个域名对应的证书
 
-### Q:no available Docker VM
-
-![](../../.gitbook/assets/image-20220301101202-ceNsG.png)
-
-是没有可用的ci-dockerhost.需要:
-
-1\. 在ci-dispatch节点执行 /data/src/ci/scripts/bkci-op.sh list 查看是否有状态为true的行.
-
-2\. 如果依旧无法调度, 需要检查ci-dispatch的日志有无异常. 或者涉及dockerhost ip的日志.
-
-原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
-
-3、主机资源不足时也会导致启动失败。请确认 DISK_LOAD<95%，CPU_LOAD<100%，MEM_LOAD <80%
-
 ### Q: 哪里可以查看上传到 制品库 的jar包？使用默认方式
 
 蓝鲸社区参考：[https://bk.tencent.com/s-mart/community/question/2380](https://bk.tencent.com/s-mart/community/question/2380)
-
-### Q:gitlab事件触发插件无法触发事件
-
-参考 https://docs.bkci.net/reference/faqs 排查下
 
 ### Q: 拉取镜像失败，错误信息：status 500
 
@@ -248,9 +305,7 @@ BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名�
 
 用户自行配置的仓库，需要先保证网路可达
 
-### Q: 一台mac只能装一个agent吗
 
-可以多个, 在不同目录启动agent即可. 每个agent实例需要全新安装, 不能直接复制已有agent目录.
 
 ### Q: windos构建机 流水线执行用python去打开exe 失败
 
@@ -1059,35 +1114,6 @@ upload 时会使用到 /tmp 目录，因此 /tmp 也需要保持足够的空间�
 蓝盾服务器：/data/bkce/ci/ticket/lib/
 
 如不一致，进行重装构建机agent重装即可解决。
-
-### Q：关联GitLab代码库报错常见原因
-
-![](../../.gitbook/assets/repo_gitlab.png)
-
-1、应该使用 Personal Access Tokens 而非项目令牌。
-
-2、确认Access_Tokens生成时是否给予了对应权限。必须要包含对应的API权限。
-
-3、如果是自建的 GitLab，请确认”repository/branches“API接口是否能通。
-
-https://docs.gitlab.com/ee/api/branches.html
-
-4、如果GitLab为https访问。请确认代码库是否有做 http-->https 跳转。蓝盾默认以 http 方式进行代码库访问。
-
-若未做跳转，请按此临时方案，修改蓝盾文件：
-
-```bash
-vim /data/bkce/etc/ci/application-repository.yml
-
-#修改application-repository.yml文件，把apiUrl 修改为 https
-#gitlab v4.
-gitlab:
-apiUrl: https://devops.bktencent.com/api/v4
-```
-
-重启 bk-ci-repository.service 服务
-
-systemctl restart bk-ci-repository.service
 
 
 
