@@ -30,7 +30,7 @@
 
 ![](<../../../../.gitbook/assets/image (57).png>)
 
-<img src="../../../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png" alt="" data-size="original">
+<img src="../../../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png" alt="" data-size="original"><img src="../../../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png">
 
 
 
