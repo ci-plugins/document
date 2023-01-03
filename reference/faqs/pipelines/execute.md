@@ -72,7 +72,7 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 ## Q6：执行报错 pipeline start failed 并行上限
 
-![](D:\蓝盾文档\document\.gitbook\assets\max_parallel_view.png)
+![](./../../../.gitbook/assets/max_parallel_view.png)
 
 单条流水线同时并发在跑任务超过50条，会影响性能，还有可能失败。所以限制。
 

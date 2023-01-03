@@ -101,6 +101,6 @@ update devops_process.T_PIPELINE_SETTING set MAX_CON_RUNNING_QUEUE_SIZE=100 wher
 
 ## Q7:使用流水线文件变量，报错2102004
 
-![](<D:\蓝盾文档\document\.gitbook\assets\var_error_2102004.png>)
+![](../../.gitbook/assets/max_parallel_view.png>)
 
 上传时需要给变量填写包含文件名的完整的路径。该功能依赖于蓝盾制品库。
