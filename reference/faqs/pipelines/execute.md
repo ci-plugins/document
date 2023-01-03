@@ -49,5 +49,35 @@ curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
 
 ---
 
+## Q4：手动取消构建后，构建未取消或响应时间过长
+
+常见的原因有：
+
+1. 蓝盾版本更新后，如客户端 Agent 版本未进行相应更新。可能会导致此问题。
+2. 确认机器中是否添加了变量 DEVOPS_DONT_KILL_PROCESS_TREE。
+3. 如是偶现问题，可能是资源占用过高等原因导致蓝盾的 process 进程偶现故障。可以尝试重启 process 进程。
+4. 构建机因网络、资源等问题，导致接收进程终止信号缓慢。可检查构建机资源及网络。
 
 
+
+## Q5：remote API 远程触发流水线，显示无权限 2101008
+
+![](./../../../.gitbook/assets/remote_error.png)
+
+远程触发是以最后保存流水线的用户来执行流水线的。
+
+最后保存流水线的用户在权限中心被取消权限，则该流水线无法使用remote执行。需要其他有权限的用户来重新保存一下该流水线。
+
+
+
+## Q6：执行报错 pipeline start failed 并行上限
+
+![](D:\蓝盾文档\document\.gitbook\assets\max_parallel_view.png)
+
+单条流水线同时并发在跑任务超过50条，会影响性能，还有可能失败。所以限制。
+
+
+
+可以修改数据库限制
+update devops_process.T_PIPELINE_SETTING set MAX_CON_RUNNING_QUEUE_SIZE=100 where PIPELINE_ID='${pipeline_id}'; 
+建议最大不超过100

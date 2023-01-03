@@ -34,7 +34,17 @@
 
 
 
-## Q2：gitlab webhook 报错 
+
+
+6、gitlab 的 hook记录中，报错 Hook execution failed
+
+这是因 gitlab 10.6 版本后为了安全，默认不允许向本地网络发送 webhook。需要解开 gitlab 的安全限制。
+
+<img src="../../../../.gitbook/assets/QQ截图20221228192430.png">
+
+<img src="../../../../.gitbook/assets/QQ截图20221228192953.png">
+
+## Q3：gitlab webhook 报错 
 
 URL '[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)' is blocked: Host cannot be resolved or invalid
 
@@ -44,6 +54,22 @@ gitlab 无法解析蓝盾的域名。
 
 
 
-## Q3: 定时触发的流水线，时间显示不对，触发时间也不对
 
-![](D:/document/outline/document/.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)请检查蓝盾服务器的时间是否正常
+
+## Q3：偶现 webhook 触发不生效 
+
+经排查日志，发现是流水线并行数量超过了限制的50个任务并发。
+
+<img src="../../../../.gitbook/assets/max_parallel_error.png">
+
+可以修改数据库
+update devops_process.T_PIPELINE_SETTING set MAX_CON_RUNNING_QUEUE_SIZE=100 where PIPELINE_ID='${pipeline_id}'; 
+建议最大不超过100
+
+
+
+
+
+## Q4: 定时触发的流水线，时间显示不对，触发时间也不对
+
+![](../../../../.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)请检查蓝盾服务器的时间是否正常

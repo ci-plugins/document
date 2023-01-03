@@ -143,5 +143,25 @@ call:setEnv "var_name" %res%
 
 ---
 
+# shell
+
+## Q1：插件中 echo $HOME 为空
+
+1. 重启一下蓝盾的agent，这个跟系统的启动顺序有关。
+
+2. 也可以临时在环境管理中写入这个环境变量。
+
+![](../../../../.gitbook/assets/environment_val.png)
 
 
+
+# checkout
+
+## Q1：checkout 插件为什么没有拉取到最新的代码
+
+经排查，该插件有重试操作。
+
+第一次checkout拉取时，已经确认了这个 commit 版本了。
+后续重试这个插件时，也是一样的拉同个版本的代码。即使后续已经有新的 commit，重试时也不会检测到。
+
+需要重新启动一次构建，就会重新检测最新的 commit，拉取最新代码。
