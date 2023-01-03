@@ -21,7 +21,9 @@
 
 ## **开启 acces_token 认证**
 
-API 调用需要携带access_Token。需要先修改配置文件，开启access_Token认证后才可以获取到口令，登录CI服务器，编辑配置文件 /data/bkce/etc/ci/common.yml 的 auth 段下的 accessToken 段的内容。
+注：使用 API 并不是一定要开启 acces_token 认证。该认证是一种保证安全性的措施，建议开启。如不开启，可不携带 access_token 进行 API 请求。
+
+开启认证，需要先修改配置文件，开启access_Token认证后才可以获取到口令，登录CI服务器，编辑配置文件 /data/bkce/etc/ci/common.yml 的 auth 段下的 accessToken 段的内容。
 
 将enabled设为true，secret设为任意字符串string，expirationTime过期时间（毫秒）。
 
