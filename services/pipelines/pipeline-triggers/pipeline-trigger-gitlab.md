@@ -1,53 +1,46 @@
-# gitlab代码事件触发流水线
-**使用场景：** 当出现代码变更，如代码提交、代码合并时会自动触发流水线
+# gitlab code event triggers pipeline
+**Usage scenario: **Pipelining is automatically triggered when code changes occur, such as code commit and code merge
+![gitlba trigger plugin](../../../.gitbook/assets/image-trigger-gitlab-plugin.png)
+![gitlab trigger](../../../.gitbook/assets/image-trigger-gitlab.png)
 
-![gitlba触发插件](../../../.gitbook/assets/image-trigger-gitlab-plugin.png)
-
-![gitlab触发](../../../.gitbook/assets/image-trigger-gitlab.png)
-
-## 触发方式
-1. Commit Push Hook 代码提交时触发
-2. Tag Push Hook 提交有tag的代码时触发
-3. Merge Request Hook 当有代码合并时触发
-4. Merge Request Accept Hook 当代码合并后触发
-
-## 参数
-不同的触发方式有不同的参数
-代码库：公共参数，要监听代码事件的仓库
-
+## Trigger mode
+1. Commit Push Trigger when the Hook code is submitted
+2. Tag Push Hook Trigger when the tagged code is submitted
+Merge Request Hook 3. Merge Request Hook is triggered when code is merged
+Merge Request Accept Hook 4. Merge Request Accept Hook is triggered when codes are merged
+## parameter
+Different triggering modes have different parameters
+Code base: A public parameter that is a repository to listen for code events
 ### Commit Push Hook
-1. 分支名称：发生代码事件的分支
-2. 排除以下目标分支：被排除的分支即使有代码事件也不会触发流水线
-3. 监听以下路径：如果代码变更出现在该路径下，则触发流水线
-4. 排除以下路径：如果代码变更出现在该路径下，则不触发流水线
-5. 包含以下人员：如果代码变更的作者是该人员，则触发流水线
-6. 排除以下人员：如果代码变更的作者是该人员，则不触发流水线
-7. 包含以下 Commit Message：如果代码变更的commit信息包含该信息，则触发流水线
-8. 排除以下 Commit Message：如果代码变更的commit信息包含该信息，则不触发流水线
-   
+1. Branch name: The branch where the code event occurred
+2. Exclude the following target branches: Excluded branches do not trigger pipelined even if they have code events
+3. Listen to the following path: If code changes occur in this path, the pipeline is triggered
+4. Exclude the following paths: pipelining is not triggered if code changes occur under this path
+5. Include the following people: Pipelined if the author of the code change is this person
+6. Exclude the following people: Pipelining is not triggered if the author of the code change is this person
+7. Contain the following Commit Message: If the commit message of the code change contains this message, the pipeline is triggered
+8. Exclude the following Commit Message: If the commit message of the code change contains this message, the pipeline is not triggered   
 ### Tag Push Hook
-1. 分支名称：发生代码事件的分支
-2. 监听以下tag：如果提交的代码包含以下tag，则触发流水线
-3. 排除以下tag：如果提交的代码包含以下tag，则不触发流水线
-
+1. Branch name: The branch where the code event occurred
+2. Listen for the following tags: If the submitted code contains the following tags, the pipeline is triggered
+3. Exclude the following tags: If the submitted code contains the following tags, the pipeline is not triggered
 ### Merge Request Hook
-1. 分支名称：merge事件发生的分支，如希望dev分支合并到master分支时触发流水线，则分支名称填写master
-2. 排除以下目标分支：merge事件的目标分支为以下分支，则不触发流水线
-3. 监听以下源分支：merge事件的源分支为以下分支，则触发流水线
-4. 排除以下源分支：merge事件的源分支为以下分支，则不触发流水线
-5. 监听以下路径：merge事件目标分支中包含以下路径的代码变更，则触发流水线
-6. 排除以下路径：merge事件目标分支中包含以下路径的代码变更，则不触发流水线
-7. 包含以下人员：merge事件目标分支中包含以下人员的代码变更，则触发流水线
-8. 排除以下人员：merge事件目标分支中包含以下人员的代码变更，则不触发流水线
-9. 包含以下 Commit Message：merge事件目标分支中包含以下commit信息，则触发流水线
-10. 排除以下 Commit Message：merge事件目标分支中包含以下commit信息，则不触发流水线
-
+1. Branch name: The branch where the merge event occurs. If the pipeline is triggered when the dev branch is merged into the master branch, enter the branch name as master
+2. Exclude the following target branches: If the target branches of the merge event are the following, the pipeline is not triggered
+3. Monitor the following source branches: If the source branch of the merge event is the following branch, the pipeline is triggered
+4. Exclude the following source branches: If the source branches of the merge event are the following, the pipeline is not triggered
+5. Monitor the following paths: The pipeline is triggered when the target branch of the merge event contains code changes in the following paths
+6. Exclude the following paths: If the merge event target branch contains code changes to the following paths, the pipeline is not triggered
+7. Include the following personnel: The pipeline is triggered when code changes of the following personnel are included in the target branch of the merge event
+8. Exclude the following: If the merge event target branch contains code changes for the following people, the pipeline will not be triggered
+9. Contains the following Commit Message: If the target branch of the merge event contains the following commit information, the pipeline is triggered
+10. Exclude the following Commit Message: If the target branch of the merge event contains the following commit information, the pipeline is not triggered
 ### Merge Request Accept Hook
-1. 分支名称：merge accept事件发生的分支，如master接收dev分支的合并请求，则分支名称填写master
-2. 排除以下目标分支：merge accept事件的目标分支为以下分支，则不触发流水线
-3. 监听以下源分支：merge accept事件的源分支为以下分支，则触发流水线
-4. 排除以下源分支：merge accept事件的源分支为以下分支，则不触发流水线
-5. 监听以下路径：merge accept事件目标分支中包含以下路径的代码变更，则触发流水线
-6. 排除以下路径：merge accept事件目标分支中包含以下路径的代码变更，则不触发流水线
-7. 包含以下人员：merge accept事件目标分支中包含以下人员的代码变更，则触发流水线
-8. 排除以下人员：merge accept事件目标分支中包含以下人员的代码变更，则不触发流水线
+1. Branch name: merge accept the branch where the event occurs. For example, if master receives the merge request from the dev branch, enter the branch name as master
+2. Exclude the following target branches: If the target branches of the merge accept event are the following, the pipeline is not triggered
+3. Listen to the following source branches: If the source branch of the merge accept event is the following branch, the pipeline is triggered
+4. Exclude the following source branches: If the source branch of the merge accept event is the following, the pipeline is not triggered
+5. Listen for the following paths: merge accept the target branch contains code changes in the following paths, and the pipeline is triggered
+6. Exclude the following paths: If the merge accept event target branch contains code changes in the following paths, the pipeline is not triggered
+7. The following personnel are included: The pipeline is triggered when the merge accept event target branch contains code changes of the following personnel
+8. Exclude the following people: If the merge accept event target branch contains code changes of the following people, the pipeline is not triggered

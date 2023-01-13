@@ -1,18 +1,17 @@
-# 浏览研发商店
+# Browse the R&D Store
 
-研发商店里提供了流水线运行需要的公共资源：插件、模板、容器镜像。你可以找到适合自己项目的插件，
+The R&D store provides the public resources needed to run the pipeline: plugins, templates, and container images. You can find the right plugins for your project.
 
-## 功能区介绍 <a id="&#x529F;&#x80FD;&#x533A;&#x4ECB;&#x7ECD;"></a>
+## Introduction to the functional area
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
-1. 通过关键字搜索当前类型的研发商店资源（当前属于什么资源类型可以在 4 中查看）
-2. 工作台入口，可以管理自己贡献的资源
-3. 当前资源列表
-4. 资源类型，目前有流水线插件、流水线模板、容器镜像
-5. 资源过滤器
+1. search for the current type of R&D store resources by keyword (what resource type it currently belongs to can be viewed in 4)
+2. the workbench portal, you can manage your own contributed resources
+3. current resource list
+4. resource types, currently there are pipeline plug-ins, pipeline templates, container images
+5. resource filters
 
-## 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
+## Next you may need to
 
-* [开发一个流水线插件](plugins/create-plugin/)
-
+* [Develop a pipeline plugin](plugins/create-plugin/)

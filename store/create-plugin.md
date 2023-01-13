@@ -1,2 +1,1 @@
-# 开发一个流水线插件
-
+# Develop a pipeline plug-in

@@ -8,7 +8,6 @@
 * [Componets](overview/components.md)
 * [Learn pipeline in 5 minitues](overview/learn-pipeline-in-5-min.md)
 * [Terminology](overview/terminology/README.md)
-  * [Pipelines](overview/terminology/pipelines.md)
   * [Stage](overview/terminology/stage.md)
   * [Job](overview/terminology/job.md)
   * [Task](overview/terminology/task.md)

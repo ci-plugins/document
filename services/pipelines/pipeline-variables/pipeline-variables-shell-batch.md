@@ -1,37 +1,34 @@
-# 在Shell/Batchscript插件里使用变量
-
-## 在Shell插件里使用变量
-
+# Use variables in the Shell/Batchscript plugin
+## Use variables in Shell plug-ins
 ```shell
-# 引用全局变量WORKSPACE
-cd ${WORKSPACE}
+# References the global variable WORKSPACEcd ${WORKSPACE}
 
-# 设置自定义变量: setEnv '变量名' '变量值'
+Set custom variables: setEnv 'variable name' 'variable value'
 setEnv 'version' '3.2.16'
 ```
 
-setEnv 设置的是当前shell的输出参数，在下游才会生效，当前的shell里打印不出来的。
-
+setEnv is the output parameter of the current shell, which takes effect only in the downstream. It cannot be printed in the current shell.
 ```shell
-# 在后续的shell插件中引用version
+# References version in subsequent shell plugins
 echo ${version}
 ```
 
-## 在Batchscript插件里使用变量
-
+## Use variables in the Batchscript plugin
 ```bat
-REM 引用全局变量WORKSPACE
+REM refers to the global variable WORKSPACE
 cd %WORKSPACE%
 
-REM 您可以通过setEnv函数设置插件间传递的参数 
+REM You can set the parameters passed between plugins using the setEnv function
 REM call:setEnv "FILENAME" "package.zip" 
-REM 然后在后续的插件的表单中使用%FILENAME%引用这个变量
+REM then references this variable in subsequent plugin forms using %FILENAME%
+
 call:setEnv "FILENAME" "package.zip"
 
 ```
 
-在后续Batchscript插件中引用FILENAME
-```bat
+Reference FILENAME in a subsequent Batchscript plug-in```bat
+
+
+```
 echo on
 echo %FILENAME%
-```

@@ -1,50 +1,40 @@
-# 示例三（流水线变量使用）
+# Example 3 (Pipelining variable use)
+* Variable usage type:
 
-* 变量使用类型：
-  * 全局变量引用，shell/python/windows变量引用方法
-  * 插件变量设置方法以及跨插件变量引用
-* 点击Trigger，新增变量message
+  * Global variable references, shell/python/windows variable reference methods
 
+  * Plug-in variable setting methods and cross-plug-in variable references
+
+* Click Trigger to add the variable message
 ![](../../.gitbook/assets/image-20220301101202-sbynv.png)
 
-* 添加stage，Job下选择Python脚本执行插件，通过${message}使用变量
-
+* Add stage, select the Python script execution plugin under Job, and use variables via ${message}
 ![](../../.gitbook/assets/image-20211210111540640.png)
 
-添加shell插件，使用${message}使用变量
-
+Add shell plug-ins that use variables with ${message}
 ![](../../.gitbook/assets/image-20211212170436642.png)
 
-添加stage，Job类型选择windows
-
+Add stage and select windows for the Job type
 ![](../../.gitbook/assets/image-20211212170545118.png)
 
-点击windows，选择windows私有构建机节点
-
+Click windows and select the windows Private Builder node
 ![](../../.gitbook/assets/image-20211212170801357.png)
 
-添加Batch Script插件，使用%message%引用变量
-
+Add Batch Script plug-in, using %message% to reference variables
 ![](../../.gitbook/assets/image-20211212171003864.png)
 
-*   插件设置全局变量方法
-
-    在python脚本执行插件上，使用print("setEnv demo test1")，即设置了一个环境变量：demo（注：demo变量不能在当前插件使用）
-
+* Plugin method for setting global variables
+On the python script execution plugin, use print("setEnv demo test1") to set an environment variable: demo (note: demo variable cannot be used in the current plugin).
 ![](../../.gitbook/assets/image-20211212171417261.png)
 
-在shell script以及batch script插件引用变量demo，跟trigger配置的变量引用的方式一样
-
+The variable demo is referenced in shell script and batch script plug-ins in the same way that trigger configured variables are referenced
 ![](../../.gitbook/assets/image-20211212171708729.png)
 
 ![](../../.gitbook/assets/image-20220301101202-InSYO.png)
 
-windows设置全局变量的方式，call:setEnv "test" "testmessage"，引用test变量的方式如上
-
+The way windows sets global variables, call:setEnv "test" "testmessage", references the test variable as above
 ![](../../.gitbook/assets/image-20211212172006260.png)
 
-*   流水线默认全局变量
-
-    点击任意插件，右上角有一个引用变量，流水线默认定义了一些变量，可以直接在插件上进行使用，变量引用方式如上
-
+* Pipeline default global variable
+Click any plug-in, and there is a reference variable in the upper right corner. The pipeline defines some variables by default, which can be used directly on the plug-in. The variable reference method is as above
 ![](../../.gitbook/assets/image-20211212172109877.png)

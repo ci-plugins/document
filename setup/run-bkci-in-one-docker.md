@@ -1,20 +1,16 @@
-# 使用 One-Docker 运行 BKCI 的学习环境
-
-我们提供了[BKCI](https://hub.docker.com/r/blueking/bk-ci)的单容器的部署方案，仅供演示。
-
-创建名为 bkci-demo 的容器, 并传递主机的80端口到容器内的80端口:
+# Run BKCI's learning environment with One-Docker
+We provide a single container [BKCI](https://hub.docker.com/r/blueking/bk-ci) deployment plan, only for demonstration.
+Create a container named bkci-demo and pass port 80 of the host to port 80 in the container:
 
 ```text
 docker run -p 80:80 --name bkci-demo -dit blueking/bk-ci
 ```
 
-观察容器启动日志输出:
-
+Observe the container startup log output:
 ```text
 docker logs -f bkci-demo
 ```
 
-当服务全部启动成功, 会输出访问提示:
-
-> 服务成功启动. 您可以在浏览器输入 [http://devops.bktencent.com](http://devops.bktencent.com/) 访问bkci了. \(请提前配置DNS或hosts\)
+When all services are successfully started, the following information is displayed:
+> The service starts successfully. You can input [http://devops.bktencent.com](http://devops.bktencent.com/) in your browser to access bkci. \(please configure DNS or hosts in advance\)
 

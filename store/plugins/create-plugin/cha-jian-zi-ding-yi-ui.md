@@ -1,105 +1,114 @@
-# 插件自定义UI
+* # Plugins customize UI
 
-### 自定义插件前端框架
+  ## Custom plug-in front-end framework
 
-> 随着越来越多的用户使用研发商店开发流水线插件，用户对组件及交互场景的要求越来越高。  
-> 由于大部分个性用户提的组件和交互场景不具有通用性，平台无法一一封装，因此设计开发了一套由用户自定义开发插件前端部分的框架。  
-> 框架将插件的前端部分开放给用户自定义开发，适用于实现复杂交互场景的插件前端部分。
+  > As more and more users use the R&D store to develop pipelining plug-ins, users have higher and higher requirements for components and interaction scenarios.
+  > Because most of the components and interaction scenarios proposed by individual users are not universal, the platform cannot be encapsulated one by one, so a set of user-defined framework for the development of the front-end part of the plug-in is designed and developed.
+  > The > framework opens the front end of the plug-in to user-defined development and is suitable for implementing the front end of the plug-in in complex interaction scenarios.
 
-### 原理简介 <a id="%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B"></a>
+  ## Principle introduction
 
-* 将流水线编辑插件面板划分出一块区域以iframe的形式加载，iframe的内容由用户自定义实现。
-* 点开插件时，平台上层会把插件的 [atomValue](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atomvalue) 和 [atomModel](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atommodel) 通过 postMessage 的方式传递给 iframe，iframe 内部拿到 atomModel 和 atomValue 后即可以自定义实现插件部分。
-* 当用户输入相应参数后，把值更新到 atomValue 即可，插件面板在关闭时会自动把 atomValue 的值传回给平台上层保存。
+  * Divide the pipeline editing plugin panel into an area to load as an iframe, and the content of the iframe is implemented by user-defined.
+  * When the plugin is clicked, the upper layer of the platform will load the plugin's [atomValue](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci- plugins-wiki/specification/plugin_custom_ui.md#atomvalue) and [atomModel](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a- 1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atommodel) is passed by postMessage to The iframe will get the atomModel and atomValue internally and then customize the plugin part.
+  * When the user enters the corresponding parameters, the value is updated to atomValue and the plugin panel will automatically pass the value of atomValue back to the upper layer of the platform when it is closed.
 
-对于vue开发者，我们封装了一个基于 vue、集成了蓝鲸 magixbox 组件库、bkci 业务组件、bkci 插件能力的脚手架，并封装了与平台上层通信的 api，使开发者可以只专注于处理的业务逻辑部分。
+  For vue developers, we encapsulate a vue-based scaffolding that integrates the Blue Whale magixbox component library, bkci business components, and bkci plug-in capabilities, and encapsulates the api for communication with the upper layer of the platform, so that developers can focus only on the business logic part of the process.
 
-### 框架目录结构介绍 <a id="%E6%A1%86%E6%9E%B6%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E4%BB%8B%E7%BB%8D"></a>
+  ## Framework directory structure introduction
 
-插件代码库根目录下的 bk-frontend 目录为前端代码根目录。  
-其下代码结构如下： ![](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/atom-custom-ui.png)
+  The bk-frontend directory in the root directory of the plug-in code base is the front-end code root directory.
+  Its code structure is as follows:![](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/asse ts/atom-custom-ui.png)
 
-### 开发步骤 <a id="%E5%BC%80%E5%8F%91%E6%AD%A5%E9%AA%A4"></a>
+  ## Development steps
 
-* 1、研发商店在新增件时，自定义插件前端部分选项选择“是”
-* 2、运行：
-  * 代码根目录下创建 bk-frontend 目录
-  * 进到 bk-frontend 目录下
-  * 将框架代码 [bkci-customAtom-frontend](https://github.com/ci-plugins/bkci-customAtom-frontend) 拷贝到当前目录下
-  * 执行 npm install
-  * 执行 npm run dev 此时打开浏览器打开 [http://localhost:8001](http://localhost:8001/), 即可看到我们内置的简单demo工程的效果
-* 3、开发：
-  * 配置 bk-frontend/data 目录下的task.json
-  * 在 Atom.vue 里开发插件业务逻辑（具体开发注意事项见下面插件业务逻辑开发介绍）
-* 4、本地调试ok后：
-  * 把 bk-frontend/data 目录下的 task.json 里的内容复制到根目录下的 task.json
+  * 1. Select "Yes" for the front end of the custom plug-in when adding new parts to the R&D store.
 
-### Atom.vue \(用户插件逻辑部分开发注意事项\) <a id="atomvue-%E7%94%A8%E6%88%B7%E6%8F%92%E4%BB%B6%E9%80%BB%E8%BE%91%E9%83%A8%E5%88%86%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"></a>
+  * 2. Operation:
 
-* 用户在 Atom.vue 中开发插件时，需先引用 atomMixin，atomMixin 内置了平台上层通信的能力和交互api
+    * Create the bk-frontend directory in the code root directory
+    * Go to the bk-frontend directory
+    * Copy the framework code [bkci-customAtom-frontend](https://github.com/ci-plugins/bkci-customAtom-frontend) to the current directory
+    * Run npm install
+    * run npm run dev and open a browser to [http://localhost:8001](http://localhost:8001/) to see the effects of our simple built-in demo project
 
-```text
-import { atomMixin }from 'bkci-atom-components'
-mixins: [atomMixin],
-```
+  * 3. Development:
 
-* 引用 atomMixin.js 后，data 里已经内置了atomValue 和 atomModel 两个变量（说明如下）：
+    * Configure task.json in the bk-frontend/data directory
+    * Develop plug-in business logic in Atom.vue (see the plug-in business logic development introduction below for specific development considerations)
 
-  * atomModel: 即 task.json 的 input 部分，在自定义插件框架下，可以把 task.json 的 input 部分理解 vue 文件里的 data 变量。 把一些配置放到 task.json 时，可以直接在 atomModel 变量里面取到，可以使 vue 文件更简洁好维护。
-  * atomValue： 需要提交到平台上层，保存到后端插件执行时所用的值，格式如：
+  * 4. After local debugging is ok:
+
+    * Copy the contents of task.json in the bk-frontend/data directory to task.json in the root directory
+
+  ## Atom.vue \(User plug-in logical part development considerations \)
+
+  * When developing plug-ins in Atom.vue, users need to reference atomMixin, which has built-in communication capabilities and interaction apis on the upper level of the platform
 
   ```text
-  {
-  	"item1": "111",
-  	"item2": "222"
-  }
+  import { atomMixin }from 'bkci-atom-components'
+  mixins: [atomMixin],
   ```
 
-  当用户修改相应参数后，把值更新到 atomValue 即可，插件面板在关闭时会自动把 atomValue 的值传回给上层保存
+  * After referencing atomMixin.js, data already has two built-in atomValue and atomModel variables (as explained below) :
 
-### 本地调试 <a id="%E6%9C%AC%E5%9C%B0%E8%B0%83%E8%AF%95"></a>
+    * atomModel: namely, input part of task.json. Under the framework of custom plug-in, the input part of task.json can be understood as the data variable in the vue file. When you put some configurations in task.json, you can get them directly in the atomModel variable, which makes the vue file simpler and easier to maintain.
+    * atomValue: The value that needs to be submitted to the upper level of the platform and saved to the back-end plug-in execution, such as:
 
-> 框架提供了本地调试模块，用户可在本地调试好前端部分再提交
+    ```text
+    {
+        "item1": "111",
+        "item2": "222"
+    }
+    ```
 
-package.json 提供了两个打包命令
+  After the user has modified the corresponding parameter, the value can be updated to atomValue. When the plug-in panel is closed, the atomValue value is automatically returned to the upper layer for saving
 
-* npm run dev : 本地运行调试此工程，运行此命令时，程序的执行路径大致是 main.js -&gt; data/LocalAtom.vue -&gt; Atom.vue
-* npm run public：本地开发完成后，准备发布包时执行此命令, main.js -&gt; data/PublicAtom.vue -&gt; Atom.vue
-* 本地开发时，用户把 task.json 的内容放到 data/task.json下，则运行npm run dev后，框架会读取 data/task.json 里的 input 作为 atomModel，提取每个字段的 default 值作为 atomValue 里对应的默认值
-* 线上运行时，atomModel 和 atomValue 的值由平台上层传递到iframe内部
+  ## Local debugging
 
-用户在本地运行时调试正常，上线后在平台插件面板点开效果是一样的
+  > Framework provides local debugging module, users can debug the front-end part locally before submitting
 
-### 发布 <a id="%E5%8F%91%E5%B8%83"></a>
+  package.json provides two packaging commands
 
-插件调试好之后，通过研发商店工作台进行发布，发布包准备过程如下：  
+  * npm run dev: run this command locally to debug the project. When running this command, the program execution path is roughly main.js -&gt; data/LocalAtom.vue -&gt; Atom.vue
 
+  * npm run public: When the local development is complete and the package is ready to be published, run this command, main.js -&gt; data/PublicAtom.vue -&gt; Atom.vue
 
-1. 执行 npm run public 打包
-2. 在发布包根目录下创建名为 frontend 的目录 [插件发布规范](release.md)
-3. 将打包结果文件\( dist 目录下的所有文件\)拷贝到 frontend 目录下
-4. 将发布包根目录下的所有文件打成 zip 文件，通过工作台上传到商店
+  * During local development, the user puts the contents of task.json into data/task.json. After running npm run dev, the framework will read input in data/task.json as atomModel. Extract the default value of each field as the corresponding default value in atomValue
 
-### 常见问题 <a id="%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"></a>
+  * When running online, the atomModel and atomValue values are passed inside the iframe from the platform layer
 
-1、框架内置的 bkci 组件库和 magixbox 组件库怎么使用？
+    
 
-* bkci 组件库： task.json 可以配的组件也都可以直接以组件的形式使用，组件的属性即为 task.json 可配置的属性（[点击查看](plugin-config.md)），bkci 组件库的值变更事件统一封装为 :handle-change="functionxxx", 其中 functionxxx 有两个参数，一个是组件的 name，一个是组件的新 value
-* 蓝鲸magixbox组件库种类丰富，基本能覆盖日常开发所需的组件类型，框架内可以直接使用 magixbox 组件库进行开发，具体使用请查看[官方文档](https://bk.tencent.com/docs/document/6.0/130/5946)
+    Debugging is normal when the user runs locally, and the effect is the same when the user opens the platform plug-in panel after going online
 
-2、本地调试时，我需要结合某个具体项目，如使用 selector 组件拉取某某项目的代码库列表、凭证列表，怎么把项目信息带过来？
+  ## Publish
 
-* 在访问的 url 后面通过 query 方式传递 projectId=${projectId} 即可，如 [http://local.XX.com:8001?projectId=abc](http://local.xx.com:8001/?projectId=abc), bkci 内置的 selector/select-input 组件会自动解析 url 里面的 projectId参数作为请求的参数
+  After debugging the plug-in, release it through the R&D store workbench. The preparation process of the release package is as follows:
 
-3、使用自定义插件框架开发后，task.json 还有用吗？两者关系是什么？
+  1. run npm run public package
+  2. Create a frontend directory in the release package root directory (relea.md).
+  3. Copy the package result file \(all files \in the dist directory) to the frontend directory
+  4. zip all files in the root directory of the release package and upload them to the store on the workbench
 
-* 一定程度上来讲，使用自定义框架后，即使 task.json 里面的 input 内容为空，自定义框架也可以正常运行，但我们还是建议用户配置 task.json 的 input 部分，input 部分里的内容都会以通过 atomModel 变量传到iframe 中，可以使代码更简洁，提前定义好插件所需字段，也方便后端做一些检验和拓展，另一方面之前用惯了task.json 直接生成的用户，也可以参照 demo 内的写法，直接以高阶组件遍历的形式完成字段的渲染，task.json 里面配置的 rely 等交互能力也可以在引用了atomMixin 后直接使用
+  ## Frequently Asked Questions
 
-4、代码仓库根目录下有一个 task.json，bk-frontend/data 目录下也有一个 task.json，两者关系是什么, 为什么不统一成一个?
+  1. How to use the built-in bkci component library and magixbox component library?
 
-* 两个 task.json 的规范，配置方式一样，bk-frontend/data 下的 task.json 为本地调试时的数据源，本地调试时 atomModel 的值即为里面的 input 部分，根目录下的 task.json 为线上运行时 atomModel 的数据源，同时若插件里面还有 output 部分，可以在根目录下的 task.json 加上，即开发调试阶段，先在bk-frontend/data 写配置 task.json，上线提交前再把 bk-frontend/data 里 task.json 里的内容复制到根目录下的 task.json 即可（如果output部分，再单独加上）
+  * bkci component library: Any component that can be configured with task.json can also be used directly as a component. The properties of a component are configurable properties of task.json ([click to view](plugin-config.md)). The value change event of the bkci component library is encapsulated as handle-change="functionxxx", where functionxxx has two parameters: the component name and the new value of the component
+  * The Blue Whale magixbox component library has a variety of components, which can basically cover the types of components needed for daily development. Within the framework, you can directly use the magixbox component library for development. The specific use please see [official documentation](https://bk.tencent.com/docs/document/6.0/130/5946)
 
-5、 插件开发过程中，如果存在字段校验的情形，怎么和平台上层交互？
+  2. When debugging locally, I need to combine some specific project, such as using selector component to pull the code base list and credential list of certain project, how to bring the project information?
 
-* 当引用了 atomMixin 后，框架内置封装好了与上层插件状态通信的 api，当用户填写的参数非法时，调用 this.setAtomIsError\(true\)，可将该插件框标红，此时流水线无法保存，当用户填写了合法的参数后，调用 this.setAtomIsError\(false\)，将状态重置回正常
+  * projectId=${projectId} in query mode at the end of the accessed url. Such as [http://local.XX.com:8001?projectId=abc](http://local.xx.com:8001/?projectId=abc), The built-in selector/select-input component in bkci will automatically parse the projectId parameters in the url as request parameters
 
+  3. Is task.json still useful after using the custom plug-in framework? What is the relationship between the two?
+
+  * To some extent, the custom framework will work even if the input content in task.json is empty, but we recommend that you configure the input part of task.json. The content in the input part will be transmitted to iframe through atomModel variable, which can make the code more concise, define the fields required by the plug-in in advance, and facilitate the back-end to do some inspection and expansion. On the other hand, users who are used to the direct generation of task.json before can also refer to the writing method in demo. Fields are rendered directly in the form of traversal of higher-order components. The interaction capabilities configured in task.json, such as rely, can also be directly used after referring to atomMixin
+
+  4. There is a task.json in the root directory of the code repository and a task.json in the bk-frontend/data directory. What is the relationship between the two?
+
+  * Two specifications of task.json are configured in the same way. task.json in bk-frontend/data is the data source for local debugging, and atomModel value is the input part in local debugging. json in the root directory is the data source of atomModel when running online. At the same time, if there is output part in the plug-in, it can be added in the root directory of task.json, that is, the development and debugging phase. Write and configure task.json in bk-frontend/data. Then copy the contents of task.json in bk-frontend/data to task.json in the root directory before submitting the data. (If the output part is included, add it separately.)
+
+  5. In the process of plug-in development, if there is field verification, how to interact with the upper platform?
+
+  * After referring to atomMixin, the built-in framework encapsulates the api for communicating with the upper-layer plug-in state. When the parameter entered by the user is invalid, this.setAtomIsError\(true\) is called, and the plug-in box can be marked red. Call this.setAtomIsError\(false\) to reset the state back to normal

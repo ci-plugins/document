@@ -1,19 +1,12 @@
-# 流水线备注变量
+# Pipeline note variable
 
-流水线备注变量：`BK_CI_BUILD_REMARK`，用简短的文字说明来区分每次构建的内容，比如将`BK_CI_BUILD_REMARK`设置成版本号，用来表示该次打包产物的版本；又或者设置成平台（windows/pc/ios/andriod）表示本次打包的平台
+Pipeline remarks variable: `BK_CI_BUILD_REMARK`, with a short text to distinguish each build content, for example, set 'BK_CI_BUILD_REMARK' to the version number, to indicate the version of the package; Or set platform (windows/pc/ios/Android) to indicate the platform of the package
+**Application scenario: **Differentiate pipeline construction history
 
-**适用场景：** 区分流水线的构建历史
-
-1. 设置备注变量
-
-    ![设置备注变量](../../../.gitbook/assets/image-variables-set-remark.png)
-
-2. 展示备注变量
-
-    ![设置显示列](../../../.gitbook/assets/image-variables-config-column.png)
-
-    ![选择备注](../../../.gitbook/assets/image-variables-select-remark.png)
-
-    ![展示备注变量](../../../.gitbook/assets/image-variables-remark-view.png)
-
-**注意**：备注变量只有当流水线执行结束才会展示
+1. Set the remarks variable
+![Set remarks variable](../../../.gitbook/assets/image-variables-set-remark.png)
+2. Display note variables
+![Set display column](../../../.gitbook/assets/image-variables-config-column.png)
+![Select Remarks](../../../.gitbook/assets/image-variables-select-remark.png)
+![Display remarks variable](../../../.gitbook/assets/image-variables-remark-view.png)
+**Note **: Note variables are displayed only when the pipeline is finished

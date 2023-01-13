@@ -1,51 +1,36 @@
-# 代码拉取+制品库上传下载
-
-* 点击代码库，（代码库介绍详情见【代码库】目录）
-
+# Code pull + product library upload download
+* Click on the Code base, (for details about the code base, see the Code Base directory)
 ![](../../.gitbook/assets/image-20211212214606792.png)
 
-* 选择关联Gitlab代码库
-
+* Select associated Gitlab codebase
 ![](../../.gitbook/assets/image-20211205163725597.png)
 
-* 点击新增，会自动跳转到凭证管理--新增凭据，获取gitlab上的AccessToken进行填写，点击确定&#x20;
-
+* Click "Add", it will automatically jump to credential management -- add new credentials, obtain the AccessToken on gitlab to fill in, click "OK";
 ![](../../.gitbook/assets/image-20211205164052362.png)
 
-* 回到代码库，访问凭据上选择凭据【demo】，确定
-
+* Go back to the code base, access credentials select Credentials [demo], OK
 ![](../../.gitbook/assets/image-20211205164627965.png)
 
-* 创建流水线
-
+* Create pipelining
 ![](../../.gitbook/assets/image-20211213100550657.png)
 
-添加新的stage
-
+Add a new stage
 ![](../../.gitbook/assets/image-20211213100650213.png)
 
-添加checkout gitlab插件，关联创建好的代码库，按分支拉取
-
+Add checkout gitlab plug-in, associate the created code base, and pull by branch
 ![](../../.gitbook/assets/image-20211205170423284.png)
 
-添加shell插件，查看当前工作空间，以及拉取的代码目录，对代码进行打包
-
+Package the code by adding shell plug-ins, viewing the current workspace, and pulling down the code directory
 ![](../../.gitbook/assets/image-20211209202103728.png)
 
-把当前工作空间的ShortUrl.zip文件保存下来放到制品库，可以使用upload artifacts插件
-
-注：当在使用多种构建机类型的情况下(公共构建机+私有构建机或多个不同私有构建机)，不同构建机之间需要依赖使用构建产物时(不仅限于拉取的代码)，可以把文件/文件夹上传到制品库，在从需要使用到该文件的Job下，下载制品库对应的文件
-
-* 添加upload artifacts插件
-
+Save the shortur.zip file from your current workspace to the artifact library using the upload artifacts plugin
+Note: When multiple types of builder are used (public builder + private builder or multiple different private builders) and the build products need to be used between different builders (not limited to the pulled code), you can upload files/folders to the artifact library and download the corresponding files in the artifact library from the Job where the file is to be used
+* Add the upload artifacts plugin
 ![](../../.gitbook/assets/image-20211209202425994.png)
 
-*   download artifacts插件---从制品库上下载文件到当前Job下的工作空间
-
-    添加新stage
-
+* download artifacts plugin -- Download files from the artifacts library into the workspace under the current Job
+Add a new stage
 ![](../../.gitbook/assets/image-20211209202505648.png)
 
-添加Download artifacts插件，会根据填写好的内容自动找到制品库的源路径，然后下载到当前工作空间
-
+Add the Download artifacts plug-in, which automatically finds the source path of the artifact library based on the content filled in, and then downloads it to the current workspace
 ![](../../.gitbook/assets/image-20211209203143751.png)

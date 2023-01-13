@@ -1,72 +1,69 @@
-# NodeJS 插件开发指引
+# NodeJS Plugin Development Guidelines
 
-## 插件开发框架说明 <a id="%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AF%B4%E6%98%8E"></a>
+## Plugin development framework description
 
-**一、插件代码工程的整体结构如下：**
+**I. The overall structure of the plugin code project is as follows:**
 
-**二、如何开发插件：**
+**II. How to develop plugins:**
 
-> 参考
+> Reference
 
-* 创建插件代码工程
+* Create plugin code project
 
-  插件代码建议统一管理。通用的开源插件可以放到 [ci-plugins](https://github.com/ci-plugins) 下
+  Plug-in code is recommended to be managed in a unified manner. Generic open source plug-ins can be placed under [ci-plugins](https://github.com/ci-plugins)
 
-* 修改包名为有辨识度的名称，建议可以和插件标识一致
-* 实现插件功能
-* 规范：
-  * [插件开发规范](../plugin-specification.md)
-  * [插件输出规范](../plugin-output.md)
+* modify the package name with a recognizable name, it is recommended that can be consistent with the plug-in logo
+* Implement the plugin functionality
+* Specification.
+  * [plug-in development specification](../plugin-specification.md)
+  * [plugin-output-specification](../plugin-output.md)
 
-**三、如何打包发布：**
+**III. How to package and release:**
 
-1. 进入插件代码工程根目录下
-2. 执行打包命令打包
-3. 在任意位置新建文件夹，命名示例：release\_pkg = ${你的插件标识}\_release
-4. 将步骤 2 生产的执行包拷贝到 ${release\_pkg} 下
-5. 添加 task.json 文件到 ${release\_pkg} 下 task.json 见示例，按照插件功能配置。
+1. enter the root directory of the plug-in code project
+2. execute the package command package
+3. create a new folder in any location, name example: release\_pkg = ${your plugin logo}\_release
+4. Copy the package produced in step 2 to ${release\_pkg}
+5. Add the task.json file to ${release\_pkg} under task.json See the example to configure it according to the plugin functionality.
 
-   * [插件配置规范](../plugin-config.md)
-   * task.json示例：
+   * [Plugin configuration specification](../plugin-config.md)
+   * task.json example.
 
    ```text
    {
        "atomCode": "demo",
        "execution": {
            "language": "nodejs",
-           "packagePath": "",             # 发布包中插件安装包的相对路径
+           "packagePath": "", # Relative path to the plugin installation package in the release package
            "demands": [
-               ""   # 插件启动前需要执行的安装命令，顺序执行
+               "" # The installation commands to be executed before the plugin starts, in order
            ],
            "target": "demo"
        },
        "input": {
            "inputDemo":{
-               "label": "输入示例",  
+               "label": "inputDemo",  
                "type": "vuex-input",
-               "placeholder": "输入示例",
-               "desc": "输入示例"
+               "placeholder": "inputDemo",
+               "desc": "input-example"
            }
        },
        "output": {
            "outputDemo": {
-               "description": "输出示例",
+               "description": "Output Demo",
                "type": "string",
                "isSensitive": false
            }
        }
    }
-   ```
-
-6. 在 ${release\_pkg} 目录下，把所有文件打成 `zip` 包即可
-
-`zip` 包结构示例：
+6. In the ${release\_pkg} directory, just make a `zip` package of all the files
+Example of `zip` package structure.
 
 ```text
-|- demo_release.zip         # 发布包
-   |-     # 插件执行包
-   |- task.json            # 插件配置文件
+|- demo_release.zip # Release package
+   |- # Plugin execution package
+   |- task.json # Plugin configuration file
 ```
 
-打包完成后，在插件工作台提单发布，即可测试或发布插件
+After the package is finished, raise a release order in the plugin workbench to test or release the plugin
 

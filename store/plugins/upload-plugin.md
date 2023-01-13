@@ -1,66 +1,50 @@
-# 在 BKCI 里使用商店插件
-
-> 开发好插件之后，通过研发商店工作台，将插件发布到研发商店，提供给用户添加到流水线中使用。
-
-## 入口 <a id="&#x5165;&#x53E3;"></a>
-
-在工作台列表，点击如下入口发起发布流程：
-
+# Use the store plugin in BKCI
+> After the plug-in is developed, the plug-in is published to the R&D Store through the R&D store workbench for users to add to the pipeline.
+## entry
+In the workbench list, click the following entry to initiate the publication process:
 ![](../../.gitbook/assets/image%20%2821%29.png)
 
-1. 首次发布时，入口名为“上架”
-2. 升级版本时，入口名为“升级”
+1. When it was first released, the entry was called "On Shelves"
+2. When upgrading the version, the entry name is Upgrade.
+    Or in plugin release management -&gt; Release process initiated by the version management interface:
+    ![](../../.gitbook/assets/image.png)
+    1. If the current version is not in the end state, possible operations are as follows:
+       * Launch: The first version enters the launch process
+       * Progress: The release process page is displayed
+    2. You can add a new version only when the latest version is in the terminal state
+## Fill in plug-in related information / upload plug-in release package
 
-或者在插件发布管理-&gt;版本管理界面发起发布流程：
-
-![](../../.gitbook/assets/image.png)
-
-1. 当前版本不是结束态时，这里可能的操作是：
-   * 上架：首版本进入上架流程
-   * 进度：进入发布流程页面
-2. 最新版本是结束态时，才可以新增新版本
-
-## 填写插件相关信息/上传插件发布包 <a id="&#x586B;&#x5199;&#x63D2;&#x4EF6;&#x76F8;&#x5173;&#x4FE1;&#x606F;/&#x4E0A;&#x4F20;&#x63D2;&#x4EF6;&#x53D1;&#x5E03;&#x5305;"></a>
-
-上架/升级插件时，可以修改插件的基本信息，如下所示：
-
-![](../../.gitbook/assets/image%20%2836%29.png)
+   You can modify the basic information of the plug-in when you install or upgrade the plug-in, as shown below:
+   ![](../../.gitbook/assets/image%20%2836%29.png)
 
 ![](../../.gitbook/assets/image%20%2828%29.png)
 
-1. 适用 Job 类型：
-   * 和流水线 Job 类型对应，请按照插件实际适用情况选择
-   * 若选错，需新增版本修改
-2. 发布包：
-   * task.json 中的 atomCode 需和[开发一个流水线插件](create-plugin/)中新增插件时填写的标识一致，否则上传会失败
+1. Applicable Job Type:
+   * This parameter corresponds to the pipeline Job type. Select this parameter based on the plug-in's actual application
+   * If incorrect, you need to add a new version
+2. Release Package:
+   * The atomCode in task.json must be the same as the identifier entered when adding a plug-in in [create-plugin/]; otherwise, the upload will fail
 
-当升级插件时，有三种升级模式：
-
-![](../../.gitbook/assets/image%20%289%29.png)
-
-1. 非兼容式升级：
-   * 插件输入、输出不同或者相同输入输出但功能逻辑发生重大变更，和老版本不兼容时使用
-   * 此类型版本发布后，已使用该插件的流水线不会自动升级版本，需用户手动修改版本号
-   * 主版本号 +1
-2. 兼容式功能更新：
-   * 插件输入输出兼容旧版本，仅功能更新或新增\(不影响已使用用户\)时使用
-   * 此类型版本发布后，已使用该插件且版本号选为\[主版本.latest\]的流水线自动使用新版本插件，无需手动编辑流水线
-   * 次版本号 +1
-3. 兼容式问题修正：
-   * 插件输入输出兼容旧版本，仅做问题修正
-   * 此类型版本发布后，已使用该插件且版本号选为\[主版本.latest\]的流水线自动使用新版本插件，无需手动编辑流水线
-   * 修正号 +1
-
-## 测试/发布插件 <a id="&#x6D4B;&#x8BD5;/&#x53D1;&#x5E03;&#x63D2;&#x4EF6;"></a>
-
-> 填写好信息，提交后，进入发布流程，可以测试-&gt;重新传包-&gt;测试，直至插件满足预期后，手动继续流程将插件发布到研发商店
-
+When upgrading plug-ins, there are three upgrade modes:
+     ![](../../.gitbook/assets/image%20%289%29.png)
+1. Incompatible upgrade:
+   * Used when the plug-in input and output are different or the same input and output but the functional logic has changed significantly and is incompatible with the older version
+   * After this version is released, the pipeline that has used this plug-in will not automatically upgrade the version. You need to manually change the version number
+   * Major version number +1
+2. Compatible function update:
+   * The input and output of the plug-in are compatible with older versions, and can only be used when the function is updated or newly added \(does not affect existing users \)
+   * After this version is released, the pipeline that uses the plug-in and version number is \[major version.latest] automatically uses the new version of the plug-in without manually editing the pipeline
+   * Minor version number +1
+3. Compatible problem correction:
+   * Plug-in I/O compatible with older versions, only do problem fixing
+   * After this version is released, the pipeline that uses the plug-in and version number is \[major version.latest] automatically uses the new version of the plug-in without manually editing the pipeline
+   * Correction sign +1
+## Test/release plugin
+> Fill in the information, submit, enter the release process, you can test -&gt; Repacket -&gt; Test until the plug-in meets expectations, then manually continue the process of releasing the plug-in to the development store
 ![](../../.gitbook/assets/image%20%2829%29.png)
 
-1. 测试：点击后跳转到插件调试项目的流水线服务下，可以将当前插件添加到流水线，验证 UI、功能是否满足预期
-2. 重新传包：当测试发现问题，修复后，重新上传发布包，再次进行测试
-3. 继续：测试 OK，满足预期后，确认提交发布
-4. 取消发布：发布过程中，随时可以终止发布
-
-> 注意：当插件开发语言为 Python、Nodejs 时，对插件执行环境有一定要求，请参考[第三方构建机环境准备](../../services/pools/self-hosted-agents/prepara-agent.md)
-
+1. Test: Click and jump to the pipeline service of plug-in debugging project. You can add the current plug-in to the pipeline to verify whether UI and functions meet expectations
+2. Retransmit packets: If a problem is found in the test, upload the released package again and perform the test again
+3. Continue: After the test is OK and the expectation is met, confirm the submission and release
+4. Cancel the release: You can terminate the release at any time during the release process
+> Note: When the plug-in development language is Python or Nodejs, the plug-in execution environment has certain requirements. For details, see [Preparations for the Third-Party Builder Environment](../../services/pools/self-hosted-agents/prepara-agent.md)

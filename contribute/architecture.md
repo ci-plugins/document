@@ -1,2 +1,1 @@
-# BKCI 架构
-
+# BKCI architecture

@@ -1,41 +1,34 @@
 ---
-description: 如下教程将引导你在成功定制加速方案之后，如何在本地构建机中使用。
+description: The following tutorial will guide you through how to use the acceleration solution in the native build machine after you have successfully customized it
 ---
 
-# 在私有构建机上使用加速
-
-## Step1  **首先在机器上安装加速工具包（使用root执行）**
-
+# Use acceleration on private build machines
+## Step1 **First install the Accelerator kit on the machine (do this using root) **
 ```text
-/bin/bash -c "$(curl http://<您的服务域名>/turbo-client/disttask/install.sh)"
+/ bin/bash - c "$(curl http://<your service domain name> /turbo-client/disttask/install. Sh)"
 ```
 
-## Step2 拷贝加速方案ID
+## Step2 Copy the acceleration scheme ID
 
-可以在查看方案页面获得ID：
-
+You can get the ID on the View scheme page:
 ![](../../../.gitbook/assets/image%20%2862%29.png)
 
-## Step3 使用加速工具来启动加速
+## Step3 Use the acceleration tool to start acceleration
 
-例如原来的编译脚本为：
+For example, the original compiled script is:
 
 ```text
 make -j gamesvr
 ```
 
-用步骤1中安装的工具，结合步骤2中的方案ID，来执行加速：
-
+Use the tool installed in Step 1, combined with the scenario ID in Step 2, to perform the acceleration:
 ```text
-bk-booster -bt cc -p <步骤2中拷贝的ID> --hook -a "make -j@BK_JOBS gamesvr"
+bk-boosters bt cc-p <ID copied in step 2> --hook -a "make -j@BK_JOBS gamesvr"
 ```
 
-其中bk-booster是插件提供的加速器，用来启动加速。
-
-命令中的参数含义分别为
-
-* -bt cc，指定场景为cc，用于linux下的c/c++编译。
-* -p &lt;加速方案ID&gt;，指定方案ID。
-* --hook，开启命令hook，会自动劫持gcc/clang等编译器，实现加速。
-* -a "make -j@BK\_JOBS gamesvr"，指定要执行的编译命令，其中@BK\_JOBS作为占位符，在运行时会自动替换为推荐的并发数量。
-
+The bk-booster is the accelerator provided by the plug-in to start the acceleration.
+Parameter meanings in the command are
+* -bt cc: cc is used for c/ C ++ compilation on linux.
+* -p &lt; Acceleration program ID&gt; , specify the scheme ID.
+* --hook, open the hook command, will automatically hijack gcc/clang and other compilers to achieve acceleration.
+* -a "make -j@BK\_JOBS gamesvr", specifying the compile command to execute, with @BK\_JOBS as a placeholder, automatically replaced at run time with the recommended amount of concurrency.

@@ -1,9 +1,5 @@
-# 定时触发方式
-
-定时触发方式可以让用户在指定时间触发流水线，适用于希望在构建资源空闲的时间（比如深夜）触发流水线的场景。用户可以选择基础规则和crontab表达式，两者可以同时选择。
-**注意：** 触发时间以服务器时间为准，建议将蓝盾服务器时区调整到用户所在时区
-
-![timer插件](../../../.gitbook/assets/image-trigger-timer-plugin.png)
-
-![定时规则](../../../.gitbook/assets/image-trigger-timer-rule.png)
-
+# Timed trigger mode
+The timed trigger mode allows users to trigger the pipeline at a specified time. This mode is suitable for scenarios where you want to trigger the pipeline at a time when build resources are free (for example, late at night). Users can choose base rules and crontab expressions, both at the same time.
+**Note: **The trigger time depends on the server time. You are advised to adjust the time zone of the Blue Shield server to the time zone of the user
+![timer plugin](../../../.gitbook/assets/image-trigger-timer-plugin.png)
+![Timing rule](../../../.gitbook/assets/image-trigger-timer-rule.png)

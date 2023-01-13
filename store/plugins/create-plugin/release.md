@@ -1,16 +1,12 @@
-# 插件发布规范
+# Plug-in publishing specification
 
-## 发布包规范 <a id="%E5%8F%91%E5%B8%83%E5%8C%85%E8%A7%84%E8%8C%83"></a>
-
-* 发布包格式为 zip 文件
-* 发布包中包含：
-  * \[必选\] 插件可执行文件
-  * \[必选\] task.json
-  * \[可选\] frontend 目录
-    * 目录下为自定义UI 相关文件
-
-## 版本管理规范 <a id="%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83"></a>
-
-* 版本号管理遵循 [语义化版本](https://semver.org/) 规范
-* 用户在流水线中可通过 \[主版本号.latest\] 的模式引用插件，自动使用指定主版本号下的最新版本。请按照规范升级插件。
-
+## Publish the package specification
+* The release package is a zip file
+* The release package includes:
+  * \[Mandatory \] Plug-in executable file
+  * \[Mandatory \] task.json
+  * \[Optional \] frontend directory
+    The * directory contains customized UI-related files
+## Version management specification
+* Version number management follows the Semantic Version(https://semver.org/) specification
+* Users can reference the plug-in in the pipeline using the mode \[major version.latest \] to automatically use the latest version under the specified major version number. Upgrade the plug-in according to the specifications.

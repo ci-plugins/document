@@ -1,8 +1,8 @@
 ---
-description: 欢迎使用 Turbo 加速方案
+description: Welcome to Turbo acceleration
 ---
 
-# 编译加速
+# Turbo
 
-Turbo 加速基于分布式编译、缓存、容器技术，旨在为用户提供高效、稳定、便捷的加速服务，提升研发效率，缩短交付周期。
+Turbo acceleration is based on distributed compilation, caching and container technologies, aiming to provide users with efficient, stable and convenient acceleration services, improve development efficiency and shorten delivery cycle.
 

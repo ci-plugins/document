@@ -1,48 +1,42 @@
-# 第三方构建机环境准备
-
-bk-ci 流水线的插件，是由官方或第三方开发者提供。插件开发语言支持 Java、Python、NodeJs 或 Golang，执行时对环境有所依赖。 私有构建机导入 bk-ci 作为流水线执行机之前，需先准备好环境，以免流水线执行失败。
-
+# Third party builder environment preparation
+bk-ci pipelining plug-ins are provided by official or third party developers. Plug-in development languages support Java, Python, NodeJs, or Golang, and execution is environment dependent. Before importing bk-ci to a private builder as a pipeline executor, prepare an environment to prevent pipeline execution failures.
 {% tabs %}
-{% tab title="准备 Python 插件执行环境" %}
-研发商店支持开发 python 插件，如果想在你的构建机上能正常运行 python 插件，需要进行如下设置：
+{% tab title=" Prepare Python plugin execution environment "%}
+The Developer Store supports python plugins. If you want to run python plugins on your build machine, you need to do the following:
 
-* 安装 python
-  * 鉴于 python2 即将不提供服务，建议安装 python3.6
-  * 插件需能兼容 python2 和 python3，所以执行环境安装的 python 版本影响不大
-* 安装最新版本的 pip 工具
-* 若企业内部有专用的 pip 源，请设置 pip 源
+* Install python
+  * python3.6 is recommended since Python 2 will not be serviced soon
+  * The plug-in must be compatible with python2 and python3, so the version of python installed in the execution environment has little effect 
 
+* Install the latest version of the pip tool
+
+* If the enterprise has a dedicated pip source, set the pip source
   ```text
-  index-url = <内部pip源>
-  extra-index-url = <备用pip源>
+  index-url = <internal pip source >
+  extra-index-url = < alternate pip source >  
   timeout = 600
-
+  
   [install]
-  trusted-host = <pip源的host>
+  trusted-host = <pip source host>  ```
   ```
 
-  * 配置步骤（以 Linux 为例）
-    * 以安装 bk-ci Agent 的用户身份登录机器
+  * Configuration Procedure (Using Linux as an example)
 
-      > 配置 pip 的用户，和启动 bk-ci Agent 的用户需一致，否则配置不生效。 执行 ps -ef \|grep devops 命令确认启动 bk-ci Agent 的用户
+    > The user for configuring pip must be the same as the user for enabling bk-ci Agent. Otherwise, the configuration does not take effect. Perform ps - ef \| grep enterprise command to confirm start bk - ci Agent user
 
-    * vi ~/.pip/pip.conf，将上述配置添加进去，注意换行符不能是\r\n
-    * 保存配置
-    * 重启 bk-ci Agent
-{% endtab %}
+    * Log in to the machine as the user who installed bk-ci Agent
+    * vi ~/.pip/pip.conf to add the above configuration, note that the newline cannot be \r\n
+    * Save configuration
+    * Restart the bk-ci Agent{% endtab %}
 
-{% tab title="准备 Nodejs 插件执行环境" %}
-研发商店支持开发 NodeJS 插件，如果想在你的构建机上能正常运行 NodeJS 插件，需要进行如下设置：
+{% tab title=" Prepare Nodejs plugin execution environment "%}
+The Developer store supports the development of NodeJS plugins. If you want to run NodeJS on your build machine, you need to do the following:
 
-* 安装 NodeJS
-
-  > 建议安装[node LTS 版本](https://nodejs.org/en/download/)，支持更多 es 特性
-
-* 若企业内部有专用的 npm 源，配置 npm 仓库为内网版本
-
+* Install NodeJS
+> suggest installation [node LTS versions](https://nodejs.org/en/download/), which support more es features
+* If the enterprise has a dedicated npm source, configure the npm repository as the Intranet version
   ```text
-    npm config set registry <内网npm仓库地址>
-  ```
+  npm config set registry < Intranet npm repository address> 
+
 {% endtab %}
 {% endtabs %}
-

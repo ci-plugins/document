@@ -1,18 +1,11 @@
-# 代码库
-
-在本页面，你可以将企业已有的代码库关联至 bk-ci，也可以查阅已关联的代码库列表。
-
-## 关联 gitlab 代码库 <a id="&#x5173;&#x8054; gitlab &#x4EE3;&#x7801;&#x5E93;"></a>
-
+# code base
+On this page, you can associate your enterprise's existing codebase with bk-ci, or you can consult a list of associated codebase.
+## Associate gitlab codebase
 ![](../.gitbook/assets/image%20%2823%29.png)
 
-点击关联代码库后可弹出“关联代码库”的弹窗，会收集代码库的基本信息：
-
-1. 源代码地址：可以通过 bk-ci 服务端正常访问的 gitlab 仓库地址，以 http/https 开头，以.git 结尾；
-2. 别名：关联后在 bk-ci 里显示的名字，这个别名会在流水线中关联代码库时显示，整个项目下唯一；
-3. 访问凭证：点击右侧**新增**按钮可跳转到凭证管理中添加凭证。
-
-## 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
-
-* [创建你的第一条流水线](../tutorials/create-first-pipeline.md)
-
+After clicking the associated code base, the pop-up window of "Associated Code Base" will pop up, and the basic information of the code base will be collected:
+1. Source code address: gitlab warehouse address that can be normally accessed through bk-ci server, starting with http/https and ending with.git;
+2. Alias: The name displayed in bk-ci after the association. This alias will be displayed when the code base is associated in the pipeline.
+3. Access credentials: Click the **Add **button on the right to jump to the credentials management to add credentials.
+## Next you may need
+* [Build your first pipeline](../tutorials/create-first-pipeline.md)

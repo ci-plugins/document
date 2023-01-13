@@ -1,9 +1,5 @@
-# 凭证变量
-
-在凭证管理中设置**密码类型**的凭证后，可以在流水线中引用该密码变量，密码变量是项目级别的，同项目下不同流水线都能引用，适用于需要给整个项目定义变量的场景，如游戏平台、游戏版本、分支名称等。
-
-引用方式：`${凭证名称}`
-
-![设置密码变量](../../../.gitbook/assets/image-variables-ticket-myvar.png)
-
-![引用密码变量](../../../.gitbook/assets/image-variables-ticket-var-used.png)
+# Credential variable
+After setting the credential of **password type **in the credential management, you can reference the password variable in the pipeline. The password variable is project-level and can be referenced in different pipelines under the same project. It is applicable to the scene where variables need to be defined for the whole project, such as game platform, game version, branch name, etc.
+Reference:  ${credential name}
+![Set password variable](../../../.gitbook/assets/image-variables-ticket-myvar.png)
+![Reference password variable](../../../.gitbook/assets/image-variables-ticket-var-used.png)

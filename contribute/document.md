@@ -1,51 +1,38 @@
 # Contributing to bkci document
 
-我们在编写的过程中，难免会有不完善的地方，希望请大家一起帮助我们持续改进文档的质量，帮助更多的人。
-
-## 方法
-
-在 GitHub 上提 Issue 或 Pull Request，地址为: https://github.com/ci-plugins/document
-
-## 文档规范
-
-1. 文档采用markdown语法编写
-
-2. 图片需统一放置在`.gitbook/assets`下，图片名称不得与已有图片重名
-
-3. 图片名称仅允许大小写字母、数字、`-`、`_`
-
-4. 共建者可以对master分支发起PR，管理员会对PR进行审核
-
-## 文档共建流程
-
+In the process of writing, it is inevitable that there will be some imperfections. We hope that you can help us to continuously improve the quality of the document and help more people.
+## method
+Submit an Issue or Pull Request on GitHub at https://github.com/ci-plugins/document
+## Document specification
+1. The document is written in markdown syntax
+2. Pictures shall be placed `.gitbook/assets` and the name of the picture shall not be the same as that of the existing picture
+3. Only upper and lower case letters, numbers, `-`, and `_` are allowed in the picture name
+4. The co-creator can launch PR for the master branch, and the administrator will review the PR
+Document co-construction process
 ### 1. Fork repository
 
-首先得拥有github账号，并登录，访问https://github.com/ci-plugins/document，fork到自己的github账号下
-
+To get started, log in, visit https://github.com/ci-plugins/document, and fork to your github account
 ![image-contributing-fork-repo](../.gitbook/assets/image-contributing-fork-repo.png)
 
 ![image-contributing-fork-success](../.gitbook/assets/image-contributing-fork-success.png)
 
 ### 2. Clone  
 
-克隆仓库之前，先保证自己fork出来的仓库是否和源仓库保持一致，如果落后于源仓库，可考虑先`Fetch Upstream`，参考步骤4
-
+Before cloning the repository, ensure that the repository you fork out is consistent with the source repository. If you are behind the source repository, consider 'Fetch Upstream' first, as shown in Step 4
 `git clone https://github.com/xxxx/document`
 
 ### 3. Change & Commit
 
 ```
 cd /path/to/document
-git config user.name "${你的github用户名}"
-git config user.mail "${你的邮箱}"
-echo "add xxx" > xxx.md  # 模拟用户编辑文档操作
-git commit -m "add xxx"
+git config user.name "${your github username}"
+git config user.mail "${your email}"
+echo "add xxx" > xxx.md # simulates the operation of editing a documentgit commit -m "add xxx"
 ```
 
 ### 4. Fetch upstream
 
-在将commit提交到自己的仓库前，查看自己fork出来的代码是否落后于源仓库代码，如果落后，先操作`Fetch upstream`，将源仓库代码的更新下同步到自己仓库。`compare`查看代码差异，`Fetch and merge`将源仓库代码合并到自己仓库
-
+Before committing to your repository, check to see if the code you fork out is behind the source repository. If it is, start with 'Fetch upstream' to synchronize the updates from the source repository to your repository. 'compare' looks at code differences, 'Fetch and merge' merges source repository code into its own repository
 ![image-contributing-fetch-upstream](../.gitbook/assets/image-contributing-fetch-upstream.png)
 
 ![image-contributing-fetch-merge](../.gitbook/assets/image-contributing-fetch-merge.png)
@@ -55,11 +42,10 @@ git commit -m "add xxx"
 
 ### 5. Git pull
 
-除了在页面上同步最新代码外，还要在本地仓库里同步最新代码
-更新本地代码（建议每次在修改文档之前都先执行一次git pull）：
-
+In addition to synchronizing the latest code on the page, synchronize the latest code in the local repository
+Updating native code (it is recommended that you perform a git pull every time you modify a document) :
 ```
-git pull # 如果有冲突无法合并，请自行解决冲突并合并,并重新提交
+git pull #If a conflict cannot be merged, resolve the conflict, merge, and resubmit
 ```
 
 ### 6. Git push
@@ -70,8 +56,7 @@ git push -u origin master
 
 ### 7. Pull request
 
-发起PR，请求合并到源仓库dev分支，等待管理员审核通过
-
+Launch PR, request to merge to the dev branch of the source repository, and wait for administrator approval
 ![image-contributing-view-pr](../.gitbook/assets/image-contributing-view-pr.png)
 
 ![image-contributing-new-pr](../.gitbook/assets/image-contributing-new-pr.png)

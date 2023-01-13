@@ -1,37 +1,30 @@
 ---
-description: 使用编译加速服务，首先需要定制一个加速方案。
+description: To use a compile acceleration service, you first need to customize an acceleration scheme.
 ---
 
-# 定制Linux C/C++加速方案
+# Customize Linux C/C++ acceleration scheme
 
-## Step1 访问 BKCI，导航栏进入服务 → 编译加速
-
-首次时，进入页面如下，点击立即使用进入方案定制页面：
-
+## Step1 Go to BKCI and navigate to Services → Compile Acceleration
+For the first time, the following page is displayed. Click "Use now" to enter the solution customization page:
 ![](../../../.gitbook/assets/image%20%2863%29.png)
 
-已有方案时进入方案列表管理：
-
+Enter the scheme list management when the scheme is available:
 ![](../../../.gitbook/assets/image%20%2838%29.png)
 
-## Step2 填写方案配置
-
+## Step2 Enter the solution configuration
 ![](../../../.gitbook/assets/image%20%2864%29.png)
 
-方案配置包括：
-
-1. 方案名称：作为标识名称，可以填写诸如“xxx个人加速”、“每日构建加速”、“构建机出包加速”等等。
-2. 加速模式：选择要创建的加速模式，一旦创建，加速模式**不可修改**。
-3. 方案说明：可以写一些备注或者说明在这里。
-4. 编译环境：根据你的本地环境，选择对应的编译环境，如果列表中没有，请联系管理员**快速支持**。
-5. 是否启用ccache：按需勾选是否要开启ccache，若开启，则会在本地优先考虑ccache，没有命中的部分再使用分布式加速。
-6. 优先调度区域：根据本地环境的区域，就近选择。
-
-## Step3 提交注册，获得专属方案ID
-
-点击提交后，会生成一个你专属的方案ID，这个ID后续也可以在“加速方案”→点击方案名字，进入详情页面查询到。
-
-方案ID是使用加速的凭证，里面包含了你的环境信息、配置信息、权限信息。**请妥善保管好你的方案ID，不要随意透露给他人。**
-
+Solution configuration includes:
+1. Scheme name: As the identification name, you can fill in such as "xxx personal acceleration", "Daily Build Acceleration", "Builder Package Acceleration" and so on.
+2. Acceleration mode: Select the acceleration mode to be created. Once created, the acceleration mode **cannot be modified **
+3. Scheme description: You can write some remarks or instructions here.
+4. Compilation environment: Select the corresponding compilation environment according to your local environment. If there is no compilation environment in the list, please contact the administrator **quick support **.
+5. Enable ccache: Select whether to enable ccache as required. If this option is enabled, the system prioritises ccache locally.
+6. Priority scheduling region: Select the nearest scheduling region based on the local environment.
+## Step3 Submit registration and obtain the exclusive scheme ID
+After clicking Submit, a unique scheme ID will be generated. This ID can also be queried in the "Accelerated Scheme" → click the scheme name to enter the details page.
+The scheme ID is an accelerated credential that contains your environment information, configuration information, and permission information. **Please keep your scheme ID safe and do not disclose it to others. **
 ![](../../../.gitbook/assets/image%20%2865%29.png)
+
+
 

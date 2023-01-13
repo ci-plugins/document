@@ -1,2 +1,1 @@
-# 插件开发指南
-
+# Plug-in development guide
