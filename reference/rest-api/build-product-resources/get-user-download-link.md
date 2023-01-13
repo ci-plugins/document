@@ -1,72 +1,63 @@
-# 获取用户下载链接
+# Get the user download link
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/artifactories/userDownloadUrl
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/artifactories/userDownloadUrl
 
-### 资源描述
+### Resource description
 
-#### 获取用户下载链接
+#### Get the user download link
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| artifactoryType | string | 是 | 版本仓库类型 |  |
-| path | string | 是 | 路径 |  |
+| Parameter name  | Parameter type | must | Parameter description   | Default value |
+| :-------------- | :------------- | :--- | :---------------------- | :------------ |
+| artifactoryType | string         | is   | Version repository type |               |
+| path            | string         | is   | path                    |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型版本仓库-下载信息 |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | Data is returned to the packaging model version repository - download information |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为上方API地址栏请求地址]?artifactoryType={artifactoryType}&amp;path={path}'
+```
+curl -X GET '[Please replace above API address bar request address]? artifactoryType={artifactoryType}&path={path}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "url2" : "String",
-    "url" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "url2" : "String",  "url" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型版本仓库-下载信息
+## Data is returned to the packaging model version repository - download information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | 版本仓库-下载信息 | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                            | must | Parameter description |
+| :------------- | :---------------------------------------- | :--- | :-------------------- |
+| data           | Version Repository - Download information | no   | data                  |
+| message        | string                                    | no   | Error message         |
+| status         | integer                                   | is   | Status code           |
 
-## 版本仓库-下载信息
+## Version Repository - Download information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| url2 | string | 否 | 下载链接2 |
-| url | string | 是 | 下载链接 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| url2           | string         | no   | Download link 2       |
+| url            | string         | is   | Download link         |

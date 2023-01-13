@@ -1,51 +1,50 @@
-# 获取构建节点信息（扩展接口）
+# Get build node information (extension interface)
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/{nodeHashId}/listPipelineRef
+#### GET /ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/{nodeHashId}/listPipelineRef
 
-### 资源描述
+### Resource description
 
-#### 获取构建节点信息（扩展接口）
+#### Get build node information (extension interface)
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| sortBy | string | 是 | 排序字段, pipelineName | lastBuildTime |
-| sortDirection | string | 是 | 排序方向, ASC | DESC |
+| Parameter name | Parameter type | must | Parameter description       | Default value |
+| :------------- | :------------- | :--- | :-------------------------- | :------------ |
+| sortBy         | string         | yes  | Sort the field pipelineName | lastBuildTime |
+| sortDirection  | string         | yes  | Sort direction, ASC         | DESC          |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| nodeHashId | string | 是 | 节点 hashId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | yes  | Item ID               |               |
+| nodeHashId     | string         | yes  | Node hashId           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型List第三方构建机流水线引用信息 |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | Data return wrapper model List third-party builder pipeline reference information |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换API地址栏请求地址]?sortBy={sortBy}&amp;sortDirection={sortDirection}'
+```
+curl -X GET '[Please replace API address bar request address]? sortBy={sortBy}&sortDirection={sortDirection}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
+```
 {
   "data" : [ {
     "pipelineName" : "String",
@@ -65,27 +64,26 @@ Content-Type: application/json
 }
 ```
 
-## 数据返回包装模型List第三方构建机流水线引用信息
+## Data return wrapper model List third-party builder pipeline reference information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | List&lt;第三方构建机流水线引用信息&gt; | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                             | must | Parameter description |
+| :------------- | :--------------------------------------------------------- | :--- | :-------------------- |
+| data           | List< third-party builder pipeline reference information > | no   | data                  |
+| message        | string                                                     | no   | Error message         |
+| status         | integer                                                    | yes  | Status code           |
 
-## 第三方构建机流水线引用信息
+## Third party builder pipeline reference information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineName | string | 是 | 流水线名称 |
-| jobName | string | 是 | Job Name |
-| jobId | string | 是 | Job ID |
-| agentId | integer | 是 | Agent ID |
-| vmSeqId | string | 是 | Vm Seq ID |
-| nodeHashId | string | 是 | Node Hash ID |
-| nodeId | integer | 是 | Node ID |
-| projectId | string | 是 | 项目ID |
-| agentHashId | string | 是 | Agent Hash ID |
-| pipelineId | string | 是 | 流水线ID |
-| lastBuildTime | string | 否 | 上次构建时间 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| pipelineName   | string         | yes  | Pipeline name         |
+| jobName        | string         | yes  | Job Name              |
+| jobId          | string         | yes  | Job ID                |
+| agentId        | integer        | yes  | Agent ID              |
+| vmSeqId        | string         | yes  | Vm Seq ID             |
+| nodeHashId     | string         | yes  | Node Hash ID          |
+| nodeId         | integer        | yes  | Node ID               |
+| projectId      | string         | yes  | Item ID               |
+| agentHashId    | string         | yes  | Agent Hash ID         |
+| pipelineId     | string         | yes  | Pipeline ID           |
+| lastBuildTime  | string         | no   | Last build time       |

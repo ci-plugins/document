@@ -1,124 +1,96 @@
-# 获取用户拥有对应权限凭据列表
+# Gets a list of permissions for the user
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/credentials
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/credentials
 
-### 资源描述
+### Resource description
 
-#### 获取用户拥有对应权限凭据列表
+#### Gets a list of permissions for the user
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| credentialTypes | string | 否 | 凭证类型列表，用逗号分隔 |  |
-| page | integer | 否 | 第几页 | 1 |
-| pageSize | integer | 否 | 每页多少条 | 20 |
-| keyword | string | 否 | 关键字 |  |
+| Parameter name  | Parameter type | must | Parameter description                         | Default value |
+| :-------------- | :------------- | :--- | :-------------------------------------------- | :------------ |
+| credentialTypes | string         | no   | List of credential types, separated by commas |               |
+| page            | integer        | no   | What page                                     | 1             |
+| pageSize        | integer        | no   | How many pieces per page                      | 20            |
+| keyword         | string         | no   | Key word                                      |               |
 
-| X-DEVOPS-UID | string | 是 | 用户ID | admin |
-| :--- | :--- | :--- | :--- | :--- |
+| X-DEVOPS-UID | string | is   | User ID | admin |
+| :----------- | :----- | :--- | :------ | :---- |
+|              |        |      |         |       |
 
+#### Path parameter
 
-#### Path参数
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+#### response
 
-#### 响应
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Wrapper Model Paging Data Wrapper Model credentials - credential content and permissions](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) |
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型凭据-凭据内容和权限](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) |
+#### Request sample
 
-#### 请求样例
-
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?credentialTypes={credentialTypes}&amp;page={page}&amp;pageSize={pageSize}&amp;keyword={keyword}'
+```
+curl -X GET '[Please replace API address bar request address]? credentialTypes={credentialTypes}&page={page}&pageSize={pageSize}&keyword={keyword}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "credentialType" : "ENUM",
-      "updatedTime" : 0,
-      "credentialRemark" : "String",
-      "permissions" : {
-        "view" : true,
-        "edit" : true,
-        "delete" : true
-      },
-      "credentialId" : "String",
-      "updateUser" : "String",
-      "v1" : "String",
-      "credentialName" : "String",
-      "v2" : "String",
-      "v3" : "String",
-      "v4" : "String"
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "credentialType" : "ENUM",  "updatedTime" : 0,  "credentialRemark" : "String",  "permissions" : {  "view" : true,  "edit" : true,  "delete" : true  },  "credentialId" : "String",  "updateUser" : "String",  "v1" : "String",  "credentialName" : "String",  "v2" : "String",  "v3" : "String",  "v4" : "String"  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型凭据-凭据内容和权限
+## Data Return Wrapper Model Paging Data Wrapper Model credentials - credential content and permissions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型凭据-凭据内容和权限](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Paging data wrapper model credentials - credential content and permissions](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型凭据-凭据内容和权限
+## Paging data wrapper model credentials - credential content and permissions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[凭据-凭据内容和权限](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                               | must | Parameter description        |
+| :------------- | :----------------------------------------------------------- | :--- | :--------------------------- |
+| records        | List< [credential - credential contents and permissions](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) > | is   | data                         |
+| count          | integer                                                      | is   | Total number of record lines |
+| totalPages     | integer                                                      | is   | How many pages in total?     |
+| pageSize       | integer                                                      | is   | How many pieces per page     |
+| page           | integer                                                      | is   | What page                    |
 
-## 凭据-凭据内容和权限
+## Credential - credential content and authority
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| credentialType | ENUM\(PASSWORD, ACCESSTOKEN, USERNAME\_PASSWORD, SECRETKEY, APPID\_SECRETKEY, SSH\_PRIVATEKEY, TOKEN\_SSH\_PRIVATEKEY, TOKEN\_USERNAME\_PASSWORD, COS\_APPID\_SECRETID\_SECRETKEY\_REGION, MULTI\_LINE\_PASSWORD, \) | 是 | 凭据类型 |
-| updatedTime | integer | 是 | 最后更新时间 |
-| credentialRemark | string | 否 | 凭据描述 |
-| permissions | [凭证-凭证权限](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) | 是 | 权限 |
-| credentialId | string | 是 | 凭据ID |
-| updateUser | string | 是 | 最后更新者 |
-| v1 | string | 是 | 凭据内容 |
-| credentialName | string | 是 | 凭据名称 |
-| v2 | string | 是 | 凭据内容 |
-| v3 | string | 是 | 凭据内容 |
-| v4 | string | 是 | 凭据内容 |
+| Parameter name   | Parameter type                                               | must | Parameter description  |
+| :--------------- | :----------------------------------------------------------- | :--- | :--------------------- |
+| credentialType   | ENUM(PASSWORD, ACCESSTOKEN, USERNAME_PASSWORD, SECRETKEY, APPID_SECRETKEY, SSH_PRIVATEKEY, TOKEN_SSH_PRIVATEKEY, TOKEN_USERNAME_PASSWORD, COS_APPID_SECRETID_SECRETKEY_REGION, MULTI_LINE_PASSWORD, ) | is   | Credential type        |
+| updatedTime      | integer                                                      | is   | Last update time       |
+| credentialRemark | string                                                       | no   | Credential description |
+| permissions      | [Credentials - Credentials permissions](obtain-the-list-of-credentials-that-the-user-has-corresponding-permissions.md) | is   | authority              |
+| credentialId     | string                                                       | is   | Credential ID          |
+| updateUser       | string                                                       | is   | Last updater           |
+| v1               | string                                                       | is   | Credential content     |
+| credentialName   | string                                                       | is   | Credential name        |
+| v2               | string                                                       | is   | Credential content     |
+| v3               | string                                                       | is   | Credential content     |
+| v4               | string                                                       | is   | Credential content     |
 
-## 凭证-凭证权限
+## Credentials - Credentials permissions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| view | boolean | 是 | 查看权限 |
-| edit | boolean | 是 | 编辑权限 |
-| delete | boolean | 是 | 删除权限 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| view           | boolean        | is   | View permission       |
+| edit           | boolean        | is   | Edit permission       |
+| delete         | boolean        | is   | Delete permission     |

@@ -1,4 +1,4 @@
-# CI mirror
+# CI images
 bk-ci provides a default Ubuntu image, but it may not be suitable for all compilation scenarios. You can use this article to create a custom image based on the default image.
 * Default image: [bkci/ci:latest](https://github.com/ci-plugins/base-images)
 ## Prepare materials

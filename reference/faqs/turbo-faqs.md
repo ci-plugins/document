@@ -1,2 +1,1 @@
-# 编译加速FAQ
-
+# Compile-accelerated FAQ

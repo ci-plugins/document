@@ -1,155 +1,101 @@
-# 查询所有项目
+# Query all items
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects
+#### GET /ms/openapi/api/apigw/v3/projects
 
-### 资源描述
+### Resource description
 
-#### 查询所有项目
+#### Query all items
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+|                |                |      |                       |               |
 
+#### response
 
-#### 响应
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data returns wrapper model List item - Display model](query-all-items.md) |
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型List项目-显示模型](query-all-items.md) |
+#### Request sample
 
-#### 请求样例
-
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "result" : true,
-  "code" : 0,
-  "data" : [ {
-    "deptName" : "String",
-    "englishName" : "String",
-    "projectType" : 0,
-    "description" : "String",
-    "remark" : "String",
-    "project_name" : "String",
-    "deployType" : "String",
-    "enabled" : true,
-    "createdAt" : "String",
-    "helmChartEnabled" : true,
-    "gray" : true,
-    "dataId" : 0,
-    "secrecy" : true,
-    "projectCode" : "String",
-    "project_id" : "String",
-    "useBk" : true,
-    "enableExternal" : true,
-    "extra" : "String",
-    "routerTag" : "String",
-    "id" : 0,
-    "ccAppId" : 0,
-    "updatedAt" : "String",
-    "approvalStatus" : 0,
-    "approver" : "String",
-    "pipelineLimit" : 0,
-    "centerId" : "String",
-    "ccAppName" : "String",
-    "creator" : "String",
-    "kind" : 0,
-    "cc_app_id" : 0,
-    "deptId" : "String",
-    "approvalTime" : "String",
-    "project_code" : "String",
-    "relationId" : "String",
-    "logoAddr" : "String",
-    "bgId" : "String",
-    "offlined" : true,
-    "hybridCcAppId" : 0,
-    "bgName" : "String",
-    "projectName" : "String",
-    "enableIdc" : true,
-    "projectId" : "String",
-    "cc_app_name" : "String",
-    "hybrid_cc_app_id" : 0,
-    "centerName" : "String"
-  } ],
-  "requestId" : "String",
-  "message" : "String"
-}
+```
+{  "result" : true,  "code" : 0,  "data" : [ {  "deptName" : "String",  "englishName" : "String",  "projectType" : 0,  "description" : "String",  "remark" : "String",  "project_name" : "String",  "deployType" : "String",  "enabled" : true,  "createdAt" : "String",  "helmChartEnabled" : true,  "gray" : true,  "dataId" : 0,  "secrecy" : true,  "projectCode" : "String",  "project_id" : "String",  "useBk" : true,  "enableExternal" : true,  "extra" : "String",  "routerTag" : "String",  "id" : 0,  "ccAppId" : 0,  "updatedAt" : "String",  "approvalStatus" : 0,  "approver" : "String",  "pipelineLimit" : 0,  "centerId" : "String",  "ccAppName" : "String",  "creator" : "String",  "kind" : 0,  "cc_app_id" : 0,  "deptId" : "String",  "approvalTime" : "String",  "project_code" : "String",  "relationId" : "String",  "logoAddr" : "String",  "bgId" : "String",  "offlined" : true,  "hybridCcAppId" : 0,  "bgName" : "String",  "projectName" : "String",  "enableIdc" : true,  "projectId" : "String",  "cc_app_name" : "String",  "hybrid_cc_app_id" : 0,  "centerName" : "String"  } ],  "requestId" : "String",  "message" : "String" } 
 ```
 
-## 数据返回包装模型List项目-显示模型
+## Data returns wrapper model List item - Display model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| result | boolean | 否 | 请求结果 |
-| code | integer | 是 | 状态码 |
-| data | List&lt;[项目-显示模型](query-all-items.md)&gt; | 否 | 数据 |
-| requestId | string | 否 | 请求ID |
-| message | string | 否 | 错误信息 |
+| Parameter name | Parameter type                                    | must | Parameter description |
+| :------------- | :------------------------------------------------ | :--- | :-------------------- |
+| result         | boolean                                           | no   | Request result        |
+| code           | integer                                           | is   | Status code           |
+| data           | List< [items-display model](query-all-items.md) > | no   | data                  |
+| requestId      | string                                            | no   | Request ID            |
+| message        | string                                            | no   | Error message         |
 
-## 项目-显示模型
+## Project - Display model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| deptName | string | 否 | 部门名称 |
-| englishName | string | 否 | 英文缩写 |
-| projectType | integer | 否 | 项目类型 |
-| description | string | 否 | 描述 |
-| remark | string | 否 | 评论 |
-| project\_name | string | 否 | 旧版项目名称\(即将作废，兼容插件中被引用到的旧的字段命名，请用projectName代替\) |
-| deployType | string | 否 | 部署类型 |
-| enabled | boolean | 否 | 启用 |
-| createdAt | string | 否 | 创建时间 |
-| helmChartEnabled | boolean | 否 | 是否启用图表激活 |
-| gray | boolean | 否 | 是否灰度 |
-| dataId | integer | 否 | 数据ID |
-| secrecy | boolean | 否 | 是否保密 |
-| projectCode | string | 否 | 项目代码 |
-| project\_id | string | 否 | 项目ID\(即将作废，兼容插件中被引用到的旧的字段命名，请用projectId代替\) |
-| useBk | boolean | 否 | useBK |
-| enableExternal | boolean | 否 | 支持构建机访问外网 |
-| extra | string | 否 | extra |
-| routerTag | string | 否 | 项目路由指向 |
-| id | integer | 否 | 主键ID |
-| ccAppId | integer | 否 | cc业务ID |
-| updatedAt | string | 否 | 修改时间 |
-| approvalStatus | integer | 否 | 审批状态 |
-| approver | string | 否 | 审批人 |
-| pipelineLimit | integer | 否 | 流水线数量上限 |
-| centerId | string | 否 | 中心ID |
-| ccAppName | string | 否 | cc业务名称 |
-| creator | string | 否 | 创建人 |
-| kind | integer | 否 | kind |
-| cc\_app\_id | integer | 否 | 旧版cc业务ID\(即将作废，兼容插件中被引用到的旧的字段命名，请用ccAppId代替\) |
-| deptId | string | 否 | 部门ID |
-| approvalTime | string | 否 | 审批时间 |
-| project\_code | string | 否 | 旧版项目代码\(即将作废，兼容插件中被引用到的旧的字段命名，请用projectCode代替\) |
-| relationId | string | 否 | 关联系统Id |
-| logoAddr | string | 否 | logo地址 |
-| bgId | string | 否 | 事业群ID |
-| offlined | boolean | 否 | 是否离线 |
-| hybridCcAppId | integer | 否 | 混合云CC业务ID |
-| bgName | string | 否 | 事业群名字 |
-| projectName | string | 否 | 项目名称 |
-| enableIdc | boolean | 否 | 支持IDC构建机 |
-| projectId | string | 否 | 项目ID |
-| cc\_app\_name | string | 否 | 旧版cc业务名称\(即将作废，兼容插件中被引用到的旧的字段命名，请用ccAppName代替\) |
-| hybrid\_cc\_app\_id | integer | 否 | 混合云CC业务ID\(即将作废，兼容插件中被引用到的旧的字段命名，请用hybridCcAppId代替\) |
-| centerName | string | 否 | 中心名称 |
-
+| Parameter name   | Parameter type | must | Parameter description                                        |
+| :--------------- | :------------- | :--- | :----------------------------------------------------------- |
+| deptName         | string         | no   | Department name                                              |
+| englishName      | string         | no   | English abbreviation                                         |
+| projectType      | integer        | no   | Item type                                                    |
+| description      | string         | no   | description                                                  |
+| remark           | string         | no   | comment                                                      |
+| project_name     | string         | no   | Old project name (soon to be invalid, use projectName instead of old field names that are referenced in compatible plug-ins) |
+| deployType       | string         | no   | Deployment type                                              |
+| enabled          | boolean        | no   | enable                                                       |
+| createdAt        | string         | no   | Creation time                                                |
+| helmChartEnabled | boolean        | no   | Whether to enable chart activation                           |
+| gray             | boolean        | no   | Grayscale or not                                             |
+| dataId           | integer        | no   | Data ID                                                      |
+| secrecy          | boolean        | no   | Confidentiality or not                                       |
+| projectCode      | string         | no   | Project code                                                 |
+| project_id       | string         | no   | Project ID(to be deprecated, use projectId instead of the old field being referenced in compatible plug-ins) |
+| useBk            | boolean        | no   | useBK                                                        |
+| enableExternal   | boolean        | no   | The builder can access the Internet                          |
+| extra            | string         | no   | extra                                                        |
+| routerTag        | string         | no   | Item route pointing                                          |
+| id               | integer        | no   | Primary key ID                                               |
+| ccAppId          | integer        | no   | cc service ID                                                |
+| updatedAt        | string         | no   | Modification time                                            |
+| approvalStatus   | integer        | no   | Approval status                                              |
+| approver         | string         | no   | approver                                                     |
+| pipelineLimit    | integer        | no   | Upper limit of pipeline quantity                             |
+| centerId         | string         | no   | Center ID                                                    |
+| ccAppName        | string         | no   | cc business name                                             |
+| creator          | string         | no   | founder                                                      |
+| kind             | integer        | no   | kind                                                         |
+| cc_app_id        | integer        | no   | Old cc service ID(soon to be obsolete, the old field name referenced in the compatible plug-in, please use ccAppId instead) |
+| deptId           | string         | no   | Department ID                                                |
+| approvalTime     | string         | no   | Approval time                                                |
+| project_code     | string         | no   | Old project code (soon to be obsolete, use projectCode instead of old field names that are referenced in compatible plug-ins) |
+| relationId       | string         | no   | Associated system Id                                         |
+| logoAddr         | string         | no   | logo address                                                 |
+| bgId             | string         | no   | Business group ID                                            |
+| offlined         | boolean        | no   | Offline or not                                               |
+| hybridCcAppId    | integer        | no   | ID of the hybrid cloud CC service                            |
+| bgName           | string         | no   | Business group name                                          |
+| projectName      | string         | no   | Project name                                                 |
+| enableIdc        | boolean        | no   | Supports the IDC builder                                     |
+| projectId        | string         | no   | Item ID                                                      |
+| cc_app_name      | string         | no   | Old cc business name (soon to be invalid, please use ccAppName instead of old field name referenced in compatible plug-in) |
+| hybrid_cc_app_id | integer        | no   | Hybrid cloud CC business ID(to be obsolete, the old fields referenced in compatible plug-ins are named, please use hybridCcAppId instead) |
+| centerName       | string         | no   | Center name                                                  |

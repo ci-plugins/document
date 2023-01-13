@@ -1,88 +1,82 @@
-# 创建拦截规则
+# Create an interception rule
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/create
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/create
 
-### 资源描述
+### Resource description
 
-#### 创建拦截规则
+#### Create an interception rule
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [规则创建请求](create-blocking-rules.md) | 是 | 规则内容 |  |
+| Parameter name | Parameter type                                    | must | Parameter description | Default value |
+| :------------- | :------------------------------------------------ | :--- | :-------------------- | :------------ |
+| body           | [Rule creation request](create-blocking-rules.md) | is   | Rule content          |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型String](create-blocking-rules.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data is returned to the wrapper model String](create-blocking-rules.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : "String",
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : "String",  "message" : "String",  "status" : 0 } 
 ```
 
-## 规则创建请求
+## Rule creation request
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| templateRange | List | 是 | 生效的流水线模板id集合 |
-| auditUserList | List | 否 | 审核通知人员 |
-| range | List | 是 | 生效的流水线id集合 |
-| auditTimeoutMinutes | integer | 否 | 审核超时时间 |
-| notifyTypeList | List | 否 | 通知类型 |
-| notifyUserList | List | 否 | 通知人员名单 |
-| controlPointPosition | string | 是 | 控制点位置 |
-| name | string | 是 | 规则名称 |
-| notifyGroupList | List | 否 | 通知组名单 |
-| operation | ENUM\(END, AUDIT, \) | 是 | 操作类型 |
-| indicatorIds | List&lt;[CreateRequestIndicator](create-blocking-rules.md)&gt; | 是 | 指标类型 |
-| controlPoint | string | 是 | 控制点 |
-| gatewayId | string | 否 | 红线匹配的id |
-| desc | string | 是 | 规则描述 |
+| Parameter name       | Parameter type                                           | must | Parameter description                   |
+| :------------------- | :------------------------------------------------------- | :--- | :-------------------------------------- |
+| templateRange        | List                                                     | is   | Set of pipelined template ids in effect |
+| auditUserList        | List                                                     | no   | Audit notification personnel            |
+| range                | List                                                     | is   | Set of pipeline ids in effect           |
+| auditTimeoutMinutes  | integer                                                  | no   | Audit timeout                           |
+| notifyTypeList       | List                                                     | no   | Notification type                       |
+| notifyUserList       | List                                                     | no   | Notifier list                           |
+| controlPointPosition | string                                                   | is   | Control point position                  |
+| name                 | string                                                   | is   | Rule name                               |
+| notifyGroupList      | List                                                     | no   | Notification group list                 |
+| operation            | ENUM(END, AUDIT, )                                       | is   | Type of operation                       |
+| indicatorIds         | List<[CreateRequestIndicator](create-blocking-rules.md)> | is   | Index type                              |
+| controlPoint         | string                                                   | is   | Control point                           |
+| gatewayId            | string                                                   | no   | The red line matches the id             |
+| desc                 | string                                                   | is   | Rule description                        |
 
 ## CreateRequestIndicator
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| threshold | string | 否 | threshold |
-| hashId | string | 否 | hashId |
-| operation | string | 否 | operation |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| threshold      | string         | no   | threshold             |
+| hashId         | string         | no   | hashId                |
+| operation      | string         | no   | operation             |
 
-## 数据返回包装模型String
+## The data is returned to the wrapper model String
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | string | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | string         | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

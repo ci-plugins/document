@@ -1,114 +1,88 @@
-# 模版管理-获取模版列表
+# Template Management - Get a list of templates
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/templates
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/templates
 
-### 资源描述
+### Resource description
 
-#### 模版管理-获取模版列表
+#### Template Management - Get a list of templates
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| templateType | string | 否 | 模版类型 |  |
-| storeFlag | boolean | 否 | 是否已关联到store |  |
+| Parameter name | Parameter type | must | Parameter description                       | Default value |
+| :------------- | :------------- | :--- | :------------------------------------------ | :------------ |
+| templateType   | string         | no   | Template type                               |               |
+| storeFlag      | boolean        | no   | Whether it has been associated with a store |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型TemplateListModel](get-a-list-of-templates.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data is returned to the TemplateListModel](get-a-list-of-templates.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?templateType={templateType}&amp;storeFlag={storeFlag}'
+```
+curl -X GET '[Please replace API address bar request address]? templateType={templateType}&storeFlag={storeFlag}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "models" : [ {
-      "templateType" : "String",
-      "associatePipelines" : [ {
-        "id" : "String"
-      } ],
-      "hasPermission" : true,
-      "name" : "String",
-      "templateTypeDesc" : "String",
-      "templateId" : "String",
-      "versionName" : "String",
-      "version" : 0,
-      "hasInstance2Upgrade" : true,
-      "logoUrl" : "String",
-      "storeFlag" : true,
-      "associateCodes" : "string"
-    } ],
-    "hasPermission" : true,
-    "count" : 0,
-    "projectId" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "models" : [ {  "templateType" : "String",  "associatePipelines" : [ {  "id" : "String"  } ],  "hasPermission" : true,  "name" : "String",  "templateTypeDesc" : "String",  "templateId" : "String",  "versionName" : "String",  "version" : 0,  "hasInstance2Upgrade" : true,  "logoUrl" : "String",  "storeFlag" : true,  "associateCodes" : "string"  } ],  "hasPermission" : true,  "count" : 0,  "projectId" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型TemplateListModel
+## The data is returned to the TemplateListModel
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [TemplateListModel](get-a-list-of-templates.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                  | must | Parameter description |
+| :------------- | :---------------------------------------------- | :--- | :-------------------- |
+| data           | [TemplateListModel](get-a-list-of-templates.md) | no   | data                  |
+| message        | string                                          | no   | Error message         |
+| status         | integer                                         | is   | Status code           |
 
 ## TemplateListModel
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| models | List&lt;[TemplateModel](get-a-list-of-templates.md)&gt; | 否 | models |
-| hasPermission | boolean | 否 | hasPermission |
-| count | integer | 否 | count |
-| projectId | string | 否 | projectId |
+| Parameter name | Parameter type                                    | must | Parameter description |
+| :------------- | :------------------------------------------------ | :--- | :-------------------- |
+| models         | List<[TemplateModel](get-a-list-of-templates.md)> | no   | models                |
+| hasPermission  | boolean                                           | no   | hasPermission         |
+| count          | integer                                           | no   | count                 |
+| projectId      | string                                            | no   | projectId             |
 
 ## TemplateModel
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| templateType | string | 是 | 模板类型 |
-| associatePipelines | List&lt;[流水线模型-ID](get-a-list-of-templates.md)&gt; | 是 | 关联的流水线 |
-| hasPermission | boolean | 是 | 是否有模版操作权限 |
-| name | string | 是 | 模版名称 |
-| templateTypeDesc | string | 是 | 模板类型描述 |
-| templateId | string | 是 | 模版ID |
-| versionName | string | 是 | 最新版本号 |
-| version | integer | 是 | 版本ID |
-| hasInstance2Upgrade | boolean | 是 | 是否有可更新实例 |
-| logoUrl | string | 是 | 模版logo |
-| storeFlag | boolean | 是 | 是否关联到市场 |
-| associateCodes | List | 是 | 关联的代码库 |
+| Parameter name      | Parameter type                                          | must | Parameter description                                  |
+| :------------------ | :------------------------------------------------------ | :--- | :----------------------------------------------------- |
+| templateType        | string                                                  | is   | Template type                                          |
+| associatePipelines  | List< [pipeline model-id](get-a-list-of-templates.md) > | is   | Associated pipeline                                    |
+| hasPermission       | boolean                                                 | is   | Whether the template operation permission is available |
+| name                | string                                                  | is   | Template name                                          |
+| templateTypeDesc    | string                                                  | is   | Template type description                              |
+| templateId          | string                                                  | is   | Template ID                                            |
+| versionName         | string                                                  | is   | Latest version number                                  |
+| version             | integer                                                 | is   | Version ID                                             |
+| hasInstance2Upgrade | boolean                                                 | is   | Whether there are updatable instances                  |
+| logoUrl             | string                                                  | is   | Template logo                                          |
+| storeFlag           | boolean                                                 | is   | Whether it is relevant to the market                   |
+| associateCodes      | List                                                    | is   | Associated code base                                   |
 
-## 流水线模型-ID
+## Pipeline model -ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| id | string | 是 | 流水线ID |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| id             | string         | is   | Pipeline ID           |

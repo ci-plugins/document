@@ -1,54 +1,55 @@
+# **Introduction to CodeCC**
 
-# **CodeCC简介**
-代码检查，一般又称为静态代码分析，是指无需运行被测代码，仅通过分析或检查源程序的语法、结构、过程、接口等来检查程序的正确性，找出代码隐藏的错误和缺陷，如内存泄漏，空指针引用，死代码，变量未初始化，复制粘贴错误，重复代码，函数复杂度过高等等。
+Code inspection, also known as static code analysis, refers to the correctness of the program without running the code under test, only by analyzing or checking the syntax, structure, process, interface and so on of the source program to find out the hidden errors and defects of the code, such as memory leakage, null pointer reference, dead code, variable not initialized, copy and paste errors, duplicate code, function complexity is too high and so on.
 
-CodeCC（代码检查中心）提供专业的代码检查解决方案，检查缺陷、漏洞、规范等多种维度问题，为产品质量保驾护航。
+CodeCC (Code Inspection Center) provides professional code inspection solutions, inspection defects, vulnerabilities, specifications and other dimensions of the problem, to protect the quality of the product.
 
+# **Problems that CodeCC can solve and the default set of tools supported after delivery**
 
-# **CodeCC能解决的问题以及交付后默认支持的工具集**
 ![image-codecc-tools](../../.gitbook/assets/image-codecc-tools.png)
 
-# **CodeCC的特色功能**
-**支持五大检查维度：**
+# **Features of CodeCC**
 
-目前已集成十余款含商用、开源、腾讯自研的代码检查工具，覆盖代码缺陷、安全漏洞、编码规范、圈复杂度、代码重复率五大维度。
+**Supports five inspection dimensions:**
 
-**丰富的平台功能：**
+At present, it has integrated more than ten code inspection tools including commercial, open source and self-developed by Tencent, covering five dimensions of code defects, security vulnerabilities, coding specifications, cyclomatic complexity and code repetition rate.
 
-通过快速准确地分析源代码，找出质量问题和安全漏洞，并提供自助接入、实时扫描、告警展示、告警屏蔽、定时日报、修复激励等功能。
+**Rich platform features:**
 
-**质量红线（计划2022年中对外开放）：**
+By analyzing the source code quickly and accurately, find out the quality problems and security loopholes, and provide self-service access, real-time scanning, alarm display, alarm shielding, timing daily, repair incentive and other functions.
 
-与蓝盾流水线进行了深度整合，通过质量红线服务，可以在流水线中使用CodeCC的检查结果来控制代码库MR/PR、转测、部署等流程，从而使得每一阶段的流水线产出都符合质量标准。
+**Quality red line (planned to open to the public in 2022) :**
 
-**工具自助上架（计划2022年下半年对外开放）：**
+It is deeply integrated with the Blue Shield pipeline. Through the quality red line service, the inspection results of CodeCC can be used in the pipeline to control the processes such as MR/PR, retesting and deployment of the code base, so that the output of the pipeline at each stage can meet the quality standards.
 
-支持工具开发框架和规则开发框架，覆盖八种常用编程语言。
+**Self-service launch of tools (planned to open to the public in the second half of 2022) :**
 
+Support tool development framework and rule development framework, covering eight commonly used programming languages.
 
+# **How to start the Next Step**
 
-# **如何启动下一步**
-**如果您想要先试用：**
+**If you want to try it out first:**
 
-我们的体验环境能够满足您对功能测试的需求，欢迎随时您的对接人。他会为您提供体验环境账号以及登录方式等信息。
+Our experience environment can meet your needs for functional testing, you are welcome to contact people at any time. He will provide you with experience environment account and login method and other information.
 
-**如果您想要直接部署使用：**
+**If you want to deploy directly using:**
 
-欢迎随时联系您的对接人，在硬件资源准备就绪后，我们会随时启动。
+Welcome to contact your contact person at any time, we will start at any time when the hardware resources are ready.
 
 # **FAQ**
-**Q：我可以使用Coverity的能力吗？**
 
-A：Coverity需要您自行进行License采买。采买完成后，可以直接通过CodeCC插件调用Coverity对您的代码进行扫描。其他商业的代码扫描工具同理。
+**Q: Can I use Coverity's ability?**
 
-**Q：我可以把我使用的，但是不包含在现有工具集中的工具接入CodeCC使用吗？**
+A: Coverity requires you to purchase the License by yourself. Once the purchase is complete, Coverity can be called directly through the CodeCC plug-in to scan your code. Other commercial code scanning tools do the same.
 
-A：我们将在22年下半年提供“自定义上架工具”满足该需求。
+**Q: Can I access tools I use that are not included in the existing toolset to CodeCC?**
 
-**Q：我可以对工具中涵盖的规则集进行自定义的调整从而满足我们的使用需求吗？**
+A: We will provide "Custom shelving tool" in the second half of 22 to meet this demand.
 
-A：我们将在22年下半年提供“自定义上架工具”满足该需求。
+**Q: Can I make custom adjustments to the rule sets covered in the tool to meet our usage requirements?**
 
-# **附录：各工具详细介绍**
+A: We will provide "Custom shelving tool" in the second half of 22 to meet this demand.
+
+# **Appendix: Detailed description of each tool**
+
 ![image-codecc-tools-refer](../../.gitbook/assets/image-codecc-tools-refer.png)
-

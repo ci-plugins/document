@@ -1,169 +1,169 @@
-# devops\_ci\_auth
+# devops_ci_auth
 
-**数据库名：** devops\_ci\_auth
+**Database name:** devops_ci_auth
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_auth的数据库文档
+**Documentation Description:** Database documentation for devops_ci_auth
 
-|                          表名                         |         说明        |
-| :-------------------------------------------------: | :---------------: |
-|       [T\_AUTH\_GROUP\_INFO](broken-reference)      |       用户组信息表      |
-|     [T\_AUTH\_GROUP\_PERSSION](broken-reference)    |                   |
-|       [T\_AUTH\_GROUP\_USER](broken-reference)      |                   |
-|      [T\_AUTH\_IAM\_CALLBACK](broken-reference)     |      IAM回调地址      |
-|         [T\_AUTH\_MANAGER](broken-reference)        |       管理员策略表      |
-|      [T\_AUTH\_MANAGER\_USER](broken-reference)     | 管理员用户表(只存有效期内的用户) |
-| [T\_AUTH\_MANAGER\_USER\_HISTORY](broken-reference) |      管理员用户历史表     |
-|   [T\_AUTH\_MANAGER\_WHITELIST](broken-reference)   |    管理员自助申请表名单表    |
-|        [T\_AUTH\_STRATEGY](broken-reference)        |       权限策略表       |
+|                   Table name                    |                     description                      |
+| :---------------------------------------------: | :--------------------------------------------------: |
+|      [T_AUTH_GROUP_INFO](broken-reference)      |             User group information table             |
+|    [T_AUTH_GROUP_PERSSION](broken-reference)    |                                                      |
+|      [T_AUTH_GROUP_USER](broken-reference)      |                                                      |
+|     [T_AUTH_IAM_CALLBACK](broken-reference)     |                 IAM callback address                 |
+|       [T_AUTH_MANAGER](broken-reference)        |              Administrator policy table              |
+|     [T_AUTH_MANAGER_USER](broken-reference)     |     Administrator user table (valid users only)      |
+| [T_AUTH_MANAGER_USER_HISTORY](broken-reference) |           Administrator user history table           |
+|  [T_AUTH_MANAGER_WHITELIST](broken-reference)   | List of administrator self-service application forms |
+|       [T_AUTH_STRATEGY](broken-reference)       |               Permission policy table                |
 
-**表名：** T\_AUTH\_GROUP\_INFO
+**Table name:** T_AUTH_GROUP_INFO
 
-**说明：** 用户组信息表
+**Note:** User group information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |  默认值 |       说明       |
-| :-: | :-----------: | :------: | :-: | :-: | :--: | :-: | :--: | :------------: |
-|  1  |       ID      |    int   |  10 |  0  |   N  |  Y  |      |      主健ID      |
-|  2  |  GROUP\_NAME  |  varchar |  32 |  0  |   N  |  N  |  ""  |      用户组名称     |
-|  3  |  GROUP\_CODE  |  varchar |  32 |  0  |   N  |  N  |      | 用户组标识默认用户组标识一致 |
-|  4  |  GROUP\_TYPE  |    bit   |  1  |  0  |   N  |  N  |      |   用户组类型0默认分组   |
-|  5  | PROJECT\_CODE |  varchar |  64 |  0  |   N  |  N  |  ""  |     用户组所属项目    |
-|  6  |   IS\_DELETE  |    bit   |  1  |  0  |   N  |  N  | b'0' |   是否删除0可用1删除   |
-|  7  |  CREATE\_USER |  varchar |  64 |  0  |   N  |  N  |  ""  |       添加人      |
-|  8  |  UPDATE\_USER |  varchar |  64 |  0  |   Y  |  N  |      |       修改人      |
-|  9  |  CREATE\_TIME | datetime |  23 |  0  |   N  |  N  |      |      创建时间      |
-|  10 |  UPDATE\_TIME | datetime |  23 |  0  |   Y  |  N  |      |      修改时间      |
-|  11 | DISPLAY\_NAME |  varchar |  32 |  0  |   Y  |  N  |      |      用户组别名     |
-|  12 |  RELATION\_ID |  varchar |  32 |  0  |   Y  |  N  |      |     关联系统ID     |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                     description                     |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-------------------------------------------------: |
+|       1       |      ID      |    int    |   10   |       0       |          N           |      Y      |               |                     Primary ID                      |
+|       2       |  GROUP_NAME  |  varchar  |   32   |       0       |          N           |      N      |      ""       |                   User group name                   |
+|       3       |  GROUP_CODE  |  varchar  |   32   |       0       |          N           |      N      |               | User Group ID The default user group ID is the same |
+|       4       |  GROUP_TYPE  |    bit    |   1    |       0       |          N           |      N      |               |           User group Type 0 Default group           |
+|       5       | PROJECT_CODE |  varchar  |   64   |       0       |          N           |      N      |      ""       |     The project to which the user group belongs     |
+|       6       |  IS_DELETE   |    bit    |   1    |       0       |          N           |      N      |     B '0'     |       Whether to delete 0 can be deleted by 1       |
+|       7       | CREATE_USER  |  varchar  |   64   |       0       |          N           |      N      |      ""       |                     Add person                      |
+|       8       | UPDATE_USER  |  varchar  |   64   |       0       |          Y           |      N      |               |                      modifier                       |
+|       9       | CREATE_TIME  | datetime  |   23   |       0       |          N           |      N      |               |                    Creation time                    |
+|      10       | UPDATE_TIME  | datetime  |   23   |       0       |          Y           |      N      |               |                  Modification time                  |
+|      11       | DISPLAY_NAME |  varchar  |   32   |       0       |          Y           |      N      |               |                   User group name                   |
+|      12       | RELATION_ID  |  varchar  |   32   |       0       |          Y           |      N      |               |                Associated system ID                 |
 
-**表名：** T\_AUTH\_GROUP\_PERSSION
+**Table name:** T_AUTH_GROUP_PERSSION
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |            说明            |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :----------------------: |
-|  1  |      ID      |  varchar |  64 |  0  |   N  |  Y  |     |           主健ID           |
-|  2  | AUTH\_ACTION |  varchar |  64 |  0  |   N  |  N  |  "" |           权限动作           |
-|  3  |  GROUP\_CODE |  varchar |  64 |  0  |   N  |  N  |  "" | 用户组编号默认7个内置组编号固定自定义组编码随机 |
-|  4  | CREATE\_USER |  varchar |  64 |  0  |   N  |  N  |  "" |            创建人           |
-|  5  | UPDATE\_USER |  varchar |  64 |  0  |   Y  |  N  |     |            修改人           |
-|  6  | CREATE\_TIME | datetime |  23 |  0  |   N  |  N  |     |           创建时间           |
-|  7  | UPDATE\_TIME | datetime |  23 |  0  |   Y  |  N  |     |           修改时间           |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |     ID      |  varchar  |   64   |       0       |          N           |      Y      |               |                          Primary ID                          |
+|       2       | AUTH_ACTION |  varchar  |   64   |       0       |          N           |      N      |      ""       |                      Permission action                       |
+|       3       | GROUP_CODE  |  varchar  |   64   |       0       |          N           |      N      |      ""       | User group number The default number of the seven built-in groups is fixed. The user-defined group number is random |
+|       4       | CREATE_USER |  varchar  |   64   |       0       |          N           |      N      |      ""       |                           founder                            |
+|       5       | UPDATE_USER |  varchar  |   64   |       0       |          Y           |      N      |               |                           modifier                           |
+|       6       | CREATE_TIME | datetime  |   23   |       0       |          N           |      N      |               |                        Creation time                         |
+|       7       | UPDATE_TIME | datetime  |   23   |       0       |          Y           |      N      |               |                      Modification time                       |
 
-**表名：** T\_AUTH\_GROUP\_USER
+**Table name:** T_AUTH_GROUP_USER
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明  |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :---: |
-|  1  |      ID      |  varchar |  64 |  0  |   N  |  Y  |     |  主键ID |
-|  2  |   USER\_ID   |  varchar |  64 |  0  |   N  |  N  |  "" |  用户ID |
-|  3  |   GROUP\_ID  |  varchar |  64 |  0  |   N  |  N  |  "" | 用户组ID |
-|  4  | CREATE\_USER |  varchar |  64 |  0  |   N  |  N  |  "" |  添加用户 |
-|  5  | CREATE\_TIME | datetime |  23 |  0  |   N  |  N  |     |  添加时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |     ID      |  varchar  |   64   |       0       |          N           |      Y      |               | Primary key ID |
+|       2       |   USER_ID   |  varchar  |   64   |       0       |          N           |      N      |      ""       |    User ID     |
+|       3       |  GROUP_ID   |  varchar  |   64   |       0       |          N           |      N      |      ""       | User group ID  |
+|       4       | CREATE_USER |  varchar  |   64   |       0       |          N           |      N      |      ""       |   Add a user   |
+|       5       | CREATE_TIME | datetime  |   23   |       0       |          N           |      N      |               |    Add time    |
 
-**表名：** T\_AUTH\_IAM\_CALLBACK
+**Table name:** T_AUTH_IAM_CALLBACK
 
-**说明：** IAM回调地址
+**Note:** IAM callback address
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型  |  长度  | 小数位 | 允许空值 |  主键 |  默认值 |         说明        |
-| :-: | :----------: | :-----: | :--: | :-: | :--: | :-: | :--: | :---------------: |
-|  1  |      ID      |   int   |  10  |  0  |   N  |  Y  |      |        主键ID       |
-|  2  |    GATEWAY   | varchar |  255 |  0  |   N  |  N  |  ""  |       目标服务网关      |
-|  3  |     PATH     | varchar | 1024 |  0  |   N  |  N  |  ""  |       目标接口路径      |
-|  4  | DELETE\_FLAG |   bit   |   1  |  0  |   Y  |  N  | b'0' | 是否删除true-是false-否 |
-|  5  |   RESOURCE   | varchar |  32  |  0  |   N  |  N  |  ""  |        资源类型       |
-|  6  |    SYSTEM    | varchar |  32  |  0  |   N  |  N  |  ""  |        接入系统       |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |              description              |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-----------------------------------: |
+|       1       |     ID      |    int    |   10   |       0       |          N           |      Y      |               |            Primary key ID             |
+|       2       |   GATEWAY   |  varchar  |  255   |       0       |          N           |      N      |      ""       |        Target service gateway         |
+|       3       |    PATH     |  varchar  |  1024  |       0       |          N           |      N      |      ""       |         Target interface path         |
+|       4       | DELETE_FLAG |    bit    |   1    |       0       |          Y           |      N      |     B '0'     | Whether to delete true- Yes false- No |
+|       5       |  RESOURCE   |  varchar  |   32   |       0       |          N           |      N      |      ""       |             Resource type             |
+|       6       |   SYSTEM    |  varchar  |   32   |       0       |          N           |      N      |      ""       |             Access system             |
 
-**表名：** T\_AUTH\_MANAGER
+**Table name:** T_AUTH_MANAGER
 
-**说明：** 管理员策略表
+**Note:** Administrator policy table
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |   说明   |
-| :-: | :--------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :----: |
-|  1  |        ID        |    int    |  10 |  0  |   N  |  Y  |                    |  主键ID  |
-|  2  |       NAME       |  varchar  |  32 |  0  |   N  |  N  |                    |   名称   |
-|  3  | ORGANIZATION\_ID |    int    |  10 |  0  |   N  |  N  |                    |  组织ID  |
-|  4  |       LEVEL      |    int    |  10 |  0  |   N  |  N  |                    |  层级ID  |
-|  5  |    STRATEGYID    |    int    |  10 |  0  |   N  |  N  |                    | 权限策略ID |
-|  6  |    IS\_DELETE    |    bit    |  1  |  0  |   N  |  N  |          0         |  是否删除  |
-|  7  |   CREATE\_USER   |  varchar  |  11 |  0  |   N  |  N  |         ""         |  创建用户  |
-|  8  |   UPDATE\_USER   |  varchar  |  11 |  0  |   Y  |  N  |         ""         |  修改用户  |
-|  9  |   CREATE\_TIME   | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  创建时间  |
-|  10 |   UPDATE\_TIME   | timestamp |  19 |  0  |   Y  |  N  | CURRENT\_TIMESTAMP |  修改时间  |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |     description      |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :------------------: |
+|       1       |       ID        |    int    |   10   |       0       |          N           |      Y      |                   |    Primary key ID    |
+|       2       |      NAME       |  varchar  |   32   |       0       |          N           |      N      |                   |         name         |
+|       3       | ORGANIZATION_ID |    int    |   10   |       0       |          N           |      N      |                   |   Organization ID    |
+|       4       |      LEVEL      |    int    |   10   |       0       |          N           |      N      |                   |     Hierarchy ID     |
+|       5       |   STRATEGYID    |    int    |   10   |       0       |          N           |      N      |                   | Permission policy ID |
+|       6       |    IS_DELETE    |    bit    |   1    |       0       |          N           |      N      |         0         |    Delete or not     |
+|       7       |   CREATE_USER   |  varchar  |   11   |       0       |          N           |      N      |        ""         |    Create a user     |
+|       8       |   UPDATE_USER   |  varchar  |   11   |       0       |          Y           |      N      |        ""         |     Modify user      |
+|       9       |   CREATE_TIME   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |    Creation time     |
+|      10       |   UPDATE_TIME   | timestamp |   19   |       0       |          Y           |      N      | CURRENT_TIMESTAMP |  Modification time   |
 
-**表名：** T\_AUTH\_MANAGER\_USER
+**Table name:** T_AUTH_MANAGER_USER
 
-**说明：** 管理员用户表(只存有效期内的用户)
+Administrator user table (only users within the validity period)
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |    说明    |
-| :-: | :----------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :------: |
-|  1  |      ID      |    int    |  10 |  0  |   N  |  Y  |                    |   主键ID   |
-|  2  |   USER\_ID   |  varchar  |  64 |  0  |   N  |  N  |                    |   用户ID   |
-|  3  |  MANAGER\_ID |    int    |  10 |  0  |   N  |  N  |                    |  管理员权限ID |
-|  4  |  START\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 权限生效起始时间 |
-|  5  |   END\_TIME  | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 权限生效结束时间 |
-|  6  | CREATE\_USER |  varchar  |  64 |  0  |   N  |  N  |                    |   创建用户   |
-|  7  | UPDATE\_USER |  varchar  |  64 |  0  |   Y  |  N  |                    |   修改用户   |
-|  8  | CREATE\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |   创建时间   |
-|  9  | UPDATE\_TIME | timestamp |  19 |  0  |   Y  |  N  |                    |   修改时间   |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |                description                |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------------------------------: |
+|       1       |     ID      |    int    |   10   |       0       |          N           |      Y      |                   |              Primary key ID               |
+|       2       |   USER_ID   |  varchar  |   64   |       0       |          N           |      N      |                   |                  User ID                  |
+|       3       | MANAGER_ID  |    int    |   10   |       0       |          N           |      N      |                   |        Administrator permission ID        |
+|       4       | START_TIME  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |  Start time when permissions take effect  |
+|       5       |  END_TIME   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP | End time when the permission takes effect |
+|       6       | CREATE_USER |  varchar  |   64   |       0       |          N           |      N      |                   |               Create a user               |
+|       7       | UPDATE_USER |  varchar  |   64   |       0       |          Y           |      N      |                   |                Modify user                |
+|       8       | CREATE_TIME | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |               Creation time               |
+|       9       | UPDATE_TIME | timestamp |   19   |       0       |          Y           |      N      |                   |             Modification time             |
 
-**表名：** T\_AUTH\_MANAGER\_USER\_HISTORY
+**Table name:** T_AUTH_MANAGER_USER_HISTORY
 
-**说明：** 管理员用户历史表
+**Note:** Administrator user history table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |    说明    |
-| :-: | :----------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :------: |
-|  1  |      ID      |    int    |  10 |  0  |   N  |  Y  |                    |   主键ID   |
-|  2  |   USER\_ID   |  varchar  |  64 |  0  |   N  |  N  |                    |   用户ID   |
-|  3  |  MANAGER\_ID |    int    |  10 |  0  |   N  |  N  |                    |  管理员权限ID |
-|  4  |  START\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 权限生效起始时间 |
-|  5  |   END\_TIME  | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 权限生效结束时间 |
-|  6  | CREATE\_USER |  varchar  |  64 |  0  |   N  |  N  |                    |   创建用户   |
-|  7  | UPDATE\_USER |  varchar  |  64 |  0  |   Y  |  N  |                    |   修改用户   |
-|  8  | CREATE\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |   创建时间   |
-|  9  | UPDATE\_TIME | timestamp |  19 |  0  |   Y  |  N  | CURRENT\_TIMESTAMP |   修改时间   |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |                description                |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------------------------------: |
+|       1       |     ID      |    int    |   10   |       0       |          N           |      Y      |                   |              Primary key ID               |
+|       2       |   USER_ID   |  varchar  |   64   |       0       |          N           |      N      |                   |                  User ID                  |
+|       3       | MANAGER_ID  |    int    |   10   |       0       |          N           |      N      |                   |        Administrator permission ID        |
+|       4       | START_TIME  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |  Start time when permissions take effect  |
+|       5       |  END_TIME   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP | End time when the permission takes effect |
+|       6       | CREATE_USER |  varchar  |   64   |       0       |          N           |      N      |                   |               Create a user               |
+|       7       | UPDATE_USER |  varchar  |   64   |       0       |          Y           |      N      |                   |                Modify user                |
+|       8       | CREATE_TIME | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |               Creation time               |
+|       9       | UPDATE_TIME | timestamp |   19   |       0       |          Y           |      N      | CURRENT_TIMESTAMP |             Modification time             |
 
-**表名：** T\_AUTH\_MANAGER\_WHITELIST
+**Table name:** T_AUTH_MANAGER_WHITELIST
 
-**说明：** 管理员自助申请表名单表
+**Description:** The administrator self-service application list
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明   |
-| :-: | :---------: | :-----: | :-: | :-: | :--: | :-: | :-: | :----: |
-|  1  |      ID     |   int   |  10 |  0  |   N  |  Y  |     |  主键ID  |
-|  2  | MANAGER\_ID |   int   |  10 |  0  |   N  |  N  |     | 管理策略ID |
-|  3  |   USER\_ID  | varchar |  64 |  0  |   N  |  N  |     |  用户ID  |
+| Serial number |    name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |     description      |
+| :-----------: | :--------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------------: |
+|       1       |     ID     |    int    |   10   |       0       |          N           |      Y      |               |    Primary key ID    |
+|       2       | MANAGER_ID |    int    |   10   |       0       |          N           |      N      |               | Management policy ID |
+|       3       |  USER_ID   |  varchar  |   64   |       0       |          N           |      N      |               |       User ID        |
 
-**表名：** T\_AUTH\_STRATEGY
+**Table name:** T_AUTH_STRATEGY
 
-**说明：** 权限策略表
+Permission policy table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度  | 小数位 | 允许空值 |  主键 |         默认值        |      说明     |
-| :-: | :------------: | :-------: | :--: | :-: | :--: | :-: | :----------------: | :---------: |
-|  1  |       ID       |    int    |  10  |  0  |   N  |  Y  |                    |    策略主键ID   |
-|  2  | STRATEGY\_NAME |  varchar  |  32  |  0  |   N  |  N  |                    |     策略名称    |
-|  3  | STRATEGY\_BODY |  varchar  | 2000 |  0  |   N  |  N  |                    |     策略内容    |
-|  4  |   IS\_DELETE   |    bit    |   1  |  0  |   N  |  N  |          0         | 是否删除0未删除1删除 |
-|  5  |  CREATE\_TIME  | timestamp |  19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |     创建时间    |
-|  6  |  UPDATE\_TIME  | timestamp |  19  |  0  |   Y  |  N  | CURRENT\_TIMESTAMP |     修改时间    |
-|  7  |  CREATE\_USER  |  varchar  |  32  |  0  |   N  |  N  |                    |     创建人     |
-|  8  |  UPDATE\_USER  |  varchar  |  32  |  0  |   Y  |  N  |                    |     修改人     |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |         description          |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :--------------------------: |
+|       1       |      ID       |    int    |   10   |       0       |          N           |      Y      |                   | ID of the policy primary key |
+|       2       | STRATEGY_NAME |  varchar  |   32   |       0       |          N           |      N      |                   |         Policy name          |
+|       3       | STRATEGY_BODY |  varchar  |  2000  |       0       |          N           |      N      |                   |        Policy content        |
+|       4       |   IS_DELETE   |    bit    |   1    |       0       |          N           |      N      |         0         |  Delete No. 0 No. 1 Delete   |
+|       5       |  CREATE_TIME  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |        Creation time         |
+|       6       |  UPDATE_TIME  | timestamp |   19   |       0       |          Y           |      N      | CURRENT_TIMESTAMP |      Modification time       |
+|       7       |  CREATE_USER  |  varchar  |   32   |       0       |          N           |      N      |                   |           founder            |
+|       8       |  UPDATE_USER  |  varchar  |   32   |       0       |          Y           |      N      |                   |           modifier           |

@@ -1,2 +1,1 @@
-# OPENAPI-流水线资源
-
+# OPENAPI- Pipelined resources

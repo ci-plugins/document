@@ -1,67 +1,57 @@
-# 签名任务详情
+# Signature task details
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/sign/ipa/{resignId}/detail
+#### GET /ms/openapi/api/apigw/v3/sign/ipa/{resignId}/detail
 
-### 资源描述
+### Resource description
 
-#### 签名任务详情
+#### Signature task details
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| resignId | string | 是 | 签名任务ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| resignId       | string         | is   | Signature task ID     |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型签名状态查询结果](signature-task-details.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Returns the wrapper model signature status query result](signature-task-details.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "resignId" : "String",
-    "message" : "String",
-    "status" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "resignId" : "String",  "message" : "String",  "status" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型签名状态查询结果
+## Data Returns the wrapper model signature status query result
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [签名状态查询结果](signature-task-details.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Result of signature status query](signature-task-details.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 签名状态查询结果
+## Result of signature status query
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| resignId | string | 是 | 签名ID |
-| message | string | 是 | 描述信息 |
-| status | string | 是 | 是否完成 |
-
+| Parameter name | Parameter type | must | Parameter description   |
+| :------------- | :------------- | :--- | :---------------------- |
+| resignId       | string         | is   | Signature ID            |
+| message        | string         | is   | Description information |
+| status         | string         | is   | Complete or not         |

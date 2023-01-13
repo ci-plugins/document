@@ -1,25 +1,25 @@
-# 代码检查结果
+# Code check result
 
-点击流水线代码检查的结果数字，跳转到codecc详情页面，会展示具体的代码问题以及问题严重程度，点击「位置」可以定位到代码问题的具体位置
+Click the result number of pipeline code inspection to jump to the codecc details page, which will show the specific code problem and the severity of the problem. Click "Location" to locate the specific location of the code problem
 
-![](../../.gitbook/assets/image-20211201152040386.png)
+![img](../../.gitbook/assets/image-20211201152040386.png)
 
-点击「问题位置」可快速定位有代码问题的具体位置，开发者手动处理代码问题，如已修复问题并提交到下一次commit，可以点击「标记处理」，如果下次的检查仍有问题，将会突出显示
+Click on "Problem Location" to quickly locate the specific location of the code problem. Developers can manually fix the code problem, if the problem has been fixed and committed to the next commit, click on "Flag processing", and if the next review still has the problem, it will be highlighted
 
-![](../../.gitbook/assets/image-20211201152343598.png)
+![img](../../.gitbook/assets/image-20211201152343598.png)
 
-![](../../.gitbook/assets/image-20211201152443030.png)
+![img](../../.gitbook/assets/image-20211201152443030.png)
 
-如果该规则和开发者自身的设计不匹配，或者不符合开发者自身的代码风格，认为无需在意该问题的扫描，可以选择「忽略问题」；问题忽略后，将不会在待修复列表中出现
+If the rule does not match the design of the developer or does not conform to the code style of the developer, you can choose "ignore the problem" if you think that there is no need to pay attention to the scanning of the problem. If the problem is ignored, it will not appear in the unfixed list
 
-![](../../.gitbook/assets/image-20211201153127763.png)
+![img](../../.gitbook/assets/image-20211201153127763.png)
 
-![](../../.gitbook/assets/image-20211201153113673.png)
+![img](../../.gitbook/assets/image-20211201153113673.png)
 
-代码问题的「数据报表」功能，可以观察到多次代码检查结果的变化趋势
+The "Data Report" feature for code issues allows you to observe trends in the results of multiple code reviews
 
-![](../../.gitbook/assets/image-20211201153732486.png)
+![img](../../.gitbook/assets/image-20211201153732486.png)
 
-总览可以看到关于本次代码检查的统计结果
+The overview shows statistics about the code review
 
-![](../../.gitbook/assets/image-20211201153613926.png)
+![img](../../.gitbook/assets/image-20211201153613926.png)

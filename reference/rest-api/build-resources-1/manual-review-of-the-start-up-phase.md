@@ -1,89 +1,83 @@
-# 手动审核启动阶段
+# Manually audit the startup phase
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stages/{stageId}/manualStart
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stages/{stageId}/manualStart
 
-### 资源描述
+### Resource description
 
-#### 手动审核启动阶段
+#### Manually audit the startup phase
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| cancel | boolean | 否 | 取消执行 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| cancel         | boolean        | no   | Cancel execution      |               |
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [人工审核-自定义参数](manual-review-of-the-start-up-phase.md) | 否 | 审核请求体 |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Manual audit - Customize parameters](manual-review-of-the-start-up-phase.md) | no   | Audit request body    |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
-| stageId | string | 是 | 阶段ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
+| buildId        | string         | is   | Build ID              |               |
+| stageId        | string         | is   | Phase ID              |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](manual-review-of-the-start-up-phase.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](manual-review-of-the-start-up-phase.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?cancel={cancel}'
+```
+curl -X POST '[please replace API address bar request address]? cancel={cancel}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 人工审核-自定义参数
+## Manual audit - Customize parameters
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| valueType | ENUM\(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, \) | 否 | 参数类型 |
-| options | List&lt;[人工审核-自定义参数-下拉框列表剑](manual-review-of-the-start-up-phase.md)&gt; | 否 | 下拉框列表 |
-| chineseName | string | 否 | 中文名称 |
-| value | object | 是 | 参数内容 |
-| key | string | 是 | 参数名 |
-| required | boolean | 是 | 是否必填 |
-| desc | string | 否 | 参数描述 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| valueType      | ENUM(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, )            | no   | Parameter type        |
+| options        | List< [Manual Review - Custom parameters - drop-down list Sword](manual-review-of-the-start-up-phase.md) > | no   | Drop-down list        |
+| chineseName    | string                                                       | no   | Chinese name          |
+| value          | object                                                       | is   | Parameter content     |
+| key            | string                                                       | is   | Parameter name        |
+| required       | boolean                                                      | is   | Is it required?       |
+| desc           | string                                                       | no   | Parameter description |
 
-## 人工审核-自定义参数-下拉框列表剑
+## Manual Audit - Custom Parameters - Drop down box list sword
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 参数内容 |
-| key | string | 是 | 参数名 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | is   | Parameter content     |
+| key            | string         | is   | Parameter name        |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

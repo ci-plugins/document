@@ -1,44 +1,41 @@
-# 预定义变量列表
+# List of predefined variables
 
-合理的使用变量可以更便捷的维护流水线，bk-ci 提供了很多系统变量。
+Reasonable use of variables can facilitate the maintenance pipeline. bk-ci provides a lot of system variables.
 
-> 注意：变量即意味着可变，可被用户和插件进行覆盖，所以在使用过程中，谨慎覆盖以免影响自己的业务逻辑，bk-ci 没有系统常量，一切交给用户自己决定
+> Note: Variable means variable, which can be overwritten by users and plug-ins. Therefore, in the process of use, you should be careful to overwrite so as not to affect your own business logic. bk-ci has no system constant, and everything is left to the user to decide
 
-用法：插件配置中，输入 ${变量名} 即可获取对应变量的值。如 ${BK\_CI\_PIPELINE\_NAME}
+Usage: In plug-in configuration, enter ${variable name} to get the value of the corresponding variable. Example: ${BK_CI_PIPELINE_NAME}
 
-| Variable | Description | 样例 |
-| :--- | :--- | :--- |
-| BK\_CI\_PIPELINE\_ID | 流水线 ID，34 位长度，全局唯一 | p-2fc5a05b25024d5586742b8e88d3c853 |
-| BK\_CI\_START\_TYPE | 构建启动方式，MANUAL/TIME\_TRIGGER/WEB\_HOOK/SERVICE/PIPELINE/REMOTE 中取值 | WEB\_HOOK |
-| BK\_CI\_PROJECT\_NAME | 项目英文名 | alltest |
-| BK\_CI\_PIPELINE\_NAME | 流水线名称 | 持续交付流水线 |
-| BK\_CI\_BUILD\_ID | 流水线当前构建 ID，34 位长度，全局唯一 | b-d82918fc4f5c44c790d538785685f36b |
-| BK\_CI\_BUILD\_NUM | 构建序号，从 1 开始不断自增 |  |
-| BK\_CI\_BUILD\_JOB\_ID | 流水线当前构建的当前 Job ID，34 位长度，全局唯一 |  |
-| BK\_CI\_BUILD\_TASK\_ID | 流水线当前插件 Task ID，34 位长度，全局唯一 |  |
-| BK\_CI\_BUILD\_REMARK | 流水线构建备注信息，在流水线运行时通过 setEnv "BK\_CI\_BUILD\_REMARK" 设置 |  |
-| BK\_CI\_BUILD\_START\_TIME | 流水线启动时间， 毫秒数 |  |
-| BK\_CI\_BUILD\_END\_TIME | 流水线结束时间， 毫秒数 |  |
-| BK\_CI\_BUILD\_TOTAL\_TIME | 流水线执行耗时 |  |
-| BK\_CI\_BUILD\_FAIL\_TASKS | 流水线执行失败的所有 TASK，内容格式：1、格式：\[STAGE 别名\]\[JOB别名\]TASK 别名 2、若有多个并发 JOB 失败，使用换行\n 分隔 | 可用于构建失败通知，或流水线执行过程中的插件中 |
-| BK\_CI\_BUILD\_FAIL\_TASKNAMES | 流水线执行失败的所有 TASK，内容格式：TASK 别名,TASK 别名,TASK 别名 | 可用于构建失败通知，或流水线执行过程中的插件中 |
-| BK\_CI\_TURBO\_ID | 编译加速任务 ID，只有启用了编译加速才有该变量 |  |
-| BK\_CI\_MAJOR\_VERSION | 流水线里唯一，主版本号，开启“推荐版本号”功能后出现 |  |
-| BK\_CI\_MINOR\_VERSION | 流水线里唯一，特性版本，开启“推荐版本号”功能后出现 |  |
-| BK\_CI\_FIX\_VERSION | 流水线里唯一，修正版本，开启“推荐版本号”功能后出现 |  |
-| BK\_CI\_BUILD\_NO | 流水线里唯一，构建号，开启“推荐版本号”功能后出现，可以设置不同的自增规则 |  |
-| BK\_CI\_PIPELINE\_UPDATE\_USER | 流水线更新用户 |  |
-| BK\_CI\_PIPELINE\_VERSION | 流水线版本号 |  |
-| BK\_CI\_PROJECT\_NAME\_CN | 流水线对应的项目名称 |  |
-| BK\_CI\_START\_CHANNEL | 流水线启动的 CHANNEL CODE |  |
-| BK\_CI\_START\_USER\_ID | 流水线构建真正执行的用户 ID, 一般手动启动时的当前用户 ID，重试流水线人的用户 ID。如果是定时/webhook/子流水线调用， 则是流水线的最后修改人 |  |
-| BK\_CI\_START\_USER\_NAME | 流水线构建启动的用户 ID, 通常值与 BK\_CI\_START\_USER\_ID 是一致的，但以下两种情况例外：1.当启动方式为 WEBHOOK，该值为 Git/SVN 的用户 ID；2.当是子流水线调用时，该值为父流水线的构建启动人 ID | 例如：parent1 和 Sub2 的最后修改人为 User0；user1 手工执行 parent1 父流水线，parent1 再启动子流水线 Sub2， 此时 Sub2 的 BK\_CI\_START\_USER\_ID 为 User0；BK\_CI\_START\_USER\_NAME 为 User1 |
-| BK\_CI\_PARENT\_PIPELINE\_ID | 获取启动当前流水线的父流水线 ID，仅当作为子流水线并被父流水线触发时才有效 |  |
-| BK\_CI\_PARENT\_BUILD\_ID | 获取启动当前流水线的父流水线的构建 ID，仅当作为子流水线并被父流水线触发时才有效 |  |
-| BK\_CI\_START\_PIPELINE\_USER\_ID | 获取启动当前流水线的父流水线启动人，仅当作为子流水线并被父流水线触发时才有效 |  |
-| BK\_CI\_START\_WEBHOOK\_USER\_ID | 获取启动当前流水线的触发 Webhook 帐号，仅当被 webhook 触发时才有效，该值将会展示在执行历史中，但实际执行人不是他，而是最后流水线修改人 |  |
-| BK\_CI\_RETRY\_COUNT | 重试的次数，默认不存在， 当出现失败重试/rebuild 时， 该变量才会出现，并且+1 |  |
-|  |  |  |
-
-{% page-ref page="gitlab.md" %}
-
+| Variable                     | Description                                                  | sample                                                       |
+| :--------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| BK_CI_PIPELINE_ID            | The pipeline ID is 34 bits long and globally unique          | p-2fc5a05b25024d5586742b8e88d3c853                           |
+| BK_CI_START_TYPE             | Build a startup mode, MANUAL/TIME_TRIGGER WEB_HOOK/SERVICE/PIPELINE/value in the REMOTE | WEB_HOOK                                                     |
+| BK_CI_PROJECT_NAME           | English name of project                                      | alltest                                                      |
+| BK_CI_PIPELINE_NAME          | Pipeline name                                                | Continuous delivery pipeline                                 |
+| BK_CI_BUILD_ID               | Pipeline current build ID, 34 bits long, globally unique     | b-d82918fc4f5c44c790d538785685f36b                           |
+| BK_CI_BUILD_NUM              | Build sequence number, incrementing from 1                   |                                                              |
+| BK_CI_BUILD_JOB_ID           | ID of the current Job created by the pipeline. The value is 34 characters in length and globally unique |                                                              |
+| BK_CI_BUILD_TASK_ID          | Pipeline current plug-in Task ID, 34 bits long, globally unique |                                                              |
+| BK_CI_BUILD_REMARK           | The pipeline builds remarks, which are set by setEnv "BK_CI_BUILD_REMARK" when the pipeline is running |                                                              |
+| BK_CI_BUILD_START_TIME       | Pipeline startup time, milliseconds                          |                                                              |
+| BK_CI_BUILD_END_TIME         | Pipeline end time, milliseconds                              |                                                              |
+| BK_CI_BUILD_TOTAL_TIME       | Pipeline execution time                                      |                                                              |
+| BK_CI_BUILD_FAIL_TASKS       | Format: [STAGE alias][JOB alias]TASK alias 2. If multiple concurrent jobs fail, use newlines to separate them | Can be used in build failure notifications, or in plug-ins during pipeline execution |
+| BK_CI_BUILD_FAIL_TASKNAMES   | All tasks that failed to be executed in the pipeline are in the format of TASK alias,TASK alias,TASK alias | Can be used in build failure notifications, or in plug-ins during pipeline execution |
+| BK_CI_TURBO_ID               | Compile acceleration task ID, which is available only if compile acceleration is enabled |                                                              |
+| BK_CI_MAJOR_VERSION          | A unique, major version number in the pipeline, which is displayed after the recommended Version number function is enabled |                                                              |
+| BK_CI_MINOR_VERSION          | A unique feature version in the pipeline. The feature version appears after the recommended Version function is enabled |                                                              |
+| BK_CI_FIX_VERSION            | The only version in the pipeline, modified version, after the "recommended version number" function is enabled |                                                              |
+| BK_CI_BUILD_NO               | A unique build number in the pipeline, which appears after the "recommended version number" function is enabled. You can set different autoincrement rules |                                                              |
+| BK_CI_PIPELINE_UPDATE_USER   | Pipeline update user                                         |                                                              |
+| BK_CI_PIPELINE_VERSION       | Pipeline version number                                      |                                                              |
+| BK_CI_PROJECT_NAME_CN        | Name of the project corresponding to the pipeline            |                                                              |
+| BK_CI_START_CHANNEL          | Pipeline-started CHANNEL CODE                                |                                                              |
+| BK_CI_START_USER_ID          | The user ID of the pipeline build, the current user ID of the general manual startup, and the user ID of the pipeline person for the retry. If it is a timed /webhook/ subpipeline call, it is the last modifier of the pipeline |                                                              |
+| BK_CI_START_USER_NAME        | User ID for pipelined-build startup. The value is usually the same as BK_CI_START_USER_ID except in the following two cases: 1. If the boot mode is WEBHOOK, the value is the user ID of Git/SVN. 2. When called by a child pipeline, this value is the ID of the builder of the parent pipeline | For example, the last change of parent1 and Sub2 is User0. user1 Manually run the parent pipeline of parent1. parent1 starts Sub2, and the BK_CI_START_USER_ID of Sub2 is User0. BK_CI_START_USER_NAME is User1 |
+| BK_CI_PARENT_PIPELINE_ID     | Gets the ID of the parent pipeline that started the current pipeline, valid only if it is a child pipeline and is triggered by the parent pipeline |                                                              |
+| BK_CI_PARENT_BUILD_ID        | Gets the build ID of the parent pipeline that started the current pipeline, valid only if it is a child pipeline and is triggered by the parent pipeline |                                                              |
+| BK_CI_START_PIPELINE_USER_ID | Gets the parent pipeline starter that starts the current pipeline. This is only valid if it is a child pipeline and is triggered by the parent pipeline |                                                              |
+| BK_CI_START_WEBHOOK_USER_ID  | Get the trigger Webhook account that started the current pipeline. This is only valid if it was triggered by the webhook. This value will be displayed in the execution history, but the actual executor is not him, but the last pipeliner |                                                              |
+| BK_CI_RETRY_COUNT            | The number of retries, which does not exist by default. This variable appears only when failed retry /rebuild occurs, and +1 |                                                              |
+|                              |                                                              |                                                              |

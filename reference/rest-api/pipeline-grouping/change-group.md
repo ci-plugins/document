@@ -1,63 +1,57 @@
-# 更改分组
+# Change grouping
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### PUT  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
+#### PUT /ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
 
-### 资源描述
+### Resource description
 
-#### 更改分组
+#### Change grouping
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [PipelineGroupUpdate](change-group.md) | 是 | 流水线标签分组更新请求 |  |
+| Parameter name | Parameter type                         | must | Parameter description                | Default value |
+| :------------- | :------------------------------------- | :--- | :----------------------------------- | :------------ |
+| body           | [PipelineGroupUpdate](change-group.md) | is   | Pipelined tags group update requests |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](change-group.md) |
+| HTTP code | description          | Parameter type                                       |
+| :-------- | :------------------- | :--------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](change-group.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X PUT '[请替换为API地址栏请求地址]'
+```
+curl -X PUT '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
 ## PipelineGroupUpdate
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 否 | name |
-| id | string | 否 | id |
-| projectId | string | 否 | projectId |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| name           | string         | no   | name                  |
+| id             | string         | no   | id                    |
+| projectId      | string         | no   | projectId             |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

@@ -1,134 +1,128 @@
-# 操作暂停插件
+# Operation pause plug-in
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/execute/pause
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/execute/pause
 
-### 资源描述
+### Resource description
 
-#### 操作暂停插件
+#### Operation pause plug-in
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [流水线暂停操作实体类](operation-pause-plugin.md) | 否 |  |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Pipelining pauses the operation entity class](operation-pause-plugin.md) | no   |                       |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
+| buildId        | string         | is   | Build ID              |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](operation-pause-plugin.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](operation-pause-plugin.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 流水线暂停操作实体类
+## Pipelining pauses the operation entity class
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| continue | boolean | 否 | continue |
-| containerId | string | 否 | 当前containerId |
-| taskId | string | 否 | 任务ID |
-| element | [Element](operation-pause-plugin.md) | 否 | element信息,若插件内有变量变更需给出变更后的element |
-| stageId | string | 否 | 当前stageId |
+| Parameter name | Parameter type                       | must | Parameter description                                        |
+| :------------- | :----------------------------------- | :--- | :----------------------------------------------------------- |
+| continue       | boolean                              | no   | continue                                                     |
+| containerId    | string                               | no   | Id of the current containerport                              |
+| taskId         | string                               | no   | Task ID                                                      |
+| element        | [Element](operation-pause-plugin.md) | no   | element information. If there are variable changes in the plug-in, the changed element should be given |
+| stageId        | string                               | no   | Current stageId                                              |
 
 ## Element
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canRetry | boolean | 否 | canRetry |
-| errorType | string | 否 | errorType |
-| errorCode | integer | 否 | errorCode |
-| canSkip | boolean | 否 | canSkip |
-| startEpoch | integer | 否 | startEpoch |
-| version | string | 否 | version |
-| executeCount | integer | 否 | executeCount |
-| templateModify | boolean | 否 | templateModify |
-| elementEnable | boolean | 否 | elementEnable |
-| errorMsg | string | 否 | errorMsg |
-| elapsed | integer | 否 | elapsed |
-| atomCode | string | 否 | atomCode |
-| additionalOptions | [ElementAdditionalOptions](operation-pause-plugin.md) | 否 | additionalOptions |
-| taskAtom | string | 否 | taskAtom |
-| name | string | 否 | name |
-| id | string | 否 | id |
-| classType | string | 否 | classType |
-| status | string | 否 | status |
+| Parameter name    | Parameter type                                        | must | Parameter description |
+| :---------------- | :---------------------------------------------------- | :--- | :-------------------- |
+| canRetry          | boolean                                               | no   | canRetry              |
+| errorType         | string                                                | no   | errorType             |
+| errorCode         | integer                                               | no   | errorCode             |
+| canSkip           | boolean                                               | no   | canSkip               |
+| startEpoch        | integer                                               | no   | startEpoch            |
+| version           | string                                                | no   | version               |
+| executeCount      | integer                                               | no   | executeCount          |
+| templateModify    | boolean                                               | no   | templateModify        |
+| elementEnable     | boolean                                               | no   | elementEnable         |
+| errorMsg          | string                                                | no   | errorMsg              |
+| elapsed           | integer                                               | no   | elapsed               |
+| atomCode          | string                                                | no   | atomCode              |
+| additionalOptions | [ElementAdditionalOptions](operation-pause-plugin.md) | no   | additionalOptions     |
+| taskAtom          | string                                                | no   | taskAtom              |
+| name              | string                                                | no   | name                  |
+| id                | string                                                | no   | id                    |
+| classType         | string                                                | no   | classType             |
+| status            | string                                                | no   | status                |
 
 ## ElementAdditionalOptions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| enableCustomEnv | boolean | 否 | enableCustomEnv |
-| continueWhenFailed | boolean | 否 | continueWhenFailed |
-| manualRetry | boolean | 否 | manualRetry |
-| pauseBeforeExec | boolean | 否 | pauseBeforeExec |
-| retryCount | integer | 否 | retryCount |
-| manualSkip | boolean | 否 | manualSkip |
-| timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue](operation-pause-plugin.md)&gt; | 否 | customVariables |
-| otherTask | string | 否 | otherTask |
-| customEnv | List&lt;[NameAndValue](operation-pause-plugin.md)&gt; | 否 | customEnv |
-| retryWhenFailed | boolean | 否 | retryWhenFailed |
-| enable | boolean | 否 | enable |
-| subscriptionPauseUser | string | 否 | subscriptionPauseUser |
-| customCondition | string | 否 | customCondition |
-| runCondition | ENUM\(PRE\_TASK\_SUCCESS, PRE\_TASK\_FAILED\_BUT\_CANCEL, PRE\_TASK\_FAILED\_EVEN\_CANCEL, PRE\_TASK\_FAILED\_ONLY, OTHER\_TASK\_RUNNING, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, PARENT\_TASK\_CANCELED\_OR\_TIMEOUT, PARENT\_TASK\_FINISH, \) | 否 | runCondition |
-| elementPostInfo | [元素post信息](operation-pause-plugin.md) | 否 | elementPostInfo |
+| Parameter name        | Parameter type                                               | must | Parameter description |
+| :-------------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| enableCustomEnv       | boolean                                                      | no   | enableCustomEnv       |
+| continueWhenFailed    | boolean                                                      | no   | continueWhenFailed    |
+| manualRetry           | boolean                                                      | no   | manualRetry           |
+| pauseBeforeExec       | boolean                                                      | no   | pauseBeforeExec       |
+| retryCount            | integer                                                      | no   | retryCount            |
+| manualSkip            | boolean                                                      | no   | manualSkip            |
+| timeout               | integer                                                      | no   | timeout               |
+| customVariables       | List<[NameAndValue](operation-pause-plugin.md)>              | no   | customVariables       |
+| otherTask             | string                                                       | no   | otherTask             |
+| customEnv             | List<[NameAndValue](operation-pause-plugin.md)>              | no   | customEnv             |
+| retryWhenFailed       | boolean                                                      | no   | retryWhenFailed       |
+| enable                | boolean                                                      | no   | enable                |
+| subscriptionPauseUser | string                                                       | no   | subscriptionPauseUser |
+| customCondition       | string                                                       | no   | customCondition       |
+| runCondition          | ENUM(PRE_TASK_SUCCESS, PRE_TASK_FAILED_BUT_CANCEL, PRE_TASK_FAILED_EVEN_CANCEL, PRE_TASK_FAILED_ONLY, OTHER_TASK_RUNNING, CUSTOM_VARIABLE_MATCH, CUSTOM_VARIABLE_MATCH_NOT_RUN, CUSTOM_CONDITION_MATCH, PARENT_TASK_CANCELED_OR_TIMEOUT, PARENT_TASK_FINISH, ) | no   | runCondition          |
+| elementPostInfo       | [Element post message](operation-pause-plugin.md)            | no   | elementPostInfo       |
 
 ## NameAndValue
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 否 | value |
-| key | string | 否 | key |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | no   | value                 |
+| key            | string         | no   | key                   |
 
-## 元素post信息
+## Element post message
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| parentElementId | string | 否 | 父元素ID |
-| postCondition | string | 否 | 执行条件 |
-| parentElementJobIndex | integer | 否 | 父元素在job中的位置 |
-| parentElementName | string | 否 | 父元素名称 |
-| postEntryParam | string | 否 | 入口参数 |
+| Parameter name        | Parameter type | must | Parameter description                         |
+| :-------------------- | :------------- | :--- | :-------------------------------------------- |
+| parentElementId       | string         | no   | Parent element ID                             |
+| postCondition         | string         | no   | Execution condition                           |
+| parentElementJobIndex | integer        | no   | The position of the parent element in the job |
+| parentElementName     | string         | no   | Parent element name                           |
+| postEntryParam        | string         | no   | Entry parameter                               |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

@@ -1,120 +1,92 @@
-# 获取流水线模板的实例列表
+# Gets a list of instances of the pipeline template
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
 
-### 资源描述
+### Resource description
 
-#### 获取流水线模板的实例列表
+#### Gets a list of instances of the pipeline template
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| page | integer | 否 | 第几页 | 1 |
-| pageSize | integer | 否 | 每页多少条 | 30 |
-| searchKey | string | 否 | 名字搜索的关键字 |  |
+| Parameter name | Parameter type | must | Parameter description    | Default value |
+| :------------- | :------------- | :--- | :----------------------- | :------------ |
+| page           | integer        | no   | What page                | 1             |
+| pageSize       | integer        | no   | How many pieces per page | 30            |
+| searchKey      | string         | no   | Name Search keyword      |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| templateId | string | 是 | 模板ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| templateId     | string         | is   | Template ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型TemplateInstancePage](get-the-list-of-instances-of-the-pipeline-template.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data is returned to the packaging model TemplateInstancePage](get-the-list-of-instances-of-the-pipeline-template.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?page={page}&amp;pageSize={pageSize}&amp;searchKey={searchKey}'
+```
+curl -X GET '[Please replace API address bar request address]? page={page}&pageSize={pageSize}&searchKey={searchKey}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "instances" : [ {
-      "pipelineName" : "String",
-      "hasPermission" : true,
-      "updateTime" : 0,
-      "templateId" : "String",
-      "versionName" : "String",
-      "version" : 0,
-      "pipelineId" : "String",
-      "status" : "ENUM"
-    } ],
-    "latestVersion" : {
-      "creator" : "String",
-      "updateTime" : 0,
-      "versionName" : "String",
-      "version" : 0
-    },
-    "count" : 0,
-    "pageSize" : 0,
-    "page" : 0,
-    "templateId" : "String",
-    "projectId" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "instances" : [ {  "pipelineName" : "String",  "hasPermission" : true,  "updateTime" : 0,  "templateId" : "String",  "versionName" : "String",  "version" : 0,  "pipelineId" : "String",  "status" : "ENUM"  } ],  "latestVersion" : {  "creator" : "String",  "updateTime" : 0,  "versionName" : "String",  "version" : 0  },  "count" : 0,  "pageSize" : 0,  "page" : 0,  "templateId" : "String",  "projectId" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型TemplateInstancePage
+## Data is returned to the packaging model TemplateInstancePage
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [TemplateInstancePage](get-the-list-of-instances-of-the-pipeline-template.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [TemplateInstancePage](get-the-list-of-instances-of-the-pipeline-template.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
 ## TemplateInstancePage
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| instances | List&lt;[TemplatePipeline](get-the-list-of-instances-of-the-pipeline-template.md)&gt; | 否 | instances |
-| latestVersion | [TemplateVersion](get-the-list-of-instances-of-the-pipeline-template.md) | 否 | latestVersion |
-| count | integer | 否 | count |
-| pageSize | integer | 否 | pageSize |
-| page | integer | 否 | page |
-| templateId | string | 否 | templateId |
-| projectId | string | 否 | projectId |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| instances      | List<[TemplatePipeline](get-the-list-of-instances-of-the-pipeline-template.md)> | no   | instances             |
+| latestVersion  | [TemplateVersion](get-the-list-of-instances-of-the-pipeline-template.md) | no   | latestVersion         |
+| count          | integer                                                      | no   | count                 |
+| pageSize       | integer                                                      | no   | pageSize              |
+| page           | integer                                                      | no   | page                  |
+| templateId     | string                                                       | no   | templateId            |
+| projectId      | string                                                       | no   | projectId             |
 
 ## TemplatePipeline
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineName | string | 否 | pipelineName |
-| hasPermission | boolean | 否 | hasPermission |
-| updateTime | integer | 否 | updateTime |
-| templateId | string | 否 | templateId |
-| versionName | string | 否 | versionName |
-| version | integer | 否 | version |
-| pipelineId | string | 否 | pipelineId |
-| status | ENUM\(PENDING\_UPDATE, UPDATING, UPDATED, \) | 否 | status |
+| Parameter name | Parameter type                            | must | Parameter description |
+| :------------- | :---------------------------------------- | :--- | :-------------------- |
+| pipelineName   | string                                    | no   | pipelineName          |
+| hasPermission  | boolean                                   | no   | hasPermission         |
+| updateTime     | integer                                   | no   | updateTime            |
+| templateId     | string                                    | no   | templateId            |
+| versionName    | string                                    | no   | versionName           |
+| version        | integer                                   | no   | version               |
+| pipelineId     | string                                    | no   | pipelineId            |
+| status         | ENUM(PENDING_UPDATE, UPDATING, UPDATED, ) | no   | status                |
 
 ## TemplateVersion
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| creator | string | 否 | creator |
-| updateTime | integer | 否 | updateTime |
-| versionName | string | 否 | versionName |
-| version | integer | 否 | version |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| creator        | string         | no   | creator               |
+| updateTime     | integer        | no   | updateTime            |
+| versionName    | string         | no   | versionName           |
+| version        | integer        | no   | version               |

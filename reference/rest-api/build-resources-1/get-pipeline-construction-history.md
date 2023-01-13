@@ -1,268 +1,177 @@
-# 获取流水线构建历史
+# Get pipeline build history
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/history
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/history
 
-### 资源描述
+### Resource description
 
-#### 获取流水线构建历史
+#### Get pipeline build history
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| page | integer | 否 | 第几页 | 1 |
-| pageSize | integer | 否 | 每页多少条 | 20 |
-| channelCode | string | 否 | 渠道号，默认为BS |  |
+| Parameter name | Parameter type | must | Parameter description             | Default value |
+| :------------- | :------------- | :--- | :-------------------------------- | :------------ |
+| page           | integer        | no   | What page                         | 1             |
+| pageSize       | integer        | no   | How many pieces per page          | 20            |
+| channelCode    | string         | no   | Channel number. The default is BS |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建历史-分页数据包装模型历史构建模型](get-pipeline-construction-history.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Wrapper model build history - Paging data wrapper Model history build model](get-pipeline-construction-history.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?page={page}&amp;pageSize={pageSize}&amp;channelCode={channelCode}'
+```
+curl -X GET '[Please replace API address bar request address]? page={page}&pageSize={pageSize}&channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "pipelineVersion" : 0,
-    "records" : [ {
-      "buildNum" : 0,
-      "buildNumAlias" : "String",
-      "stageStatus" : [ {
-        "name" : "String",
-        "stageId" : "String"
-      } ],
-      "remark" : "String",
-      "buildMsg" : "String",
-      "startTime" : 0,
-      "id" : "String",
-      "recommendVersion" : "String",
-      "retry" : true,
-      "totalTime" : 0,
-      "webHookType" : "String",
-      "mobileStart" : true,
-      "startType" : "String",
-      "trigger" : "String",
-      "userId" : "String",
-      "deleteReason" : "String",
-      "queueTime" : 0,
-      "pipelineVersion" : 0,
-      "buildParameters" : [ {
-        "valueType" : "ENUM",
-        "readOnly" : true,
-        "value" : {
-          "string" : "string"
-        },
-        "key" : "String"
-      } ],
-      "material" : [ {
-        "newCommitId" : "String",
-        "aliasName" : "String",
-        "commitTimes" : 0,
-        "branchName" : "String",
-        "url" : "String",
-        "newCommitComment" : "String"
-      } ],
-      "currentTimestamp" : 0,
-      "artifactList" : [ {
-        "fullPath" : "String",
-        "modifiedTime" : 0,
-        "appVersion" : "String",
-        "shortUrl" : "String",
-        "downloadUrl" : "String",
-        "fullName" : "String",
-        "path" : "String",
-        "folder" : true,
-        "size" : 0,
-        "name" : "String",
-        "artifactoryType" : "ENUM",
-        "properties" : [ {
-          "value" : "String",
-          "key" : "String"
-        } ],
-        "md5" : "String"
-      } ],
-      "endTime" : 0,
-      "webhookInfo" : {
-        "webhookBranch" : "String",
-        "webhookEventType" : "String",
-        "webhookMessage" : "String",
-        "webhookMergeCommitSha" : "String",
-        "webhookRepoUrl" : "String",
-        "webhookCommitId" : "String",
-        "webhookType" : "String"
-      },
-      "errorInfoList" : [ {
-        "atomCode" : "String",
-        "errorType" : 0,
-        "errorCode" : 0,
-        "taskName" : "String",
-        "taskId" : "String",
-        "errorMsg" : "String"
-      } ],
-      "status" : "String",
-      "executeTime" : 0
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0,
-    "hasDownloadPermission" : true
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "pipelineVersion" : 0,  "records" : [ {  "buildNum" : 0,  "buildNumAlias" : "String",  "stageStatus" : [ {  "name" : "String",  "stageId" : "String"  } ],  "remark" : "String",  "buildMsg" : "String",  "startTime" : 0,  "id" : "String",  "recommendVersion" : "String",  "retry" : true,  "totalTime" : 0,  "webHookType" : "String",  "mobileStart" : true,  "startType" : "String",  "trigger" : "String",  "userId" : "String",  "deleteReason" : "String",  "queueTime" : 0,  "pipelineVersion" : 0,  "buildParameters" : [ {  "valueType" : "ENUM",  "readOnly" : true,  "value" : {  "string" : "string"  },  "key" : "String"  } ],  "material" : [ {  "newCommitId" : "String",  "aliasName" : "String",  "commitTimes" : 0,  "branchName" : "String",  "url" : "String",  "newCommitComment" : "String"  } ],  "currentTimestamp" : 0,  "artifactList" : [ {  "fullPath" : "String",  "modifiedTime" : 0,  "appVersion" : "String",  "shortUrl" : "String",  "downloadUrl" : "String",  "fullName" : "String",  "path" : "String",  "folder" : true,  "size" : 0,  "name" : "String",  "artifactoryType" : "ENUM",  "properties" : [ {  "value" : "String",  "key" : "String"  } ],  "md5" : "String"  } ],  "endTime" : 0,  "webhookInfo" : {  "webhookBranch" : "String",  "webhookEventType" : "String",  "webhookMessage" : "String",  "webhookMergeCommitSha" : "String",  "webhookRepoUrl" : "String",  "webhookCommitId" : "String",  "webhookType" : "String"  },  "errorInfoList" : [ {  "atomCode" : "String",  "errorType" : 0,  "errorCode" : 0,  "taskName" : "String",  "taskId" : "String",  "errorMsg" : "String"  } ],  "status" : "String",  "executeTime" : 0  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0,  "hasDownloadPermission" : true  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型构建历史-分页数据包装模型历史构建模型
+## Data Return Wrapper model build history - Paging data wrapper Model history build model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [构建历史-分页数据包装模型历史构建模型](get-pipeline-construction-history.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Build History - Paging data wrapper model history build model](get-pipeline-construction-history.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 构建历史-分页数据包装模型历史构建模型
+## Build History - Paging data wrapper model history build model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineVersion | integer | 是 | 最新的编排版本号 |
-| records | List&lt;[历史构建模型](get-pipeline-construction-history.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
-| hasDownloadPermission | boolean | 是 | 是否拥有下载构建的权限 |
+| Parameter name        | Parameter type                                               | must | Parameter description                             |
+| :-------------------- | :----------------------------------------------------------- | :--- | :------------------------------------------------ |
+| pipelineVersion       | integer                                                      | is   | The latest compilation version number             |
+| records               | List< [historical construction model](get-pipeline-construction-history.md) > | is   | data                                              |
+| count                 | integer                                                      | is   | Total number of record lines                      |
+| totalPages            | integer                                                      | is   | How many pages in total?                          |
+| pageSize              | integer                                                      | is   | How many pieces per page                          |
+| page                  | integer                                                      | is   | What page                                         |
+| hasDownloadPermission | boolean                                                      | is   | Whether you have permission to download the build |
 
-## 历史构建模型
+## Historical construction model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| buildNum | integer | 是 | 构建号 |
-| buildNumAlias | string | 否 | 自定义构建版本号 |
-| stageStatus | List&lt;[历史构建阶段状态](get-pipeline-construction-history.md)&gt; | 是 | 各阶段状态 |
-| remark | string | 否 | 备注 |
-| buildMsg | string | 否 | 构建信息 |
-| startTime | integer | 是 | 开始时间 |
-| id | string | 是 | 构建ID |
-| recommendVersion | string | 否 | 推荐版本号 |
-| retry | boolean | 否 | 是否重试 |
-| totalTime | integer | 否 | 总耗时\(秒\) |
-| webHookType | string | 否 | WebHookType |
-| mobileStart | boolean | 否 | mobileStart |
-| startType | string | 否 | 启动类型\(新\) |
-| trigger | string | 是 | 触发条件 |
-| userId | string | 是 | 启动用户 |
-| deleteReason | string | 是 | 结束原因 |
-| queueTime | integer | 否 | 排队于 |
-| pipelineVersion | integer | 是 | 编排文件版本号 |
-| buildParameters | List&lt;[构建模型-构建参数](get-pipeline-construction-history.md)&gt; | 否 | 启动参数 |
-| material | List&lt;[PipelineBuildMaterial](get-pipeline-construction-history.md)&gt; | 否 | 原材料 |
-| currentTimestamp | integer | 是 | 服务器当前时间戳 |
-| artifactList | List&lt;[版本仓库-文件信息](get-pipeline-construction-history.md)&gt; | 否 | 构件列表 |
-| endTime | integer | 是 | 结束时间 |
-| webhookInfo | [WebhookInfo](get-pipeline-construction-history.md) | 否 | webhookInfo |
-| errorInfoList | List&lt;[插件错误信息](get-pipeline-construction-history.md)&gt; | 否 | 流水线任务执行错误 |
-| status | string | 是 | 状态 |
-| executeTime | integer | 否 | 运行耗时\(秒，不包括人工审核时间\) |
+| Parameter name   | Parameter type                                               | must | Parameter description                                    |
+| :--------------- | :----------------------------------------------------------- | :--- | :------------------------------------------------------- |
+| buildNum         | integer                                                      | is   | Build number                                             |
+| buildNumAlias    | string                                                       | no   | Customize the build version number                       |
+| stageStatus      | List< [historical construction phase status](get-pipeline-construction-history.md) > | is   | Stage state                                              |
+| remark           | string                                                       | no   | remarks                                                  |
+| buildMsg         | string                                                       | no   | Construction information                                 |
+| startTime        | integer                                                      | is   | Start time                                               |
+| id               | string                                                       | is   | Build ID                                                 |
+| recommendVersion | string                                                       | no   | Recommended version number                               |
+| retry            | boolean                                                      | no   | Retry or not                                             |
+| totalTime        | integer                                                      | no   | Total time (seconds)                                     |
+| webHookType      | string                                                       | no   | WebHookType                                              |
+| mobileStart      | boolean                                                      | no   | mobileStart                                              |
+| startType        | string                                                       | no   | Startup type (New)                                       |
+| trigger          | string                                                       | is   | Trigger condition                                        |
+| userId           | string                                                       | is   | Startup user                                             |
+| deleteReason     | string                                                       | is   | End reason                                               |
+| queueTime        | integer                                                      | no   | Queue up                                                 |
+| pipelineVersion  | integer                                                      | is   | Choreograph file version number                          |
+| buildParameters  | List< [Build model-build parameters](get-pipeline-construction-history.md) > | no   | Startup parameter                                        |
+| material         | List<[PipelineBuildMaterial](get-pipeline-construction-history.md)> | no   | Raw material                                             |
+| currentTimestamp | integer                                                      | is   | Current server timestamp                                 |
+| artifactList     | List< [version repository - file information](get-pipeline-construction-history.md) > | no   | Component list                                           |
+| endTime          | integer                                                      | is   | End time                                                 |
+| webhookInfo      | [WebhookInfo](get-pipeline-construction-history.md)          | no   | webhookInfo                                              |
+| errorInfoList    | List< [plug-in error message](get-pipeline-construction-history.md) > | no   | Pipelined task execution error                           |
+| status           | string                                                       | is   | state                                                    |
+| executeTime      | integer                                                      | no   | Running time (seconds, not including manual review time) |
 
-## 历史构建阶段状态
+## Historical construction phase state
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 是 | 阶段名称 |
-| stageId | string | 是 | 阶段ID |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| name           | string         | is   | Stage name            |
+| stageId        | string         | is   | Phase ID              |
 
-## 构建模型-构建参数
+## Build model - Build parameters
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| valueType | ENUM\(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN\_TAG, GIT\_REF, MULTIPLE, CODE\_LIB, CONTAINER\_TYPE, ARTIFACTORY, SUB\_PIPELINE, CUSTOM\_FILE, PASSWORD, TEMPORARY, \) | 否 | 元素值类型 |
-| readOnly | boolean | 否 | 是否只读 |
-| value | object | 是 | 元素值名称-显示用 |
-| key | string | 是 | 元素值ID-标识符 |
+| Parameter name | Parameter type                                               | must | Parameter description            |
+| :------------- | :----------------------------------------------------------- | :--- | :------------------------------- |
+| valueType      | ENUM(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN_TAG, GIT_REF, MULTIPLE, CODE_LIB, CONTAINER_TYPE, ARTIFACTORY, SUB_PIPELINE, CUSTOM_FILE, PASSWORD, TEMPORARY, ) | no   | Element value type               |
+| readOnly       | boolean                                                      | no   | Whether to read only             |
+| value          | object                                                       | is   | Element value Name - for display |
+| key            | string                                                       | is   | Element value ID- identifier     |
 
 ## PipelineBuildMaterial
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| newCommitId | string | 否 | newCommitId |
-| aliasName | string | 否 | aliasName |
-| commitTimes | integer | 否 | commitTimes |
-| branchName | string | 否 | branchName |
-| url | string | 否 | url |
-| newCommitComment | string | 否 | newCommitComment |
+| Parameter name   | Parameter type | must | Parameter description |
+| :--------------- | :------------- | :--- | :-------------------- |
+| newCommitId      | string         | no   | newCommitId           |
+| aliasName        | string         | no   | aliasName             |
+| commitTimes      | integer        | no   | commitTimes           |
+| branchName       | string         | no   | branchName            |
+| url              | string         | no   | url                   |
+| newCommitComment | string         | no   | newCommitComment      |
 
-## 版本仓库-文件信息
+## Version repository - File information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| fullPath | string | 是 | 文件全路径 |
-| modifiedTime | integer | 是 | 更新时间 |
-| appVersion | string | 是 | app版本 |
-| shortUrl | string | 是 | 下载短链接 |
-| downloadUrl | string | 否 | 下载链接 |
-| fullName | string | 是 | 文件全名 |
-| path | string | 是 | 文件路径 |
-| folder | boolean | 是 | 是否文件夹 |
-| size | integer | 是 | 文件大小\(byte\) |
-| name | string | 是 | 文件名 |
-| artifactoryType | ENUM\(PIPELINE, CUSTOM\_DIR, \) | 是 | 仓库类型 |
-| properties | List&lt;[版本仓库-元数据](get-pipeline-construction-history.md)&gt; | 是 | 元数据 |
-| md5 | string | 否 | MD5 |
+| Parameter name  | Parameter type                                               | must | Parameter description |
+| :-------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| fullPath        | string                                                       | is   | Full file path        |
+| modifiedTime    | integer                                                      | is   | Update time           |
+| appVersion      | string                                                       | is   | app version           |
+| shortUrl        | string                                                       | is   | Download short link   |
+| downloadUrl     | string                                                       | no   | Download link         |
+| fullName        | string                                                       | is   | Full name of document |
+| path            | string                                                       | is   | File path             |
+| folder          | boolean                                                      | is   | Yes folder            |
+| size            | integer                                                      | is   | File size (byte)      |
+| name            | string                                                       | is   | File name             |
+| artifactoryType | ENUM(PIPELINE, CUSTOM_DIR, )                                 | is   | Warehouse type        |
+| properties      | List< [version repository - metadata](get-pipeline-construction-history.md) > | is   | metadata              |
+| md5             | string                                                       | no   | MD5                   |
 
-## 版本仓库-元数据
+## Version Repository - Metadata
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 元数据值 |
-| key | string | 是 | 元数据键 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | is   | Metadata value        |
+| key            | string         | is   | Metadata key          |
 
 ## WebhookInfo
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| webhookBranch | string | 否 | webhookBranch |
-| webhookEventType | string | 否 | webhookEventType |
-| webhookMessage | string | 否 | webhookMessage |
-| webhookMergeCommitSha | string | 否 | webhookMergeCommitSha |
-| webhookRepoUrl | string | 否 | webhookRepoUrl |
-| webhookCommitId | string | 否 | webhookCommitId |
-| webhookType | string | 否 | webhookType |
+| Parameter name        | Parameter type | must | Parameter description |
+| :-------------------- | :------------- | :--- | :-------------------- |
+| webhookBranch         | string         | no   | webhookBranch         |
+| webhookEventType      | string         | no   | webhookEventType      |
+| webhookMessage        | string         | no   | webhookMessage        |
+| webhookMergeCommitSha | string         | no   | webhookMergeCommitSha |
+| webhookRepoUrl        | string         | no   | webhookRepoUrl        |
+| webhookCommitId       | string         | no   | webhookCommitId       |
+| webhookType           | string         | no   | webhookType           |
 
-## 插件错误信息
+## Plug-in error message
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| atomCode | string | 否 | 插件编号 |
-| errorType | integer | 否 | 错误类型 |
-| errorCode | integer | 是 | 错误码 |
-| taskName | string | 否 | 插件名称 |
-| taskId | string | 否 | 插件ID |
-| errorMsg | string | 否 | 错误信息 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| atomCode       | string         | no   | Plug-in number        |
+| errorType      | integer        | no   | Error type            |
+| errorCode      | integer        | is   | Error code            |
+| taskName       | string         | no   | Plug-in name          |
+| taskId         | string         | no   | Plug-in ID            |
+| errorMsg       | string         | no   | Error message         |

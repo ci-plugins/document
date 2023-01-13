@@ -1,91 +1,71 @@
-# 获取流水线的webhook列表
+# Gets the list of Webhooks for the pipeline
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
+#### GET /ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook
 
-### 资源描述
+### Resource description
 
-#### 获取流水线的webhook列表
+#### Gets the list of Webhooks for the pipeline
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| page | integer | 否 | 页码 |  |
-| pageSize | integer | 否 | 每页大小 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| page           | integer        | no   | Page number           |               |
+| pageSize       | integer        | no   | Page size             |               |
 
-| X-DEVOPS-UID | string | 是 | userId |  |
-| :--- | :--- | :--- | :--- | :--- |
+#### Path parameter
 
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   |                       |               |
+| pipelineId     | string         | is   |                       |               |
 
-#### Path参数
+#### response
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 |  |  |
-| pipelineId | string | 是 |  |  |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data is returned to the wrapper model ListPipelineWebhook](get-the-webhook-list-of-the-pipeline.md) |
 
-#### 响应
+#### Request sample
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListPipelineWebhook](get-the-webhook-list-of-the-pipeline.md) |
-
-#### 请求样例
-
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace API address bar request address]? page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : [ {
-    "repoType" : "ENUM",
-    "repoName" : "String",
-    "repositoryType" : "ENUM",
-    "id" : 0,
-    "projectName" : "String",
-    "projectId" : "String",
-    "repoHashId" : "String",
-    "taskId" : "String",
-    "pipelineId" : "String"
-  } ],
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : [ {  "repoType" : "ENUM",  "repoName" : "String",  "repositoryType" : "ENUM",  "id" : 0,  "projectName" : "String",  "projectId" : "String",  "repoHashId" : "String",  "taskId" : "String",  "pipelineId" : "String"  } ],  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型ListPipelineWebhook
+## The data is returned to the wrapper model ListPipelineWebhook
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | List&lt;[PipelineWebhook](get-the-webhook-list-of-the-pipeline.md)&gt; | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | List<[PipelineWebhook](get-the-webhook-list-of-the-pipeline.md)> | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
 ## PipelineWebhook
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| repoType | ENUM\(ID, NAME, \) | 否 | repoType |
-| repoName | string | 否 | repoName |
-| repositoryType | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 否 | repositoryType |
-| id | integer | 否 | id |
-| projectName | string | 否 | projectName |
-| projectId | string | 否 | projectId |
-| repoHashId | string | 否 | repoHashId |
-| taskId | string | 否 | taskId |
-| pipelineId | string | 否 | pipelineId |
-
+| Parameter name | Parameter type                                             | must | Parameter description |
+| :------------- | :--------------------------------------------------------- | :--- | :-------------------- |
+| repoType       | ENUM(ID, NAME, )                                           | no   | repoType              |
+| repoName       | string                                                     | no   | repoName              |
+| repositoryType | ENUM(CODE_SVN, CODE_GIT, CODE_GITLAB, GITHUB, CODE_TGIT, ) | no   | repositoryType        |
+| id             | integer                                                    | no   | id                    |
+| projectName    | string                                                     | no   | projectName           |
+| projectId      | string                                                     | no   | projectId             |
+| repoHashId     | string                                                     | no   | repoHashId            |
+| taskId         | string                                                     | no   | taskId                |
+| pipelineId     | string                                                     | no   | pipelineId            |

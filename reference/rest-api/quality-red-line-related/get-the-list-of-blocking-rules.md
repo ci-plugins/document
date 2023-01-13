@@ -1,162 +1,118 @@
-# 获取拦截规则列表
+# Gets a list of intercept rules
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/list
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/quality/rules/list
 
-### 资源描述
+### Resource description
 
-#### 获取拦截规则列表
+#### Gets a list of intercept rules
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| page | integer | 否 | 页目 | 1 |
-| pageSize | integer | 否 | 每页数目 | 20 |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| page           | integer        | no   | Page entry            | 1             |
+| pageSize       | integer        | no   | Number per page       | 20            |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型质量红线-规则简要信息v2](get-the-list-of-blocking-rules.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Packaging Model Page Data Packaging Model Quality Red Line - Rule Brief Information v2](get-the-list-of-blocking-rules.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace API address bar request address]? page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "pipelineCount" : 0,
-      "pipelineExecuteCount" : 0,
-      "indicatorList" : [ {
-        "cnName" : "String",
-        "name" : "String",
-        "threshold" : "String",
-        "hashId" : "String",
-        "operation" : "String"
-      } ],
-      "enable" : true,
-      "permissions" : {
-        "canEnable" : true,
-        "canEdit" : true,
-        "canDelete" : true
-      },
-      "name" : "String",
-      "range" : "ENUM",
-      "rangeSummary" : [ {
-        "lackElements" : "string",
-        "name" : "String",
-        "id" : "String",
-        "type" : "String"
-      } ],
-      "interceptTimes" : 0,
-      "ruleHashId" : "String",
-      "controlPoint" : {
-        "cnName" : "String",
-        "name" : "String",
-        "hashId" : "String"
-      },
-      "gatewayId" : "String"
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "pipelineCount" : 0,  "pipelineExecuteCount" : 0,  "indicatorList" : [ {  "cnName" : "String",  "name" : "String",  "threshold" : "String",  "hashId" : "String",  "operation" : "String"  } ],  "enable" : true,  "permissions" : {  "canEnable" : true,  "canEdit" : true,  "canDelete" : true  },  "name" : "String",  "range" : "ENUM",  "rangeSummary" : [ {  "lackElements" : "string",  "name" : "String",  "id" : "String",  "type" : "String"  } ],  "interceptTimes" : 0,  "ruleHashId" : "String",  "controlPoint" : {  "cnName" : "String",  "name" : "String",  "hashId" : "String"  },  "gatewayId" : "String"  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型质量红线-规则简要信息v2
+## Data Return Packaging Model Page Data Packaging Model Quality Red Line - Rule Brief Information v2
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型质量红线-规则简要信息v2](get-the-list-of-blocking-rules.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Paging Data Wrapper Model Quality Red Line - Rule Brief v2](get-the-list-of-blocking-rules.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型质量红线-规则简要信息v2
+## Paging Data Wrapper Model Quality Red Line - Rule Brief v2
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[质量红线-规则简要信息v2](get-the-list-of-blocking-rules.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                               | must | Parameter description        |
+| :------------- | :----------------------------------------------------------- | :--- | :--------------------------- |
+| records        | List< [Quality Red Line - Rule summary v2](get-the-list-of-blocking-rules.md)> | is   | data                         |
+| count          | integer                                                      | is   | Total number of record lines |
+| totalPages     | integer                                                      | is   | How many pages in total?     |
+| pageSize       | integer                                                      | is   | How many pieces per page     |
+| page           | integer                                                      | is   | What page                    |
 
-## 质量红线-规则简要信息v2
+## Quality Red Line - Rule Brief v2
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineCount | integer | 是 | 流水线个数 |
-| pipelineExecuteCount | integer | 是 | 生效流水线执次数 |
-| indicatorList | List&lt;[RuleSummaryIndicator](get-the-list-of-blocking-rules.md)&gt; | 是 | 指标列表 |
-| enable | boolean | 是 | 是否启用 |
-| permissions | [质量红线-规则权限](get-the-list-of-blocking-rules.md) | 是 | 规则权限 |
-| name | string | 是 | 规则名称 |
-| range | ENUM\(ANY, PART\_BY\_TAG, PART\_BY\_NAME, \) | 是 | 生效范围 |
-| rangeSummary | List&lt;[RuleRangeSummary](get-the-list-of-blocking-rules.md)&gt; | 是 | 包含模板和流水线的生效范围（新） |
-| interceptTimes | integer | 是 | 拦截次数 |
-| ruleHashId | string | 是 | 规则HashId |
-| controlPoint | [RuleSummaryControlPoint](get-the-list-of-blocking-rules.md) | 是 | 控制点 |
-| gatewayId | string | 是 | 红线ID |
+| Parameter name       | Parameter type                                               | must | Parameter description                                   |
+| :------------------- | :----------------------------------------------------------- | :--- | :------------------------------------------------------ |
+| pipelineCount        | integer                                                      | is   | Number of pipeline                                      |
+| pipelineExecuteCount | integer                                                      | is   | Number of pipeline executions in effect                 |
+| indicatorList        | List<[RuleSummaryIndicator](get-the-list-of-blocking-rules.md)> | is   | Index list                                              |
+| enable               | boolean                                                      | is   | Enable or not                                           |
+| permissions          | [Quality Red Line - Rule authority](get-the-list-of-blocking-rules.md) | is   | Rule authority                                          |
+| name                 | string                                                       | is   | Rule name                                               |
+| range                | ENUM(ANY, PART_BY_TAG, PART_BY_NAME, )                       | is   | Effective scope                                         |
+| rangeSummary         | List<[RuleRangeSummary](get-the-list-of-blocking-rules.md)>  | is   | Includes templates and pipelining effective scope (new) |
+| interceptTimes       | integer                                                      | is   | Number of interceptions                                 |
+| ruleHashId           | string                                                       | is   | Rule HashId                                             |
+| controlPoint         | [RuleSummaryControlPoint](get-the-list-of-blocking-rules.md) | is   | Control point                                           |
+| gatewayId            | string                                                       | is   | Red line ID                                             |
 
 ## RuleSummaryIndicator
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| cnName | string | 否 | cnName |
-| name | string | 否 | name |
-| threshold | string | 否 | threshold |
-| hashId | string | 否 | hashId |
-| operation | string | 否 | operation |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| cnName         | string         | no   | cnName                |
+| name           | string         | no   | name                  |
+| threshold      | string         | no   | threshold             |
+| hashId         | string         | no   | hashId                |
+| operation      | string         | no   | operation             |
 
-## 质量红线-规则权限
+## Quality Red Line - Rule authority
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canEnable | boolean | 是 | 是否可停用/启用 |
-| canEdit | boolean | 是 | 是否可编辑 |
-| canDelete | boolean | 是 | 是否可删除 |
+| Parameter name | Parameter type | must | Parameter description              |
+| :------------- | :------------- | :--- | :--------------------------------- |
+| canEnable      | boolean        | is   | Whether it can be disabled/enabled |
+| canEdit        | boolean        | is   | Editable or not                    |
+| canDelete      | boolean        | is   | Whether it can be deleted          |
 
 ## RuleRangeSummary
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| lackElements | List | 否 | lackElements |
-| name | string | 否 | name |
-| id | string | 否 | id |
-| type | string | 否 | type |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| lackElements   | List           | no   | lackElements          |
+| name           | string         | no   | name                  |
+| id             | string         | no   | id                    |
+| type           | string         | no   | type                  |
 
 ## RuleSummaryControlPoint
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| cnName | string | 否 | cnName |
-| name | string | 否 | name |
-| hashId | string | 否 | hashId |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| cnName         | string         | no   | cnName                |
+| name           | string         | no   | name                  |
+| hashId         | string         | no   | hashId                |

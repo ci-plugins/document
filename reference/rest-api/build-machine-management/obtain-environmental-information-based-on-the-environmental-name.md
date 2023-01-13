@@ -1,105 +1,81 @@
-# 根据环境名称获取环境信息\(不校验权限\)
+# Obtaining environment information by environment name (not verifying permissions)
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/environment/projects/{projectId}/envs/listRawByEnvNames
+#### POST /ms/openapi/api/apigw/v3/environment/projects/{projectId}/envs/listRawByEnvNames
 
-### 资源描述
+### Resource description
 
-#### 根据环境名称获取环境信息\(不校验权限\)
+#### Obtaining environment information by environment name (not verifying permissions)
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | array | 是 | 环境名称\(s\) |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| body           | array          | is   | Environment name (s)  |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型List环境信息\(权限\) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | Data return wrapper model List Environment Information (permissions) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : [ {
-    "updatedTime" : 0,
-    "canEdit" : true,
-    "envVars" : [ {
-      "name" : "String",
-      "secure" : true,
-      "value" : "String"
-    } ],
-    "updatedUser" : "String",
-    "canUse" : true,
-    "envType" : "String",
-    "name" : "String",
-    "createdTime" : 0,
-    "nodeCount" : 0,
-    "canDelete" : true,
-    "envHashId" : "String",
-    "createdUser" : "String",
-    "desc" : "String"
-  } ],
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : [ {  "updatedTime" : 0,  "canEdit" : true,  "envVars" : [ {  "name" : "String",  "secure" : true,  "value" : "String"  } ],  "updatedUser" : "String",  "canUse" : true,  "envType" : "String",  "name" : "String",  "createdTime" : 0,  "nodeCount" : 0,  "canDelete" : true,  "envHashId" : "String",  "createdUser" : "String",  "desc" : "String"  } ],  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型List环境信息\(权限\)
+## Data return wrapper model List Environment Information (permissions)
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | List&lt;环境信息\(权限\)&gt; | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                               | must | Parameter description |
+| :------------- | :------------------------------------------- | :--- | :-------------------- |
+| data           | List< Environment Information (permissions)> | no   | data                  |
+| message        | string                                       | no   | Error message         |
+| status         | integer                                      | is   | Status code           |
 
-## 环境信息\(权限\)
+## Environmental information (permission)
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| updatedTime | integer | 是 | 更新时间 |
-| canEdit | boolean | 否 | 是否可以编辑 |
-| envVars | List&lt;环境变量&gt; | 是 | 环境变量 |
-| updatedUser | string | 是 | 更新人 |
-| canUse | boolean | 否 | 是否可以使用 |
-| envType | string | 是 | 环境类型（开发环境{DEV} |
-| name | string | 是 | 环境名称 |
-| createdTime | integer | 是 | 创建时间 |
-| nodeCount | integer | 否 | 节点数量 |
-| canDelete | boolean | 否 | 是否可以删除 |
-| envHashId | string | 是 | 环境 HashId |
-| createdUser | string | 是 | 创建人 |
-| desc | string | 是 | 环境描述 |
+| Parameter name | Parameter type               | must | Parameter description                           |
+| :------------- | :--------------------------- | :--- | :---------------------------------------------- |
+| updatedTime    | integer                      | is   | Update time                                     |
+| canEdit        | boolean                      | no   | Whether it can be edited                        |
+| envVars        | List< environment variable > | is   | Environment variable                            |
+| updatedUser    | string                       | is   | updater                                         |
+| canUse         | boolean                      | no   | Whether it can be used                          |
+| envType        | string                       | is   | Environment type (development environment {DEV} |
+| name           | string                       | is   | Environment name                                |
+| createdTime    | integer                      | is   | Creation time                                   |
+| nodeCount      | integer                      | no   | Number of nodes                                 |
+| canDelete      | boolean                      | no   | Whether it can be deleted                       |
+| envHashId      | string                       | is   | Environmental HashId                            |
+| createdUser    | string                       | is   | founder                                         |
+| desc           | string                       | is   | Environment description                         |
 
-## 环境变量
+## Environment variable
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 是 | 变量名 |
-| secure | boolean | 是 | 是否安全变量 |
-| value | string | 是 | 变量值 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| name           | string         | is   | Variable name         |
+| secure         | boolean        | is   | Safe or not           |
+| value          | string         | is   | Variable value        |

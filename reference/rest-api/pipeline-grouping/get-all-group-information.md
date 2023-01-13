@@ -1,97 +1,74 @@
-# 获取所有分组信息
+# Gets all group information
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/pipelineGroups/groups
 
-### 资源描述
+### Resource description
 
-#### 获取所有分组信息
+#### Gets all group information
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型ListPipelineGroup](get-all-group-information.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data is returned to the wrapper model ListPipelineGroup](get-all-group-information.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : [ {
-    "createTime" : 0,
-    "name" : "String",
-    "updateUser" : "String",
-    "updateTime" : 0,
-    "createUser" : "String",
-    "id" : "String",
-    "projectId" : "String",
-    "labels" : [ {
-      "createTime" : 0,
-      "groupId" : "String",
-      "name" : "String",
-      "updateUser" : "String",
-      "uptimeTime" : 0,
-      "createUser" : "String",
-      "id" : "String"
-    } ]
-  } ],
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : [ {  "createTime" : 0,  "name" : "String",  "updateUser" : "String",  "updateTime" : 0,  "createUser" : "String",  "id" : "String",  "projectId" : "String",  "labels" : [ {  "createTime" : 0,  "groupId" : "String",  "name" : "String",  "updateUser" : "String",  "uptimeTime" : 0,  "createUser" : "String",  "id" : "String"  } ]  } ],  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型ListPipelineGroup
+## The data is returned to the wrapper model ListPipelineGroup
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | List&lt;[PipelineGroup](get-all-group-information.md)&gt; | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                      | must | Parameter description |
+| :------------- | :-------------------------------------------------- | :--- | :-------------------- |
+| data           | List<[PipelineGroup](get-all-group-information.md)> | no   | data                  |
+| message        | string                                              | no   | Error message         |
+| status         | integer                                             | is   | Status code           |
 
 ## PipelineGroup
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| createTime | integer | 否 | createTime |
-| name | string | 否 | name |
-| updateUser | string | 否 | updateUser |
-| updateTime | integer | 否 | updateTime |
-| createUser | string | 否 | createUser |
-| id | string | 否 | id |
-| projectId | string | 否 | projectId |
-| labels | List&lt;[PipelineLabel](get-all-group-information.md)&gt; | 否 | labels |
+| Parameter name | Parameter type                                      | must | Parameter description |
+| :------------- | :-------------------------------------------------- | :--- | :-------------------- |
+| createTime     | integer                                             | no   | createTime            |
+| name           | string                                              | no   | name                  |
+| updateUser     | string                                              | no   | updateUser            |
+| updateTime     | integer                                             | no   | updateTime            |
+| createUser     | string                                              | no   | createUser            |
+| id             | string                                              | no   | id                    |
+| projectId      | string                                              | no   | projectId             |
+| labels         | List<[PipelineLabel](get-all-group-information.md)> | no   | labels                |
 
 ## PipelineLabel
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| createTime | integer | 否 | createTime |
-| groupId | string | 否 | groupId |
-| name | string | 否 | name |
-| updateUser | string | 否 | updateUser |
-| uptimeTime | integer | 否 | uptimeTime |
-| createUser | string | 否 | createUser |
-| id | string | 否 | id |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| createTime     | integer        | no   | createTime            |
+| groupId        | string         | no   | groupId               |
+| name           | string         | no   | name                  |
+| updateUser     | string         | no   | updateUser            |
+| uptimeTime     | integer        | no   | uptimeTime            |
+| createUser     | string         | no   | createUser            |
+| id             | string         | no   | id                    |

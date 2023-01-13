@@ -1,77 +1,69 @@
-# 启动构建
+# Start build
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/start
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/start
 
-### 资源描述
+### Resource description
 
-#### 启动构建
+#### Start build
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| buildNo | integer | 否 | 手动指定构建版本参数 |  |
-| channelCode | string | 否 | 渠道号，默认为BS |  |
+| Parameter name | Parameter type | must | Parameter description                     | Default value |
+| :------------- | :------------- | :--- | :---------------------------------------- | :------------ |
+| buildNo        | integer        | no   | Manually specify build version parameters |               |
+| channelCode    | string         | no   | Channel number. The default is BS         |               |
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | map | 是 | 启动参数 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| body           | map            | is   | Startup parameter     |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-ID](start-the-build.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data returns wrapper model build model-ID](start-the-build.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?buildNo={buildNo}&amp;channelCode={channelCode}'
+```
+curl -X POST '[please replace API address bar request address]? buildNo={buildNo}&channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "id" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "id" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型构建模型-ID
+## Data returns wrapper model build model-ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [构建模型-ID](start-the-build.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                        | must | Parameter description |
+| :------------- | :------------------------------------ | :--- | :-------------------- |
+| data           | [Build model -ID](start-the-build.md) | no   | data                  |
+| message        | string                                | no   | Error message         |
+| status         | integer                               | is   | Status code           |
 
-## 构建模型-ID
+## Build model -ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| id | string | 是 | 构建ID |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| id             | string         | is   | Build ID              |

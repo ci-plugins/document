@@ -1,139 +1,126 @@
-# 批量更新流水线模板实例
+# Batch update pipelined template instances
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### PUT  /ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
+#### PUT /ms/openapi/api/apigw/v3/projects/{projectId}/templates/{templateId}/templateInstances
 
-### 资源描述
+### Resource description
 
-#### 批量更新流水线模板实例
+#### Batch update pipelined template instances
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| version | integer | 是 | 版本名 |  |
-| useTemplateSettings | boolean | 否 | 是否应用模板设置 |  |
+| Parameter name      | Parameter type | must | Parameter description              | Default value |
+| :------------------ | :------------- | :--- | :--------------------------------- | :------------ |
+| version             | integer        | is   | Version name                       |               |
+| useTemplateSettings | boolean        | no   | Whether to apply template Settings |               |
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | array&lt;[TemplateInstanceUpdate](batch-update-pipeline-template-example.md)&gt; | 是 | 模板实例 |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | array<[TemplateInstanceUpdate](batch-update-pipeline-template-example.md)> | is   | Template instance     |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| templateId | string | 是 | 模板ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| templateId     | string         | is   | Template ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [TemplateOperationRet](batch-update-pipeline-template-example.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [TemplateOperationRet](batch-update-pipeline-template-example.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X PUT '[请替换为API地址栏请求地址]?version={version}&amp;useTemplateSettings={useTemplateSettings}'
+```
+curl -X PUT '[Please replace API address bar request address]? version={version}&useTemplateSettings={useTemplateSettings}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "failurePipelines" : "string",
-    "failureMessages" : {
-      "string" : "string"
-    },
-    "successPipelinesId" : "string",
-    "successPipelines" : "string"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "failurePipelines" : "string",  "failureMessages" : {  "string" : "string"  },  "successPipelinesId" : "string",  "successPipelines" : "string"  },  "message" : "String",  "status" : 0 } 
 ```
 
 ## TemplateInstanceUpdate
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineName | string | 否 | pipelineName |
-| param | List&lt;[构建模型-表单元素属性](batch-update-pipeline-template-example.md)&gt; | 否 | param |
-| buildNo | [BuildNo](batch-update-pipeline-template-example.md) | 否 | buildNo |
-| pipelineId | string | 否 | pipelineId |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| pipelineName   | string                                                       | no   | pipelineName          |
+| param          | List< [Build Model-Form Element Attributes](batch-update-pipeline-template-example.md) > | no   | param                 |
+| buildNo        | [BuildNo](batch-update-pipeline-template-example.md)         | no   | buildNo               |
+| pipelineId     | string                                                       | no   | pipelineId            |
 
-## 构建模型-表单元素属性
+## Build Model - Form element attributes
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| defaultValue | object | 是 | 默认值 |
-| containerType | [BuildContainerType](batch-update-pipeline-template-example.md) | 否 | 构建机类型下拉 |
-| glob | string | 否 | 自定义仓库通配符 |
-| replaceKey | string | 否 | 替换搜索url中的搜素关键字 |
-| readOnly | boolean | 否 | 是否只读 |
-| label | string | 否 | 元素标签 |
-| type | ENUM\(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN\_TAG, GIT\_REF, MULTIPLE, CODE\_LIB, CONTAINER\_TYPE, ARTIFACTORY, SUB\_PIPELINE, CUSTOM\_FILE, PASSWORD, TEMPORARY, \) | 是 | 元素类型 |
-| required | boolean | 是 | 是否必须 |
-| repoHashId | string | 否 | repoHashId |
-| scmType | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 否 | 代码库类型下拉 |
-| relativePath | string | 否 | relativePath |
-| propertyType | string | 否 | 元素模块 |
-| options | List&lt;[构建模型-下拉框表单元素值](batch-update-pipeline-template-example.md)&gt; | 否 | 下拉框列表 |
-| searchUrl | string | 否 | 搜索url, 当是下拉框选项时，列表值从url获取不再从option获取 |
-| id | string | 是 | 元素ID-标识符 |
-| placeholder | string | 否 | 元素placeholder |
-| properties | object | 否 | 文件元数据 |
-| desc | string | 否 | 描述 |
+| Parameter name | Parameter type                                               | must | Parameter description                                        |
+| :------------- | :----------------------------------------------------------- | :--- | :----------------------------------------------------------- |
+| defaultValue   | object                                                       | is   | Default value                                                |
+| containerType  | [BuildContainerType](batch-update-pipeline-template-example.md) | no   | Builder type drop-down                                       |
+| glob           | string                                                       | no   | Custom warehouse wildcards                                   |
+| replaceKey     | string                                                       | no   | Replace the search keyword in the search url                 |
+| readOnly       | boolean                                                      | no   | Whether to read only                                         |
+| label          | string                                                       | no   | Element tag                                                  |
+| type           | ENUM(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN_TAG, GIT_REF, MULTIPLE, CODE_LIB, CONTAINER_TYPE, ARTIFACTORY, SUB_PIPELINE, CUSTOM_FILE, PASSWORD, TEMPORARY, ) | is   | Element type                                                 |
+| required       | boolean                                                      | is   | Whether it is necessary                                      |
+| repoHashId     | string                                                       | no   | repoHashId                                                   |
+| scmType        | ENUM(CODE_SVN, CODE_GIT, CODE_GITLAB, GITHUB, CODE_TGIT, )   | no   | Code base type drop-down                                     |
+| relativePath   | string                                                       | no   | relativePath                                                 |
+| propertyType   | string                                                       | no   | Element module                                               |
+| options        | List< [Build Model-Dropdown form element Values](batch-update-pipeline-template-example.md) > | no   | Drop-down list                                               |
+| searchUrl      | string                                                       | no   | Search for the url. When it is a drop-down option, the list value is obtained from the url and not from Option |
+| id             | string                                                       | is   | Element ID- Identifier                                       |
+| placeholder    | string                                                       | no   | Element placeholder                                          |
+| properties     | object                                                       | no   | File metadata                                                |
+| desc           | string                                                       | no   | description                                                  |
 
 ## BuildContainerType
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| os | ENUM\(MACOS, WINDOWS, LINUX, \) | 否 | os |
-| buildType | ENUM\(ESXi, MACOS, DOCKER, IDC, PUBLIC\_DEVCLOUD, TSTACK, THIRD\_PARTY\_AGENT\_ID, THIRD\_PARTY\_AGENT\_ENV, THIRD\_PARTY\_PCG, THIRD\_PARTY\_DEVCLOUD, GIT\_CI, AGENT\_LESS, \) | 否 | buildType |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| os             | ENUM(MACOS, WINDOWS, LINUX, )                                | no   | os                    |
+| buildType      | ENUM(ESXi, MACOS, DOCKER, IDC, PUBLIC_DEVCLOUD, TSTACK, THIRD_PARTY_AGENT_ID, THIRD_PARTY_AGENT_ENV, THIRD_PARTY_PCG, THIRD_PARTY_DEVCLOUD, GIT_CI, AGENT_LESS, ) | no   | buildType             |
 
-## 构建模型-下拉框表单元素值
+## Build Model - Drop down box form element values
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 元素值名称-显示用 |
-| key | string | 是 | 元素值ID-标识符 |
+| Parameter name | Parameter type | must | Parameter description            |
+| :------------- | :------------- | :--- | :------------------------------- |
+| value          | string         | is   | Element value Name - for display |
+| key            | string         | is   | Element value ID- identifier     |
 
 ## BuildNo
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| buildNoType | ENUM\(CONSISTENT, SUCCESS\_BUILD\_INCREMENT, EVERY\_BUILD\_INCREMENT, \) | 否 | buildNoType |
-| buildNo | integer | 否 | buildNo |
-| required | boolean | 否 | required |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| buildNoType    | ENUM(CONSISTENT, SUCCESS_BUILD_INCREMENT, EVERY_BUILD_INCREMENT, ) | no   | buildNoType           |
+| buildNo        | integer                                                      | no   | buildNo               |
+| required       | boolean                                                      | no   | required              |
 
 ## TemplateOperationRet
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [TemplateOperationMessage](batch-update-pipeline-template-example.md) | 否 | data |
-| message | string | 否 | message |
-| status | integer | 否 | status |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [TemplateOperationMessage](batch-update-pipeline-template-example.md) | no   | data                  |
+| message        | string                                                       | no   | message               |
+| status         | integer                                                      | no   | status                |
 
 ## TemplateOperationMessage
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| failurePipelines | List | 否 | failurePipelines |
-| failureMessages | object | 否 | failureMessages |
-| successPipelinesId | List | 否 | successPipelinesId |
-| successPipelines | List | 否 | successPipelines |
-
+| Parameter name     | Parameter type | must | Parameter description |
+| :----------------- | :------------- | :--- | :-------------------- |
+| failurePipelines   | List           | no   | failurePipelines      |
+| failureMessages    | object         | no   | failureMessages       |
+| successPipelinesId | List           | no   | successPipelinesId    |
+| successPipelines   | List           | no   | successPipelines      |

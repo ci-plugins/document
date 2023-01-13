@@ -1,78 +1,72 @@
-# 创建项目
+# Create a project
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects
+#### POST /ms/openapi/api/apigw/v3/projects
 
-### 资源描述
+### Resource description
 
-#### 创建项目
+#### Create a project
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [项目-新增模型](create-project.md) | 是 | 项目信息 |  |
+| Parameter name | Parameter type                           | must | Parameter description | Default value |
+| :------------- | :--------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Project - New model](create-project.md) | is   | Project information   |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+|                |                |      |                       |               |
 
+#### response
 
-#### 响应
+| HTTP code | description          | Parameter type                                         |
+| :-------- | :------------------- | :----------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](create-project.md) |
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](create-project.md) |
+#### Request sample
 
-#### 请求样例
-
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 项目-新增模型
+## Project - New model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| englishName | string | 否 | 英文缩写 |
-| deptName | string | 否 | 二级部门名称 |
-| centerId | integer | 否 | 三级部门ID |
-| secrecy | boolean | 否 | 是否保密 |
-| kind | integer | 否 | kind |
-| projectType | integer | 否 | 项目类型 |
-| deptId | integer | 否 | 二级部门ID |
-| description | string | 否 | 描述 |
-| bgName | string | 否 | 一级部门名字 |
-| projectName | string | 否 | 项目名称 |
-| bgId | integer | 否 | 一级部门ID |
-| centerName | string | 否 | 三级部门名称 |
+| Parameter name | Parameter type | must | Parameter description        |
+| :------------- | :------------- | :--- | :--------------------------- |
+| englishName    | string         | no   | English abbreviation         |
+| deptName       | string         | no   | Name of secondary department |
+| centerId       | integer        | no   | Tertiary department ID       |
+| secrecy        | boolean        | no   | Confidentiality or not       |
+| kind           | integer        | no   | kind                         |
+| projectType    | integer        | no   | Item type                    |
+| deptId         | integer        | no   | Secondary department ID      |
+| description    | string         | no   | description                  |
+| bgName         | string         | no   | Name of primary department   |
+| projectName    | string         | no   | Project name                 |
+| bgId           | integer        | no   | Primary department ID        |
+| centerName     | string         | no   | Three-level department name  |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

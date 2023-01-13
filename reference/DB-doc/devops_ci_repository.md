@@ -1,171 +1,171 @@
-# devops\_ci\_repository
+# devops_ci_repository
 
-**数据库名：** devops\_ci\_repository
+**Database name:** devops_ci_repository
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_repository的数据库文档
+**Documentation Description:** devops_ci_repository database documentation
 
-|                        表名                        |         说明        |
-| :----------------------------------------------: | :---------------: |
-|         [T\_REPOSITORY](broken-reference)        |        代码库表       |
-|   [T\_REPOSITORY\_CODE\_GIT](broken-reference)   |      工蜂代码库明细表     |
-|  [T\_REPOSITORY\_CODE\_GITLAB](broken-reference) |    gitlab代码库明细表   |
-|   [T\_REPOSITORY\_CODE\_SVN](broken-reference)   |     svn代码库明细表     |
-|     [T\_REPOSITORY\_COMMIT](broken-reference)    |      代码库变更记录      |
-|     [T\_REPOSITORY\_GITHUB](broken-reference)    |    github代码库明细表   |
-| [T\_REPOSITORY\_GITHUB\_TOKEN](broken-reference) | githuboauthtoken表 |
-|   [T\_REPOSITORY\_GIT\_CHECK](broken-reference)  |   工蜂oauthtoken表   |
-|   [T\_REPOSITORY\_GIT\_TOKEN](broken-reference)  |  工蜂commitchecker表 |
+|                  Table name                   |            description             |
+| :-------------------------------------------: | :--------------------------------: |
+|       [T_REPOSITORY](broken-reference)        |          Code base table           |
+|   [T_REPOSITORY_CODE_GIT](broken-reference)   | Worker bee code base specification |
+| [T_REPOSITORY_CODE_GITLAB](broken-reference)  |   gitlab code base specification   |
+|   [T_REPOSITORY_CODE_SVN](broken-reference)   |    svn code base specification     |
+|    [T_REPOSITORY_COMMIT](broken-reference)    |        Code base change log        |
+|    [T_REPOSITORY_GITHUB](broken-reference)    |   github code base specification   |
+| [T_REPOSITORY_GITHUB_TOKEN](broken-reference) |       githuboauthtoken table       |
+|  [T_REPOSITORY_GIT_CHECK](broken-reference)   |  oauthtoken table of worker bees   |
+|  [T_REPOSITORY_GIT_TOKEN](broken-reference)   | commitchecker table of worker bees |
 
-**表名：** T\_REPOSITORY
+**Table name:** T_REPOSITORY
 
-**说明：** 代码库表
+Code base table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |     说明     |
-| :-: | :------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :--------: |
-|  1  | REPOSITORY\_ID |   bigint  |  20 |  0  |   N  |  Y  |                    |    主键ID    |
-|  2  |   PROJECT\_ID  |  varchar  |  32 |  0  |   N  |  N  |                    |    项目ID    |
-|  3  |    USER\_ID    |  varchar  |  64 |  0  |   N  |  N  |                    |    用户ID    |
-|  4  |   ALIAS\_NAME  |  varchar  | 255 |  0  |   N  |  N  |                    |     别名     |
-|  5  |       URL      |  varchar  | 255 |  0  |   N  |  N  |                    |    url地址   |
-|  6  |      TYPE      |  varchar  |  20 |  0  |   N  |  N  |                    |     类型     |
-|  7  |  CREATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 |    创建时间    |
-|  8  |  UPDATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 |    修改时间    |
-|  9  |   IS\_DELETED  |    bit    |  1  |  0  |   N  |  N  |                    | 是否删除0可用1删除 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |    Default value    |               description               |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------------: | :-------------------------------------: |
+|       1       | REPOSITORY_ID |  bigint   |   20   |       0       |          N           |      Y      |                     |             Primary key ID              |
+|       2       |  PROJECT_ID   |  varchar  |   32   |       0       |          N           |      N      |                     |                 Item ID                 |
+|       3       |    USER_ID    |  varchar  |   64   |       0       |          N           |      N      |                     |                 User ID                 |
+|       4       |  ALIAS_NAME   |  varchar  |  255   |       0       |          N           |      N      |                     |                  alias                  |
+|       5       |      URL      |  varchar  |  255   |       0       |          N           |      N      |                     |               url address               |
+|       6       |     TYPE      |  varchar  |   20   |       0       |          N           |      N      |                     |                  type                   |
+|       7       | CREATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |              Creation time              |
+|       8       | UPDATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |            Modification time            |
+|       9       |  IS_DELETED   |    bit    |   1    |       0       |          N           |      N      |                     | Whether to delete 0 can be deleted by 1 |
 
-**表名：** T\_REPOSITORY\_CODE\_GIT
+**Table name:** T_REPOSITORY_CODE_GIT
 
-**说明：** 工蜂代码库明细表
+**Specification** of worker bee code base
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  | REPOSITORY\_ID |   bigint  |  20 |  0  |   N  |  Y  |                    | 仓库ID |
-|  2  |  PROJECT\_NAME |  varchar  | 255 |  0  |   N  |  N  |                    | 项目名称 |
-|  3  |   USER\_NAME   |  varchar  |  64 |  0  |   N  |  N  |                    | 用户名称 |
-|  4  |  CREATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 创建时间 |
-|  5  |  UPDATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 修改时间 |
-|  6  | CREDENTIAL\_ID |  varchar  |  64 |  0  |   N  |  N  |                    | 凭据ID |
-|  7  |   AUTH\_TYPE   |  varchar  |  8  |  0  |   Y  |  N  |                    | 认证方式 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |    Default value    |     description     |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------------: | :-----------------: |
+|       1       | REPOSITORY_ID |  bigint   |   20   |       0       |          N           |      Y      |                     |    Warehouse ID     |
+|       2       | PROJECT_NAME  |  varchar  |  255   |       0       |          N           |      N      |                     |    Project name     |
+|       3       |   USER_NAME   |  varchar  |   64   |       0       |          N           |      N      |                     |      User name      |
+|       4       | CREATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |    Creation time    |
+|       5       | UPDATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |  Modification time  |
+|       6       | CREDENTIAL_ID |  varchar  |   64   |       0       |          N           |      N      |                     |    Credential ID    |
+|       7       |   AUTH_TYPE   |  varchar  |   8    |       0       |          Y           |      N      |                     | Authentication mode |
 
-**表名：** T\_REPOSITORY\_CODE\_GITLAB
+**Table name:** T_REPOSITORY_CODE_GITLAB
 
-**说明：** gitlab代码库明细表
+**gitlab** code base list
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  | REPOSITORY\_ID |   bigint  |  20 |  0  |   N  |  Y  |                    | 仓库ID |
-|  2  |  PROJECT\_NAME |  varchar  | 255 |  0  |   N  |  N  |                    | 项目名称 |
-|  3  | CREDENTIAL\_ID |  varchar  |  64 |  0  |   N  |  N  |                    | 凭据ID |
-|  4  |  CREATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 创建时间 |
-|  5  |  UPDATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 修改时间 |
-|  6  |   USER\_NAME   |  varchar  |  64 |  0  |   N  |  N  |                    | 用户名称 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |    Default value    |    description    |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------------: | :---------------: |
+|       1       | REPOSITORY_ID |  bigint   |   20   |       0       |          N           |      Y      |                     |   Warehouse ID    |
+|       2       | PROJECT_NAME  |  varchar  |  255   |       0       |          N           |      N      |                     |   Project name    |
+|       3       | CREDENTIAL_ID |  varchar  |   64   |       0       |          N           |      N      |                     |   Credential ID   |
+|       4       | CREATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |   Creation time   |
+|       5       | UPDATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 | Modification time |
+|       6       |   USER_NAME   |  varchar  |   64   |       0       |          N           |      N      |                     |     User name     |
 
-**表名：** T\_REPOSITORY\_CODE\_SVN
+**Table name:** T_REPOSITORY_CODE_SVN
 
-**说明：** svn代码库明细表
+**Note:** svn code base details
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  | REPOSITORY\_ID |   bigint  |  20 |  0  |   N  |  Y  |                    | 仓库ID |
-|  2  |     REGION     |  varchar  | 255 |  0  |   N  |  N  |                    |  地区  |
-|  3  |  PROJECT\_NAME |  varchar  | 255 |  0  |   N  |  N  |                    | 项目名称 |
-|  4  |   USER\_NAME   |  varchar  |  64 |  0  |   N  |  N  |                    | 用户名称 |
-|  5  |  CREATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 创建时间 |
-|  6  |  UPDATED\_TIME | timestamp |  19 |  0  |   N  |  N  | 2019-08-0100:00:00 | 修改时间 |
-|  7  | CREDENTIAL\_ID |  varchar  |  64 |  0  |   N  |  N  |                    | 凭据ID |
-|  8  |    SVN\_TYPE   |  varchar  |  32 |  0  |   Y  |  N  |                    | 仓库类型 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |    Default value    |    description    |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------------: | :---------------: |
+|       1       | REPOSITORY_ID |  bigint   |   20   |       0       |          N           |      Y      |                     |   Warehouse ID    |
+|       2       |    REGION     |  varchar  |  255   |       0       |          N           |      N      |                     |       area        |
+|       3       | PROJECT_NAME  |  varchar  |  255   |       0       |          N           |      N      |                     |   Project name    |
+|       4       |   USER_NAME   |  varchar  |   64   |       0       |          N           |      N      |                     |     User name     |
+|       5       | CREATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 |   Creation time   |
+|       6       | UPDATED_TIME  | timestamp |   19   |       0       |          N           |      N      | 2019-08-01 00:00:00 | Modification time |
+|       7       | CREDENTIAL_ID |  varchar  |   64   |       0       |          N           |      N      |                     |   Credential ID   |
+|       8       |   SVN_TYPE    |  varchar  |   32   |       0       |          Y           |      N      |                     |  Warehouse type   |
 
-**表名：** T\_REPOSITORY\_COMMIT
+**Table name:** T_REPOSITORY_COMMIT
 
-**说明：** 代码库变更记录
+Code base change record
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |     长度     | 小数位 | 允许空值 |  主键 | 默认值 |          说明          |
-| :-: | :----------: | :------: | :--------: | :-: | :--: | :-: | :-: | :------------------: |
-|  1  |      ID      |  bigint  |     20     |  0  |   N  |  Y  |     |         主键ID         |
-|  2  |   BUILD\_ID  |  varchar |     34     |  0  |   Y  |  N  |     |         构建ID         |
-|  3  | PIPELINE\_ID |  varchar |     34     |  0  |   Y  |  N  |     |         流水线ID        |
-|  4  |   REPO\_ID   |  bigint  |     20     |  0  |   Y  |  N  |     |         代码库ID        |
-|  5  |     TYPE     | smallint |      6     |  0  |   Y  |  N  |     | 1-svn,2-git,3-gitlab |
-|  6  |    COMMIT    |  varchar |     64     |  0  |   Y  |  N  |     |          提交          |
-|  7  |   COMMITTER  |  varchar |     32     |  0  |   Y  |  N  |     |          提交者         |
-|  8  | COMMIT\_TIME | datetime |     19     |  0  |   Y  |  N  |     |         提交时间         |
-|  9  |    COMMENT   | longtext | 2147483647 |  0  |   Y  |  N  |     |          评论          |
-|  10 |  ELEMENT\_ID |  varchar |     34     |  0  |   Y  |  N  |     |         原子ID         |
-|  11 |  REPO\_NAME  |  varchar |     128    |  0  |   Y  |  N  |     |         代码库别名        |
+| Serial number |    name     | Data type |   length   | Decimal place | Allowable null value | Primary key | Default value |     description      |
+| :-----------: | :---------: | :-------: | :--------: | :-----------: | :------------------: | :---------: | :-----------: | :------------------: |
+|       1       |     ID      |  bigint   |     20     |       0       |          N           |      Y      |               |    Primary key ID    |
+|       2       |  BUILD_ID   |  varchar  |     34     |       0       |          Y           |      N      |               |       Build ID       |
+|       3       | PIPELINE_ID |  varchar  |     34     |       0       |          Y           |      N      |               |     Pipeline ID      |
+|       4       |   REPO_ID   |  bigint   |     20     |       0       |          Y           |      N      |               |     Code base ID     |
+|       5       |    TYPE     | smallint  |     6      |       0       |          Y           |      N      |               | 1-svn,2-git,3-gitlab |
+|       6       |   COMMIT    |  varchar  |     64     |       0       |          Y           |      N      |               |        submit        |
+|       7       |  COMMITTER  |  varchar  |     32     |       0       |          Y           |      N      |               |      submitter       |
+|       8       | COMMIT_TIME | datetime  |     19     |       0       |          Y           |      N      |               |   Submission time    |
+|       9       |   COMMENT   | longtext  | 2147483647 |       0       |          Y           |      N      |               |       comment        |
+|      10       | ELEMENT_ID  |  varchar  |     34     |       0       |          Y           |      N      |               |      Atomic ID       |
+|      11       |  REPO_NAME  |  varchar  |    128     |       0       |          Y           |      N      |               |   Code base alias    |
 
-**表名：** T\_REPOSITORY\_GITHUB
+**Table name:** T_REPOSITORY_GITHUB
 
-**说明：** github代码库明细表
+**Description:** github code base list
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  | REPOSITORY\_ID |   bigint  |  20 |  0  |   N  |  Y  |                    | 仓库ID |
-|  2  | CREDENTIAL\_ID |  varchar  | 128 |  0  |   Y  |  N  |                    | 凭据ID |
-|  3  |  PROJECT\_NAME |  varchar  | 255 |  0  |   N  |  N  |                    | 项目名称 |
-|  4  |   USER\_NAME   |  varchar  |  64 |  0  |   N  |  N  |                    | 用户名称 |
-|  5  |  CREATED\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 创建时间 |
-|  6  |  UPDATED\_TIME | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 修改时间 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |    description    |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------: |
+|       1       | REPOSITORY_ID |  bigint   |   20   |       0       |          N           |      Y      |                   |   Warehouse ID    |
+|       2       | CREDENTIAL_ID |  varchar  |  128   |       0       |          Y           |      N      |                   |   Credential ID   |
+|       3       | PROJECT_NAME  |  varchar  |  255   |       0       |          N           |      N      |                   |   Project name    |
+|       4       |   USER_NAME   |  varchar  |   64   |       0       |          N           |      N      |                   |     User name     |
+|       5       | CREATED_TIME  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |   Creation time   |
+|       6       | UPDATED_TIME  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP | Modification time |
 
-**表名：** T\_REPOSITORY\_GITHUB\_TOKEN
+**Table name:** T_REPOSITORY_GITHUB_TOKEN
 
-**说明：** githuboauthtoken表
+**githuboauthtoken** table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |    说明   |
-| :-: | :-----------: | :------: | :---: | :-: | :--: | :-: | :-: | :-----: |
-|  1  |       ID      |  bigint  |   20  |  0  |   N  |  Y  |     |   主键ID  |
-|  2  |    USER\_ID   |  varchar |   64  |  0  |   N  |  N  |     |   用户ID  |
-|  3  | ACCESS\_TOKEN |  varchar |   96  |  0  |   N  |  N  |     | 权限Token |
-|  4  |  TOKEN\_TYPE  |  varchar |   64  |  0  |   N  |  N  |     | token类型 |
-|  5  |     SCOPE     |   text   | 65535 |  0  |   N  |  N  |     |   生效范围  |
-|  6  |  CREATE\_TIME | datetime |   19  |  0  |   N  |  N  |     |   创建时间  |
-|  7  |  UPDATE\_TIME | datetime |   19  |  0  |   N  |  N  |     |   更新时间  |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |   description    |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |               |  Primary key ID  |
+|       2       |   USER_ID    |  varchar  |   64   |       0       |          N           |      N      |               |     User ID      |
+|       3       | ACCESS_TOKEN |  varchar  |   96   |       0       |          N           |      N      |               | Permission Token |
+|       4       |  TOKEN_TYPE  |  varchar  |   64   |       0       |          N           |      N      |               |    token type    |
+|       5       |    SCOPE     |   text    | 65535  |       0       |          N           |      N      |               | Effective scope  |
+|       6       | CREATE_TIME  | datetime  |   19   |       0       |          N           |      N      |               |  Creation time   |
+|       7       | UPDATE_TIME  | datetime  |   19   |       0       |          N           |      N      |               |   Update time    |
 
-**表名：** T\_REPOSITORY\_GIT\_CHECK
+**Table name:** T_REPOSITORY_GIT_CHECK
 
-**说明：** 工蜂oauthtoken表
+Worker bee oauthtoken table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明   |
-| :-: | :-----------: | :------: | :-: | :-: | :--: | :-: | :-: | :----: |
-|  1  |       ID      |  bigint  |  20 |  0  |   N  |  Y  |     |  主键ID  |
-|  2  |  PIPELINE\_ID |  varchar |  64 |  0  |   N  |  N  |     |  流水线ID |
-|  3  | BUILD\_NUMBER |    int   |  10 |  0  |   N  |  N  |     |  构建编号  |
-|  4  |    REPO\_ID   |  varchar |  64 |  0  |   Y  |  N  |     |  代码库ID |
-|  5  |   COMMIT\_ID  |  varchar |  64 |  0  |   N  |  N  |     | 代码提交ID |
-|  6  |  CREATE\_TIME | datetime |  19 |  0  |   N  |  N  |     |  创建时间  |
-|  7  |  UPDATE\_TIME | datetime |  19 |  0  |   N  |  N  |     |  更新时间  |
-|  8  |   REPO\_NAME  |  varchar | 128 |  0  |   Y  |  N  |     |  代码库别名 |
-|  9  |    CONTEXT    |  varchar | 255 |  0  |   Y  |  N  |     |   内容   |
-|  10 |     SOURCE    |  varchar |  64 |  0  |   N  |  N  |     |  事件来源  |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |    description     |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |               |   Primary key ID   |
+|       2       | PIPELINE_ID  |  varchar  |   64   |       0       |          N           |      N      |               |    Pipeline ID     |
+|       3       | BUILD_NUMBER |    int    |   10   |       0       |          N           |      N      |               |    Build number    |
+|       4       |   REPO_ID    |  varchar  |   64   |       0       |          Y           |      N      |               |    Code base ID    |
+|       5       |  COMMIT_ID   |  varchar  |   64   |       0       |          N           |      N      |               | Code submission ID |
+|       6       | CREATE_TIME  | datetime  |   19   |       0       |          N           |      N      |               |   Creation time    |
+|       7       | UPDATE_TIME  | datetime  |   19   |       0       |          N           |      N      |               |    Update time     |
+|       8       |  REPO_NAME   |  varchar  |  128   |       0       |          Y           |      N      |               |  Code base alias   |
+|       9       |   CONTEXT    |  varchar  |  255   |       0       |          Y           |      N      |               |      content       |
+|      10       |    SOURCE    |  varchar  |   64   |       0       |          N           |      N      |               |    Event source    |
 
-**表名：** T\_REPOSITORY\_GIT\_TOKEN
+**Table name:** T_REPOSITORY_GIT_TOKEN
 
-**说明：** 工蜂commitchecker表
+commitchecker table of worker bees
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |     说明     |
-| :-: | :------------: | :------: | :-: | :-: | :--: | :-: | :----------------: | :--------: |
-|  1  |       ID       |  bigint  |  20 |  0  |   N  |  Y  |                    |    主键ID    |
-|  2  |    USER\_ID    |  varchar |  64 |  0  |   Y  |  N  |                    |    用户ID    |
-|  3  |  ACCESS\_TOKEN |  varchar |  96 |  0  |   Y  |  N  |                    |   权限Token  |
-|  4  | REFRESH\_TOKEN |  varchar |  96 |  0  |   Y  |  N  |                    |   刷新token  |
-|  5  |   TOKEN\_TYPE  |  varchar |  64 |  0  |   Y  |  N  |                    |   token类型  |
-|  6  |   EXPIRES\_IN  |  bigint  |  20 |  0  |   Y  |  N  |                    |    过期时间    |
-|  7  |  CREATE\_TIME  | datetime |  19 |  0  |   Y  |  N  | CURRENT\_TIMESTAMP | token的创建时间 |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |        description         |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :------------------------: |
+|       1       |      ID       |  bigint   |   20   |       0       |          N           |      Y      |                   |       Primary key ID       |
+|       2       |    USER_ID    |  varchar  |   64   |       0       |          Y           |      N      |                   |          User ID           |
+|       3       | ACCESS_TOKEN  |  varchar  |   96   |       0       |          Y           |      N      |                   |      Permission Token      |
+|       4       | REFRESH_TOKEN |  varchar  |   96   |       0       |          Y           |      N      |                   |       Refresh token        |
+|       5       |  TOKEN_TYPE   |  varchar  |   64   |       0       |          Y           |      N      |                   |         token type         |
+|       6       |  EXPIRES_IN   |  bigint   |   20   |       0       |          Y           |      N      |                   |      Expiration time       |
+|       7       |  CREATE_TIME  | datetime  |   19   |       0       |          Y           |      N      | CURRENT_TIMESTAMP | Creation time of the token |

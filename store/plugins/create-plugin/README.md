@@ -1,4 +1,4 @@
-# Develop a pipeline plug-in
+# Develop a pipeline plugin
 
 > Before developing a plug-in, enter the plug-in Workbench to initialize a plug-in and determine the unique identity of the plug-in in the platform.
 ## Table

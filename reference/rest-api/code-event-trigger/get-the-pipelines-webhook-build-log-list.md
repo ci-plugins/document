@@ -1,105 +1,83 @@
-# 获取流水线的webhook构建日志列表
+# Gets the pipeline's webhook build log list
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook/buildLog
+#### GET /ms/openapi/api/apigw/v3/{projectId}/{pipelineId}/webhook/buildLog
 
-### 资源描述
+### Resource description
 
-#### 获取流水线的webhook构建日志列表
+#### Gets the pipeline's webhook build log list
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| repoName | string | 否 | 仓库名 |  |
-| commitId | string | 否 | commitId |  |
-| page | integer | 否 | 页码 |  |
-| pageSize | integer | 否 | 每页大小 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| repoName       | string         | no   | Warehouse name        |               |
+| commitId       | string         | no   | commitId              |               |
+| page           | integer        | no   | Page number           |               |
+| pageSize       | integer        | no   | Page size             |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 |  |  |
-| pipelineId | string | 是 |  |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   |                       |               |
+| pipelineId     | string         | is   |                       |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型SQLPage流水线webhook-触发日志明细](get-the-pipelines-webhook-build-log-list.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model SQLPage pipelining webhook- Trigger log details](get-the-pipelines-webhook-build-log-list.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为上方API地址栏请求地址]?repoName={repoName}&amp;commitId={commitId}&amp;page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace above API address bar request address]? repoName={repoName}&commitId={commitId}&page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "codeType" : "String",
-      "repoName" : "String",
-      "success" : true,
-      "triggerResult" : "String",
-      "createdTime" : 0,
-      "logId" : 0,
-      "taskName" : "String",
-      "id" : 0,
-      "commitId" : "String",
-      "projectId" : "String",
-      "taskId" : "String",
-      "pipelineId" : "String"
-    } ],
-    "count" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "codeType" : "String",  "repoName" : "String",  "success" : true,  "triggerResult" : "String",  "createdTime" : 0,  "logId" : 0,  "taskName" : "String",  "id" : 0,  "commitId" : "String",  "projectId" : "String",  "taskId" : "String",  "pipelineId" : "String"  } ],  "count" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型SQLPage流水线webhook-触发日志明细
+## Data return wrapper model SQLPage pipelining webhook- Trigger log details
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [SQLPage流水线webhook-触发日志明细](get-the-pipelines-webhook-build-log-list.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [SQLPage Pipelined webhook- Triggers log details](get-the-pipelines-webhook-build-log-list.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## SQLPage流水线webhook-触发日志明细
+## SQLPage Pipelined webhook- Triggers log details
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[流水线webhook-触发日志明细](get-the-pipelines-webhook-build-log-list.md)&gt; | 否 | records |
-| count | integer | 否 | count |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| records        | List< [pipeline Webhook-trigger log Details](get-the-pipelines-webhook-build-log-list.md) > | no   | records               |
+| count          | integer                                                      | no   | count                 |
 
-## 流水线webhook-触发日志明细
+## Pipelined webhook- Triggers log details
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| codeType | string | 是 | 代码库类型 |
-| repoName | string | 是 | 仓库名 |
-| success | boolean | 是 | 是否成功触发 |
-| triggerResult | string | 是 | 触发结果,如果触发成功就是buildId,触发不成功就是不成功原因 |
-| createdTime | integer | 否 | createdTime |
-| logId | integer | 否 | logId |
-| taskName | string | 是 | 插件名 |
-| id | integer | 否 | id |
-| commitId | string | 是 | commitId |
-| projectId | string | 是 | 项目ID |
-| taskId | string | 是 | 插件ID |
-| pipelineId | string | 是 | 流水线ID |
-
+| Parameter name | Parameter type | must | Parameter description                                        |
+| :------------- | :------------- | :--- | :----------------------------------------------------------- |
+| codeType       | string         | is   | Code base type                                               |
+| repoName       | string         | is   | Warehouse name                                               |
+| success        | boolean        | is   | Successful trigger                                           |
+| triggerResult  | string         | is   | Trigger result, if the trigger is successful it is buildId, if the trigger is unsuccessful it is the reason for the failure |
+| createdTime    | integer        | no   | createdTime                                                  |
+| logId          | integer        | no   | logId                                                        |
+| taskName       | string         | is   | Plug-in name                                                 |
+| id             | integer        | no   | id                                                           |
+| commitId       | string         | is   | commitId                                                     |
+| projectId      | string         | is   | Item ID                                                      |
+| taskId         | string         | is   | Plug-in ID                                                   |
+| pipelineId     | string         | is   | Pipeline ID                                                  |

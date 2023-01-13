@@ -1,2 +1,1 @@
-# 数据库设计文档
-
+# Database design document

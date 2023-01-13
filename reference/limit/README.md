@@ -1,6 +1,5 @@
 ---
-description: 为保证系统稳定性，我们在产品层面做了一系列系统限制
+description: To ensure system stability, we have made a series of system limitations at the product level
 ---
 
-# 系统限制
-
+# System limitation

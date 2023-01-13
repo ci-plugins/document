@@ -1,72 +1,61 @@
-# 查询文件托管任务状态
+# Example Query the file hosting task status
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/artifactory/fileTask/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/tasks/{taskId}/status
+#### GET /ms/openapi/api/apigw/v3/artifactory/fileTask/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/tasks/{taskId }/status
 
-### 资源描述
+### Resource description
 
-#### 查询文件托管任务状态
+#### Example Query the file hosting task status
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | projectId |  |
-| pipelineId | string | 是 | pipelineId |  |
-| buildId | string | 是 | buildId |  |
-| taskId | string | 是 | taskId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | projectId             |               |
+| pipelineId     | string         | is   | pipelineId            |               |
+| buildId        | string         | is   | buildId               |               |
+| taskId         | string         | is   | taskId                |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型版本仓库-文件托管任务信息 |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | The data returns packaging model version repository - file hosting task information |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "path" : "String",
-    "ip" : "String",
-    "id" : "String",
-    "status" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "path" : "String",  "ip" : "String",  "id" : "String",  "status" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型版本仓库-文件托管任务信息
+## The data returns packaging model version repository - file hosting task information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | 版本仓库-文件托管任务信息 | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                     | must | Parameter description |
+| :------------- | :------------------------------------------------- | :--- | :-------------------- |
+| data           | Version Repository - File hosting task information | no   | data                  |
+| message        | string                                             | no   | Error message         |
+| status         | integer                                            | is   | Status code           |
 
-## 版本仓库-文件托管任务信息
+## Version Repository - File hosting task information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| path | string | 是 | 文件绝对路径 |
-| ip | string | 是 | 文件所在机器IP |
-| id | string | 是 | 任务Id |
-| status | integer | 是 | 任务状态 |
-
+| Parameter name | Parameter type | must | Parameter description                               |
+| :------------- | :------------- | :--- | :-------------------------------------------------- |
+| path           | string         | is   | Absolute file path                                  |
+| ip             | string         | is   | IP address of the machine where the file is located |
+| id             | string         | is   | Task Id                                             |
+| status         | integer        | is   | Task status                                         |

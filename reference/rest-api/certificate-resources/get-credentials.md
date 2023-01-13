@@ -1,96 +1,74 @@
-# 获取凭据
+# Obtain credentials
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
 
-### 资源描述
+### Resource description
 
-#### 获取凭据
+#### Obtain credentials
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| credentialId | string | 是 | 凭据ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| credentialId   | string         | is   | Credential ID         |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型凭据-凭据内容和权限](get-credentials.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data returns wrapper model credentials - credential content and permissions](get-credentials.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "credentialType" : "ENUM",
-    "updatedTime" : 0,
-    "credentialRemark" : "String",
-    "permissions" : {
-      "view" : true,
-      "edit" : true,
-      "delete" : true
-    },
-    "credentialId" : "String",
-    "updateUser" : "String",
-    "v1" : "String",
-    "credentialName" : "String",
-    "v2" : "String",
-    "v3" : "String",
-    "v4" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "credentialType" : "ENUM",  "updatedTime" : 0,  "credentialRemark" : "String",  "permissions" : {  "view" : true,  "edit" : true,  "delete" : true  },  "credentialId" : "String",  "updateUser" : "String",  "v1" : "String",  "credentialName" : "String",  "v2" : "String",  "v3" : "String",  "v4" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型凭据-凭据内容和权限
+## The data returns wrapper model credentials - credential content and permissions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [凭据-凭据内容和权限](get-credentials.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Credential - credential content and authority](get-credentials.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 凭据-凭据内容和权限
+## Credential - credential content and authority
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| credentialType | ENUM\(PASSWORD, ACCESSTOKEN, USERNAME\_PASSWORD, SECRETKEY, APPID\_SECRETKEY, SSH\_PRIVATEKEY, TOKEN\_SSH\_PRIVATEKEY, TOKEN\_USERNAME\_PASSWORD, COS\_APPID\_SECRETID\_SECRETKEY\_REGION, MULTI\_LINE\_PASSWORD, \) | 是 | 凭据类型 |
-| updatedTime | integer | 是 | 最后更新时间 |
-| credentialRemark | string | 否 | 凭据描述 |
-| permissions | [凭证-凭证权限](get-credentials.md) | 是 | 权限 |
-| credentialId | string | 是 | 凭据ID |
-| updateUser | string | 是 | 最后更新者 |
-| v1 | string | 是 | 凭据内容 |
-| credentialName | string | 是 | 凭据名称 |
-| v2 | string | 是 | 凭据内容 |
-| v3 | string | 是 | 凭据内容 |
-| v4 | string | 是 | 凭据内容 |
+| Parameter name   | Parameter type                                               | must | Parameter description  |
+| :--------------- | :----------------------------------------------------------- | :--- | :--------------------- |
+| credentialType   | ENUM(PASSWORD, ACCESSTOKEN, USERNAME_PASSWORD, SECRETKEY, APPID_SECRETKEY, SSH_PRIVATEKEY, TOKEN_SSH_PRIVATEKEY, TOKEN_USERNAME_PASSWORD, COS_APPID_SECRETID_SECRETKEY_REGION, MULTI_LINE_PASSWORD, ) | is   | Credential type        |
+| updatedTime      | integer                                                      | is   | Last update time       |
+| credentialRemark | string                                                       | no   | Credential description |
+| permissions      | [Credentials - Credentials permissions](get-credentials.md)  | is   | authority              |
+| credentialId     | string                                                       | is   | Credential ID          |
+| updateUser       | string                                                       | is   | Last updater           |
+| v1               | string                                                       | is   | Credential content     |
+| credentialName   | string                                                       | is   | Credential name        |
+| v2               | string                                                       | is   | Credential content     |
+| v3               | string                                                       | is   | Credential content     |
+| v4               | string                                                       | is   | Credential content     |
 
-## 凭证-凭证权限
+## Credentials - Credentials permissions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| view | boolean | 是 | 查看权限 |
-| edit | boolean | 是 | 编辑权限 |
-| delete | boolean | 是 | 删除权限 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| view           | boolean        | is   | View permission       |
+| edit           | boolean        | is   | Edit permission       |
+| delete         | boolean        | is   | Delete permission     |

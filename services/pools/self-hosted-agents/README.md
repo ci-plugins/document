@@ -5,7 +5,8 @@ This tutorial will guide you through hosting your build resources to bk-ci in th
 > Before hosting, please prepare the execution environment: [third-party builder environment preparation](javascript:void%280%29)
 
 Import method: Service - Environment Management - Node page, click on the upper right corner to import the third-party builder:
-![](D:\蓝盾文档\en-us\document\.gitbook\assets\image (37).png)
+
+![](../../../.gitbook/assets/image (37).png)
 
 According to the popover:
 

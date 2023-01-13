@@ -1,4 +1,4 @@
-## Java plug-in development guidelines
+## Java plugin development guidelines
 
 ## I. The overall structure of the project is as follows
 

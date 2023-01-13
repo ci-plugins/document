@@ -1,63 +1,55 @@
-# 根据环境的hashId获取指定项目指定环境下节点列表\(不校验权限\)
+# Gets the node list of the specified item according to the hashId of the environment (does not verify permissions)
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/listRawByEnvHashIds
+#### POST /ms/openapi/api/apigw/v3/environment/projects/{projectId}/nodes/listRawByEnvHashIds
 
-### 资源描述
+### Resource description
 
-#### 根据环境的hashId获取指定项目指定环境下节点列表\(不校验权限\)
+#### Gets the node list of the specified item according to the hashId of the environment (does not verify permissions)
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | array | 是 | 节点 hashIds |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| body           | array          | is   | Node hashIds          |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型MapStringList节点信息\(权限\) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | Data return wrapper model MapStringList Node Information (permissions) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "string" : "string"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "string" : "string"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型MapStringList节点信息\(权限\)
+## Data return wrapper model MapStringList Node Information (permissions)
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | object | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | object         | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

@@ -1,22 +1,22 @@
-# 如何让自己的流水线日志显示带上不同颜色
+# How to make my pipeline log display with different colors
 
-在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
+In the pipeline logging component, we define the following keywords for plug-in developers to use.
 
-| 关键字 | 作用 | 备注 |
-| :--- | :--- | :--- |
-| \#\#\[section\] | 一个Job或者插件的开头 | 如果是插件开头，必须包含在一个Job的Starting内 |
-| \#\#\[endsection\] | 一个Job或者插件的结尾 | 如果是插件结尾，必须包含在一个Job的Finishing内 |
-| \#\#\[command\] | 将后面的字符串以ShellScripts高亮 | \#0070BB |
-| \#\#\[info\] | 将后面的字符串标记为info颜色 | \#48BB31 |
-| \#\#\[warning\] | 将后面的字符串标记为warning颜色 | \#BBBB23 |
-| \#\#\[error\] | 将后面的字符串标记为error颜色 | \#DE0A1A |
-| \#\#\[debug\] | 将后面的字符串标记为debug颜色 | \#0D8F61 |
-| \#\#\[group\] | 一个折叠的开始 |  |
-| \#\#\[endgroup\] | 一个折叠的结束 |  |
+| Key word       | function                                          | remarks                                                      |
+| :------------- | :------------------------------------------------ | :----------------------------------------------------------- |
+| ##[section]    | The beginning of a Job or plugin                  | If it is the start of a plug-in, it must be included in the Starting of a Job |
+| ##[endsection] | The end of a Job or plugin                        | If it is a plug-in ending, it must be included in the Finishing of a Job |
+| ##[command]    | Highlight the following string as ShellScripts    | #0070BB                                                      |
+| ##[info]       | Mark the following string as the info color       | #48BB31                                                      |
+| ##[warning]    | Mark the following string as the color of warning | #BBBB23                                                      |
+| ##[error]      | Mark the following string as the error color      | #DE0A1A                                                      |
+| ##[debug]      | Mark the following string as the debug color      | #0D8F61                                                      |
+| ##[group]      | The beginning of a fold                           |                                                              |
+| ##[endgroup]   | The end of a fold                                 |                                                              |
 
-**以Bash插件为例：**
+**Take the Bash plug-in as an example:**
 
-```bash
+```
 echo "##[command]whoami"
 whoami
 echo "##[command]pwd"
@@ -36,7 +36,6 @@ env
 echo "##[endgroup]"
 ```
 
-你将看到如下图所示效果
+You should see something like the image below
 
-![](../../.gitbook/assets/image2020-1-9_21-59-12.png)
-
+![img](../../.gitbook/assets/image2020-1-9_21-59-12.png)

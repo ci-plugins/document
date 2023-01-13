@@ -1,77 +1,71 @@
-# 编辑关联代码库
+# Edit the associated code base
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### PUT  /ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
+#### PUT /ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
 
-### 资源描述
+### Resource description
 
-#### 编辑关联代码库
+#### Edit the associated code base
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [代码库模型-多态基类](edit-the-associated-code-base.md) | 是 | 代码库模型 |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Code base Model - polymorphic base class](edit-the-associated-code-base.md) | is   | Code base model       |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| repositoryHashId | string | 是 | 代码库哈希ID |  |
+| Parameter name   | Parameter type | must | Parameter description | Default value |
+| :--------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId        | string         | is   | Item ID               |               |
+| repositoryHashId | string         | is   | Code base hash ID     |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](edit-the-associated-code-base.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](edit-the-associated-code-base.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X PUT '[请替换为API地址栏请求地址]'
+```
+curl -X PUT '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 代码库模型-多态基类
+## Code base Model - polymorphic base class
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| startPrefix | string | 否 | startPrefix |
-| aliasName | string | 否 | aliasName |
-| formatURL | string | 否 | formatURL |
-| legal | boolean | 否 | legal |
-| credentialId | string | 否 | credentialId |
-| userName | string | 否 | userName |
-| projectName | string | 否 | projectName |
-| projectId | string | 否 | projectId |
-| url | string | 否 | url |
-| repoHashId | string | 否 | repoHashId |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| startPrefix    | string         | no   | startPrefix           |
+| aliasName      | string         | no   | aliasName             |
+| formatURL      | string         | no   | formatURL             |
+| legal          | boolean        | no   | legal                 |
+| credentialId   | string         | no   | credentialId          |
+| userName       | string         | no   | userName              |
+| projectName    | string         | no   | projectName           |
+| projectId      | string         | no   | projectId             |
+| url            | string         | no   | url                   |
+| repoHashId     | string         | no   | repoHashId            |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

@@ -1,434 +1,226 @@
-# 获取流水线编排
+# Acquisition pipeline layout
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}
 
-### 资源描述
+### Resource description
 
-#### 获取流水线编排
+#### Acquisition pipeline layout
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| channelCode | string | 否 | channel |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| channelCode    | string         | no   | channel               |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型流水线模型-创建信息](get-the-pipeline-orchestration.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data returns wrapper model pipelined Model-creation information](get-the-pipeline-orchestration.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?channelCode={channelCode}'
+```
+curl -X GET '[Please replace API address bar request address]? channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "latestVersion" : 0,
-    "pipelineCreator" : "String",
-    "name" : "String",
-    "stages" : [ {
-      "canRetry" : true,
-      "checkIn" : {
-        "ruleIds" : "string",
-        "reviewParams" : [ {
-          "valueType" : "ENUM",
-          "options" : [ {
-            "value" : "String",
-            "key" : "String"
-          } ],
-          "chineseName" : "String",
-          "value" : {
-            "string" : "string"
-          },
-          "key" : "String",
-          "required" : true,
-          "desc" : "String"
-        } ],
-        "manualTrigger" : true,
-        "checkTimes" : 0,
-        "reviewDesc" : "String",
-        "reviewGroups" : [ {
-          "name" : "String",
-          "id" : "String",
-          "suggest" : "String",
-          "params" : [ {
-            "valueType" : "ENUM",
-            "options" : [ {
-              "value" : "String",
-              "key" : "String"
-            } ],
-            "chineseName" : "String",
-            "value" : {
-              "string" : "string"
-            },
-            "key" : "String",
-            "required" : true,
-            "desc" : "String"
-          } ],
-          "reviewers" : "string",
-          "operator" : "String",
-          "reviewTime" : 0,
-          "status" : "String"
-        } ],
-        "timeout" : 0,
-        "status" : "String"
-      },
-      "customBuildEnv" : {
-        "string" : "string"
-      },
-      "finally" : true,
-      "name" : "String",
-      "containers" : [ {
-        "canRetry" : true,
-        "elementElapsed" : 0,
-        "startEpoch" : 0,
-        "executeCount" : 0,
-        "jobId" : "String",
-        "containPostTaskFlag" : true,
-        "systemElapsed" : 0,
-        "elements" : [ {
-          "canRetry" : true,
-          "errorType" : "String",
-          "errorCode" : 0,
-          "canSkip" : true,
-          "startEpoch" : 0,
-          "version" : "String",
-          "executeCount" : 0,
-          "templateModify" : true,
-          "elementEnable" : true,
-          "errorMsg" : "String",
-          "elapsed" : 0,
-          "atomCode" : "String",
-          "additionalOptions" : {
-            "enableCustomEnv" : true,
-            "continueWhenFailed" : true,
-            "manualRetry" : true,
-            "pauseBeforeExec" : true,
-            "retryCount" : 0,
-            "manualSkip" : true,
-            "timeout" : 0,
-            "customVariables" : [ {
-              "value" : "String",
-              "key" : "String"
-            } ],
-            "otherTask" : "String",
-            "customEnv" : [ {
-              "value" : "String",
-              "key" : "String"
-            } ],
-            "retryWhenFailed" : true,
-            "enable" : true,
-            "subscriptionPauseUser" : "String",
-            "customCondition" : "String",
-            "runCondition" : "ENUM",
-            "elementPostInfo" : {
-              "parentElementId" : "String",
-              "postCondition" : "String",
-              "parentElementJobIndex" : 0,
-              "parentElementName" : "String",
-              "postEntryParam" : "String"
-            }
-          },
-          "taskAtom" : "String",
-          "name" : "String",
-          "id" : "String",
-          "classType" : "String",
-          "status" : "String"
-        } ],
-        "name" : "String",
-        "id" : "String",
-        "startVMStatus" : "String",
-        "containerId" : "String",
-        "classType" : "String",
-        "status" : "String"
-      } ],
-      "id" : "String",
-      "stageControlOption" : {
-        "triggered" : true,
-        "reviewParams" : [ {
-          "valueType" : "ENUM",
-          "options" : [ {
-            "value" : "String",
-            "key" : "String"
-          } ],
-          "chineseName" : "String",
-          "value" : {
-            "string" : "string"
-          },
-          "key" : "String",
-          "required" : true,
-          "desc" : "String"
-        } ],
-        "manualTrigger" : true,
-        "enable" : true,
-        "customCondition" : "String",
-        "triggerUsers" : "string",
-        "reviewDesc" : "String",
-        "runCondition" : "ENUM",
-        "timeout" : 0,
-        "customVariables" : [ {
-          "value" : "String",
-          "key" : "String"
-        } ]
-      },
-      "checkOut" : {
-        "ruleIds" : "string",
-        "reviewParams" : [ {
-          "valueType" : "ENUM",
-          "options" : [ {
-            "value" : "String",
-            "key" : "String"
-          } ],
-          "chineseName" : "String",
-          "value" : {
-            "string" : "string"
-          },
-          "key" : "String",
-          "required" : true,
-          "desc" : "String"
-        } ],
-        "manualTrigger" : true,
-        "checkTimes" : 0,
-        "reviewDesc" : "String",
-        "reviewGroups" : [ {
-          "name" : "String",
-          "id" : "String",
-          "suggest" : "String",
-          "params" : [ {
-            "valueType" : "ENUM",
-            "options" : [ {
-              "value" : "String",
-              "key" : "String"
-            } ],
-            "chineseName" : "String",
-            "value" : {
-              "string" : "string"
-            },
-            "key" : "String",
-            "required" : true,
-            "desc" : "String"
-          } ],
-          "reviewers" : "string",
-          "operator" : "String",
-          "reviewTime" : 0,
-          "status" : "String"
-        } ],
-        "timeout" : 0,
-        "status" : "String"
-      },
-      "fastKill" : true
-    } ],
-    "templateId" : "String",
-    "srcTemplateId" : "String",
-    "tips" : "String",
-    "desc" : "String",
-    "labels" : "string",
-    "instanceFromTemplate" : true
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "latestVersion" : 0,  "pipelineCreator" : "String",  "name" : "String",  "stages" : [ {  "canRetry" : true,  "checkIn" : {  "ruleIds" : "string",  "reviewParams" : [ {  "valueType" : "ENUM",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "chineseName" : "String",  "value" : {  "string" : "string"  },  "key" : "String",  "required" : true,  "desc" : "String"  } ],  "manualTrigger" : true,  "checkTimes" : 0,  "reviewDesc" : "String",  "reviewGroups" : [ {  "name" : "String",  "id" : "String",  "suggest" : "String",  "params" : [ {  "valueType" : "ENUM",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "chineseName" : "String",  "value" : {  "string" : "string"  },  "key" : "String",  "required" : true,  "desc" : "String"  } ],  "reviewers" : "string",  "operator" : "String",  "reviewTime" : 0,  "status" : "String"  } ],  "timeout" : 0,  "status" : "String"  },  "customBuildEnv" : {  "string" : "string"  },  "finally" : true,  "name" : "String",  "containers" : [ {  "canRetry" : true,  "elementElapsed" : 0,  "startEpoch" : 0,  "executeCount" : 0,  "jobId" : "String",  "containPostTaskFlag" : true,  "systemElapsed" : 0,  "elements" : [ {  "canRetry" : true,  "errorType" : "String",  "errorCode" : 0,  "canSkip" : true,  "startEpoch" : 0,  "version" : "String",  "executeCount" : 0,  "templateModify" : true,  "elementEnable" : true,  "errorMsg" : "String",  "elapsed" : 0,  "atomCode" : "String",  "additionalOptions" : {  "enableCustomEnv" : true,  "continueWhenFailed" : true,  "manualRetry" : true,  "pauseBeforeExec" : true,  "retryCount" : 0,  "manualSkip" : true,  "timeout" : 0,  "customVariables" : [ {  "value" : "String",  "key" : "String"  } ],  "otherTask" : "String",  "customEnv" : [ {  "value" : "String",  "key" : "String"  } ],  "retryWhenFailed" : true,  "enable" : true,  "subscriptionPauseUser" : "String",  "customCondition" : "String",  "runCondition" : "ENUM",  "elementPostInfo" : {  "parentElementId" : "String",  "postCondition" : "String",  "parentElementJobIndex" : 0,  "parentElementName" : "String",  "postEntryParam" : "String"  }  },  "taskAtom" : "String",  "name" : "String",  "id" : "String",  "classType" : "String",  "status" : "String"  } ],  "name" : "String",  "id" : "String",  "startVMStatus" : "String",  "containerId" : "String",  "classType" : "String",  "status" : "String"  } ],  "id" : "String",  "stageControlOption" : {  "triggered" : true,  "reviewParams" : [ {  "valueType" : "ENUM",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "chineseName" : "String",  "value" : {  "string" : "string"  },  "key" : "String",  "required" : true,  "desc" : "String"  } ],  "manualTrigger" : true,  "enable" : true,  "customCondition" : "String",  "triggerUsers" : "string",  "reviewDesc" : "String",  "runCondition" : "ENUM",  "timeout" : 0,  "customVariables" : [ {  "value" : "String",  "key" : "String"  } ]  },  "checkOut" : {  "ruleIds" : "string",  "reviewParams" : [ {  "valueType" : "ENUM",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "chineseName" : "String",  "value" : {  "string" : "string"  },  "key" : "String",  "required" : true,  "desc" : "String"  } ],  "manualTrigger" : true,  "checkTimes" : 0,  "reviewDesc" : "String",  "reviewGroups" : [ {  "name" : "String",  "id" : "String",  "suggest" : "String",  "params" : [ {  "valueType" : "ENUM",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "chineseName" : "String",  "value" : {  "string" : "string"  },  "key" : "String",  "required" : true,  "desc" : "String"  } ],  "reviewers" : "string",  "operator" : "String",  "reviewTime" : 0,  "status" : "String"  } ],  "timeout" : 0,  "status" : "String"  },  "fastKill" : true  } ],  "templateId" : "String",  "srcTemplateId" : "String",  "tips" : "String",  "desc" : "String",  "labels" : "string",  "instanceFromTemplate" : true  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型流水线模型-创建信息
+## Data returns wrapper model pipelined Model-creation information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [流水线模型-创建信息](get-the-pipeline-orchestration.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Pipeline model - Create information](get-the-pipeline-orchestration.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 流水线模型-创建信息
+## Pipeline model - Create information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| latestVersion | integer | 否 | 提交时流水线最新版本号 |
-| pipelineCreator | string | 否 | 创建人 |
-| name | string | 是 | 名称 |
-| stages | List&lt;[流水线模型-阶段](get-the-pipeline-orchestration.md)&gt; | 是 | 阶段集合 |
-| templateId | string | 否 | 模板ID |
-| srcTemplateId | string | 否 | 源模版ID |
-| tips | string | 否 | 提示 |
-| desc | string | 否 | 描述 |
-| labels | List | 否 | 标签 |
-| instanceFromTemplate | boolean | 否 | 是否从模板中实例化出来的 |
+| Parameter name       | Parameter type                                               | must | Parameter description                         |
+| :------------------- | :----------------------------------------------------------- | :--- | :-------------------------------------------- |
+| latestVersion        | integer                                                      | no   | Latest version of pipeline at submission time |
+| pipelineCreator      | string                                                       | no   | founder                                       |
+| name                 | string                                                       | is   | name                                          |
+| stages               | List< [pipeline model-phase](get-the-pipeline-orchestration.md) > | is   | Stage set                                     |
+| templateId           | string                                                       | no   | Template ID                                   |
+| srcTemplateId        | string                                                       | no   | ID of the source template                     |
+| tips                 | string                                                       | no   | prompt                                        |
+| desc                 | string                                                       | no   | description                                   |
+| labels               | List                                                         | no   | label                                         |
+| instanceFromTemplate | boolean                                                      | no   | Whether it is instantiated from the template  |
 
-## 流水线模型-阶段
+## Pipeline model - Phase
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canRetry | boolean | 否 | 当前Stage是否能重试 |
-| checkIn | [StagePauseCheck](get-the-pipeline-orchestration.md) | 否 | 当前Stage是否能重试 |
-| customBuildEnv | object | 否 | 用户自定义环境变量 |
-| finally | boolean | 否 | 标识是否为FinallyStage，每个Model只能包含一个FinallyStage，并且处于最后位置 |
-| name | string | 是 | 阶段名称 |
-| containers | List&lt;[流水线模型-多态基类](get-the-pipeline-orchestration.md)&gt; | 是 | 容器集合 |
-| id | string | 否 | 阶段ID |
-| stageControlOption | [StageControlOption](get-the-pipeline-orchestration.md) | 是 | 流程控制选项 |
-| checkOut | [StagePauseCheck](get-the-pipeline-orchestration.md) | 否 | 当前Stage是否能重试 |
-| fastKill | boolean | 否 | 是否启用容器失败快速终止阶段 |
+| Parameter name     | Parameter type                                               | must | Parameter description                                        |
+| :----------------- | :----------------------------------------------------------- | :--- | :----------------------------------------------------------- |
+| canRetry           | boolean                                                      | no   | Whether retries can be made at the current Stage             |
+| checkIn            | [StagePauseCheck](get-the-pipeline-orchestration.md)         | no   | Whether retries can be made at the current Stage             |
+| customBuildEnv     | object                                                       | no   | User-defined environment variables                           |
+| finally            | boolean                                                      | no   | Identifies whether it is FinallyStage. Each Model can contain only one FinallyStage and is in the last position |
+| name               | string                                                       | is   | Stage name                                                   |
+| containers         | List< [pipeline model-polymorphic base class >](get-the-pipeline-orchestration.md) | is   | Container set                                                |
+| id                 | string                                                       | no   | Phase ID                                                     |
+| stageControlOption | [StageControlOption](get-the-pipeline-orchestration.md)      | is   | Flow control options                                         |
+| checkOut           | [StagePauseCheck](get-the-pipeline-orchestration.md)         | no   | Whether retries can be made at the current Stage             |
+| fastKill           | boolean                                                      | no   | Whether to enable the container failure quick termination phase |
 
 ## StagePauseCheck
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| ruleIds | List | 否 | ruleIds |
-| reviewParams | List&lt;[人工审核-自定义参数](get-the-pipeline-orchestration.md)&gt; | 否 | reviewParams |
-| manualTrigger | boolean | 否 | manualTrigger |
-| checkTimes | integer | 否 | checkTimes |
-| reviewDesc | string | 否 | reviewDesc |
-| reviewGroups | List&lt;[Stage审核组信息](get-the-pipeline-orchestration.md)&gt; | 否 | reviewGroups |
-| timeout | integer | 否 | timeout |
-| status | string | 否 | status |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| ruleIds        | List                                                         | no   | ruleIds               |
+| reviewParams   | List< [Manual audit - Custom parameters](get-the-pipeline-orchestration.md) > | no   | reviewParams          |
+| manualTrigger  | boolean                                                      | no   | manualTrigger         |
+| checkTimes     | integer                                                      | no   | checkTimes            |
+| reviewDesc     | string                                                       | no   | reviewDesc            |
+| reviewGroups   | List<[Stage Audit group information](get-the-pipeline-orchestration.md) > | no   | reviewGroups          |
+| timeout        | integer                                                      | no   | timeout               |
+| status         | string                                                       | no   | status                |
 
-## 人工审核-自定义参数
+## Manual audit - Customize parameters
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| valueType | ENUM\(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, \) | 否 | 参数类型 |
-| options | List&lt;[人工审核-自定义参数-下拉框列表剑](get-the-pipeline-orchestration.md)&gt; | 否 | 下拉框列表 |
-| chineseName | string | 否 | 中文名称 |
-| value | object | 是 | 参数内容 |
-| key | string | 是 | 参数名 |
-| required | boolean | 是 | 是否必填 |
-| desc | string | 否 | 参数描述 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| valueType      | ENUM(STRING, TEXTAREA, BOOLEAN, ENUM, MULTIPLE, )            | no   | Parameter type        |
+| options        | List< [Manual Review - Custom parameters - drop-down list Sword](get-the-pipeline-orchestration.md) > | no   | Drop-down list        |
+| chineseName    | string                                                       | no   | Chinese name          |
+| value          | object                                                       | is   | Parameter content     |
+| key            | string                                                       | is   | Parameter name        |
+| required       | boolean                                                      | is   | Is it required?       |
+| desc           | string                                                       | no   | Parameter description |
 
-## 人工审核-自定义参数-下拉框列表剑
+## Manual Audit - Custom Parameters - Drop down box list sword
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 参数内容 |
-| key | string | 是 | 参数名 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | is   | Parameter content     |
+| key            | string         | is   | Parameter name        |
 
-## Stage审核组信息
+## Stage Audit group information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 是 | 审核组名称 |
-| id | string | 否 | 审核组ID\(后台生成\) |
-| suggest | string | 否 | 审核建议 |
-| params | List&lt;[人工审核-自定义参数](get-the-pipeline-orchestration.md)&gt; | 否 | 审核传入变量 |
-| reviewers | List | 是 | 审核人员 |
-| operator | string | 否 | 审核操作人 |
-| reviewTime | integer | 否 | 审核操作时间 |
-| status | string | 否 | 审核结果（枚举） |
+| Parameter name | Parameter type                                               | must | Parameter description                |
+| :------------- | :----------------------------------------------------------- | :--- | :----------------------------------- |
+| name           | string                                                       | is   | Audit group name                     |
+| id             | string                                                       | no   | Audit team ID(background generation) |
+| suggest        | string                                                       | no   | Audit suggestion                     |
+| params         | List< [Manual audit - Custom parameters](get-the-pipeline-orchestration.md) > | no   | Audit incoming variables             |
+| reviewers      | List                                                         | is   | auditor                              |
+| operator       | string                                                       | no   | Audit operator                       |
+| reviewTime     | integer                                                      | no   | Audit operation time                 |
+| status         | string                                                       | no   | Audit results (enumeration)          |
 
-## 流水线模型-多态基类
+## Pipeline Model - polymorphic base class
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canRetry | boolean | 否 | canRetry |
-| elementElapsed | integer | 否 | elementElapsed |
-| startEpoch | integer | 否 | startEpoch |
-| executeCount | integer | 否 | executeCount |
-| jobId | string | 否 | jobId |
-| containPostTaskFlag | boolean | 否 | containPostTaskFlag |
-| systemElapsed | integer | 否 | systemElapsed |
-| elements | List&lt;[Element](get-the-pipeline-orchestration.md)&gt; | 否 | elements |
-| name | string | 否 | name |
-| id | string | 否 | id |
-| startVMStatus | string | 否 | startVMStatus |
-| containerId | string | 否 | containerId |
-| classType | string | 否 | classType |
-| status | string | 否 | status |
+| Parameter name      | Parameter type                              | must | Parameter description |
+| :------------------ | :------------------------------------------ | :--- | :-------------------- |
+| canRetry            | boolean                                     | no   | canRetry              |
+| elementElapsed      | integer                                     | no   | elementElapsed        |
+| startEpoch          | integer                                     | no   | startEpoch            |
+| executeCount        | integer                                     | no   | executeCount          |
+| jobId               | string                                      | no   | jobId                 |
+| containPostTaskFlag | boolean                                     | no   | containPostTaskFlag   |
+| systemElapsed       | integer                                     | no   | systemElapsed         |
+| elements            | List[ ](get-the-pipeline-orchestration.md)> | no   | elements              |
+| name                | string                                      | no   | name                  |
+| id                  | string                                      | no   | id                    |
+| startVMStatus       | string                                      | no   | startVMStatus         |
+| containerId         | string                                      | no   | containerId           |
+| classType           | string                                      | no   | classType             |
+| status              | string                                      | no   | status                |
 
 ## Element
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canRetry | boolean | 否 | canRetry |
-| errorType | string | 否 | errorType |
-| errorCode | integer | 否 | errorCode |
-| canSkip | boolean | 否 | canSkip |
-| startEpoch | integer | 否 | startEpoch |
-| version | string | 否 | version |
-| executeCount | integer | 否 | executeCount |
-| templateModify | boolean | 否 | templateModify |
-| elementEnable | boolean | 否 | elementEnable |
-| errorMsg | string | 否 | errorMsg |
-| elapsed | integer | 否 | elapsed |
-| atomCode | string | 否 | atomCode |
-| additionalOptions | [ElementAdditionalOptions](get-the-pipeline-orchestration.md) | 否 | additionalOptions |
-| taskAtom | string | 否 | taskAtom |
-| name | string | 否 | name |
-| id | string | 否 | id |
-| classType | string | 否 | classType |
-| status | string | 否 | status |
+| Parameter name    | Parameter type                                               | must | Parameter description |
+| :---------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| canRetry          | boolean                                                      | no   | canRetry              |
+| errorType         | string                                                       | no   | errorType             |
+| errorCode         | integer                                                      | no   | errorCode             |
+| canSkip           | boolean                                                      | no   | canSkip               |
+| startEpoch        | integer                                                      | no   | startEpoch            |
+| version           | string                                                       | no   | version               |
+| executeCount      | integer                                                      | no   | executeCount          |
+| templateModify    | boolean                                                      | no   | templateModify        |
+| elementEnable     | boolean                                                      | no   | elementEnable         |
+| errorMsg          | string                                                       | no   | errorMsg              |
+| elapsed           | integer                                                      | no   | elapsed               |
+| atomCode          | string                                                       | no   | atomCode              |
+| additionalOptions | [ElementAdditionalOptions](get-the-pipeline-orchestration.md) | no   | additionalOptions     |
+| taskAtom          | string                                                       | no   | taskAtom              |
+| name              | string                                                       | no   | name                  |
+| id                | string                                                       | no   | id                    |
+| classType         | string                                                       | no   | classType             |
+| status            | string                                                       | no   | status                |
 
 ## ElementAdditionalOptions
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| enableCustomEnv | boolean | 否 | enableCustomEnv |
-| continueWhenFailed | boolean | 否 | continueWhenFailed |
-| manualRetry | boolean | 否 | manualRetry |
-| pauseBeforeExec | boolean | 否 | pauseBeforeExec |
-| retryCount | integer | 否 | retryCount |
-| manualSkip | boolean | 否 | manualSkip |
-| timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue](get-the-pipeline-orchestration.md)&gt; | 否 | customVariables |
-| otherTask | string | 否 | otherTask |
-| customEnv | List&lt;[NameAndValue](get-the-pipeline-orchestration.md)&gt; | 否 | customEnv |
-| retryWhenFailed | boolean | 否 | retryWhenFailed |
-| enable | boolean | 否 | enable |
-| subscriptionPauseUser | string | 否 | subscriptionPauseUser |
-| customCondition | string | 否 | customCondition |
-| runCondition | ENUM\(PRE\_TASK\_SUCCESS, PRE\_TASK\_FAILED\_BUT\_CANCEL, PRE\_TASK\_FAILED\_EVEN\_CANCEL, PRE\_TASK\_FAILED\_ONLY, OTHER\_TASK\_RUNNING, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, PARENT\_TASK\_CANCELED\_OR\_TIMEOUT, PARENT\_TASK\_FINISH, \) | 否 | runCondition |
-| elementPostInfo | [元素post信息](get-the-pipeline-orchestration.md) | 否 | elementPostInfo |
+| Parameter name        | Parameter type                                               | must | Parameter description |
+| :-------------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| enableCustomEnv       | boolean                                                      | no   | enableCustomEnv       |
+| continueWhenFailed    | boolean                                                      | no   | continueWhenFailed    |
+| manualRetry           | boolean                                                      | no   | manualRetry           |
+| pauseBeforeExec       | boolean                                                      | no   | pauseBeforeExec       |
+| retryCount            | integer                                                      | no   | retryCount            |
+| manualSkip            | boolean                                                      | no   | manualSkip            |
+| timeout               | integer                                                      | no   | timeout               |
+| customVariables       | List<[NameAndValue](get-the-pipeline-orchestration.md)>      | no   | customVariables       |
+| otherTask             | string                                                       | no   | otherTask             |
+| customEnv             | List<[NameAndValue](get-the-pipeline-orchestration.md)>      | no   | customEnv             |
+| retryWhenFailed       | boolean                                                      | no   | retryWhenFailed       |
+| enable                | boolean                                                      | no   | enable                |
+| subscriptionPauseUser | string                                                       | no   | subscriptionPauseUser |
+| customCondition       | string                                                       | no   | customCondition       |
+| runCondition          | ENUM(PRE_TASK_SUCCESS, PRE_TASK_FAILED_BUT_CANCEL, PRE_TASK_FAILED_EVEN_CANCEL, PRE_TASK_FAILED_ONLY, OTHER_TASK_RUNNING, CUSTOM_VARIABLE_MATCH, CUSTOM_VARIABLE_MATCH_NOT_RUN, CUSTOM_CONDITION_MATCH, PARENT_TASK_CANCELED_OR_TIMEOUT, PARENT_TASK_FINISH, ) | no   | runCondition          |
+| elementPostInfo       | [Element post message](get-the-pipeline-orchestration.md)    | no   | elementPostInfo       |
 
 ## NameAndValue
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 否 | value |
-| key | string | 否 | key |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | no   | value                 |
+| key            | string         | no   | key                   |
 
-## 元素post信息
+## Element post message
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| parentElementId | string | 否 | 父元素ID |
-| postCondition | string | 否 | 执行条件 |
-| parentElementJobIndex | integer | 否 | 父元素在job中的位置 |
-| parentElementName | string | 否 | 父元素名称 |
-| postEntryParam | string | 否 | 入口参数 |
+| Parameter name        | Parameter type | must | Parameter description                         |
+| :-------------------- | :------------- | :--- | :-------------------------------------------- |
+| parentElementId       | string         | no   | Parent element ID                             |
+| postCondition         | string         | no   | Execution condition                           |
+| parentElementJobIndex | integer        | no   | The position of the parent element in the job |
+| parentElementName     | string         | no   | Parent element name                           |
+| postEntryParam        | string         | no   | Entry parameter                               |
 
 ## StageControlOption
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| triggered | boolean | 否 | triggered |
-| reviewParams | List&lt;[人工审核-自定义参数](get-the-pipeline-orchestration.md)&gt; | 否 | reviewParams |
-| manualTrigger | boolean | 否 | manualTrigger |
-| enable | boolean | 否 | enable |
-| customCondition | string | 否 | customCondition |
-| triggerUsers | List | 否 | triggerUsers |
-| reviewDesc | string | 否 | reviewDesc |
-| runCondition | ENUM\(AFTER\_LAST\_FINISHED, CUSTOM\_VARIABLE\_MATCH, CUSTOM\_VARIABLE\_MATCH\_NOT\_RUN, CUSTOM\_CONDITION\_MATCH, \) | 否 | runCondition |
-| timeout | integer | 否 | timeout |
-| customVariables | List&lt;[NameAndValue](get-the-pipeline-orchestration.md)&gt; | 否 | customVariables |
-
+| Parameter name  | Parameter type                                               | must | Parameter description |
+| :-------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| triggered       | boolean                                                      | no   | triggered             |
+| reviewParams    | List< [Manual audit - Custom parameters](get-the-pipeline-orchestration.md) > | no   | reviewParams          |
+| manualTrigger   | boolean                                                      | no   | manualTrigger         |
+| enable          | boolean                                                      | no   | enable                |
+| customCondition | string                                                       | no   | customCondition       |
+| triggerUsers    | List                                                         | no   | triggerUsers          |
+| reviewDesc      | string                                                       | no   | reviewDesc            |
+| runCondition    | ENUM(AFTER_LAST_FINISHED, CUSTOM_VARIABLE_MATCH, CUSTOM_VARIABLE_MATCH_NOT_RUN, CUSTOM_CONDITION_MATCH, ) | no   | runCondition          |
+| timeout         | integer                                                      | no   | timeout               |
+| customVariables | List<[NameAndValue](get-the-pipeline-orchestration.md)>      | no   | customVariables       |

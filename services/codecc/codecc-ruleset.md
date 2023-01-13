@@ -1,29 +1,29 @@
-# 代码检查规则集
+# Code check rule set
 
-## 自定义规则集
+## User-defined rule sets
 
-默认的规则集中规则数目比较少，不满足用户的需求，或者规则集中有某些规则不符合企业或者开发者的代码风格，这时候可以创建自定义规则集
+If the number of rules in the default rule set is small and does not meet user requirements, or some rules in the rule set do not meet the code style of the enterprise or developers, you can create a custom rule set
 
-> 场景模拟：CodeCC默认(C++)默认规则集中的「build/include\_what\_you\_use」规则不符合本企业的代码开发风格，希望去除该规则
+> Scenario simulation: The "build/include_what_you_use" rule in the CodeCC default (C++) default rule set does not conform to the code development style of our organization and would like to remove it
 
-### 创建规则集
+### Create rule set
 
-自定义规则集和项目相关，创建自定义规则集前需选择目标项目
+A user-defined rule set is related to a project. Before creating a user-defined rule set, select a target project
 
-![](../../.gitbook/assets/image-20210826175151943.png)
+![img](../../.gitbook/assets/image-20210826175151943.png)
 
-「基于」选择CodeCC默认(C++)，自定义规则集就能在该默认规则集上增删
+By selecting the CodeCC default (C++) as "based", the custom rule set can be added or deleted from this default rule set
 
-![](../../.gitbook/assets/image-20210826175625206.png)
+![img](../../.gitbook/assets/image-20210826175625206.png)
 
-### 增删规则
+### Add-delete rule
 
-基于CodeCC默认(C++)的自定义规则集，默认会包含CodeCC默认(C++)所有规则条目，用户可以已定位到不需要的规则「build/include\_what\_you\_use」，并取消勾选，保存规则集
+A custom rule set based on the CodeCC default (C++) will contain all rule entries of the CodeCC default (C++) by default. Users can locate the unnecessary rule "build/include_what_you_use" and uncheck it to save the rule set
 
-![](../../.gitbook/assets/image-20210826175951021.png)
+![img](../../.gitbook/assets/image-20210826175951021.png)
 
-### 流水线重新选择自定义规则集
+### Pipelined re-selects the custom rule set
 
-在流水线里取消默认规则集，选择自定义规则集，重新保存流水线即可
+Cancel the default rule set in the pipeline, select Custom rule set, and save the pipeline again
 
-![](../../.gitbook/assets/image-20210826180347933.png)
+![img](../../.gitbook/assets/image-20210826180347933.png)

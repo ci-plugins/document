@@ -1,281 +1,281 @@
-# devops\_ci\_project
+# devops_ci_project
 
-**数据库名：** devops\_ci\_project
+**Database name:** devops_ci_project
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_project的数据库文档
+**Documentation Description:** Database documentation for devops_ci_project
 
-|                              表名                             |    说明    |
-| :---------------------------------------------------------: | :------: |
-|               [T\_ACTIVITY](broken-reference)               |          |
-|               [T\_FAVORITE](broken-reference)               |   关注收藏表  |
-|              [T\_GRAY\_TEST](broken-reference)              |          |
-|         [T\_MESSAGE\_CODE\_DETAIL](broken-reference)        | code码详情表 |
-|                [T\_NOTICE](broken-reference)                |          |
-|                [T\_PROJECT](broken-reference)               |   项目信息表  |
-|            [T\_PROJECT\_LABEL](broken-reference)            |          |
-|          [T\_PROJECT\_LABEL\_REL](broken-reference)         |          |
-|                [T\_SERVICE](broken-reference)               |   服务信息表  |
-|             [T\_SERVICE\_TYPE](broken-reference)            |   服务类型表  |
-|                 [T\_USER](broken-reference)                 |    用户表   |
-| [T\_USER\_DAILY\_FIRST\_AND\_LAST\_LOGIN](broken-reference) |          |
-|          [T\_USER\_DAILY\_LOGIN](broken-reference)          |          |
+|                      Table name                       |           description           |
+| :---------------------------------------------------: | :-----------------------------: |
+|            [T_ACTIVITY](broken-reference)             |                                 |
+|            [T_FAVORITE](broken-reference)             |         Favorites list          |
+|            [T_GRAY_TEST](broken-reference)            |                                 |
+|       [T_MESSAGE_CODE_DETAIL](broken-reference)       | code Indicates the code details |
+|             [T_NOTICE](broken-reference)              |                                 |
+|             [T_PROJECT](broken-reference)             |     Item information table      |
+|          [T_PROJECT_LABEL](broken-reference)          |                                 |
+|        [T_PROJECT_LABEL_REL](broken-reference)        |                                 |
+|             [T_SERVICE](broken-reference)             |    Service information table    |
+|          [T_SERVICE_TYPE](broken-reference)           |       Service type table        |
+|              [T_USER](broken-reference)               |           User table            |
+| [T_USER_DAILY_FIRST_AND_LAST_LOGIN](broken-reference) |                                 |
+|        [T_USER_DAILY_LOGIN](broken-reference)         |                                 |
 
-**表名：** T\_ACTIVITY
+**Table name:** T_ACTIVITY
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |  长度  | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :-----------: | :------: | :--: | :-: | :--: | :-: | :-: | :--: |
-|  1  |       ID      |  bigint  |  20  |  0  |   N  |  Y  |     | 主键ID |
-|  2  |      TYPE     |  varchar |  32  |  0  |   N  |  N  |     |  类型  |
-|  3  |      NAME     |  varchar |  128 |  0  |   N  |  N  |     |  名称  |
-|  4  | ENGLISH\_NAME |  varchar |  128 |  0  |   Y  |  N  |     | 英文名称 |
-|  5  |      LINK     |  varchar | 1024 |  0  |   N  |  N  |     | 跳转链接 |
-|  6  |  CREATE\_TIME | datetime |  19  |  0  |   N  |  N  |     | 创建时间 |
-|  7  |     STATUS    |  varchar |  32  |  0  |   N  |  N  |     |  状态  |
-|  8  |    CREATOR    |  varchar |  32  |  0  |   N  |  N  |     |  创建者 |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key ID |
+|       2       |     TYPE     |  varchar  |   32   |       0       |          N           |      N      |               |      type      |
+|       3       |     NAME     |  varchar  |  128   |       0       |          N           |      N      |               |      name      |
+|       4       | ENGLISH_NAME |  varchar  |  128   |       0       |          Y           |      N      |               |  English name  |
+|       5       |     LINK     |  varchar  |  1024  |       0       |          N           |      N      |               |   Jump link    |
+|       6       | CREATE_TIME  | datetime  |   19   |       0       |          N           |      N      |               | Creation time  |
+|       7       |    STATUS    |  varchar  |   32   |       0       |          N           |      N      |               |     state      |
+|       8       |   CREATOR    |  varchar  |   32   |       0       |          N           |      N      |               |    founder     |
 
-**表名：** T\_FAVORITE
+**Table name:** T_FAVORITE
 
-**说明：** 关注收藏表
+Pay attention to the collection table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :---------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |      id     |  bigint |  20 |  0  |   N  |  Y  |     | 主键id |
-|  2  | service\_id |  bigint |  20 |  0  |   Y  |  N  |     | 服务id |
-|  3  |   username  | varchar |  64 |  0  |   Y  |  N  |     |  用户  |
+| Serial number |    name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :--------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |     id     |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key id |
+|       2       | service_id |  bigint   |   20   |       0       |          Y           |      N      |               |   Service id   |
+|       3       |  username  |  varchar  |   64   |       0       |          Y           |      N      |               |      user      |
 
-**表名：** T\_GRAY\_TEST
+**Table name:** T_GRAY_TEST
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :---------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |      id     |  bigint |  20 |  0  |   N  |  Y  |     | 主键id |
-|  2  | service\_id |  bigint |  20 |  0  |   Y  |  N  |     | 服务id |
-|  3  |   username  | varchar |  64 |  0  |   Y  |  N  |     |  用户  |
-|  4  |    status   | varchar |  64 |  0  |   Y  |  N  |     | 服务状态 |
+| Serial number |    name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :--------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |     id     |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key id |
+|       2       | service_id |  bigint   |   20   |       0       |          Y           |      N      |               |   Service id   |
+|       3       |  username  |  varchar  |   64   |       0       |          Y           |      N      |               |      user      |
+|       4       |   status   |  varchar  |   64   |       0       |          Y           |      N      |               | Service status |
 
-**表名：** T\_MESSAGE\_CODE\_DETAIL
+**Table name:** T_MESSAGE_CODE_DETAIL
 
-**说明：** code码详情表
+code code details table
 
-**数据列：**
+**Data column:**
 
-|  序号 |            名称           |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |    说明    |
-| :-: | :---------------------: | :-----: | :-: | :-: | :--: | :-: | :-: | :------: |
-|  1  |            ID           | varchar |  32 |  0  |   N  |  Y  |     |    主键    |
-|  2  |      MESSAGE\_CODE      | varchar | 128 |  0  |   N  |  N  |     |   code码  |
-|  3  |       MODULE\_CODE      |   char  |  2  |  0  |   N  |  N  |     |   模块代码   |
-|  4  | MESSAGE\_DETAIL\_ZH\_CN | varchar | 500 |  0  |   N  |  N  |     | 中文简体描述信息 |
-|  5  | MESSAGE\_DETAIL\_ZH\_TW | varchar | 500 |  0  |   Y  |  N  |     | 中文繁体描述信息 |
-|  6  |   MESSAGE\_DETAIL\_EN   | varchar | 500 |  0  |   Y  |  N  |     |  英文描述信息  |
+| Serial number |         name         | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                      description                       |
+| :-----------: | :------------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------: |
+|       1       |          ID          |  varchar  |   32   |       0       |          N           |      Y      |               |                      Primary key                       |
+|       2       |     MESSAGE_CODE     |  varchar  |  128   |       0       |          N           |      N      |               |                       code code                        |
+|       3       |     MODULE_CODE      |   char    |   2    |       0       |          N           |      N      |               |                      Module code                       |
+|       4       | MESSAGE_DETAIL_ZH_CN |  varchar  |  500   |       0       |          N           |      N      |               |           Description in simplified Chinese            |
+|       5       | MESSAGE_DETAIL_ZH_TW |  varchar  |  500   |       0       |          Y           |      N      |               | Describe information in traditional Chinese characters |
+|       6       |  MESSAGE_DETAIL_EN   |  varchar  |  500   |       0       |          Y           |      N      |               |            English description information             |
 
-**表名：** T\_NOTICE
+**Table name:** T_NOTICE
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称       |    数据类型   |   长度  | 小数位 | 允许空值 |  主键 |         默认值        |       说明       |
-| :-: | :-------------: | :-------: | :---: | :-: | :--: | :-: | :----------------: | :------------: |
-|  1  |        ID       |   bigint  |   20  |  0  |   N  |  Y  |                    |      主键ID      |
-|  2  |  NOTICE\_TITLE  |  varchar  |  100  |  0  |   N  |  N  |                    |      公告标题      |
-|  3  |   EFFECT\_DATE  | timestamp |   19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |      生效日期      |
-|  4  |  INVALID\_DATE  | timestamp |   19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |      失效日期      |
-|  5  |   CREATE\_DATE  | timestamp |   19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |      创建日期      |
-|  6  |   UPDATE\_DATE  | timestamp |   19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |      更新日期      |
-|  7  | NOTICE\_CONTENT |    text   | 65535 |  0  |   N  |  N  |                    |      公告内容      |
-|  8  |  REDIRECT\_URL  |  varchar  |  200  |  0  |   Y  |  N  |                    |      跳转地址      |
-|  9  |   NOTICE\_TYPE  |  tinyint  |   4   |  0  |   N  |  N  |          0         | 消息类型:0.弹框1.跑马灯 |
+| Serial number |      name      | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |          description          |
+| :-----------: | :------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------------------: |
+|       1       |       ID       |  bigint   |   20   |       0       |          N           |      Y      |                   |        Primary key ID         |
+|       2       |  NOTICE_TITLE  |  varchar  |  100   |       0       |          N           |      N      |                   |     Title of announcement     |
+|       3       |  EFFECT_DATE   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |        Effective date         |
+|       4       |  INVALID_DATE  | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |        Expiration date        |
+|       5       |  CREATE_DATE   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |         Creation date         |
+|       6       |  UPDATE_DATE   | timestamp |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |          Update date          |
+|       7       | NOTICE_CONTENT |   text    | 65535  |       0       |          N           |      N      |                   |     Announcement content      |
+|       8       |  REDIRECT_URL  |  varchar  |  200   |       0       |          Y           |      N      |                   |         Jump address          |
+|       9       |  NOTICE_TYPE   |  tinyint  |   4    |       0       |          N           |      N      |         0         | Message type :0. Pop-up box 1 |
 
-**表名：** T\_PROJECT
+**Table name:** T_PROJECT
 
-**说明：** 项目信息表
+Project information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |            名称            |    数据类型   |   长度  | 小数位 | 允许空值 |  主键 |  默认值 |       说明      |
-| :-: | :----------------------: | :-------: | :---: | :-: | :--: | :-: | :--: | :-----------: |
-|  1  |            ID            |   bigint  |   20  |  0  |   N  |  Y  |      |      主键ID     |
-|  2  |        created\_at       | timestamp |   19  |  0  |   Y  |  N  |      |      创建时间     |
-|  3  |        updated\_at       | timestamp |   19  |  0  |   Y  |  N  |      |      更新时间     |
-|  4  |        deleted\_at       | timestamp |   19  |  0  |   Y  |  N  |      |      删除时间     |
-|  5  |           extra          |    text   | 65535 |  0  |   Y  |  N  |      |      额外信息     |
-|  6  |          creator         |  varchar  |   32  |  0  |   Y  |  N  |      |      创建者      |
-|  7  |        description       |    text   | 65535 |  0  |   Y  |  N  |      |       描述      |
-|  8  |           kind           |    int    |   10  |  0  |   Y  |  N  |      |      容器类型     |
-|  9  |        cc\_app\_id       |   bigint  |   20  |  0  |   Y  |  N  |      |      应用ID     |
-|  10 |       cc\_app\_name      |  varchar  |   64  |  0  |   Y  |  N  |      |      应用名称     |
-|  11 |       is\_offlined       |    bit    |   1   |  0  |   Y  |  N  | b'0' |      是否停用     |
-|  12 |        PROJECT\_ID       |  varchar  |   32  |  0  |   N  |  N  |      |      项目ID     |
-|  13 |       project\_name      |  varchar  |   64  |  0  |   N  |  N  |      |      项目名称     |
-|  14 |       english\_name      |  varchar  |   64  |  0  |   N  |  N  |      |      英文名称     |
-|  15 |          updator         |  varchar  |   32  |  0  |   Y  |  N  |      |      更新人      |
-|  16 |       project\_type      |    int    |   10  |  0  |   Y  |  N  |      |      项目类型     |
-|  17 |          use\_bk         |    bit    |   1   |  0  |   Y  |  N  | b'1' |     是否用蓝鲸     |
-|  18 |       deploy\_type       |    text   | 65535 |  0  |   Y  |  N  |      |      部署类型     |
-|  19 |          bg\_id          |   bigint  |   20  |  0  |   Y  |  N  |      |     事业群ID     |
-|  20 |         bg\_name         |  varchar  |  255  |  0  |   Y  |  N  |      |     事业群名称     |
-|  21 |         dept\_id         |   bigint  |   20  |  0  |   Y  |  N  |      |   项目所属二级机构ID  |
-|  22 |        dept\_name        |  varchar  |  255  |  0  |   Y  |  N  |      |   项目所属二级机构名称  |
-|  23 |        center\_id        |   bigint  |   20  |  0  |   Y  |  N  |      |      中心ID     |
-|  24 |       center\_name       |  varchar  |  255  |  0  |   Y  |  N  |      |      中心名字     |
-|  25 |         data\_id         |   bigint  |   20  |  0  |   Y  |  N  |      |      数据ID     |
-|  26 |        is\_secrecy       |    bit    |   1   |  0  |   Y  |  N  | b'0' |      是否保密     |
-|  27 | is\_helm\_chart\_enabled |    bit    |   1   |  0  |   Y  |  N  | b'0' |    是否启用图表激活   |
-|  28 |     approval\_status     |    int    |   10  |  0  |   Y  |  N  |   1  |      审核状态     |
-|  29 |        logo\_addr        |    text   | 65535 |  0  |   Y  |  N  |      |     logo地址    |
-|  30 |         approver         |  varchar  |   32  |  0  |   Y  |  N  |      |      批准人      |
-|  31 |          remark          |    text   | 65535 |  0  |   Y  |  N  |      |       评论      |
-|  32 |      approval\_time      | timestamp |   19  |  0  |   Y  |  N  |      |      批准时间     |
-|  33 |     creator\_bg\_name    |  varchar  |  128  |  0  |   Y  |  N  |      |    创建者事业群名称   |
-|  34 |    creator\_dept\_name   |  varchar  |  128  |  0  |   Y  |  N  |      | 创建者项目所属二级机构名称 |
-|  35 |   creator\_center\_name  |  varchar  |  128  |  0  |   Y  |  N  |      |    创建者中心名字    |
-|  36 |    hybrid\_cc\_app\_id   |   bigint  |   20  |  0  |   Y  |  N  |      |      应用ID     |
-|  37 |     enable\_external     |    bit    |   1   |  0  |   Y  |  N  |      |  是否支持构建机访问外网  |
-|  38 |        enable\_idc       |    bit    |   1   |  0  |   Y  |  N  |      |   是否支持IDC构建机  |
-|  39 |          enabled         |    bit    |   1   |  0  |   Y  |  N  |      |      是否启用     |
-|  40 |          CHANNEL         |  varchar  |   32  |  0  |   N  |  N  |  BS  |      项目渠道     |
-|  41 |      pipeline\_limit     |    int    |   10  |  0  |   Y  |  N  |  500 |    流水线数量上限    |
-|  42 |        router\_tag       |  varchar  |   32  |  0  |   Y  |  N  |      |    网关路由tags   |
-|  43 |       relation\_id       |  varchar  |   32  |  0  |   Y  |  N  |      |    扩展系统关联ID   |
+| Serial number |         name          | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |          ID           |  bigint   |   20   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |      created_at       | timestamp |   19   |       0       |          Y           |      N      |               |                        Creation time                         |
+|       3       |      updated_at       | timestamp |   19   |       0       |          Y           |      N      |               |                         Update time                          |
+|       4       |      deleted_at       | timestamp |   19   |       0       |          Y           |      N      |               |                        Deletion time                         |
+|       5       |         extra         |   text    | 65535  |       0       |          Y           |      N      |               |                    Additional information                    |
+|       6       |        creator        |  varchar  |   32   |       0       |          Y           |      N      |               |                           founder                            |
+|       7       |      description      |   text    | 65535  |       0       |          Y           |      N      |               |                         description                          |
+|       8       |         kind          |    int    |   10   |       0       |          Y           |      N      |               |                        Container type                        |
+|       9       |       cc_app_id       |  bigint   |   20   |       0       |          Y           |      N      |               |                        Application ID                        |
+|      10       |      cc_app_name      |  varchar  |   64   |       0       |          Y           |      N      |               |                       Application name                       |
+|      11       |      is_offlined      |    bit    |   1    |       0       |          Y           |      N      |     B '0'     |                      Deactivate or not                       |
+|      12       |      PROJECT_ID       |  varchar  |   32   |       0       |          N           |      N      |               |                           Item ID                            |
+|      13       |     project_name      |  varchar  |   64   |       0       |          N           |      N      |               |                         Project name                         |
+|      14       |     english_name      |  varchar  |   64   |       0       |          N           |      N      |               |                         English name                         |
+|      15       |        updator        |  varchar  |   32   |       0       |          Y           |      N      |               |                           updater                            |
+|      16       |     project_type      |    int    |   10   |       0       |          Y           |      N      |               |                          Item type                           |
+|      17       |        use_bk         |    bit    |   1    |       0       |          Y           |      N      |     B '1'     |                 Whether to use a blue whale                  |
+|      18       |      deploy_type      |   text    | 65535  |       0       |          Y           |      N      |               |                       Deployment type                        |
+|      19       |         bg_id         |  bigint   |   20   |       0       |          Y           |      N      |               |                      Business group ID                       |
+|      20       |        bg_name        |  varchar  |  255   |       0       |          Y           |      N      |               |                     Business group name                      |
+|      21       |        dept_id        |  bigint   |   20   |       0       |          Y           |      N      |               |     The project belongs to the secondary organization ID     |
+|      22       |       dept_name       |  varchar  |  255   |       0       |          Y           |      N      |               | Name of the secondary organization to which the project belongs |
+|      23       |       center_id       |  bigint   |   20   |       0       |          Y           |      N      |               |                          Center ID                           |
+|      24       |      center_name      |  varchar  |  255   |       0       |          Y           |      N      |               |                         Central name                         |
+|      25       |        data_id        |  bigint   |   20   |       0       |          Y           |      N      |               |                           Data ID                            |
+|      26       |      is_secrecy       |    bit    |   1    |       0       |          Y           |      N      |     B '0'     |                    Confidentiality or not                    |
+|      27       | is_helm_chart_enabled |    bit    |   1    |       0       |          Y           |      N      |     B '0'     |              Whether to enable chart activation              |
+|      28       |    approval_status    |    int    |   10   |       0       |          Y           |      N      |       1       |                         Audit status                         |
+|      29       |       logo_addr       |   text    | 65535  |       0       |          Y           |      N      |               |                         logo address                         |
+|      30       |       approver        |  varchar  |   32   |       0       |          Y           |      N      |               |                           approver                           |
+|      31       |        remark         |   text    | 65535  |       0       |          Y           |      N      |               |                           comment                            |
+|      32       |     approval_time     | timestamp |   19   |       0       |          Y           |      N      |               |                        Approval time                         |
+|      33       |    creator_bg_name    |  varchar  |  128   |       0       |          Y           |      N      |               |                 Creator business group name                  |
+|      34       |   creator_dept_name   |  varchar  |  128   |       0       |          Y           |      N      |               | Creator Name of the secondary organization to which the project belongs |
+|      35       |  creator_center_name  |  varchar  |  128   |       0       |          Y           |      N      |               |                     Creator center name                      |
+|      36       |   hybrid_cc_app_id    |  bigint   |   20   |       0       |          Y           |      N      |               |                        Application ID                        |
+|      37       |    enable_external    |    bit    |   1    |       0       |          Y           |      N      |               |         Whether the builder can access the Internet          |
+|      38       |      enable_idc       |    bit    |   1    |       0       |          Y           |      N      |               |             Whether the IDC builder is supported             |
+|      39       |        enabled        |    bit    |   1    |       0       |          Y           |      N      |               |                        Enable or not                         |
+|      40       |        CHANNEL        |  varchar  |   32   |       0       |          N           |      N      |      BS       |                       Project channel                        |
+|      41       |    pipeline_limit     |    int    |   10   |       0       |          Y           |      N      |      500      |               Upper limit of pipeline quantity               |
+|      42       |      router_tag       |  varchar  |   32   |       0       |          Y           |      N      |               |                      Gateway route tags                      |
+|      43       |      relation_id      |  varchar  |   32   |       0       |          Y           |      N      |               |                Extended system association ID                |
 
-**表名：** T\_PROJECT\_LABEL
+**Table name:** T_PROJECT_LABEL
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  |      ID      |  varchar |  32 |  0  |   N  |  Y  |                    | 主键ID |
-|  2  |  LABEL\_NAME |  varchar |  45 |  0  |   N  |  N  |                    | 标签名称 |
-|  3  | CREATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 创建时间 |
-|  4  | UPDATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 修改时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |    description    |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------: |
+|       1       |     ID      |  varchar  |   32   |       0       |          N           |      Y      |                   |  Primary key ID   |
+|       2       | LABEL_NAME  |  varchar  |   45   |       0       |          N           |      N      |                   |    Label name     |
+|       3       | CREATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |   Creation time   |
+|       4       | UPDATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP | Modification time |
 
-**表名：** T\_PROJECT\_LABEL\_REL
+**Table name:** T_PROJECT_LABEL_REL
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |  说明  |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :----------------: | :--: |
-|  1  |      ID      |  varchar |  32 |  0  |   N  |  Y  |                    | 主键ID |
-|  2  |   LABEL\_ID  |  varchar |  32 |  0  |   N  |  N  |                    | 标签ID |
-|  3  |  PROJECT\_ID |  varchar |  32 |  0  |   N  |  N  |                    | 项目ID |
-|  4  | CREATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 创建时间 |
-|  5  | UPDATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP | 修改时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |    description    |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :---------------: |
+|       1       |     ID      |  varchar  |   32   |       0       |          N           |      Y      |                   |  Primary key ID   |
+|       2       |  LABEL_ID   |  varchar  |   32   |       0       |          N           |      N      |                   |      Tag ID       |
+|       3       | PROJECT_ID  |  varchar  |   32   |       0       |          N           |      N      |                   |      Item ID      |
+|       4       | CREATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |   Creation time   |
+|       5       | UPDATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP | Modification time |
 
-**表名：** T\_SERVICE
+**Table name:** T_SERVICE
 
-**说明：** 服务信息表
+Service information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称         |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 |  默认值 |       说明       |
-| :-: | :-----------------: | :------: | :---: | :-: | :--: | :-: | :--: | :------------: |
-|  1  |          id         |  bigint  |   20  |  0  |   N  |  Y  |      |       id       |
-|  2  |         name        |  varchar |   64  |  0  |   Y  |  N  |      |       名称       |
-|  3  |    english\_name    |  varchar |   64  |  0  |   Y  |  N  |      |      英文名称      |
-|  4  |  service\_type\_id  |  bigint  |   20  |  0  |   Y  |  N  |      |     服务类型ID     |
-|  5  |         link        |  varchar |  255  |  0  |   Y  |  N  |      |      跳转链接      |
-|  6  |      link\_new      |  varchar |  255  |  0  |   Y  |  N  |      |      新跳转链接     |
-|  7  |     inject\_type    |  varchar |   64  |  0  |   Y  |  N  |      |      注入类型      |
-|  8  |     iframe\_url     |  varchar |  255  |  0  |   Y  |  N  |      |   iframeUrl地址  |
-|  9  |       css\_url      |  varchar |  255  |  0  |   Y  |  N  |      |    cssUrl地址    |
-|  10 |       js\_url       |  varchar |  255  |  0  |   Y  |  N  |      |     jsUrl地址    |
-|  11 | show\_project\_list |    bit   |   1   |  0  |   Y  |  N  |      |     是否在页面显示    |
-|  12 |      show\_nav      |    bit   |   1   |  0  |   Y  |  N  |      |     showNav    |
-|  13 |  project\_id\_type  |  varchar |   64  |  0  |   Y  |  N  |      |     项目ID类型     |
-|  14 |        status       |  varchar |   64  |  0  |   Y  |  N  |      |       状态       |
-|  15 |    created\_user    |  varchar |   64  |  0  |   Y  |  N  |      |       创建者      |
-|  16 |    created\_time    | datetime |   19  |  0  |   Y  |  N  |      |      创建时间      |
-|  17 |    updated\_user    |  varchar |   64  |  0  |   Y  |  N  |      |       修改者      |
-|  18 |    updated\_time    | datetime |   19  |  0  |   Y  |  N  |      |      修改时间      |
-|  19 |       deleted       |    bit   |   1   |  0  |   Y  |  N  |      |      是否删除      |
-|  20 |    gray\_css\_url   |  varchar |  255  |  0  |   Y  |  N  |      |   灰度cssUrl地址   |
-|  21 |    gray\_js\_url    |  varchar |  255  |  0  |   Y  |  N  |      |    灰度jsUrl地址   |
-|  22 |      logo\_url      |  varchar |  256  |  0  |   Y  |  N  |      |     logo地址     |
-|  23 |     web\_socket     |   text   | 65535 |  0  |   Y  |  N  |      | 支持webSocket的页面 |
-|  24 |        weight       |    int   |   10  |  0  |   Y  |  N  |      |       权值       |
-|  25 |  gray\_iframe\_url  |  varchar |  255  |  0  |   Y  |  N  |      |  灰度iframeUrl地址 |
-|  26 |     new\_window     |    bit   |   1   |  0  |   Y  |  N  | b'0' |    是否打开新标签页    |
-|  27 |    new\_windowUrl   |  varchar |  200  |  0  |   Y  |  N  |      |     新标签页地址     |
+| Serial number |       name        | Data type | length | Decimal place | Allowable null value | Primary key | Default value |            description            |
+| :-----------: | :---------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-------------------------------: |
+|       1       |        id         |  bigint   |   20   |       0       |          N           |      Y      |               |                id                 |
+|       2       |       name        |  varchar  |   64   |       0       |          Y           |      N      |               |               name                |
+|       3       |   english_name    |  varchar  |   64   |       0       |          Y           |      N      |               |           English name            |
+|       4       |  service_type_id  |  bigint   |   20   |       0       |          Y           |      N      |               |          Service type ID          |
+|       5       |       link        |  varchar  |  255   |       0       |          Y           |      N      |               |             Jump link             |
+|       6       |     link_new      |  varchar  |  255   |       0       |          Y           |      N      |               |           New jump link           |
+|       7       |    inject_type    |  varchar  |   64   |       0       |          Y           |      N      |               |          Injection type           |
+|       8       |    iframe_url     |  varchar  |  255   |       0       |          Y           |      N      |               |         iframeUrl address         |
+|       9       |      css_url      |  varchar  |  255   |       0       |          Y           |      N      |               |          cssUrl address           |
+|      10       |      js_url       |  varchar  |  255   |       0       |          Y           |      N      |               |           jsUrl address           |
+|      11       | show_project_list |    bit    |   1    |       0       |          Y           |      N      |               | Whether to display it on the page |
+|      12       |     show_nav      |    bit    |   1    |       0       |          Y           |      N      |               |              showNav              |
+|      13       |  project_id_type  |  varchar  |   64   |       0       |          Y           |      N      |               |           Item ID type            |
+|      14       |      status       |  varchar  |   64   |       0       |          Y           |      N      |               |               state               |
+|      15       |   created_user    |  varchar  |   64   |       0       |          Y           |      N      |               |              founder              |
+|      16       |   created_time    | datetime  |   19   |       0       |          Y           |      N      |               |           Creation time           |
+|      17       |   updated_user    |  varchar  |   64   |       0       |          Y           |      N      |               |             modifier              |
+|      18       |   updated_time    | datetime  |   19   |       0       |          Y           |      N      |               |         Modification time         |
+|      19       |      deleted      |    bit    |   1    |       0       |          Y           |      N      |               |           Delete or not           |
+|      20       |   gray_css_url    |  varchar  |  255   |       0       |          Y           |      N      |               |     Grayscale cssUrl address      |
+|      21       |    gray_js_url    |  varchar  |  255   |       0       |          Y           |      N      |               |      Grayscale jsUrl address      |
+|      22       |     logo_url      |  varchar  |  256   |       0       |          Y           |      N      |               |           logo address            |
+|      23       |    web_socket     |   text    | 65535  |       0       |          Y           |      N      |               |      webSocket support page       |
+|      24       |      weight       |    int    |   10   |       0       |          Y           |      N      |               |              weight               |
+|      25       |  gray_iframe_url  |  varchar  |  255   |       0       |          Y           |      N      |               |    Grayscale iframeUrl address    |
+|      26       |    new_window     |    bit    |   1    |       0       |          Y           |      N      |     B '0'     |     Whether to open a new TAB     |
+|      27       |   new_windowUrl   |  varchar  |  200   |       0       |          Y           |      N      |               |          New TAB address          |
 
-**表名：** T\_SERVICE\_TYPE
+**Table name:** T_SERVICE_TYPE
 
-**说明：** 服务类型表
+Service type table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明   |
-| :-: | :------------: | :------: | :-: | :-: | :--: | :-: | :-: | :----: |
-|  1  |       ID       |  bigint  |  20 |  0  |   N  |  Y  |     |  主键ID  |
-|  2  |      title     |  varchar |  64 |  0  |   Y  |  N  |     |  邮件标题  |
-|  3  | english\_title |  varchar |  64 |  0  |   Y  |  N  |     | 英文邮件标题 |
-|  4  |  created\_user |  varchar |  64 |  0  |   Y  |  N  |     |   创建者  |
-|  5  |  created\_time | datetime |  19 |  0  |   Y  |  N  |     |  创建时间  |
-|  6  |  updated\_user |  varchar |  64 |  0  |   Y  |  N  |     |   修改者  |
-|  7  |  updated\_time | datetime |  19 |  0  |   Y  |  N  |     |  修改时间  |
-|  8  |     deleted    |    bit   |  1  |  0  |   Y  |  N  |     |  是否删除  |
-|  9  |     weight     |    int   |  10 |  0  |   Y  |  N  |     |   权值   |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key | Default value |     description      |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------------: |
+|       1       |      ID       |  bigint   |   20   |       0       |          N           |      Y      |               |    Primary key ID    |
+|       2       |     title     |  varchar  |   64   |       0       |          Y           |      N      |               |  Subject of message  |
+|       3       | english_title |  varchar  |   64   |       0       |          Y           |      N      |               | English mail subject |
+|       4       | created_user  |  varchar  |   64   |       0       |          Y           |      N      |               |       founder        |
+|       5       | created_time  | datetime  |   19   |       0       |          Y           |      N      |               |    Creation time     |
+|       6       | updated_user  |  varchar  |   64   |       0       |          Y           |      N      |               |       modifier       |
+|       7       | updated_time  | datetime  |   19   |       0       |          Y           |      N      |               |  Modification time   |
+|       8       |    deleted    |    bit    |   1    |       0       |          Y           |      N      |               |    Delete or not     |
+|       9       |    weight     |    int    |   10   |       0       |          Y           |      N      |               |        weight        |
 
-**表名：** T\_USER
+**Table name:** T_USER
 
-**说明：** 用户表
+User table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |     说明     |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :----------------: | :--------: |
-|  1  |   USER\_ID   |  varchar |  64 |  0  |   N  |  Y  |                    |    用户ID    |
-|  2  |     NAME     |  varchar |  64 |  0  |   N  |  N  |                    |     名称     |
-|  3  |    BG\_ID    |    int   |  10 |  0  |   N  |  N  |                    |    事业群ID   |
-|  4  |   BG\_NAME   |  varchar | 256 |  0  |   N  |  N  |                    |    事业群名称   |
-|  5  |   DEPT\_ID   |    int   |  10 |  0  |   Y  |  N  |                    | 项目所属二级机构ID |
-|  6  |  DEPT\_NAME  |  varchar | 256 |  0  |   Y  |  N  |                    | 项目所属二级机构名称 |
-|  7  |  CENTER\_ID  |    int   |  10 |  0  |   Y  |  N  |                    |    中心ID    |
-|  8  | CENTER\_NAME |  varchar | 256 |  0  |   Y  |  N  |                    |    中心名字    |
-|  9  |   GROYP\_ID  |    int   |  10 |  0  |   Y  |  N  |                    |    用户组ID   |
-|  10 |  GROUP\_NAME |  varchar | 256 |  0  |   Y  |  N  |                    |    用户组名称   |
-|  11 | CREATE\_TIME | datetime |  19 |  0  |   N  |  N  |                    |    创建时间    |
-|  12 | UPDATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |    更新时间    |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |                         description                          |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :----------------------------------------------------------: |
+|       1       |   USER_ID   |  varchar  |   64   |       0       |          N           |      Y      |                   |                           User ID                            |
+|       2       |    NAME     |  varchar  |   64   |       0       |          N           |      N      |                   |                             name                             |
+|       3       |    BG_ID    |    int    |   10   |       0       |          N           |      N      |                   |                      Business group ID                       |
+|       4       |   BG_NAME   |  varchar  |  256   |       0       |          N           |      N      |                   |                     Business group name                      |
+|       5       |   DEPT_ID   |    int    |   10   |       0       |          Y           |      N      |                   |     The project belongs to the secondary organization ID     |
+|       6       |  DEPT_NAME  |  varchar  |  256   |       0       |          Y           |      N      |                   | Name of the secondary organization to which the project belongs |
+|       7       |  CENTER_ID  |    int    |   10   |       0       |          Y           |      N      |                   |                          Center ID                           |
+|       8       | CENTER_NAME |  varchar  |  256   |       0       |          Y           |      N      |                   |                         Central name                         |
+|       9       |  GROYP_ID   |    int    |   10   |       0       |          Y           |      N      |                   |                        User group ID                         |
+|      10       | GROUP_NAME  |  varchar  |  256   |       0       |          Y           |      N      |                   |                       User group name                        |
+|      11       | CREATE_TIME | datetime  |   19   |       0       |          N           |      N      |                   |                        Creation time                         |
+|      12       | UPDATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |                         Update time                          |
 
-**表名：** T\_USER\_DAILY\_FIRST\_AND\_LAST\_LOGIN
+**Table name:** T_USER_DAILY_FIRST_AND_LAST_LOGIN
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称         |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明   |
-| :-: | :----------------: | :------: | :-: | :-: | :--: | :-: | :-: | :----: |
-|  1  |         ID         |  bigint  |  20 |  0  |   N  |  Y  |     |  主键ID  |
-|  2  |      USER\_ID      |  varchar |  64 |  0  |   N  |  N  |     |  用户ID  |
-|  3  |        DATE        |   date   |  10 |  0  |   N  |  N  |     |   日期   |
-|  4  | FIRST\_LOGIN\_TIME | datetime |  19 |  0  |   N  |  N  |     | 首次登录时间 |
-|  5  |  LAST\_LOGIN\_TIME | datetime |  19 |  0  |   N  |  N  |     | 最近登录时间 |
+| Serial number |       name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |   description    |
+| :-----------: | :--------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------: |
+|       1       |        ID        |  bigint   |   20   |       0       |          N           |      Y      |               |  Primary key ID  |
+|       2       |     USER_ID      |  varchar  |   64   |       0       |          N           |      N      |               |     User ID      |
+|       3       |       DATE       |   date    |   10   |       0       |          N           |      N      |               |       date       |
+|       4       | FIRST_LOGIN_TIME | datetime  |   19   |       0       |          N           |      N      |               | First login time |
+|       5       | LAST_LOGIN_TIME  | datetime  |   19   |       0       |          N           |      N      |               | Last login time  |
 
-**表名：** T\_USER\_DAILY\_LOGIN
+**Table name:** T_USER_DAILY_LOGIN
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :---------: | :------: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |      ID     |  bigint  |  20 |  0  |   N  |  Y  |     | 主键ID |
-|  2  |   USER\_ID  |  varchar |  64 |  0  |   N  |  N  |     | 用户ID |
-|  3  |     DATE    |   date   |  10 |  0  |   N  |  N  |     |  日期  |
-|  4  | LOGIN\_TIME | datetime |  19 |  0  |   N  |  N  |     | 登录时间 |
-|  5  |      OS     |  varchar |  32 |  0  |   N  |  N  |     | 操作系统 |
-|  6  |      IP     |  varchar |  32 |  0  |   N  |  N  |     | ip地址 |
+| Serial number |    name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |   description    |
+| :-----------: | :--------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------: |
+|       1       |     ID     |  bigint   |   20   |       0       |          N           |      Y      |               |  Primary key ID  |
+|       2       |  USER_ID   |  varchar  |   64   |       0       |          N           |      N      |               |     User ID      |
+|       3       |    DATE    |   date    |   10   |       0       |          N           |      N      |               |       date       |
+|       4       | LOGIN_TIME | datetime  |   19   |       0       |          N           |      N      |               |    Login time    |
+|       5       |     OS     |  varchar  |   32   |       0       |          N           |      N      |               | Operating system |
+|       6       |     IP     |  varchar  |   32   |       0       |          N           |      N      |               |    ip address    |

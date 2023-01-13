@@ -1,2 +1,2 @@
-# OPENAPI-证书资源
+# OPENAPI- Certificate resources
 

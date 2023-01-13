@@ -10,7 +10,7 @@ This step-by-step tutorial creates a pipeline for your Go project.
 2. Switch to your project
 3. Click Add Pipeline
 4. Edit the pipeline shown in Figure 1:
-5. Click **to save and execute **
+5. Click **to save and execute**
 6. Your build \#1 has run successfully, please wait for it to finish, as shown in Figure 2
 ![&#x56FE;1](../.gitbook/assets/image%20%2810%29.png)
 

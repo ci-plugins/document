@@ -1,131 +1,124 @@
-# 代码检查使用
+# Code check usage
 
-**codecc接入步骤：**
+**codecc access procedure:**
 
-1. 配置代码库，作为代码扫描的目标
-2. 创建流水线，拉取目标代码
-3. 配置codecc插件
-4. 执行流水线
-5. 查看代码检查结果
+1. Configure the code base as the target for code scanning
+2. Create pipeline, pull object code
+3. Configure the codecc plug-in
+4. Execution pipeline
+5. View the code review results
 
-## codecc接入
+## codecc access
 
-### 配置代码库
+### Configuration code base
 
-「选择项目」-「服务」-「代码库」
+![img](../../.gitbook/assets/image-20211130150523367.png)
 
-![](../../.gitbook/assets/image-20211130150523367.png)
+![img](../../.gitbook/assets/image-20211130150820135.png)
 
-「关联代码库」-「gitlab代码库」 这里以gitlab代码库为例
+**For other types of code bases, see:** [Code Base](../repo.md)
 
-![](../../.gitbook/assets/image-20211130150820135.png)
+**There are several conditions for associating the gitlab codebase:**
 
-**其他类型代码库的使用请参考：**[代码库](../repo.md)
+1. Use accesstoken to associate
+2. The owner who creates accesstoken must be the maintainer role of the target warehouse
+3. accesstoken requires at least api permission
+4. The source code address is http/https protocol
 
-**关联gitlab代码库有几个条件：**
+The accesstoken is registered using "Credential management". If the accesstoken has been registered in "Credential Management", the corresponding accesstoken can be directly selected when the code base is associated
 
-1. 使用accesstoken来关联
-2. 创建accesstoken的所有者须是目标仓库的maintainer角色
-3. accesstoken至少需要api的权限
-4. 源代码地址是http/https协议的
+![img](../../.gitbook/assets/image-20211130152201680.png)
 
-accesstoken 使用「凭证管理」来进行注册，如果在「凭证管理」已经注册accesstoken，关联代码库时，可直接选中对应的accesstoken
+If you register accesstoken in "Credential Management", you can add new credential and jump to the credential management page
 
-![](../../.gitbook/assets/image-20211130152201680.png)
+![img](../../.gitbook/assets/image-20211130151014566.png)
 
-如果在「凭证管理」注册accesstoken，则可以新增凭证，跳转至凭证管理页面
+![img](../../.gitbook/assets/image-20220301101202-KMSOc.png)
 
-![](../../.gitbook/assets/image-20211130151014566.png)
+For details about how to create gitlab accesstoken, see [Creating an accesstoken](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html)
 
-![](../../.gitbook/assets/image-20220301101202-KMSOc.png)
+Then go back to the Associated code library page, select the accesstoken you just created, and OK
 
-gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html)
+![img](../../.gitbook/assets/image-20220301101202-ZPLrE.png)
 
-然后回到关联代码库页面，选中刚创建的accesstoken，确定
+**For details about other types of [credentials, see](../ticket.md)**[ Certificate Management](../ticket.md)
 
-![](../../.gitbook/assets/image-20220301101202-ZPLrE.png)
+### Create pipeline
 
-**其他类型凭证使用请参考：**[凭证管理](../ticket.md)
+"Select Project" - "Service" - "Pipeline" - "New Pipeline" - "Project Customization" - "Fill in Pipeline Name" - "New"
 
-### 创建流水线
+![img](../../.gitbook/assets/image-20211130154920245.png)
 
-「选择项目」-「服务」-「流水线」-「新建流水线」-「项目自定义」-「填写流水线名称」-「新建」
+![img](../../.gitbook/assets/image-20211130165841421.png)
 
-![](../../.gitbook/assets/image-20211130154920245.png)
+![img](../../.gitbook/assets/image-20211130165902933.png)
 
-![](../../.gitbook/assets/image-20211130165841421.png)
+![img](../../.gitbook/assets/image-20211130165925767.png)
 
-![](../../.gitbook/assets/image-20211130165902933.png)
+After the pipeline is created, you need to add the plug-in for code pull and the plug-in for code check. The code check needs to pull the code to the workspace where the construction environment is located, and the pull code needs to select checkout gitlab plug-in
 
-![](../../.gitbook/assets/image-20211130165925767.png)
+"Add stage" - "Select linux Builder" - "Add Plug-in" - "Select checkout gitlab Plug-in"
 
-流水线新建好后，需要添加代码拉取的插件以及代码检查的插件，代码检查需要将代码拉取到构建环境所在的工作空间，拉取代码需要选择checkout gitlab插件
+![img](../../.gitbook/assets/image-20211130170413760.png)
 
-「添加stage」-「选择linux构建机」-「新增插件」-「选择checkout gitlab插件」
+![img](../../.gitbook/assets/image-20211130170418114.png)
 
-![](../../.gitbook/assets/image-20211130170413760.png)
+![img](../../.gitbook/assets/image-20211130170455067.png)
 
-![](../../.gitbook/assets/image-20211130170418114.png)
+![img](../../.gitbook/assets/image-20211130170624022.png)
 
-![](../../.gitbook/assets/image-20211130170455067.png)
+Configure the checkout gitlab plug-in and select the codebase that you created for the previous step
 
-![](../../.gitbook/assets/image-20211130170624022.png)
+![img](../../.gitbook/assets/image-20211130171740802.png)
 
-配置checkout gitlab插件，选择代码库为前述步骤创建的代码库
+![img](../../.gitbook/assets/image-20211130171852028.png)
 
-![](../../.gitbook/assets/image-20211130171740802.png)
+### Configuration code check
 
-![](../../.gitbook/assets/image-20211130171852028.png)
+Add a code review plug-in
 
-### 配置代码检查
+![img](../../.gitbook/assets/image-20211130172838584.png)
 
-添加代码检查插件
+![img](../../.gitbook/assets/image-20211130172345727.png)
 
-![](../../.gitbook/assets/image-20211130172838584.png)
+Configure the code check, select the synchronization mode, and select the corresponding engineering language and rule set according to the code base language in "Basic Settings". The rule set is the standard that codecc follows for code scanning. codecc provides the default rule set, and can customize the rule set if the rule set does not meet the requirements. For details about user-defined rule sets, see the following: Select incremental scanning in Scan Configuration for [code check rule](codecc-ruleset.md), and set path whitelist for Path Mask. Once set, code check scans only files in the whitelist path. If the path blacklist is configured, the code checking plug-in does not scan files in the path.
 
-![](../../.gitbook/assets/image-20211130172345727.png)
+![img](../../.gitbook/assets/image-20211130173035272.png)
 
-配置代码检查，选择同步方式，「基础设置」根据代码库语言选择对应的工程语言，选择对应的规则集，规则集就是codecc进行代码扫描遵循的标准，codecc会提供默认的规则集，如果规则集不满足需求，可以自定义规则集。自定义规则集请参考：[代码检查规则](codecc-ruleset.md)
-「扫描配置」选择增量扫描，「路径屏蔽」可以设置路径白名单，一旦设置后，代码检查只会扫描白名单路径下的文件；配置路径黑名单，则代码检查插件不会扫描该路径下的文件。
+![img](../../.gitbook/assets/image-20211201155909271.png)
 
-![](../../.gitbook/assets/image-20211130173035272.png)
+Path to support wildcards, if it is a complete path, must begin with /, such as the need to block file is' - the name/initial/SRC/main/Java/hello/HelloWorld. Java, Is the path to the white list/initial/SRC/main/Java/hello/HelloWorld. Java.
 
-![](../../.gitbook/assets/image-20211201155909271.png)
+![img](../../.gitbook/assets/image-20211201155839048.png)
 
-路径支持通配符，如果是完整路径，须以/开头，如需要屏蔽的文件是repo-name/initial/src/main/java/hello/HelloWorld.java，则路径白名单是/initial/src/main/java/hello/HelloWorld.java。
+![img](../../.gitbook/assets/image-20211130173112283.png)
 
-![](../../.gitbook/assets/image-20211201155839048.png)
+![img](../../.gitbook/assets/image-20211130173116075.png)
 
-![](../../.gitbook/assets/image-20211130173112283.png)
+For details about how to **configure other code check plug-ins**, [see Code Check Configuration](codecc-config.md)
 
-![](../../.gitbook/assets/image-20211130173116075.png)
+### Execution pipeline
 
-**其他代码检查插件配置请参考：**[代码检查配置](codecc-config.md)
+General picture of assembly line:
 
-### 执行流水线
+![img](../../.gitbook/assets/image-20211130195514541.png)
 
-流水线全貌：
+Save and execute pipelining:
 
-![](../../.gitbook/assets/image-20211130195514541.png)
+![img](../../.gitbook/assets/image-20211130195335957.png)
 
-保存并执行流水线：
+![img](../../.gitbook/assets/image-20211130195551682.png)
 
-![](../../.gitbook/assets/image-20211130195335957.png)
+![img](../../.gitbook/assets/image-20211130195617959.png)
 
-![](../../.gitbook/assets/image-20211130195551682.png)
+### View the code review results
 
-![](../../.gitbook/assets/image-20211130195617959.png)
+"Wait for execution to finish" - "Click code to check plug-in" - "View Report"
 
-### 查看代码检查结果
+![img](../../.gitbook/assets/image-20211201150104628.png)
 
-「等待执行完毕」-「点击代码检查插件」-「查看报告」
+![img](../../.gitbook/assets/image-20211201150100160.png)
 
-![](../../.gitbook/assets/image-20211201150104628.png)
+Click on the number to jump to see the specific problem
 
-![](../../.gitbook/assets/image-20211201150100160.png)
-
-点击数字可以跳转查看具体的问题
-
-![](../../.gitbook/assets/image-20211201151908164.png)
-
-
+![img](../../.gitbook/assets/image-20211201151908164.png)
