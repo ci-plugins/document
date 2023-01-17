@@ -1,115 +1,101 @@
-1. + ## Q1 构建机节点导入报错 
+## Q1 An error is reported when the builder node is imported
 
-     报错：cannot execute binary file
+Error message: cannot execute binary file
 
-     ​	解决方案：开发环境与命令不相符，不同环境会对应不同的命令。不能在 windows 机器上执行 macOS 或 Linux的命令。
+Solution: The development environment does not match the command. Different environments correspond to different commands. You cannot execute macOS or Linux commands on a windows machine.
 
-     ![](../../../.gitbook/assets/import_error.png)
+![img](../../../.gitbook/assets/import_error.png)
 
-     ---
+------
 
-     ## Q2 环境管理节点agent 异常
+## Q2 environment agent anomalies
 
-     第三方机器agent异常
+The agent of the third-party machine is abnormal
 
-     1. 登录机器查看是否存在devops进程：
+1. Log in to the machine to see if the devops process exists:
+   - In Windows, open Process Management to view the devopsDaemon and devopsAgent processes.
+   - Execute the command ps MAC or Linux directly in the machine - ef | grep conversation to see whether there are two process of the conversation
+2. - If the devops process does not exist, go to the agent directory (the agent directory is where the installation was performed) and execute the start script.
+   - If the devops process exists, execute the start script after manually killing the process to ensure that there are no devops processes left
 
-        + Windows下打开进程管理查看devopsDaemon和devopsAgent进程；
+------
 
-        + MAC或者Linux直接在机器上执行命令ps -ef | grep devops 查看是否有两个devops进程
+## Q3 BKCI agent fails to be installed on the windows builder because the subdirectory or file already exists and access is denied
 
-          
+![img](../../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
 
-     2. 
+In this case, the agent is repeatedly installed. To uninstall the agent, run Uninstall script, delete the installation directory of the agent, download the agent package, and install the Agent again
 
-        + 如果devops进程不存在，cd到agent目录(agent目录就是当初执行安装的目录)执行start脚本；
-        + 如果devops 进程存在，手动杀掉进程以后，确保没有devops进程了，再执行start脚本
+## Q4 After the agent is installed, BKCI cannot read nodes
 
-     ---
+If the node cannot be flushed after you click Refresh after running the agent installation command, perform the following steps:
 
-     ## Q3 windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问
+![img](../../../.gitbook/assets/get-node-error.png)
 
-     ![](../../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
+1. Check whether the agent is successfully installed. If the installation fails:
 
-     这种情况一般是由于用户重复安装蓝盾agent导致，可以先执行uninstall脚本，卸载当前agent，然后删除该agent的安装目录，然后重新下载agent包，再次安装
+- 1.1 Make sure the target machine is a devnet machine, or you can test the network connectivity to see if it can be connected.
+- 1.2 Ensure that the machine agent is removed
 
-     ## Q4 安装agent后，蓝盾读取不到节点
+1. Check that the copied command is consistent with the system of the target machine
 
-     如果执行agent安装命令后，点击刷新仍无法刷出节点，请按以下步骤排查：
+![img](../../../.gitbook/assets/image-20220831184628259.png)
 
-     ![](../../../.gitbook/assets/get-node-error.png)
+1. Make sure the installation command is copied by clicking the button in the red box below
 
-     1. 检查agent是否安装成功，如果失败：
+![img](../../../.gitbook/assets/image-20220831184641257.png)
 
-     - 1.1 确保目标机器是devnet机器，或者可以测试网络连通性，看下是否能连通。
+**If the agent has been imported to the target machine and the installation command is copied from the imported agent node page, the node cannot be spawned.**
 
-     - 1.2确保去掉机器代理
+------
 
-      
+## Q5 An error occurs when the machine accesses the third-party Intranet
 
-     2. 检查复制的命令是否与目标机器的系统一致
+Fault details: When the machine accesses the third-party Intranet, an error message fails to connect to the Intranet.com port XX: Connection refused
 
-     ![](../../../.gitbook/assets/image-20220831184628259.png)
+Example:
 
-     3. 确保安装命令是通过点击下图红框按钮复制的
+1. Failed to connect to xx.oa.com port XX: Connection refused
+2. The machine cannot access the Intranet
 
-     ![](../../../.gitbook/assets/image-20220831184641257.png)
+Solution: If an Internet proxy is configured on the machine, you need to set the value of noproxy to access the third-party Intranet service. Print the value of no_proxy and add the Intranet to the value
 
-     **如果目标机器已导入过agent，并且安装命令是从已导入的agent节点页面内复制的，也会导致无法刷出节点的问题。**
+![img](../../../.gitbook/assets/fail_to_connect.png)
 
-     ---
+------
 
-     ## Q5 机器访问第三方内网报错
+## Q6 Failed to start the Service due to Login Failure is Displayed when the agent is Started on a Windows Machine.
 
-     问题详情：机器访问第三方内网报错 Failed to connect to 内网.com port XX: Connection refused
+![img](../../../.gitbook/assets/image-20220831154909517.png)
 
-     示例：
+Solution:
 
-     1. Failed to connect to xx.oa.com port XX: Connection refused
+Please update your password for logging into the service
 
-     2. 机器无法访问内网
+Update method is as follows:
 
-     解决方案：若机器配置了外网代理，则访问第三方内网服务需要设置noproxy的值，试打印出no_proxy的值，将需要访问的内网添加到值中
+Run services.msc to open the windows service management page and locate the service landun_devops_agent
 
-     ![](../../../.gitbook/assets/fail_to_connect.png)
+![img](../../../.gitbook/assets/image-20220831175010006.png)
 
-     ---
+------
 
-     ## Q6 Windows机器启动agent提示“由于登录失败而无法启动服务”
+## Q7 Environment node attributes are constantly changing
 
-     ![](../../../.gitbook/assets/image-20220831154909517.png)
+The same agent installation command is installed on multiple different machines. As a result, the environment management page continuously reports two different machine information.
 
-     解决方案：
+Note When installing the agent, you need to use the new unique installation command.
 
-     请更新一下登录服务的密码
+------
 
-     更新方法如下：
+## Q8 Failed to obtain the Intranet IP address of the builder
 
-     执行命令services.msc打开windows服务管理界面，找到服务landun_devops_agent
+BKCI fails to obtain the Intranet IP address of the builder and displays 127.0.0.1
 
-     ![](../../../.gitbook/assets/image-20220831175010006.png)
+![img](../../../.gitbook/assets/image-20220831182403811.png)
 
-     ---
+The BKCI Pipeline pull-down builder also shows 127.0.0.1
 
-     ## Q7 环境节点属性不断在变化
+![img](../../../.gitbook/assets/image-20220831182430720.png)
 
-     用户将相同agent安装命令安装在多台不同的机器上了，导致环境管理页面会不断上报两个不同的机器信息。
-
-     安装agent注意需要使用新的唯一安装命令。
-
-     ---
-
-     ## Q8 无法正确获取构建机内网IP
-
-     蓝盾获取不到构建机的内网IP，显示为 127.0.0.1
-
-     ![](../../../.gitbook/assets/image-20220831182403811.png)
-
-     在蓝盾流水线下拉构建机也显示127.0.0.1
-
-     ![](../../../.gitbook/assets/image-20220831182430720.png)
-
-     原因：这个IP是agent从本机IP里面随机选择的一个IP、可能是有使用其他代理然后获取到了这个IP，可以检查下机器代理问题，关闭掉一些代理软件
-     **内网地址的显示12.7.0.0.1本质对构建机使用没有影响， 用户可正常使用**
-
-     
+Cause: This IP address is randomly selected by the agent from the local IP address. It may be obtained by using other agents. You can check the machine agent problem and turn off the **display of the Intranet address** of some agent software
