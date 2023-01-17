@@ -6,6 +6,8 @@ This tutorial will guide you through hosting your build resources to bk-ci in th
 
 Import method: Service - Environment Management - Node page, click on the upper right corner to import the third-party builder:
 
+
+
 ![](../../../.gitbook/assets/image (37).png)
 
 According to the popover:
@@ -15,5 +17,5 @@ According to the popover:
 3. After the Agent is installed, click Refresh to refresh the outbound node, and click Import.
    Next you may need
 
-* [构建机详情页](../agent-detail.md)
+* [Builders detail page](../agent-detail.md)
 
