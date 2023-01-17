@@ -20,7 +20,7 @@ By analyzing the source code quickly and accurately, find out the quality proble
 
 **Quality red line (planned to open to the public in 2022) :**
 
-It is deeply integrated with the Blue Shield pipeline. Through the quality red line service, the inspection results of CodeCC can be used in the pipeline to control the processes such as MR/PR, retesting and deployment of the code base, so that the output of the pipeline at each stage can meet the quality standards.
+It is deeply integrated with the BKCI pipeline. Through the quality red line service, the inspection results of CodeCC can be used in the pipeline to control the processes such as MR/PR, retesting and deployment of the code base, so that the output of the pipeline at each stage can meet the quality standards.
 
 **Self-service launch of tools (planned to open to the public in the second half of 2022) :**
 

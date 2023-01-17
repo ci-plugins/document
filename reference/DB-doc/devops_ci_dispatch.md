@@ -367,7 +367,7 @@
 | Serial number |                name                | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
 | :-----------: | :--------------------------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
 |       1       |              VM_TYPE               |  varchar  |  128   |       0       |          N           |      Y      |               |                         Builder type                         |
-|       2       |      RUNNING_JOBS_MAX_SYSTEM       |    int    |   10   |       0       |          N           |      N      |               |  Maximum number of concurrent jobs in a Blue Shield system   |
+|       2       |      RUNNING_JOBS_MAX_SYSTEM       |    int    |   10   |       0       |          N           |      N      |               |  Maximum number of concurrent jobs in a BKCI system   |
 |       3       |      RUNNING_JOBS_MAX_PROJECT      |    int    |   10   |       0       |          N           |      N      |               | Default maximum number of concurrent jobs for a single project |
 |       4       |        RUNNING_TIME_JOB_MAX        |    int    |   10   |       0       |          N           |      N      |               |    By default, the maximum execution time of a single JOB    |
 |       5       |    RUNNING_TIME_JOB_MAX_PROJECT    |    int    |   10   |       0       |          N           |      N      |               |   Default maximum execution time of all jobs in a project    |

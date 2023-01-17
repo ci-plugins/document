@@ -123,7 +123,7 @@ There is a permission conflict. In the user group permission, there are multiple
 
 ### Q: python environment variables are added but do not take effect when the job is executed. (job error "System cannot find the specified file")
 
-Since bkci agent and Blue Whale agent use the system account, the environment variables added to the administrator account do not take effect. You need to add python.exe and pip3.exe to the system environment variables and restart the operating system
+Since bkci agent and BK agent use the system account, the environment variables added to the administrator account do not take effect. You need to add python.exe and pip3.exe to the system environment variables and restart the operating system
 
 ### Q: Can I upload builds to designated private GitLab warehouses via the bkci pipeline?
 
@@ -145,7 +145,7 @@ Used in windows batchscript plugin`call:setEnv "FILENAME" "package.zip"` This va
 
 ![img](../../.gitbook/assets/image-20220301101202-Lkelb.png)
 
-Not enabled. This monitoring is meaningless and does not affect scheduling. Special monitoring systems such as Blue Whale monitoring are recommended.
+Not enabled. This monitoring is meaningless and does not affect scheduling. Special monitoring systems such as BK monitoring are recommended.
 
 If you want to enable:
 
@@ -230,7 +230,7 @@ The reason was that when bkci was deployed, due to limited server resources, the
 
 ### Q: Where can I view the jar packages uploaded to the artifact library? Use the default
 
-The blue whale community reference: https://bk.tencent.com/s-mart/community/question/2380
+The BK community reference: https://bk.tencent.com/s-mart/community/question/2380
 
 ### Q: The gitlab event trigger plug-in cannot trigger events
 
@@ -812,9 +812,9 @@ If there are multiple private construction machines, a private construction clus
 
 This document is hosted by gitbook and requires access to some of Google's resources, which can be a problem if the user doesn't have web access to Google
 
-### Q: The machine restarted after power failure, but some services of Blue Whale did not work. Are these services not set to start from the boot?
+### Q: The machine restarted after power failure, but some services of BK did not work. Are these services not set to start from the boot?
 
-There are dependencies between services. For example, some Blue Whale services depend on mysql. If these services are started before mysql, they will fail to start
+There are dependencies between services. For example, some BK services depend on mysql. If these services are started before mysql, they will fail to start
 
 ### Q: I have pipeline A, which can be executed separately, and I have pipeline B, which will call A and wait for A result of A. How can I make this mutually exclusive
 
@@ -883,9 +883,9 @@ In this case, the agent is repeatedly installed. To uninstall the agent, run Uni
 
 ### Q: bkci's execution history has a place to set the upper limit, my timing pipeline may be once a minute, data will waste disk
 
-Blue Whale's platform is recommended for high frequency timing tasks
+BK's platform is recommended for high frequency timing tasks
 
-### Q: Ubuntu Blue Whale agent installation failed. There is no enough space left in /tmp, but there is disk space left
+### Q: Ubuntu BK agent installation failed. There is no enough space left in /tmp, but there is disk space left
 
 ![img](../../.gitbook/assets/企业微信截图_16316948048063.png)
 

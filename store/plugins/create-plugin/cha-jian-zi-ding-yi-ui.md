@@ -12,7 +12,7 @@
   * When the plugin is clicked, the upper layer of the platform will load the plugin's [atomValue](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a-1a7624756a26/file///Users/zhaozhihui/Downloads/ci- plugins-wiki/specification/plugin_custom_ui.md#atomvalue) and [atomModel](vscode-webview-resource://3f6fc6ee-8541-4ba2-969a- 1a7624756a26/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_custom_ui.md#atommodel) is passed by postMessage to The iframe will get the atomModel and atomValue internally and then customize the plugin part.
   * When the user enters the corresponding parameters, the value is updated to atomValue and the plugin panel will automatically pass the value of atomValue back to the upper layer of the platform when it is closed.
 
-  For vue developers, we encapsulate a vue-based scaffolding that integrates the Blue Whale magixbox component library, bkci business components, and bkci plug-in capabilities, and encapsulates the api for communication with the upper layer of the platform, so that developers can focus only on the business logic part of the process.
+  For vue developers, we encapsulate a vue-based scaffolding that integrates the BK magixbox component library, bkci business components, and bkci plug-in capabilities, and encapsulates the api for communication with the upper layer of the platform, so that developers can focus only on the business logic part of the process.
 
   ## Framework directory structure introduction
 
@@ -95,7 +95,7 @@
   1. How to use the built-in bkci component library and magixbox component library?
 
   * bkci component library: Any component that can be configured with task.json can also be used directly as a component. The properties of a component are configurable properties of task.json ([click to view](plugin-config.md)). The value change event of the bkci component library is encapsulated as handle-change="functionxxx", where functionxxx has two parameters: the component name and the new value of the component
-  * The Blue Whale magixbox component library has a variety of components, which can basically cover the types of components needed for daily development. Within the framework, you can directly use the magixbox component library for development. The specific use please see [official documentation](https://bk.tencent.com/docs/document/6.0/130/5946)
+  * The BK magixbox component library has a variety of components, which can basically cover the types of components needed for daily development. Within the framework, you can directly use the magixbox component library for development. The specific use please see [official documentation](https://bk.tencent.com/docs/document/6.0/130/5946)
 
   2. When debugging locally, I need to combine some specific project, such as using selector component to pull the code base list and credential list of certain project, how to bring the project information?
 

@@ -1,0 +1,41 @@
+<ol type="1"> 
+ <li>
+  <ul> 
+   <li><h2 id="q1-构建机节点导入报错">Q1 An error is reported when the builder node is imported</h2> <p>Error message: cannot execute binary file</p> <p> Solution: The development environment does not match the command. Different environments correspond to different commands. You cannot execute macOS or Linux commands on a windows machine.</p> <p><img src="../../../.gitbook/assets/import_error.png"></p> 
+    <hr> <h2 id="q2-环境管理节点agent-异常">The agent on the Q2 environment management node is abnormal</h2> <p>The agent of the third-party machine is abnormal</p> 
+    <ol type="1"> 
+     <li><p>Log in to the machine to see if the devops process exists:</p> 
+      <ul> 
+       <li><p>In Windows, open Process Management to view the devopsDaemon and devopsAgent processes.</p></li> 
+       <li><p>Execute the command ps MAC or Linux directly in the machine - ef | grep conversation to see whether there are two process of the conversation</p></li> 
+      </ul></li> 
+     <li>
+      <ul> 
+       <li>If the devops process does not exist, go to the agent directory (the agent directory is where the installation was performed) and execute the start script.</li> 
+       <li>If the devops process exists, execute the start script after manually killing the process to ensure that there are no devops processes left</li> 
+      </ul></li> 
+    </ol> 
+    <hr> <h2 id="q3-windows构建机上安装蓝盾agent失败子目录或文件已经存在拒绝访问">Q3 BKCI agent fails to be installed on the windows builder because the subdirectory or file already exists and access is denied</h2> <p><img src="../../../.gitbook/assets/企业微信截图_16393825053890-3096967.png"></p> <p>In this case, the agent is repeatedly installed. To uninstall the agent, run Uninstall script, delete the installation directory of the agent, download the agent package, and install the Agent again</p> <h2 id="q4-安装agent后蓝盾读取不到节点">Q4 After the agent is installed, BKCI cannot read nodes</h2> <p>If the node cannot be flushed after you click Refresh after running the agent installation command, perform the following steps:</p> <p><img src="../../../.gitbook/assets/get-node-error.png"></p> 
+    <ol type="1"> 
+     <li>Check whether the agent is successfully installed. If the installation fails:</li> 
+    </ol> 
+    <ul> 
+     <li><p>1.1 Make sure the target machine is a devnet machine, or you can test the network connectivity to see if it can be connected.</p></li> 
+     <li><p>1.2 Ensure that the machine agent is removed</p></li> 
+    </ul> 
+    <ol start="2" type="1"> 
+     <li>Check that the copied command is consistent with the system of the target machine</li> 
+    </ol> <p><img src="../../../.gitbook/assets/image-20220831184628259.png"></p> 
+    <ol start="3" type="1"> 
+     <li>Make sure the installation command is copied by clicking the button in the red box below</li> 
+    </ol> <p><img src="../../../.gitbook/assets/image-20220831184641257.png"></p> <p><strong>If the agent has been imported to the target machine and the installation command is copied from the imported agent node page, the node cannot be spawned.</strong></p> 
+    <hr> <h2 id="q5-机器访问第三方内网报错">Q5 An error occurs when the machine accesses the third-party Intranet</h2> <p>Fault details: When the machine accesses the third-party Intranet, an error message fails to connect to the Intranet.com port XX: Connection refused</p> <p>Example:</p> 
+    <ol type="1"> 
+     <li><p>Failed to connect to xx.oa.com port XX: Connection refused</p></li> 
+     <li><p>The machine cannot access the Intranet</p></li> 
+    </ol> <p>Solution: If an Internet proxy is configured on the machine, you need to set the value of noproxy to access the third-party Intranet service. Print the value of no_proxy and add the Intranet to the value</p> <p><img src="../../../.gitbook/assets/fail_to_connect.png"></p> 
+    <hr> <h2 id="q6-windows机器启动agent提示由于登录失败而无法启动服务">Q6 Failed to start the Service due to Login Failure is Displayed when the agent is Started on a Windows Machine.</h2> <p><img src="../../../.gitbook/assets/image-20220831154909517.png"></p> <p>Solution:</p> <p>Please update your password for logging into the service</p> <p>Update method is as follows:</p> <p>Run services.msc to open the windows service management page and locate the service landun_devops_agent</p> <p><img src="../../../.gitbook/assets/image-20220831175010006.png"></p> 
+    <hr> <h2 id="q7-环境节点属性不断在变化">Q7 Environment node attributes are constantly changing</h2> <p>The same agent installation command is installed on multiple different machines. As a result, the environment management page continuously reports two different machine information.</p> <p>Note When installing the agent, you need to use the new unique installation command.</p> 
+    <hr> <h2 id="q8-无法正确获取构建机内网ip">Q8 Failed to obtain the Intranet IP address of the builder</h2> <p>BKCI fails to obtain the Intranet IP address of the builder and displays 127.0.0.1</p> <p><img src="../../../.gitbook/assets/image-20220831182403811.png"></p> <p>The BKCI Pipeline pull-down builder also shows 127.0.0.1</p> <p><img src="../../../.gitbook/assets/image-20220831182430720.png"></p> <p>Cause: This IP address is randomly selected by the agent from the local IP address. It may be obtained by using other agents. You can check the machine agent problem and turn off the <strong>display of the Intranet address</strong> of some agent software  </p></li> 
+  </ul></li> 
+</ol>

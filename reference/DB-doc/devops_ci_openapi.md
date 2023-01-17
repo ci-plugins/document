@@ -9,7 +9,7 @@
 |               Table name               |                    description                     |
 | :------------------------------------: | :------------------------------------------------: |
 |  [T_APP_CODE_GROUP](broken-reference)  | Organizational structure corresponding to app_code |
-| [T_APP_CODE_PROJECT](broken-reference) |  app_code corresponds to the Blue Shield project   |
+| [T_APP_CODE_PROJECT](broken-reference) |  app_code corresponds to the BKCI project   |
 |  [T_APP_USER_INFO](broken-reference)   |    The administrator corresponding to app_code     |
 
 **Table name:** T_APP_CODE_GROUP
@@ -35,7 +35,7 @@
 
 **Table name:** T_APP_CODE_PROJECT
 
-**Note:** app_code corresponds to the Blue Shield project
+**Note:** app_code corresponds to the BKCI project
 
 **Data column:**
 

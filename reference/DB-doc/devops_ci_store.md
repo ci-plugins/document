@@ -483,7 +483,7 @@ Category information table
 |       3       |     IMAGE_CODE      |  varchar  |   64   |       0       |          N           |      N      |                   |                         Mirror code                          |
 |       4       |     CLASSIFY_ID     |  varchar  |   32   |       0       |          N           |      N      |                   |                         Category ID                          |
 |       5       |       VERSION       |  varchar  |   20   |       0       |          N           |      N      |                   |                        Version number                        |
-|       6       |  IMAGE_SOURCE_TYPE  |  varchar  |   20   |       0       |          N           |      N      |     bkdevops      | Mirror source, bkdevops: Blue Shield source third: third party source |
+|       6       |  IMAGE_SOURCE_TYPE  |  varchar  |   20   |       0       |          N           |      N      |     bkdevops      | Mirror source, bkdevops: BKCI source third: third party source |
 |       7       |   IMAGE_REPO_URL    |  varchar  |  256   |       0       |          Y           |      N      |                   |                   Mirror warehouse address                   |
 |       8       |   IMAGE_REPO_NAME   |  varchar  |  256   |       0       |          N           |      N      |                   |                   Mirror in warehouse name                   |
 |       9       |      TICKET_ID      |  varchar  |  256   |       0       |          Y           |      N      |                   |                          ticket ID                           |
@@ -553,7 +553,7 @@ Mirror and category correlation table
 |       8       |    UPDATE_TIME     | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |                     Update time                      |
 |       9       | CERTIFICATION_FLAG |    bit    |   1    |       0       |          Y           |      N      |       B '0'       | Official authentication or not: TRUE: yes FALSE: no  |
 |      10       |       WEIGHT       |    int    |   10   |       0       |          Y           |      N      |                   | Weight (the larger the value, the higher the weight) |
-|      11       |     IMAGE_TYPE     |  tinyint  |   4    |       0       |          N           |      N      |         1         | Mirror type: 0: Blue Whale official, 1: third party  |
+|      11       |     IMAGE_TYPE     |  tinyint  |   4    |       0       |          N           |      N      |         1         | Mirror type: 0: BK official, 1: third party  |
 |      12       |    DELETE_FLAG     |    bit    |   1    |       0       |          Y           |      N      |       B '0'       |      Delete the true: yes, false: no identifier      |
 
 **Table name:** T_IMAGE_LABEL_REL

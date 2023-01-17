@@ -171,7 +171,7 @@ If the above components do not meet your needs, please contact bkci customer ser
     "optionsConf": {          # type=selector/select-input/devops-select
         "searchable": false,  # Searchable or not
         "multiple": false,    # Whether it is multiple choice
-        "url": "",            # Link to the bkci service, or link to the API for accessing the Blue Whale                             Gateway
+        "url": "",            # Link to the bkci service, or link to the API for accessing the BK                             Gateway
                                 Variables are supported in the link, referenced using {variable name},                               either fields in the current task.json or several built-in variables,                                 such as projectId, pipelineId, buildId
                                 
         "dataPath": "",       # The path in the json of the API return body where the option list data is                             located, without this field it defaults to data, example:                                             data.detail.list. use with url
@@ -291,7 +291,7 @@ If the above components do not meet your needs, please contact bkci customer ser
 
     ```text
     "bashConf": {
-        "url": "XXX", # Third-party link that has access to the Blue Whale gateway
+        "url": "XXX", # Third-party link that has access to the BK gateway
         "dataPath": "" # as data.name
     },
     "lang": "sh" # currently supports highlighting syntax json|python|sh|text|powershell|batchfile
@@ -506,7 +506,7 @@ Features supported by ####
 
       * The url supports two types.
         * bkci built-in services
-        * Third-party API for accessing the Blue Whale Gateway
+        * Third-party API for accessing the BK Gateway
       * url return specification: return json format data
 
         * status: whether the operation is successful, 0 success, non-0 failure

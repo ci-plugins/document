@@ -16,7 +16,7 @@ Third-party build machines are not supported for code analysis. You can use a pu
 
 It does not provide the deletion function. You can disable it if you do not need to
 
-![img](../../.gitbook/assets/wecom-temp-86ae0a86fe2fc72292be8a99ea3aca3c.png)
+![img](../../.gitbook/assets/wecom-temp-86ae0a86fe2fc72292be8a99ea3aca3c.png)img
 
 **Q: How does codecc path masking work**
 
@@ -32,7 +32,7 @@ Codecc cpplint rule is based on the Google c + + code of the specification, you 
 
 lua code checking is not supported yet
 
-**Q: I can't see the source code for the code check. It shows that the code snippet cannot be obtained. Please make sure that you have permission on the code base and that the file is not deleted from the code base**
+**Q: I can't see the source code for the code check. It shows that the code snippet cannot be obtained. Please make sure that. I can't see the source code for the code check. It shows that the code snippet cannot be obtained. Please make sure that you have permission on the code base and that the file is not deleted from the code base**
 
 ![img](../../.gitbook/assets/企业微信截图_162764646337.png)
 
@@ -45,12 +45,12 @@ lua code checking is not supported yet
 
 codecc's rules do not support customization at the moment, and only a few rules can modify parameters
 
-![img](../../.gitbook/assets/wecom-temp-08d0c28a28b7da8ca0aa399a96834f15.png)
+![img](../../.gitbook/assets/wecom-temp-08d0c28a28b7da8ca0aa399a96834f15.png)img
 
 ![img](../../.gitbook/assets/wecom-temp-54ddc1c54d449c261c04721f0cf403d2.png)
 
 **Q: Code check fails when the incremental scan is configured on the new public build machine**
 
-![img](../../.gitbook/assets/企业微信截图_16388456801202.png)
+![img](../../.gitbook/assets/企业微信截图_16388456801202.png)img
 
 When switching the builder, a full scan should be carried out first, and the fresh checkout mode should be selected by gitlab checkout

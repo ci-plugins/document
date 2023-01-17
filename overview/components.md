@@ -1,8 +1,10 @@
-# BKCI 组件
+# BKCI Components
 
 ![](../.gitbook/assets/image%20%2815%29.png)
 
-* Blue whale continuous integration platform \(bk-ci \ for short) is based on kotlin/java/js/go/lua/shell and other languages to write and implement, using a complete separation of front and back, plug-in development, with highly available and scalable service architecture design.**Front-end & Interface Gateway\(WebAPI Gateway & FrontEnd\):**
+蓝鲸持续集成平台\(简称bk-ci \)是基于 kotlin/java/js/go/lua/shell等多种语言编写实现的，采用完全前后分离，插件式开发，具备高可用可扩展的服务架构设计：
+
+* **Front-end & Interface Gateway\(WebAPI Gateway & FrontEnd\):**
   * **WebAPI Gateway:** by OpenResty, including the docking user login and identity authentication, and the back-end API of the **Consul** service discovery forwarding lua script and Nginx configuration
   * **FrontEnd:** pure front-end project based on VUE, contains a sequence of static resources such as js,img and html.
 * **BackEnd\(MicroService BackEnd\):** written in Kotlin/Java, using SpringCloud framework of microservice architecture design, the following is introduced in the order of the start of each microservice module.
