@@ -77,7 +77,7 @@ You are advised to manage plug-in codes in a unified manner to facilitate sharin
 * Way of provision
   * When publishing a plug-in, enter the plug-in description field
   * The plugin details screen will be displayed in the R&D store, or the log view help will be performed.
-* Use the document **Write in markdown language **. It is recommended to include the following contents:
+* Use the document **Write in markdown language**. It is recommended to include the following contents:
 ### 1. Plug-in introduction
 * A brief description of the plug-in's functions
 ### 2. Plug-in application scenarios

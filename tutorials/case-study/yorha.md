@@ -30,7 +30,7 @@ By using the BK BKCI tool, yorha has achieved the following efficiency gains in 
     
 &emsp; **d. Build process notifications sent to enterprise WeChat**
 
-**3. Reduce the difficulty of back-end developers to develop game cloud native architecture through BCS, the container management platform of BK, and achieve full automation of CI/CD on BKCI, including lossless updates, state retention and network mapping, and other special scenarios under game cloud native architecture. ** 
+**3. Reduce the difficulty of back-end developers to develop game cloud native architecture through BCS, the container management platform of BK, and achieve full automation of CI/CD on BKCI, including lossless updates, state retention and network mapping, and other special scenarios under game cloud native architecture.** 
             
 
 For the usage experience, Kai-Feng Huang, technical leader of yorha, said, "The ability of BlueShield pipeline building does not differ from several mainstream DevOps products in the industry, but the visualization page not only lowers its usage threshold, but also greatly improves the efficiency of our issue troubleshooting. In addition, both the functionality of the client-side version experience and the linkage with BK's container management platform can be easily achieved through BKCI plug-ins, and the diverse plug-in ecology also allows us to fully automate the overall CI/CD process. " 

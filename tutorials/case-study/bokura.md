@@ -12,7 +12,7 @@
    1. a single full compilation on the server side (C++) took nearly 16 minutes, **taking up development machine resources during compilation**
    2. high software license fees** for mainstream** commercial compilation acceleration software on the market, **limited support for compilation acceleration in Windows Subsystem for Linux scenarios**
 
-   **Based on the description of bokura, we recommend BKCI Compile Acceleration (Turbo) to bokura, which can be billed on a per-volume basis. BKCI Compile Acceleration is a compilation solution implemented by BKCI based on distributed compilation technology, caching technology, and container technology. ** After the delivery of the compilation acceleration solution, bokura tested its server-side (C++) builds and found that both in terms of compilation speed and cost of use, the solution had a significant effect on.
+   **Based on the description of bokura, we recommend BKCI Compile Acceleration (Turbo) to bokura, which can be billed on a per-volume basis. BKCI Compile Acceleration is a compilation solution implemented by BKCI based on distributed compilation technology, caching technology, and container technology.** After the delivery of the compilation acceleration solution, bokura tested its server-side (C++) builds and found that both in terms of compilation speed and cost of use, the solution had a significant effect on.
 
    1. **The single compilation time was reduced from 16 minutes to 4 minutes, with an acceleration ratio of 75%.**.
    2. **The cost of use is only 600 RMB/month (see appendix for calculation, actual cost fluctuates according to the monthly compilation volume), which has a huge cost advantage over a mainstream commercial software.**

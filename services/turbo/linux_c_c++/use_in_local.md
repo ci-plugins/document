@@ -3,7 +3,7 @@ description: The following tutorial will guide you through how to use the accele
 ---
 
 # Use acceleration on private build machines
-## Step1 **First install the Accelerator kit on the machine (do this using root) **
+## Step1 **First install the Accelerator kit on the machine (do this using root)**
 ```text
 / bin/bash - c "$(curl http://<your service domain name> /turbo-client/disttask/install. Sh)"
 ```

@@ -124,7 +124,7 @@ If the above components do not meet your needs, please contact bkci customer ser
 "rule": { "regex": "^[0-9]" }
 ```
 
-**Has personalized properties for different types of components **
+**Has personalized properties for different types of components**
 
 **1. Single line text box: type=vuex-input**
 

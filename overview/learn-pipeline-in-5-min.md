@@ -58,7 +58,7 @@ Also known as a build machine, in order to compile, test, or deploy your code, y
 
 * Runs inside the node's docker
 
-If the operating system of your node is Linux, the ** build resource type ** in the Job Details page has an additional option: Linux build image. If this option is selected, the pipeline will make full use of your node's CPU, MEM, and other dynamic resources after running the Job in the following ways:
+If the operating system of your node is Linux, the **build resource type** in the Job Details page has an additional option: Linux build image. If this option is selected, the pipeline will make full use of your node's CPU, MEM, and other dynamic resources after running the Job in the following ways:
 
 * run the docker run command on the node assigned to the Job to start the image
 

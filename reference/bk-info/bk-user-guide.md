@@ -143,7 +143,7 @@ Next, we will deploy a service called "dataserver" on the newly added host. To m
 
 
 
-## **6. Deploy dataserver service using "Job Platform" **
+## **6. Deploy dataserver service using "Job Platform"**
 
 ![](../../.gitbook/assets/image-reference-bkuserguide-45.png)
 
@@ -160,7 +160,7 @@ https://www.python.org/ftp/python/3.9.4/Python-3.9.4.tgz
 ![](../../.gitbook/assets/image-reference-bkuserguide-49.png)
 
 
-### **6.2 Deploying services using "script execution" **
+### **6.2 Deploying services using "script execution"**
 
 ![](../../.gitbook/assets/image-reference-bkuserguide-50.png)
 

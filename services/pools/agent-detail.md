@@ -4,7 +4,7 @@ After hosting your build machine to bk-ci, you can view the list of build machin
 ## builder list
 ![&#x5728;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x67E5;&#x9605;&#x6784;&#x5EFA;&#x673A;&#x7684;&#x57FA;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x70B9;&#x51FB;&#x522B;&#x540D;&#x8FDB;&#x5165;&#x6784;&#x5EFA;&#x673A;&#x8BE6;&#x60C5;&#x3002;](../../.gitbook/assets/image%20%2834%29.png)
 
-*** Builder details **
+*** Builder details**
 ![&#x6784;&#x5EFA;&#x673A;&#x8BE6;&#x60C5;&#x9875;&#x5171;&#x6709; 6 &#x4E2A;&#x529F;&#x80FD;&#x533A;&#xFF0C;&#x5BF9;&#x5E94;&#x529F;&#x80FD;&#x5982;&#x4E0B;&#xFF1A;](../../.gitbook/assets/image%20%2820%29.png)
 
 1. Construct the CPU usage trend chart

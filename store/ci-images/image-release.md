@@ -14,10 +14,10 @@ Worktable -&gt; Container mirror image -&gt; Associated mirror
 3. If the image is a private image, create a credential in Credentials management and associate it with the image. At execution time, the system uses this credent to pull the image
 
 ### Mount/upgrade image
-**Entry is as follows **
+**Entry is as follows**
 ![](../../.gitbook/assets/image%20%2846%29.png)
 
-**Fill in the basic information **
+**Fill in the basic information**
 ![](../../.gitbook/assets/image%20%2831%29.png)
 
 ![](../../.gitbook/assets/image%20%2819%29.png)
@@ -52,7 +52,7 @@ Worktable -&gt; Container mirror image -&gt; Associated mirror
    * Correction sign +1
 
 
-**Verify image **
+**Verify image**
 After the release is submitted, you can verify that the mirroring function meets expectations under the debugging project
      ![](../../.gitbook/assets/image%20%2814%29.png)
 

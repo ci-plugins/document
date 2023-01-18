@@ -12,7 +12,7 @@
         |- hello.go
 ```
 
-**II. How to develop plug-ins: **
+**II. How to develop plug-ins:**
 
 > See [plugin-demo-golang](https://github.com/ci-plugins/plugin-demo-golang)
 Create plug-in code projects
@@ -24,7 +24,7 @@ You are advised to manage plug-in codes in a unified manner. Generic open source
   * [Plug-in Development Specification](../plugin-specification.md)
   * [Plug-in output specification](../plugin-output.md)
 
-**III. How to package and publish: **
+**III. How to package and publish:**
 
 1. Go to the plug-in code project directory
 2. Pack

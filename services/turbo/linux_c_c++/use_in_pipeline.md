@@ -9,7 +9,7 @@ If your pipeline is on a private build machine, install client as root on your m
 / bin/bash - c "$(curl http://<your service domain name> /turbo-client/disttask/install.sh)"
 ```
 
-If your pipeline uses a public builder, this step is **unnecessary **.
+If your pipeline uses a public builder, this step is **unnecessary**.
 ## Step1 Modify the compilation script
 Suppose the original compiled script is:
 ```text
@@ -38,7 +38,7 @@ Parameter meanings in the command are
 * -p $TURBO\_PLAN\_ID: specifies the scheme ID. In the Turbo Compilation Acceleration plug-in, the ID of the selected scheme is injected by default.
 * --hook, open the hook command, will automatically hijack gcc/clang and other compilers to achieve acceleration.
 * -a "make -j@BK\_JOBS all", specifying the compile command to execute, with @BK\_JOBS as a placeholder that will be automatically replaced with the recommended amount of concurrency at run time.
-## Step2 Open the pipeline and add the plugin "**Turbo Compilation Acceleration **"
+## Step2 Open the pipeline and add the plugin "**Turbo Compilation Acceleration**"
 ![](../../../.gitbook/assets/image%20%2867%29.png)
 
 Note: This step requires the addition of a code plug-in
