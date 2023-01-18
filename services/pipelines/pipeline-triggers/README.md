@@ -1,6 +1,5 @@
-# 流水线触发方式
-蓝盾给用户提供多种方式来方便用户在不同场景下启动流水线，一条流水线允许用户使用多种触发方式，在Trigger stage选择多个trigger插件即可。
-
+# Pipeline trigger mode
+BKCI provides multiple ways for users to start the pipeline in different scenarios. One pipeline allows users to use multiple Trigger modes, and multiple trigger plug-ins can be selected at the Trigger stage.
 {% page-ref page="pipeline-trigger-manual.md" %}
 
 {% page-ref page="pipeline-trigger-remote.md" %}

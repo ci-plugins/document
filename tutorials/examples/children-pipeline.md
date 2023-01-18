@@ -1,27 +1,30 @@
-# 子流水线
+# Call sub-pipeline
 
-子流水线：可以在当前流水线调用项目下的其它流水线
+children-pipeline: Other pipelines under the project can be called from the current pipeline
+* New stage
 
-* 新建stage
+  ![](../../.gitbook/assets/image-20211218153126542.png)
 
-![](../../.gitbook/assets/image-20211218153126542.png)
+* Select call pipeline plug-in, here select the call pipeline as [children-pipeline demo], and also execute synchronous and asynchronous calls, and fill in the variable parameters of the children-pipeline
 
-* 选择call pipeline插件，这里选择调用的流水线为【子流水线demo】，同时还分同步和异步调用执行，填写子流水线的变量参数
+  ![](../../.gitbook/assets/image-20211218153213103.png)
 
-![](../../.gitbook/assets/image-20211218153213103.png)
+
 
 ![](../../.gitbook/assets/image-20211218161418247.png)
 
-* 添加shell script插件，睡眠20s
+* Added shell script plugin, sleep 20s
 
-![](../../.gitbook/assets/image-20211218161316700.png)
+  ![](../../.gitbook/assets/image-20211218161316700.png)
 
-* 子流水线demo，执行sleep 10的操作
+* children-pipeline demo, perform sleep 10 operations
 
-![](../../.gitbook/assets/image-20211218161541806.png)
+  ![](../../.gitbook/assets/image-20211218161541806.png)
 
-* 执行流水线，call pipeline在调用子流水线之后会立即成功，然后执行下一步操作，而此时【子流水线demo】会异步在执行（如果同步的情况下，会等待子流水线执行完成之后，在执行下一个）
+* Pipeline-execution, the call pipeline succeeds immediately after calling the children-pipeline, and then executes the next operation, while the children-pipeline demo asynchronously executes (if synchronous, waits for the children-pipeline to complete before executing the next operation).
 
-![](../../.gitbook/assets/image-20211218161727205.png)
+  ![](../../.gitbook/assets/image-20211218161727205.png)
+
+
 
 ![](../../.gitbook/assets/image-20220301101202-Azved.png)

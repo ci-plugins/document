@@ -1,2 +1,1 @@
-# 设计理念
-
+# Design Concept

@@ -1,124 +1,95 @@
-# callback回调执行历史记录
+# callback Callback execution history
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/history
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/history
 
-### 资源描述
+### Resource description
 
-#### callback回调执行历史记录
+#### callback Callback execution history
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string | 是 | 回调url |  |
-| event | string | 是 | 事件类型 |  |
-| startTime | string | 否 | 开始时间\(yyyy-MM-dd HH:mm:ss格式\) |  |
-| endTime | string | 否 | 结束时间\(yyyy-MM-dd HH:mm:ss格式\) |  |
-| page | integer | 否 | 第几页 | 1 |
-| pageSize | integer | 否 | 每页多少条 | 20 |
+| Parameter name | Parameter type | must | Parameter description                    | Default value |
+| :------------- | :------------- | :--- | :--------------------------------------- | :------------ |
+| url            | string         | is   | Callback url                             |               |
+| event          | string         | is   | Event type                               |               |
+| startTime      | string         | no   | Start time (Format: yyyy-MM-dd HH:mm:ss) |               |
+| endTime        | string         | no   | End Time (Format: yyyy-MM-dd HH:mm:ss)   |               |
+| page           | integer        | no   | What page                                | 1             |
+| pageSize       | integer        | no   | How many pieces per page                 | 20            |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | projectId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | projectId             |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型项目的流水线回调历史](callback-execution-history.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Wrapper Model Page pipelined callback history of the data wrapper model project](callback-execution-history.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?url={url}&amp;event={event}&amp;startTime={startTime}&amp;endTime={endTime}&amp;page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace API address bar request address]? url={url}&event={event}&startTime={startTime}&endTime={endTime}&page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "callBackUrl" : "String",
-      "responseBody" : "String",
-      "responseCode" : 0,
-      "errorMsg" : "String",
-      "requestHeaders" : [ {
-        "name" : "String",
-        "value" : "String"
-      } ],
-      "requestBody" : "String",
-      "createdTime" : 0,
-      "startTime" : 0,
-      "id" : 0,
-      "endTime" : 0,
-      "projectId" : "String",
-      "events" : "String",
-      "status" : "String"
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "callBackUrl" : "String",  "responseBody" : "String",  "responseCode" : 0,  "errorMsg" : "String",  "requestHeaders" : [ {  "name" : "String",  "value" : "String"  } ],  "requestBody" : "String",  "createdTime" : 0,  "startTime" : 0,  "id" : 0,  "endTime" : 0,  "projectId" : "String",  "events" : "String",  "status" : "String"  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型项目的流水线回调历史
+## Data Return Wrapper Model Page pipelined callback history of the data wrapper model project
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型项目的流水线回调历史](callback-execution-history.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Pipeline callback history for the paging data wrapper model project](callback-execution-history.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型项目的流水线回调历史
+## Pipeline callback history for the paging data wrapper model project
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[项目的流水线回调历史](callback-execution-history.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                               | must | Parameter description        |
+| :------------- | :----------------------------------------------------------- | :--- | :--------------------------- |
+| records        | List< [pipeline callback history of the project](callback-execution-history.md) > | is   | data                         |
+| count          | integer                                                      | is   | Total number of record lines |
+| totalPages     | integer                                                      | is   | How many pages in total?     |
+| pageSize       | integer                                                      | is   | How many pieces per page     |
+| page           | integer                                                      | is   | What page                    |
 
-## 项目的流水线回调历史
+## Pipeline callback history of the project
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| callBackUrl | string | 否 | callBackUrl |
-| responseBody | string | 否 | responseBody |
-| responseCode | integer | 否 | responseCode |
-| errorMsg | string | 否 | errorMsg |
-| requestHeaders | List&lt;[CallBackHeader](callback-execution-history.md)&gt; | 否 | requestHeaders |
-| requestBody | string | 否 | requestBody |
-| createdTime | integer | 否 | createdTime |
-| startTime | integer | 否 | startTime |
-| id | integer | 否 | id |
-| endTime | integer | 否 | endTime |
-| projectId | string | 否 | projectId |
-| events | string | 否 | events |
-| status | string | 否 | status |
+| Parameter name | Parameter type                                        | must | Parameter description |
+| :------------- | :---------------------------------------------------- | :--- | :-------------------- |
+| callBackUrl    | string                                                | no   | callBackUrl           |
+| responseBody   | string                                                | no   | responseBody          |
+| responseCode   | integer                                               | no   | responseCode          |
+| errorMsg       | string                                                | no   | errorMsg              |
+| requestHeaders | List<[CallBackHeader](callback-execution-history.md)> | no   | requestHeaders        |
+| requestBody    | string                                                | no   | requestBody           |
+| createdTime    | integer                                               | no   | createdTime           |
+| startTime      | integer                                               | no   | startTime             |
+| id             | integer                                               | no   | id                    |
+| endTime        | integer                                               | no   | endTime               |
+| projectId      | string                                                | no   | projectId             |
+| events         | string                                                | no   | events                |
+| status         | string                                                | no   | status                |
 
 ## CallBackHeader
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 否 | name |
-| value | string | 否 | value |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| name           | string         | no   | name                  |
+| value          | string         | no   | value                 |

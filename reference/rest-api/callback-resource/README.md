@@ -1,2 +1,1 @@
-# OPENAPI-callback资源
-
+# OPENAPI-callback resource

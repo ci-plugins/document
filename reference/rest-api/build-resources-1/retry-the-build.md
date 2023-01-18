@@ -1,74 +1,66 @@
-# 重试构建-重试或者跳过失败插件
+# Retry build - Retry or skip the failed plug-in
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/retry
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/retry
 
-### 资源描述
+### Resource description
 
-#### 重试构建-重试或者跳过失败插件
+#### Retry build - Retry or skip the failed plug-in
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| taskId | string | 否 | 要重试或跳过的插件ID，或者StageId |  |
-| failedContainer | boolean | 否 | 仅重试所有失败Job |  |
-| skip | boolean | 否 | 跳过失败插件，为true时需要传taskId值（值为stageId则表示跳过Stage下所有失败插件） |  |
-| channelCode | string | 否 | 渠道号，默认为BS |  |
+| Parameter name  | Parameter type | must | Parameter description                                        | Default value |
+| :-------------- | :------------- | :--- | :----------------------------------------------------------- | :------------ |
+| taskId          | string         | no   | Plug-in ID to retry or skip, or StageId                      |               |
+| failedContainer | boolean        | no   | Retry only all failed jobs                                   |               |
+| skip            | boolean        | no   | If true, pass a taskId value (stageId means that all failed plug-ins under the Stage are skipped). |               |
+| channelCode     | string         | no   | Channel number. The default is BS                            |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
+| buildId        | string         | is   | Build ID              |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-ID](retry-the-build.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data returns wrapper model build model-ID](retry-the-build.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?taskId={taskId}&amp;failedContainer={failedContainer}&amp;skip={skip}&amp;channelCode={channelCode}'
+```
+curl -X POST '[please replace API address bar request address]? taskId={taskId}&failedContainer={failedContainer}&skip={skip}&channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "id" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "id" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型构建模型-ID
+## Data returns wrapper model build model-ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [构建模型-ID](retry-the-build.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                        | must | Parameter description |
+| :------------- | :------------------------------------ | :--- | :-------------------- |
+| data           | [Build model -ID](retry-the-build.md) | no   | data                  |
+| message        | string                                | no   | Error message         |
+| status         | integer                               | is   | Status code           |
 
-## 构建模型-ID
+## Build model -ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| id | string | 是 | 构建ID |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| id             | string         | is   | Build ID              |

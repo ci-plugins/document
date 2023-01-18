@@ -1,53 +1,53 @@
-# 获取某行后的日志
+#  Get the log after a certain line
 
-### 请求方法/请求路径
+### Request method/request path
 
 #### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/logs/after
 
-### 资源描述
+### Resource Description
 
-#### 获取某行后的日志
+#### Get the log after a certain line
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query Parameters
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
+| Parameter Name | Parameter Type | Required | Parameter Description | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| start | integer | 是 | 起始行号 |  |
-| debug | boolean | 否 | 是否包含调试日志 |  |
-| tag | string | 否 | 对应elementId |  |
-| jobId | string | 否 | 对应jobId |  |
-| executeCount | integer | 否 | 执行次数 |  |
+| start | integer | yes | start line number |  |
+| debug | boolean | no | whether to include debug logs |  |
+| tag | string | no | the corresponding elementId |  |
+| jobId | string | no | The corresponding jobId |  |
+| executeCount | integer | no | Execution count |  |
 
-#### Path参数
+#### Path Parameters
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
+| Parameter Name | Parameter Type | Required | Parameter Description | Default |
 | :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
+| projectId | string | yes | project ID |  |
+| pipelineId | string | yes | pipeline ID |  |
+| buildId | string | yes | build ID |  |
 
 #### 响应
 
-| HTTP代码 | 说明 | 参数类型 |
+| HTTP code | Description | Parameter Type |
 | :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型日志查询模型](get-the-log-after-a-certain-line.md) |
+| 200 | successful operation | [Data return wrapper model log query model](get-the-log-after-a-certain-line.md) |
 
-#### 请求样例
+#### request demo
 
 ```javascript
-curl -X GET '[请替换为API地址栏请求地址]?start={start}&amp;debug={debug}&amp;tag={tag}&amp;jobId={jobId}&amp;executeCount={executeCount}'
+curl -X GET '[API URL]?start={start}&amp;debug={debug}&amp;tag={tag}&amp;jobId={jobId}&amp;executeCount={executeCount}'
 ```
 
-#### HEADER样例
+#### HEADER demo
 
 ```javascript
 accept: application/json
 Content-Type: application/json
 ```
 
-### 返回样例-200
+### response demo-200
 
 ```javascript
 {
@@ -74,36 +74,36 @@ Content-Type: application/json
 }
 ```
 
-## 数据返回包装模型日志查询模型
+## Data return wrapper model log query model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
+| Parameter Name | Parameter Type | Required | Parameter Description |
 | :--- | :--- | :--- | :--- |
-| data | [日志查询模型](get-the-log-after-a-certain-line.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| data | [Log query model](get-the-log-after-a-certain-line.md) | no | data |
+| message | string | no | error message |
+| status | integer | yes | statuscode |
 
-## 日志查询模型
+## Log query model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
+| Parameter Name | Parameter Type | Required | Parameter Description |
 | :--- | :--- | :--- | :--- |
-| timeUsed | integer | 否 | 所用时间 |
-| hasMore | boolean | 否 | 是否有后续日志 |
-| subTags | List | 是 | 日志子tag列表 |
-| buildId | string | 是 | 构建ID |
-| finished | boolean | 是 | 是否结束 |
-| logs | List&lt;[日志模型](get-the-log-after-a-certain-line.md)&gt; | 是 | 日志列表 |
-| status | integer | 否 | 日志查询状态 |
+| timeUsed | integer | no   | cost time |
+| hasMore | boolean | no | Is there a follow-up log |
+| subTags | List | yes | Log sub-tag list |
+| buildId | string | yes | build ID |
+| finished | boolean | yes | Whether to end |
+| logs | List&lt;[log model](get-the-log-after-a-certain-line.md)&gt; | yes | 日志列表 |
+| status | integer | no | Log query status |
 
-## 日志模型
+## Log model
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
+| Parameter Name | Parameter Type | Required | Parameter Description |
 | :--- | :--- | :--- | :--- |
-| subTag | string | 是 | 日志子tag |
-| jobId | string | 是 | 日志jobId |
-| lineNo | integer | 是 | 日志行号 |
-| tag | string | 是 | 日志tag |
-| message | string | 是 | 日志消息体 |
-| priority | string | 是 | 日志权重级 |
-| executeCount | integer | 是 | 日志执行次数 |
-| timestamp | integer | 是 | 日志时间戳 |
+| subTag | string | yes | log children tag |
+| jobId | string | yes | log jobId |
+| lineNo | integer | yes | log 行号 |
+| tag | string | yes | log  tag |
+| message | string | yes | log message body |
+| priority | string | yes | log weight level |
+| executeCount | integer | yes | log execution count |
+| timestamp | integer | yes |  log timestamp |
 

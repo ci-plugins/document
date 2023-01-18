@@ -1,2 +1,2 @@
-# OPENAPI-代码提交资源
+# OPENAPI- Code submission resource
 

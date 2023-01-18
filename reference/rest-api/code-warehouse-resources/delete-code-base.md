@@ -1,56 +1,50 @@
-# 删除代码库
+# Delete code base
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### DELETE  /ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
+#### DELETE /ms/openapi/api/apigw/v3/repositories/{projectId}/{repositoryHashId}
 
-### 资源描述
+### Resource description
 
-#### 删除代码库
+#### Delete code base
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| repositoryHashId | string | 是 | 代码库哈希ID |  |
+| Parameter name   | Parameter type | must | Parameter description | Default value |
+| :--------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId        | string         | is   | Item ID               |               |
+| repositoryHashId | string         | is   | Code base hash ID     |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](delete-code-base.md) |
+| HTTP code | description          | Parameter type                                           |
+| :-------- | :------------------- | :------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](delete-code-base.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X DELETE '[请替换为API地址栏请求地址]'
+```
+curl -X DELETE '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

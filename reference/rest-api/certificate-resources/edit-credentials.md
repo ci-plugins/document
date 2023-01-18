@@ -1,74 +1,68 @@
-# 编辑凭据
+# Editing credentials
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### PUT  /ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
+#### PUT /ms/openapi/api/apigw/v3/projects/{projectId}/credentials/{credentialId}
 
-### 资源描述
+### Resource description
 
-#### 编辑凭据
+#### Editing credentials
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [凭据-更新时内容](edit-credentials.md) | 是 | 凭据 |  |
+| Parameter name | Parameter type                                            | must | Parameter description | Default value |
+| :------------- | :-------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Credentials - Content when updated](edit-credentials.md) | is   | evidence              |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| credentialId | string | 是 | 凭据ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| credentialId   | string         | is   | Credential ID         |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](edit-credentials.md) |
+| HTTP code | description          | Parameter type                                           |
+| :-------- | :------------------- | :------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](edit-credentials.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X PUT '[请替换为API地址栏请求地址]'
+```
+curl -X PUT '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 凭据-更新时内容
+## Credentials - Content when updated
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| credentialType | ENUM\(PASSWORD, ACCESSTOKEN, USERNAME\_PASSWORD, SECRETKEY, APPID\_SECRETKEY, SSH\_PRIVATEKEY, TOKEN\_SSH\_PRIVATEKEY, TOKEN\_USERNAME\_PASSWORD, COS\_APPID\_SECRETID\_SECRETKEY\_REGION, MULTI\_LINE\_PASSWORD, \) | 是 | 凭据类型 |
-| credentialRemark | string | 否 | 凭据描述 |
-| v1 | string | 是 | 凭据内容 |
-| credentialName | string | 是 | 凭据名称 |
-| v2 | string | 是 | 凭据内容 |
-| v3 | string | 是 | 凭据内容 |
-| v4 | string | 是 | 凭据内容 |
+| Parameter name   | Parameter type                                               | must | Parameter description  |
+| :--------------- | :----------------------------------------------------------- | :--- | :--------------------- |
+| credentialType   | ENUM(PASSWORD, ACCESSTOKEN, USERNAME_PASSWORD, SECRETKEY, APPID_SECRETKEY, SSH_PRIVATEKEY, TOKEN_SSH_PRIVATEKEY, TOKEN_USERNAME_PASSWORD, COS_APPID_SECRETID_SECRETKEY_REGION, MULTI_LINE_PASSWORD, ) | is   | Credential type        |
+| credentialRemark | string                                                       | no   | Credential description |
+| v1               | string                                                       | is   | Credential content     |
+| credentialName   | string                                                       | is   | Credential name        |
+| v2               | string                                                       | is   | Credential content     |
+| v3               | string                                                       | is   | Credential content     |
+| v4               | string                                                       | is   | Credential content     |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

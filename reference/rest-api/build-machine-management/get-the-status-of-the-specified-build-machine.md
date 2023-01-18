@@ -1,113 +1,83 @@
-# 获取指定构建机状态
+# Gets the state of the specified builder
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/environment/thirdPartAgent/nodes/status
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/environment/thirdPartAgent/nodes/status
 
-### 资源描述
+### Resource description
 
-#### 获取指定构建机状态
+#### Gets the state of the specified builder
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| nodeHashId | string | 是 | 节点 hashId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| nodeHashId     | string         | is   | Node hashId           |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | projectId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | projectId             |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型节点信息\(权限\) |
+| HTTP code | description          | Parameter type                                           |
+| :-------- | :------------------- | :------------------------------------------------------- |
+| 200       | successful operation | Data return wrapper model node Information (permissions) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?nodeHashId={nodeHashId}'
+```
+curl -X GET '[Please replace API address bar request address]? nodeHashId={nodeHashId}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "pipelineRefCount" : 0,
-    "nodeHashId" : "String",
-    "displayName" : "String",
-    "ip" : "String",
-    "canEdit" : true,
-    "nodeStatus" : "String",
-    "nodeType" : "String",
-    "osName" : "String",
-    "agentStatus" : true,
-    "operator" : "String",
-    "canUse" : true,
-    "bakOperator" : "String",
-    "lastBuildTime" : "String",
-    "lastModifyUser" : "String",
-    "createTime" : "String",
-    "lastModifyTime" : "String",
-    "name" : "String",
-    "bizId" : 0,
-    "canDelete" : true,
-    "nodeId" : "String",
-    "createdUser" : "String",
-    "gateway" : "String",
-    "agentHashId" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "pipelineRefCount" : 0,  "nodeHashId" : "String",  "displayName" : "String",  "ip" : "String",  "canEdit" : true,  "nodeStatus" : "String",  "nodeType" : "String",  "osName" : "String",  "agentStatus" : true,  "operator" : "String",  "canUse" : true,  "bakOperator" : "String",  "lastBuildTime" : "String",  "lastModifyUser" : "String",  "createTime" : "String",  "lastModifyTime" : "String",  "name" : "String",  "bizId" : 0,  "canDelete" : true,  "nodeId" : "String",  "createdUser" : "String",  "gateway" : "String",  "agentHashId" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型节点信息\(权限\)
+## Data return wrapper model node Information (permissions)
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | 节点信息\(权限\) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                | must | Parameter description |
+| :------------- | :---------------------------- | :--- | :-------------------- |
+| data           | Node information (permission) | no   | data                  |
+| message        | string                        | no   | Error message         |
+| status         | integer                       | is   | Status code           |
 
-## 节点信息\(权限\)
+## Node information (permission)
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| pipelineRefCount | integer | 否 | 流水线Job引用数 |
-| nodeHashId | string | 是 | 环境 HashId |
-| displayName | string | 否 | 显示名称 |
-| ip | string | 是 | IP |
-| canEdit | boolean | 否 | 是否可以编辑 |
-| nodeStatus | string | 是 | 节点状态 |
-| nodeType | string | 是 | 节点类型 |
-| osName | string | 否 | 操作系统 |
-| agentStatus | boolean | 是 | agent状态 |
-| operator | string | 否 | 责任人 |
-| canUse | boolean | 否 | 是否可以使用 |
-| bakOperator | string | 否 | 备份责任人 |
-| lastBuildTime | string | 否 | 流水线Job引用数 |
-| lastModifyUser | string | 否 | 最后修改人 |
-| createTime | string | 否 | 创建/导入时间 |
-| lastModifyTime | string | 否 | 最后修改时间 |
-| name | string | 是 | 节点名称 |
-| bizId | integer | 否 | 所属业务, 默认-1表示没有绑定业务 |
-| canDelete | boolean | 否 | 是否可以删除 |
-| nodeId | string | 是 | 节点 Id |
-| createdUser | string | 是 | 创建人 |
-| gateway | string | 否 | 网关地域 |
-| agentHashId | string | 否 | agent hash id |
-
+| Parameter name   | Parameter type | must | Parameter description                                        |
+| :--------------- | :------------- | :--- | :----------------------------------------------------------- |
+| pipelineRefCount | integer        | no   | Number of pipeline Job references                            |
+| nodeHashId       | string         | is   | Environmental HashId                                         |
+| displayName      | string         | no   | Display name                                                 |
+| ip               | string         | is   | IP                                                           |
+| canEdit          | boolean        | no   | Whether it can be edited                                     |
+| nodeStatus       | string         | is   | Node state                                                   |
+| nodeType         | string         | is   | Node type                                                    |
+| osName           | string         | no   | Operating system                                             |
+| agentStatus      | boolean        | is   | agent state                                                  |
+| operator         | string         | no   | Responsible person                                           |
+| canUse           | boolean        | no   | Whether it can be used                                       |
+| bakOperator      | string         | no   | Backup owner                                                 |
+| lastBuildTime    | string         | no   | Number of pipeline Job references                            |
+| lastModifyUser   | string         | no   | Last modifier                                                |
+| createTime       | string         | no   | Creation/import time                                         |
+| lastModifyTime   | string         | no   | Last revision time                                           |
+| name             | string         | is   | Node name                                                    |
+| bizId            | integer        | no   | Owning service. The default value -1 indicates that no service is bound |
+| canDelete        | boolean        | no   | Whether it can be deleted                                    |
+| nodeId           | string         | is   | Node Id                                                      |
+| createdUser      | string         | is   | founder                                                      |
+| gateway          | string         | no   | Gateway area                                                 |
+| agentHashId      | string         | no   | agent hash id                                                |

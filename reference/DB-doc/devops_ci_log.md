@@ -1,63 +1,63 @@
-# devops\_ci\_log
+# devops_ci_log
 
-**数据库名：** devops\_ci\_log
+**Database name:** devops_ci_log
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_log的数据库文档
+**Documentation:** Database documentation for devops_ci_log
 
-|                    表名                   |      说明      |
-| :-------------------------------------: | :----------: |
-| [T\_LOG\_INDICES\_V2](broken-reference) | 构建日志已关联ES索引表 |
-|    [T\_LOG\_STATUS](broken-reference)   |   构建日志打印状态表  |
-|   [T\_LOG\_SUBTAGS](broken-reference)   |   构建日志子标签表   |
+|              Table name              |                      description                      |
+| :----------------------------------: | :---------------------------------------------------: |
+| [T_LOG_INDICES_V2](broken-reference) | Build log has been associated with the ES index table |
+|   [T_LOG_STATUS](broken-reference)   |           Build the log print status table            |
+|  [T_LOG_SUBTAGS](broken-reference)   |           Builds the sunchi child tag table           |
 
-**表名：** T\_LOG\_INDICES\_V2
+**Table name:** T_LOG_INDICES_V2
 
-**说明：** 构建日志已关联ES索引表
+**Note:** The build log has been associated with the ES index table
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称         |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |             说明            |
-| :-: | :----------------: | :-------: | :-: | :-: | :--: | :-: | :----------------: | :-----------------------: |
-|  1  |         ID         |   bigint  |  20 |  0  |   N  |  Y  |                    |            主键ID           |
-|  2  |      BUILD\_ID     |  varchar  |  64 |  0  |   N  |  N  |                    |            构建ID           |
-|  3  |     INDEX\_NAME    |  varchar  |  20 |  0  |   N  |  N  |                    |                           |
-|  4  |   LAST\_LINE\_NUM  |   bigint  |  20 |  0  |   N  |  N  |          1         |            最后行号           |
-|  5  |    CREATED\_TIME   | timestamp |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |            创建时间           |
-|  6  |    UPDATED\_TIME   | timestamp |  19 |  0  |   N  |  N  | 2019-11-1100:00:00 |            修改时间           |
-|  7  |       ENABLE       |    bit    |  1  |  0  |   N  |  N  |        b'0'        |    buildisenablev2ornot   |
-|  8  | LOG\_CLUSTER\_NAME |  varchar  |  64 |  0  |   N  |  N  |                    |   multieslogclustername   |
-|  9  |    USE\_CLUSTER    |    bit    |  1  |  0  |   N  |  N  |        b'0'        | usemultieslogclusterornot |
+| Serial number |       name       | Data type | length | Decimal place | Allowable null value | Primary key |    Default value    |        description        |
+| :-----------: | :--------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------------: | :-----------------------: |
+|       1       |        ID        |  bigint   |   20   |       0       |          N           |      Y      |                     |      Primary key ID       |
+|       2       |     BUILD_ID     |  varchar  |   64   |       0       |          N           |      N      |                     |         Build ID          |
+|       3       |    INDEX_NAME    |  varchar  |   20   |       0       |          N           |      N      |                     |                           |
+|       4       |  LAST_LINE_NUM   |  bigint   |   20   |       0       |          N           |      N      |          1          |     Last line number      |
+|       5       |   CREATED_TIME   | timestamp |   19   |       0       |          N           |      N      |  CURRENT_TIMESTAMP  |       Creation time       |
+|       6       |   UPDATED_TIME   | timestamp |   19   |       0       |          N           |      N      | 2019-11-11 00:00:00 |     Modification time     |
+|       7       |      ENABLE      |    bit    |   1    |       0       |          N           |      N      |        B '0'        |   buildisenablev2ornot    |
+|       8       | LOG_CLUSTER_NAME |  varchar  |   64   |       0       |          N           |      N      |                     |   multieslogclustername   |
+|       9       |   USE_CLUSTER    |    bit    |   1    |       0       |          N           |      N      |        B '0'        | usemultieslogclusterornot |
 
-**表名：** T\_LOG\_STATUS
+**Table name:** T_LOG_STATUS
 
-**说明：** 构建日志打印状态表
+Build log print status table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称       |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |          默认值          |          说明          |
-| :-: | :------------: | :------: | :-: | :-: | :--: | :-: | :-------------------: | :------------------: |
-|  1  |       ID       |  bigint  |  20 |  0  |   N  |  Y  |                       |         主键ID         |
-|  2  |    BUILD\_ID   |  varchar |  64 |  0  |   N  |  N  |                       |         构建ID         |
-|  3  |       TAG      |  varchar |  64 |  0  |   Y  |  N  |                       |          标签          |
-|  4  |    SUB\_TAG    |  varchar | 256 |  0  |   Y  |  N  |                       |          子标签         |
-|  5  |     JOB\_ID    |  varchar |  64 |  0  |   Y  |  N  |                       |         JOBID        |
-|  6  |      MODE      |  varchar |  32 |  0  |   Y  |  N  |                       |    LogStorageMode    |
-|  7  | EXECUTE\_COUNT |    int   |  10 |  0  |   N  |  N  |                       |         执行次数         |
-|  8  |    FINISHED    |    bit   |  1  |  0  |   N  |  N  |          b'0'         | buildisfinishedornot |
-|  9  |  CREATE\_TIME  | datetime |  23 |  0  |   N  |  N  | CURRENT\_TIMESTAMP(3) |         创建时间         |
+| Serial number |     name      | Data type | length | Decimal place | Allowable null value | Primary key |    Default value     |     description      |
+| :-----------: | :-----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :------------------: | :------------------: |
+|       1       |      ID       |  bigint   |   20   |       0       |          N           |      Y      |                      |    Primary key ID    |
+|       2       |   BUILD_ID    |  varchar  |   64   |       0       |          N           |      N      |                      |       Build ID       |
+|       3       |      TAG      |  varchar  |   64   |       0       |          Y           |      N      |                      |        label         |
+|       4       |    SUB_TAG    |  varchar  |  256   |       0       |          Y           |      N      |                      |        subtag        |
+|       5       |    JOB_ID     |  varchar  |   64   |       0       |          Y           |      N      |                      |        JOBID         |
+|       6       |     MODE      |  varchar  |   32   |       0       |          Y           |      N      |                      |    LogStorageMode    |
+|       7       | EXECUTE_COUNT |    int    |   10   |       0       |          N           |      N      |                      | Number of executions |
+|       8       |   FINISHED    |    bit    |   1    |       0       |          N           |      N      |        B '0'         | buildisfinishedornot |
+|       9       |  CREATE_TIME  | datetime  |   23   |       0       |          N           |      N      | CURRENT_TIMESTAMP(3) |    Creation time     |
 
-**表名：** T\_LOG\_SUBTAGS
+**Table name:** T_LOG_SUBTAGS
 
-**说明：** 构建日志子标签表
+**Build** the sun Zhi child label table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 |          默认值          |   说明  |
-| :-: | :----------: | :------: | :---: | :-: | :--: | :-: | :-------------------: | :---: |
-|  1  |      ID      |  bigint  |   20  |  0  |   N  |  Y  |                       |  主键ID |
-|  2  |   BUILD\_ID  |  varchar |   64  |  0  |   N  |  N  |                       |  构建ID |
-|  3  |      TAG     |  varchar |   64  |  0  |   N  |  N  |                       |  插件标签 |
-|  4  |   SUB\_TAGS  |   text   | 65535 |  0  |   N  |  N  |                       | 插件子标签 |
-|  5  | CREATE\_TIME | datetime |   23  |  0  |   N  |  N  | CURRENT\_TIMESTAMP(3) |  创建时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |    Default value     |    description    |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :------------------: | :---------------: |
+|       1       |     ID      |  bigint   |   20   |       0       |          N           |      Y      |                      |  Primary key ID   |
+|       2       |  BUILD_ID   |  varchar  |   64   |       0       |          N           |      N      |                      |     Build ID      |
+|       3       |     TAG     |  varchar  |   64   |       0       |          N           |      N      |                      |    Plug-in tag    |
+|       4       |  SUB_TAGS   |   text    | 65535  |       0       |          N           |      N      |                      | Plug-in child tag |
+|       5       | CREATE_TIME | datetime  |   23   |       0       |          N           |      N      | CURRENT_TIMESTAMP(3) |   Creation time   |

@@ -1,63 +1,63 @@
-# devops\_ci\_openapi
+# devops_ci_openapi
 
-**数据库名：** devops\_ci\_openapi
+**Database name:** devops_ci_openapi
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_openapi的数据库文档
+**Documentation:** Database documentation for devops_ci_openapi
 
-|                     表名                    |        说明        |
-| :---------------------------------------: | :--------------: |
-|  [T\_APP\_CODE\_GROUP](broken-reference)  | app\_code对应的组织架构 |
-| [T\_APP\_CODE\_PROJECT](broken-reference) | app\_code对应的蓝盾项目 |
-|   [T\_APP\_USER\_INFO](broken-reference)  |  app\_code对应的管理员 |
+|               Table name               |                    description                     |
+| :------------------------------------: | :------------------------------------------------: |
+|  [T_APP_CODE_GROUP](broken-reference)  | Organizational structure corresponding to app_code |
+| [T_APP_CODE_PROJECT](broken-reference) |  app_code corresponds to the BKCI project   |
+|  [T_APP_USER_INFO](broken-reference)   |    The administrator corresponding to app_code     |
 
-**表名：** T\_APP\_CODE\_GROUP
+**Table name:** T_APP_CODE_GROUP
 
-**说明：** app\_code对应的组织架构
+**Note:** app_code corresponds to the organizational structure
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |     说明     |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :--------: |
-|  1  |      ID      |  bigint  |  20 |  0  |   N  |  Y  |     |    主键ID    |
-|  2  |   APP\_CODE  |  varchar | 255 |  0  |   N  |  N  |     |    APP编码   |
-|  3  |    BG\_ID    |    int   |  10 |  0  |   Y  |  N  |     |    事业群ID   |
-|  4  |   BG\_NAME   |  varchar | 255 |  0  |   Y  |  N  |     |    事业群名称   |
-|  5  |   DEPT\_ID   |    int   |  10 |  0  |   Y  |  N  |     | 项目所属二级机构ID |
-|  6  |  DEPT\_NAME  |  varchar | 255 |  0  |   Y  |  N  |     | 项目所属二级机构名称 |
-|  7  |  CENTER\_ID  |    int   |  10 |  0  |   Y  |  N  |     |    中心ID    |
-|  8  | CENTER\_NAME |  varchar | 255 |  0  |   Y  |  N  |     |    中心名字    |
-|  9  |    CREATOR   |  varchar | 255 |  0  |   Y  |  N  |     |     创建者    |
-|  10 | create\_time | datetime |  19 |  0  |   Y  |  N  |     |    创建时间    |
-|  11 |    UPDATER   |  varchar | 255 |  0  |   Y  |  N  |     |     跟新人    |
-|  12 | UPDATE\_TIME | datetime |  19 |  0  |   Y  |  N  |     |    修改时间    |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |     ID      |  bigint   |   20   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |  APP_CODE   |  varchar  |  255   |       0       |          N           |      N      |               |                          APP coding                          |
+|       3       |    BG_ID    |    int    |   10   |       0       |          Y           |      N      |               |                      Business group ID                       |
+|       4       |   BG_NAME   |  varchar  |  255   |       0       |          Y           |      N      |               |                     Business group name                      |
+|       5       |   DEPT_ID   |    int    |   10   |       0       |          Y           |      N      |               |     The project belongs to the secondary organization ID     |
+|       6       |  DEPT_NAME  |  varchar  |  255   |       0       |          Y           |      N      |               | Name of the secondary organization to which the project belongs |
+|       7       |  CENTER_ID  |    int    |   10   |       0       |          Y           |      N      |               |                          Center ID                           |
+|       8       | CENTER_NAME |  varchar  |  255   |       0       |          Y           |      N      |               |                         Central name                         |
+|       9       |   CREATOR   |  varchar  |  255   |       0       |          Y           |      N      |               |                           founder                            |
+|      10       | create_time | datetime  |   19   |       0       |          Y           |      N      |               |                        Creation time                         |
+|      11       |   UPDATER   |  varchar  |  255   |       0       |          Y           |      N      |               |                         With the new                         |
+|      12       | UPDATE_TIME | datetime  |   19   |       0       |          Y           |      N      |               |                      Modification time                       |
 
-**表名：** T\_APP\_CODE\_PROJECT
+**Table name:** T_APP_CODE_PROJECT
 
-**说明：** app\_code对应的蓝盾项目
+**Note:** app_code corresponds to the BKCI project
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明  |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :---: |
-|  1  |      ID      |  bigint  |  20 |  0  |   N  |  Y  |     |  主键ID |
-|  2  |   APP\_CODE  |  varchar | 255 |  0  |   N  |  N  |     | APP编码 |
-|  3  |  PROJECT\_ID |  varchar | 255 |  0  |   N  |  N  |     |  项目ID |
-|  4  |    CREATOR   |  varchar | 255 |  0  |   Y  |  N  |     |  创建者  |
-|  5  | create\_time | datetime |  19 |  0  |   Y  |  N  |     |  创建时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |     ID      |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key ID |
+|       2       |  APP_CODE   |  varchar  |  255   |       0       |          N           |      N      |               |   APP coding   |
+|       3       | PROJECT_ID  |  varchar  |  255   |       0       |          N           |      N      |               |    Item ID     |
+|       4       |   CREATOR   |  varchar  |  255   |       0       |          Y           |      N      |               |    founder     |
+|       5       | create_time | datetime  |   19   |       0       |          Y           |      N      |               | Creation time  |
 
-**表名：** T\_APP\_USER\_INFO
+**Table name:** T_APP_USER_INFO
 
-**说明：** app\_code对应的管理员
+**Note:** Administrator corresponding to app_code
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |    说明    |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :------: |
-|  1  |      ID      |    int   |  10 |  0  |   N  |  Y  |     |   主键ID   |
-|  2  |   APP\_CODE  |  varchar |  64 |  0  |   N  |  N  |     |   APP编码  |
-|  3  |  MANAGER\_ID |  varchar |  64 |  0  |   N  |  N  |     | APP管理员ID |
-|  4  |  IS\_DELETE  |    bit   |  1  |  0  |   N  |  N  |     |   是否删除   |
-|  5  | CREATE\_USER |  varchar |  64 |  0  |   N  |  N  |     |   添加人员   |
-|  6  | CREATE\_TIME | datetime |  23 |  0  |   N  |  N  |     |   添加时间   |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |     description      |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------------: |
+|       1       |     ID      |    int    |   10   |       0       |          N           |      Y      |               |    Primary key ID    |
+|       2       |  APP_CODE   |  varchar  |   64   |       0       |          N           |      N      |               |      APP coding      |
+|       3       | MANAGER_ID  |  varchar  |   64   |       0       |          N           |      N      |               | APP administrator ID |
+|       4       |  IS_DELETE  |    bit    |   1    |       0       |          N           |      N      |               |    Delete or not     |
+|       5       | CREATE_USER |  varchar  |   64   |       0       |          N           |      N      |               |    Add personnel     |
+|       6       | CREATE_TIME | datetime  |   23   |       0       |          N           |      N      |               |       Add time       |

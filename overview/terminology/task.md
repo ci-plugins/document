@@ -1,45 +1,30 @@
 # Task
 
-Task，也被称为流水线插件，通常是一个单独的任务，如拉取 Git 仓库代码等。
+A Task, also known as an pipelined plug-in, is usually a single task, such as pulling Git repository code.
+Tasks must be included in [Job](javascript:void%280%29). Tasks in the same Job are executed from the top down (except for tasks with advanced process control enabled).
 
-Task 必须包含在 [Job](javascript:void%280%29) 内，同一个 Job 内的 Tasks 都是从上往下顺序执行（启用了高级流程控制的 Task 除外）。
-
-## 自定义插件 <a id="&#x81EA;&#x5B9A;&#x4E49;&#x63D2;&#x4EF6;"></a>
-
-通过研发商店，你可以开发自己的插件，目前已支持 Java/Python/NodeJS/Go 4 种主流语言，开始开发你的第一个流水线插件吧。
-
-## 插件版本 <a id="&#x63D2;&#x4EF6;&#x7248;&#x672C;"></a>
-
-每个插件都有版本控制，在使用插件时，你必须指定一个版本。
-
+## Custom plug-in
+With the development Store, you can develop your own plugins, which currently support Java/Python/NodeJS/Go in four major languages, so start developing your first pipeline plug-in.
+## Plug-in version
+Each plug-in has version control, and you must specify a version when using the plug-in.
 ![](../../.gitbook/assets/image%20%2833%29.png)
 
-> 插件的版本规范：
->
-> * 每次添加插件时，默认为当前插件的最新版本
-> * 已添加的插件，版本号如果包含 N.latest，如果插件开发者发布了包含 N 的新特性版本，就会自动使用新版本
-
-## 插件的通用选项 <a id="&#x63D2;&#x4EF6;&#x7684;&#x901A;&#x7528;&#x9009;&#x9879;"></a>
-
-### 高级流程控制 <a id="&#x9AD8;&#x7EA7;&#x6D41;&#x7A0B;&#x63A7;&#x5236;"></a>
-
-通过高级流程控制，可以定义插件的运行逻辑。
-
+> Version specifications for plug-ins:>
+> * Each time a plugin is added, the default is the latest version of the current plug-in
+> * Added plugins, version numbers that include N.latest, The new version will be used automatically
+## Common options for plugins
+### Advanced process control
+With advanced flow control, you can define the running logic of your plug-in.
 ![](../../.gitbook/assets/image%20%284%29.png)
 
-### 插件输出 <a id="&#x63D2;&#x4EF6;&#x8F93;&#x51FA;"></a>
-
-每个插件在运行之后，会产生一系列的输出变量，通过变量和高级流程控制的有效组合，可以实现各种应用场景。
-
+### plugin output
+After each plug-in is run, it produces a series of output variables that, through an effective combination of variables and advanced process control, enable a variety of application scenarios.
 ![](../../.gitbook/assets/image%20%2816%29.png)
 
-> 输出字段命名空间 用于解决流水线下，相同插件有多个实例时，输出字段使用冲突的问题。
->
-> * 当没有冲突时，无需添加命名空间
-> * 当修改了命名空间后，后续使用到对应字段的地方也需要同步修改
-
-## 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
-
+The output field namespace is used to resolve the problem that output field usage conflicts when multiple instances of the same plug-in exist in the pipeline.>
+> * There is no need to add a namespace when there are no conflicts
+> * After the namespace is changed, the corresponding field must be changed in the subsequent use
+## Next you may need
 * [Job](job.md)
 * [Stage](stage.md)
 

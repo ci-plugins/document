@@ -1,63 +1,57 @@
-# 停止构建
+# Stop building
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stop
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/{buildId}/stop
 
-### 资源描述
+### Resource description
 
-#### 停止构建
+#### Stop building
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| channelCode | string | 否 | 渠道号，默认为BS |  |
+| Parameter name | Parameter type | must | Parameter description             | Default value |
+| :------------- | :------------- | :--- | :-------------------------------- | :------------ |
+| channelCode    | string         | no   | Channel number. The default is BS |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
+| buildId        | string         | is   | Build ID              |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](stop-building.md) |
+| HTTP code | description          | Parameter type                                        |
+| :-------- | :------------------- | :---------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](stop-building.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?channelCode={channelCode}'
+```
+curl -X POST '[please replace API address bar request address]? channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

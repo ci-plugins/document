@@ -1,5 +1,4 @@
-# BKCI 规格要求
-
+# BKCI specification requirements
 {% tabs %}
 {% tab title="First Tab" %}
 

@@ -1,2 +1,1 @@
-# 流水线插件
-
+# Pipelining plugin

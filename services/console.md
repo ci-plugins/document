@@ -1,22 +1,21 @@
-# 控制台
+# Console
 
-该区域将出现在bk-ci的所有页面上，以方便你在需要时及时切换其它服务、项目等。该导航条共有6个功能入口。
+This area will appear on all pages of bk-ci to allow you to switch between other services, projects, etc. in a timely manner when needed. This navigation bar has 6 functional entrances.
 
-## 功能区介绍
+## Introduction to the functional area
 
-![BKCI &#x5BFC;&#x822A;&#x6761;](../.gitbook/assets/image%20%2822%29.png)
+![](../.gitbook/assets/image%20%2822%29.png)
 
-1. 切换项目
-2. 切换服务
-3. 当前已选中的服务名称
-4. 中英文切换入口
-5. 官方文档中心入口
-6. 个人中心
+1. switch projects
+2. switch services
+3. the name of the currently selected service
+4. switch between Chinese and English entrance
+5. official documentation center entrance
+6. personal center
 
-## 接下来你可能需要
+## Next you may need
 
-* [流水线列表页](pipelines/pipeline-list.md)
-* [代码库](repo.md)
-* [构建资源](pools/)
-* [凭证管理](ticket.md)
-
+* [pipeline list page](pipelines/pipeline-list.md)
+* [codebase](repo.md)
+* [build resources](pools/)
+* [credential management](ticket.md)

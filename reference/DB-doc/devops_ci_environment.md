@@ -1,240 +1,240 @@
-# devops\_ci\_environment
+# devops_ci_environment
 
-**数据库名：** devops\_ci\_environment
+**Database name:** devops_ci_environment
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_environment的数据库文档
+**Documentation Description:** Database documentation for devops_ci_environment
 
-|                                表名                                |       说明       |
-| :--------------------------------------------------------------: | :------------: |
-|        [T\_AGENT\_FAILURE\_NOTIFY\_USER](broken-reference)       |                |
-|            [T\_AGENT\_PIPELINE\_REF](broken-reference)           |                |
-|                    [T\_ENV](broken-reference)                    |      环境信息表     |
-|        [T\_ENVIRONMENT\_AGENT\_PIPELINE](broken-reference)       |                |
-|        [T\_ENVIRONMENT\_SLAVE\_GATEWAY](broken-reference)        |                |
-|       [T\_ENVIRONMENT\_THIRDPARTY\_AGENT](broken-reference)      | 第三方构建机agent信息表 |
-|   [T\_ENVIRONMENT\_THIRDPARTY\_AGENT\_ACTION](broken-reference)  |                |
-| [T\_ENVIRONMENT\_THIRDPARTY\_ENABLE\_PROJECTS](broken-reference) |                |
-|                 [T\_ENV\_NODE](broken-reference)                 |    环境-节点映射表    |
-|            [T\_ENV\_SHARE\_PROJECT](broken-reference)            |                |
-|                    [T\_NODE](broken-reference)                   |      节点信息表     |
-|              [T\_PROJECT\_CONFIG](broken-reference)              |                |
+|                          Table name                          |                 description                 |
+| :----------------------------------------------------------: | :-----------------------------------------: |
+|       [T_AGENT_FAILURE_NOTIFY_USER](broken-reference)        |                                             |
+|           [T_AGENT_PIPELINE_REF](broken-reference)           |                                             |
+|                  [T_ENV](broken-reference)                   |       Environmental information table       |
+|       [T_ENVIRONMENT_AGENT_PIPELINE](broken-reference)       |                                             |
+|       [T_ENVIRONMENT_SLAVE_GATEWAY](broken-reference)        |                                             |
+|      [T_ENVIRONMENT_THIRDPARTY_AGENT](broken-reference)      | Third-party builder agent information table |
+|  [T_ENVIRONMENT_THIRDPARTY_AGENT_ACTION](broken-reference)   |                                             |
+| [T_ENVIRONMENT_THIRDPARTY_ENABLE_PROJECTS](broken-reference) |                                             |
+|                [T_ENV_NODE](broken-reference)                |      Environment - Node mapping table       |
+|           [T_ENV_SHARE_PROJECT](broken-reference)            |                                             |
+|                  [T_NODE](broken-reference)                  |           Node information table            |
+|             [T_PROJECT_CONFIG](broken-reference)             |                                             |
 
-**表名：** T\_AGENT\_FAILURE\_NOTIFY\_USER
+**Table name:** T_AGENT_FAILURE_NOTIFY_USER
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :-----------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |       ID      |  bigint |  20 |  0  |   N  |  Y  |     | 主键ID |
-|  2  |    USER\_ID   | varchar |  32 |  0  |   Y  |  N  |     | 用户ID |
-|  3  | NOTIFY\_TYPES | varchar |  32 |  0  |   Y  |  N  |     | 通知类型 |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |    description    |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :---------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |               |  Primary key ID   |
+|       2       |   USER_ID    |  varchar  |   32   |       0       |          Y           |      N      |               |      User ID      |
+|       3       | NOTIFY_TYPES |  varchar  |   32   |       0       |          Y           |      N      |               | Notification type |
 
-**表名：** T\_AGENT\_PIPELINE\_REF
+**Table name:** T_AGENT_PIPELINE_REF
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称        |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |    说明   |
-| :-: | :---------------: | :------: | :-: | :-: | :--: | :-: | :-: | :-----: |
-|  1  |         ID        |  bigint  |  20 |  0  |   N  |  Y  |     |   主键ID  |
-|  2  |      NODE\_ID     |  bigint  |  20 |  0  |   N  |  N  |     |   节点ID  |
-|  3  |     AGENT\_ID     |  bigint  |  20 |  0  |   N  |  N  |     |  构建机ID  |
-|  4  |    PROJECT\_ID    |  varchar |  64 |  0  |   N  |  N  |     |   项目ID  |
-|  5  |    PIPELINE\_ID   |  varchar |  34 |  0  |   N  |  N  |     |  流水线ID  |
-|  6  |   PIEPLINE\_NAME  |  varchar | 255 |  0  |   N  |  N  |     |  流水线名称  |
-|  7  |    VM\_SEQ\_ID    |  varchar |  34 |  0  |   Y  |  N  |     |  构建序列号  |
-|  8  |      JOB\_ID      |  varchar |  34 |  0  |   Y  |  N  |     |  JOBID  |
-|  9  |     JOB\_NAME     |  varchar | 255 |  0  |   N  |  N  |     | JOBNAME |
-|  10 | LAST\_BUILD\_TIME | datetime |  19 |  0  |   N  |  N  |     |  最近构建时间 |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |      description      |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-------------------: |
+|       1       |       ID        |  bigint   |   20   |       0       |          N           |      Y      |               |    Primary key ID     |
+|       2       |     NODE_ID     |  bigint   |   20   |       0       |          N           |      N      |               |        Node ID        |
+|       3       |    AGENT_ID     |  bigint   |   20   |       0       |          N           |      N      |               |      Builder ID       |
+|       4       |   PROJECT_ID    |  varchar  |   64   |       0       |          N           |      N      |               |        Item ID        |
+|       5       |   PIPELINE_ID   |  varchar  |   34   |       0       |          N           |      N      |               |      Pipeline ID      |
+|       6       |  PIEPLINE_NAME  |  varchar  |  255   |       0       |          N           |      N      |               |     Pipeline name     |
+|       7       |    VM_SEQ_ID    |  varchar  |   34   |       0       |          Y           |      N      |               | Build sequence number |
+|       8       |     JOB_ID      |  varchar  |   34   |       0       |          Y           |      N      |               |         JOBID         |
+|       9       |    JOB_NAME     |  varchar  |  255   |       0       |          N           |      N      |               |        JOBNAME        |
+|      10       | LAST_BUILD_TIME | datetime  |   19   |       0       |          N           |      N      |               |    Last build time    |
 
-**表名：** T\_ENV
+**Table name:** T_ENV
 
-**说明：** 环境信息表
+**Description:** Environment information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |    数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |       说明       |
-| :-: | :-----------: | :-------: | :---: | :-: | :--: | :-: | :-: | :------------: |
-|  1  |    ENV\_ID    |   bigint  |   20  |  0  |   N  |  Y  |     |      主键ID      |
-|  2  |  PROJECT\_ID  |  varchar  |   64  |  0  |   N  |  N  |     |      项目ID      |
-|  3  |   ENV\_NAME   |  varchar  |  128  |  0  |   N  |  N  |     |      环境名称      |
-|  4  |   ENV\_DESC   |  varchar  |  128  |  0  |   N  |  N  |     |      环境描述      |
-|  5  |   ENV\_TYPE   |  varchar  |  128  |  0  |   N  |  N  |     | 环境类型（开发环境{DEV} |
-|  6  |   ENV\_VARS   |    text   | 65535 |  0  |   N  |  N  |     |      环境变量      |
-|  7  | CREATED\_USER |  varchar  |   64  |  0  |   N  |  N  |     |       创建人      |
-|  8  | UPDATED\_USER |  varchar  |   64  |  0  |   N  |  N  |     |       修改人      |
-|  9  | CREATED\_TIME | timestamp |   19  |  0  |   Y  |  N  |     |      创建时间      |
-|  10 | UPDATED\_TIME | timestamp |   19  |  0  |   Y  |  N  |     |      修改时间      |
-|  11 |  IS\_DELETED  |    bit    |   1   |  0  |   N  |  N  |     |      是否删除      |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                   description                   |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :---------------------------------------------: |
+|       1       |    ENV_ID    |  bigint   |   20   |       0       |          N           |      Y      |               |                 Primary key ID                  |
+|       2       |  PROJECT_ID  |  varchar  |   64   |       0       |          N           |      N      |               |                     Item ID                     |
+|       3       |   ENV_NAME   |  varchar  |  128   |       0       |          N           |      N      |               |                Environment name                 |
+|       4       |   ENV_DESC   |  varchar  |  128   |       0       |          N           |      N      |               |             Environment description             |
+|       5       |   ENV_TYPE   |  varchar  |  128   |       0       |          N           |      N      |               | Environment type (development environment {DEV} |
+|       6       |   ENV_VARS   |   text    | 65535  |       0       |          N           |      N      |               |              Environment variable               |
+|       7       | CREATED_USER |  varchar  |   64   |       0       |          N           |      N      |               |                     founder                     |
+|       8       | UPDATED_USER |  varchar  |   64   |       0       |          N           |      N      |               |                    modifier                     |
+|       9       | CREATED_TIME | timestamp |   19   |       0       |          Y           |      N      |               |                  Creation time                  |
+|      10       | UPDATED_TIME | timestamp |   19   |       0       |          Y           |      N      |               |                Modification time                |
+|      11       |  IS_DELETED  |    bit    |   1    |       0       |          N           |      N      |               |                  Delete or not                  |
 
-**表名：** T\_ENVIRONMENT\_AGENT\_PIPELINE
+**Table name:** T_ENVIRONMENT_AGENT_PIPELINE
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |      说明      |
-| :-: | :-----------: | :------: | :---: | :-: | :--: | :-: | :-: | :----------: |
-|  1  |       ID      |  bigint  |   20  |  0  |   N  |  Y  |     |     主键ID     |
-|  2  |   AGENT\_ID   |  bigint  |   20  |  0  |   N  |  N  |     |     构建机ID    |
-|  3  |  PROJECT\_ID  |  varchar |   32  |  0  |   N  |  N  |     |     项目ID     |
-|  4  |    USER\_ID   |  varchar |   32  |  0  |   N  |  N  |     |     用户ID     |
-|  5  | CREATED\_TIME | datetime |   19  |  0  |   N  |  N  |     |     创建时间     |
-|  6  | UPDATED\_TIME | datetime |   19  |  0  |   N  |  N  |     |     更新时间     |
-|  7  |     STATUS    |    int   |   10  |  0  |   N  |  N  |     |      状态      |
-|  8  |    PIPELINE   |  varchar |  1024 |  0  |   N  |  N  |     | PipelineType |
-|  9  |    RESPONSE   |   text   | 65535 |  0  |   Y  |  N  |     |              |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key ID |
+|       2       |   AGENT_ID   |  bigint   |   20   |       0       |          N           |      N      |               |   Builder ID   |
+|       3       |  PROJECT_ID  |  varchar  |   32   |       0       |          N           |      N      |               |    Item ID     |
+|       4       |   USER_ID    |  varchar  |   32   |       0       |          N           |      N      |               |    User ID     |
+|       5       | CREATED_TIME | datetime  |   19   |       0       |          N           |      N      |               | Creation time  |
+|       6       | UPDATED_TIME | datetime  |   19   |       0       |          N           |      N      |               |  Update time   |
+|       7       |    STATUS    |    int    |   10   |       0       |          N           |      N      |               |     state      |
+|       8       |   PIPELINE   |  varchar  |  1024  |       0       |          N           |      N      |               |  PipelineType  |
+|       9       |   RESPONSE   |   text    | 65535  |       0       |          Y           |      N      |               |                |
 
-**表名：** T\_ENVIRONMENT\_SLAVE\_GATEWAY
+**Table name:** T_ENVIRONMENT_SLAVE_GATEWAY
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |     名称     |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :--------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |     ID     |  bigint |  20 |  0  |   N  |  Y  |     | 主键ID |
-|  2  |    NAME    | varchar |  32 |  0  |   N  |  N  |     |  名称  |
-|  3  | SHOW\_NAME | varchar |  32 |  0  |   N  |  N  |     | 展示名称 |
-|  4  |   GATEWAY  | varchar | 127 |  0  |   Y  |  N  |     | 网关地址 |
+| Serial number |   name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |   description   |
+| :-----------: | :-------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-------------: |
+|       1       |    ID     |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key ID  |
+|       2       |   NAME    |  varchar  |   32   |       0       |          N           |      N      |               |      name       |
+|       3       | SHOW_NAME |  varchar  |   32   |       0       |          N           |      N      |               |  Display name   |
+|       4       |  GATEWAY  |  varchar  |  127   |       0       |          Y           |      N      |               | Gateway address |
 
-**表名：** T\_ENVIRONMENT\_THIRDPARTY\_AGENT
+**Table name:** T_ENVIRONMENT_THIRDPARTY_AGENT
 
-**说明：** 第三方构建机agent信息表
+**Note:** third-party builder agent information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |           名称          |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |    说明   |
-| :-: | :-------------------: | :------: | :---: | :-: | :--: | :-: | :-: | :-----: |
-|  1  |           ID          |  bigint  |   20  |  0  |   N  |  Y  |     |   主键ID  |
-|  2  |        NODE\_ID       |  bigint  |   20  |  0  |   Y  |  N  |     |   节点ID  |
-|  3  |      PROJECT\_ID      |  varchar |   64  |  0  |   N  |  N  |     |   项目ID  |
-|  4  |        HOSTNAME       |  varchar |  128  |  0  |   Y  |  N  |     |   主机名称  |
-|  5  |           IP          |  varchar |   64  |  0  |   Y  |  N  |     |   ip地址  |
-|  6  |           OS          |  varchar |   16  |  0  |   N  |  N  |     |   操作系统  |
-|  7  |       DETECT\_OS      |  varchar |  128  |  0  |   Y  |  N  |     |  检测操作系统 |
-|  8  |         STATUS        |    int   |   10  |  0  |   N  |  N  |     |    状态   |
-|  9  |      SECRET\_KEY      |  varchar |  256  |  0  |   N  |  N  |     |    密钥   |
-|  10 |     CREATED\_USER     |  varchar |   64  |  0  |   N  |  N  |     |   创建者   |
-|  11 |     CREATED\_TIME     | datetime |   19  |  0  |   N  |  N  |     |   创建时间  |
-|  12 |   START\_REMOTE\_IP   |  varchar |   64  |  0  |   Y  |  N  |     |   主机IP  |
-|  13 |        GATEWAY        |  varchar |  256  |  0  |   Y  |  N  |     |  目标服务网关 |
-|  14 |        VERSION        |  varchar |  128  |  0  |   Y  |  N  |     |   版本号   |
-|  15 |    MASTER\_VERSION    |  varchar |  128  |  0  |   Y  |  N  |     |   主版本   |
-|  16 | PARALLEL\_TASK\_COUNT |    int   |   10  |  0  |   Y  |  N  |     |  并行任务计数 |
-|  17 |  AGENT\_INSTALL\_PATH |  varchar |  512  |  0  |   Y  |  N  |     | 构建机安装路径 |
-|  18 |     STARTED\_USER     |  varchar |   64  |  0  |   Y  |  N  |     |   启动者   |
-|  19 |      AGENT\_ENVS      |   text   | 65535 |  0  |   Y  |  N  |     |   环境变量  |
-|  20 |     FILE\_GATEWAY     |  varchar |  256  |  0  |   Y  |  N  |     |  文件网关路径 |
+| Serial number |        name         | Data type | length | Decimal place | Allowable null value | Primary key | Default value |        description         |
+| :-----------: | :-----------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------------------: |
+|       1       |         ID          |  bigint   |   20   |       0       |          N           |      Y      |               |       Primary key ID       |
+|       2       |       NODE_ID       |  bigint   |   20   |       0       |          Y           |      N      |               |          Node ID           |
+|       3       |     PROJECT_ID      |  varchar  |   64   |       0       |          N           |      N      |               |          Item ID           |
+|       4       |      HOSTNAME       |  varchar  |  128   |       0       |          Y           |      N      |               |         Host name          |
+|       5       |         IP          |  varchar  |   64   |       0       |          Y           |      N      |               |         ip address         |
+|       6       |         OS          |  varchar  |   16   |       0       |          N           |      N      |               |      Operating system      |
+|       7       |      DETECT_OS      |  varchar  |  128   |       0       |          Y           |      N      |               | Detection operating system |
+|       8       |       STATUS        |    int    |   10   |       0       |          N           |      N      |               |           state            |
+|       9       |     SECRET_KEY      |  varchar  |  256   |       0       |          N           |      N      |               |            key             |
+|      10       |    CREATED_USER     |  varchar  |   64   |       0       |          N           |      N      |               |          founder           |
+|      11       |    CREATED_TIME     | datetime  |   19   |       0       |          N           |      N      |               |       Creation time        |
+|      12       |   START_REMOTE_IP   |  varchar  |   64   |       0       |          Y           |      N      |               |          Host IP           |
+|      13       |       GATEWAY       |  varchar  |  256   |       0       |          Y           |      N      |               |   Target service gateway   |
+|      14       |       VERSION       |  varchar  |  128   |       0       |          Y           |      N      |               |       Version number       |
+|      15       |   MASTER_VERSION    |  varchar  |  128   |       0       |          Y           |      N      |               |       Major version        |
+|      16       | PARALLEL_TASK_COUNT |    int    |   10   |       0       |          Y           |      N      |               |   Parallel task counting   |
+|      17       | AGENT_INSTALL_PATH  |  varchar  |  512   |       0       |          Y           |      N      |               | Builder installation path  |
+|      18       |    STARTED_USER     |  varchar  |   64   |       0       |          Y           |      N      |               |         initiator          |
+|      19       |     AGENT_ENVS      |   text    | 65535  |       0       |          Y           |      N      |               |    Environment variable    |
+|      20       |    FILE_GATEWAY     |  varchar  |  256   |       0       |          Y           |      N      |               |     File gateway path      |
 
-**表名：** T\_ENVIRONMENT\_THIRDPARTY\_AGENT\_ACTION
+**Table name:** T_ENVIRONMENT_THIRDPARTY_AGENT_ACTION
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |   说明  |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :-: | :---: |
-|  1  |      ID      |  bigint  |  20 |  0  |   N  |  Y  |     |  主键ID |
-|  2  |   AGENT\_ID  |  bigint  |  20 |  0  |   N  |  N  |     | 构建机ID |
-|  3  |  PROJECT\_ID |  varchar |  64 |  0  |   N  |  N  |     |  项目ID |
-|  4  |    ACTION    |  varchar |  64 |  0  |   N  |  N  |     |   操作  |
-|  5  | ACTION\_TIME | datetime |  19 |  0  |   N  |  N  |     |  操作时间 |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |     ID      |  bigint   |   20   |       0       |          N           |      Y      |               | Primary key ID |
+|       2       |  AGENT_ID   |  bigint   |   20   |       0       |          N           |      N      |               |   Builder ID   |
+|       3       | PROJECT_ID  |  varchar  |   64   |       0       |          N           |      N      |               |    Item ID     |
+|       4       |   ACTION    |  varchar  |   64   |       0       |          N           |      N      |               |   operation    |
+|       5       | ACTION_TIME | datetime  |   19   |       0       |          N           |      N      |               | Operating time |
 
-**表名：** T\_ENVIRONMENT\_THIRDPARTY\_ENABLE\_PROJECTS
+**Table name:** T_ENVIRONMENT_THIRDPARTY_ENABLE_PROJECTS
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :-----------: | :------: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |  PROJECT\_ID  |  varchar |  64 |  0  |   N  |  Y  |     | 项目ID |
-|  2  |     ENALBE    |    bit   |  1  |  0  |   Y  |  N  |     | 是否启用 |
-|  3  | CREATED\_TIME | datetime |  19 |  0  |   N  |  N  |     | 创建时间 |
-|  4  | UPDATED\_TIME | datetime |  19 |  0  |   N  |  N  |     | 更新时间 |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description  |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-----------: |
+|       1       |  PROJECT_ID  |  varchar  |   64   |       0       |          N           |      Y      |               |    Item ID    |
+|       2       |    ENALBE    |    bit    |   1    |       0       |          Y           |      N      |               | Enable or not |
+|       3       | CREATED_TIME | datetime  |   19   |       0       |          N           |      N      |               | Creation time |
+|       4       | UPDATED_TIME | datetime  |   19   |       0       |          N           |      N      |               |  Update time  |
 
-**表名：** T\_ENV\_NODE
+**Table name:** T_ENV_NODE
 
-**说明：** 环境-节点映射表
+**Environment-node** mapping table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |  说明  |
-| :-: | :---------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--: |
-|  1  |   ENV\_ID   |  bigint |  20 |  0  |   N  |  Y  |     | 环境ID |
-|  2  |   NODE\_ID  |  bigint |  20 |  0  |   N  |  Y  |     | 节点ID |
-|  3  | PROJECT\_ID | varchar |  64 |  0  |   N  |  N  |     | 项目ID |
+| Serial number |    name    | Data type | length | Decimal place | Allowable null value | Primary key | Default value |  description   |
+| :-----------: | :--------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :------------: |
+|       1       |   ENV_ID   |  bigint   |   20   |       0       |          N           |      Y      |               | Environment ID |
+|       2       |  NODE_ID   |  bigint   |   20   |       0       |          N           |      Y      |               |    Node ID     |
+|       3       | PROJECT_ID |  varchar  |   64   |       0       |          N           |      N      |               |    Item ID     |
 
-**表名：** T\_ENV\_SHARE\_PROJECT
+**Table name:** T_ENV_SHARE_PROJECT
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |           名称          |    数据类型   |  长度  | 小数位 | 允许空值 |  主键 | 默认值 |     说明    |
-| :-: | :-------------------: | :-------: | :--: | :-: | :--: | :-: | :-: | :-------: |
-|  1  |        ENV\_ID        |   bigint  |  20  |  0  |   N  |  Y  |     |    环境ID   |
-|  2  |       ENV\_NAME       |  varchar  |  128 |  0  |   N  |  N  |     |    环境名称   |
-|  3  |   MAIN\_PROJECT\_ID   |  varchar  |  64  |  0  |   N  |  Y  |     |   主项目ID   |
-|  4  |  SHARED\_PROJECT\_ID  |  varchar  |  64  |  0  |   N  |  Y  |     | 共享的目标项目ID |
-|  5  | SHARED\_PROJECT\_NAME |  varchar  | 1024 |  0  |   Y  |  N  |     |   目标项目名称  |
-|  6  |          TYPE         |  varchar  |  64  |  0  |   N  |  N  |     |     类型    |
-|  7  |        CREATOR        |  varchar  |  64  |  0  |   N  |  N  |     |    创建者    |
-|  8  |      CREATE\_TIME     | timestamp |  19  |  0  |   Y  |  N  |     |    创建时间   |
-|  9  |      UPDATE\_TIME     | timestamp |  19  |  0  |   Y  |  N  |     |    更新时间   |
+| Serial number |        name         | Data type | length | Decimal place | Allowable null value | Primary key | Default value |         description          |
+| :-----------: | :-----------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------------------: |
+|       1       |       ENV_ID        |  bigint   |   20   |       0       |          N           |      Y      |               |        Environment ID        |
+|       2       |      ENV_NAME       |  varchar  |  128   |       0       |          N           |      N      |               |       Environment name       |
+|       3       |   MAIN_PROJECT_ID   |  varchar  |   64   |       0       |          N           |      Y      |               |       Main project ID        |
+|       4       |  SHARED_PROJECT_ID  |  varchar  |   64   |       0       |          N           |      Y      |               | The shared target project ID |
+|       5       | SHARED_PROJECT_NAME |  varchar  |  1024  |       0       |          Y           |      N      |               |     Target project name      |
+|       6       |        TYPE         |  varchar  |   64   |       0       |          N           |      N      |               |             type             |
+|       7       |       CREATOR       |  varchar  |   64   |       0       |          N           |      N      |               |           founder            |
+|       8       |     CREATE_TIME     | timestamp |   19   |       0       |          Y           |      N      |               |        Creation time         |
+|       9       |     UPDATE_TIME     | timestamp |   19   |       0       |          Y           |      N      |               |         Update time          |
 
-**表名：** T\_NODE
+**Table name:** T_NODE
 
-**说明：** 节点信息表
+**Note:** Node information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称          |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |     说明    |
-| :-: | :------------------: | :-------: | :-: | :-: | :--: | :-: | :-: | :-------: |
-|  1  |       NODE\_ID       |   bigint  |  20 |  0  |   N  |  Y  |     |  节点ID主键ID |
-|  2  |   NODE\_STRING\_ID   |  varchar  |  32 |  0  |   Y  |  N  |     |  节点ID字符串  |
-|  3  |      PROJECT\_ID     |  varchar  |  64 |  0  |   N  |  N  |     |    项目ID   |
-|  4  |       NODE\_IP       |  varchar  |  64 |  0  |   N  |  N  |     |    节点IP   |
-|  5  |      NODE\_NAME      |  varchar  |  64 |  0  |   N  |  N  |     |    节点名称   |
-|  6  |     NODE\_STATUS     |  varchar  |  64 |  0  |   N  |  N  |     |    节点状态   |
-|  7  |      NODE\_TYPE      |  varchar  |  64 |  0  |   N  |  N  |     |    节点类型   |
-|  8  |   NODE\_CLUSTER\_ID  |  varchar  | 128 |  0  |   Y  |  N  |     |    集群ID   |
-|  9  |    NODE\_NAMESPACE   |  varchar  | 128 |  0  |   Y  |  N  |     |   节点命名空间  |
-|  10 |     CREATED\_USER    |  varchar  |  64 |  0  |   N  |  N  |     |    创建者    |
-|  11 |     CREATED\_TIME    | timestamp |  19 |  0  |   Y  |  N  |     |    创建时间   |
-|  12 |     EXPIRE\_TIME     | timestamp |  19 |  0  |   Y  |  N  |     |    过期时间   |
-|  13 |       OS\_NAME       |  varchar  | 128 |  0  |   Y  |  N  |     |   操作系统名称  |
-|  14 |       OPERATOR       |  varchar  | 256 |  0  |   Y  |  N  |     |    操作者    |
-|  15 |     BAK\_OPERATOR    |  varchar  | 256 |  0  |   Y  |  N  |     |   备份责任人   |
-|  16 |     AGENT\_STATUS    |    bit    |  1  |  0  |   Y  |  N  |     |   构建机状态   |
-|  17 |     DISPLAY\_NAME    |  varchar  | 128 |  0  |   N  |  N  |     |     别名    |
-|  18 |         IMAGE        |  varchar  | 512 |  0  |   Y  |  N  |     |     镜像    |
-|  19 |       TASK\_ID       |   bigint  |  20 |  0  |   Y  |  N  |     |    任务id   |
-|  20 |  LAST\_MODIFY\_TIME  | timestamp |  19 |  0  |   Y  |  N  |     |   最近修改时间  |
-|  21 |  LAST\_MODIFY\_USER  |  varchar  | 512 |  0  |   Y  |  N  |     |   最近修改者   |
-|  22 |        BIZ\_ID       |   bigint  |  20 |  0  |   Y  |  N  |     |    所属业务   |
-|  23 | PIPELINE\_REF\_COUNT |    int    |  10 |  0  |   N  |  N  |  0  | 流水线Job引用数 |
-|  24 |   LAST\_BUILD\_TIME  |  datetime |  19 |  0  |   Y  |  N  |     |   最近构建时间  |
+| Serial number |        name        | Data type | length | Decimal place | Allowable null value | Primary key | Default value |            description            |
+| :-----------: | :----------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :-------------------------------: |
+|       1       |      NODE_ID       |  bigint   |   20   |       0       |          N           |      Y      |               |   Node ID ID of the primary key   |
+|       2       |   NODE_STRING_ID   |  varchar  |   32   |       0       |          Y           |      N      |               |          Node ID string           |
+|       3       |     PROJECT_ID     |  varchar  |   64   |       0       |          N           |      N      |               |              Item ID              |
+|       4       |      NODE_IP       |  varchar  |   64   |       0       |          N           |      N      |               |              Node IP              |
+|       5       |     NODE_NAME      |  varchar  |   64   |       0       |          N           |      N      |               |             Node name             |
+|       6       |    NODE_STATUS     |  varchar  |   64   |       0       |          N           |      N      |               |            Node state             |
+|       7       |     NODE_TYPE      |  varchar  |   64   |       0       |          N           |      N      |               |             Node type             |
+|       8       |  NODE_CLUSTER_ID   |  varchar  |  128   |       0       |          Y           |      N      |               |            Cluster ID             |
+|       9       |   NODE_NAMESPACE   |  varchar  |  128   |       0       |          Y           |      N      |               |          Node namespace           |
+|      10       |    CREATED_USER    |  varchar  |   64   |       0       |          N           |      N      |               |              founder              |
+|      11       |    CREATED_TIME    | timestamp |   19   |       0       |          Y           |      N      |               |           Creation time           |
+|      12       |    EXPIRE_TIME     | timestamp |   19   |       0       |          Y           |      N      |               |          Expiration time          |
+|      13       |      OS_NAME       |  varchar  |  128   |       0       |          Y           |      N      |               |       Operating system name       |
+|      14       |      OPERATOR      |  varchar  |  256   |       0       |          Y           |      N      |               |             operator              |
+|      15       |    BAK_OPERATOR    |  varchar  |  256   |       0       |          Y           |      N      |               |           Backup owner            |
+|      16       |    AGENT_STATUS    |    bit    |   1    |       0       |          Y           |      N      |               |           Builder state           |
+|      17       |    DISPLAY_NAME    |  varchar  |  128   |       0       |          N           |      N      |               |               alias               |
+|      18       |       IMAGE        |  varchar  |  512   |       0       |          Y           |      N      |               |           Mirror image            |
+|      19       |      TASK_ID       |  bigint   |   20   |       0       |          Y           |      N      |               |              Task id              |
+|      20       |  LAST_MODIFY_TIME  | timestamp |   19   |       0       |          Y           |      N      |               |        Last revision time         |
+|      21       |  LAST_MODIFY_USER  |  varchar  |  512   |       0       |          Y           |      N      |               |          Recent modifier          |
+|      22       |       BIZ_ID       |  bigint   |   20   |       0       |          Y           |      N      |               |       Subordinate business        |
+|      23       | PIPELINE_REF_COUNT |    int    |   10   |       0       |          N           |      N      |       0       | Number of pipeline Job references |
+|      24       |  LAST_BUILD_TIME   | datetime  |   19   |       0       |          Y           |      N      |               |          Last build time          |
 
-**表名：** T\_PROJECT\_CONFIG
+**Table name:** T_PROJECT_CONFIG
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称         |    数据类型   |  长度 | 小数位 | 允许空值 |  主键 |  默认值 |  说明  |
-| :-: | :-----------------: | :-------: | :-: | :-: | :--: | :-: | :--: | :--: |
-|  1  |     PROJECT\_ID     |  varchar  |  64 |  0  |   N  |  Y  |      | 项目ID |
-|  2  |    UPDATED\_USER    |  varchar  |  64 |  0  |   N  |  N  |      |  修改者 |
-|  3  |    UPDATED\_TIME    | timestamp |  19 |  0  |   Y  |  N  |      | 修改时间 |
-|  4  |    BCSVM\_ENALBED   |    bit    |  1  |  0  |   N  |  N  | b'0' |      |
-|  5  |     BCSVM\_QUOTA    |    int    |  10 |  0  |   N  |  N  |   0  |      |
-|  6  |    IMPORT\_QUOTA    |    int    |  10 |  0  |   N  |  N  |  30  |      |
-|  7  | DEV\_CLOUD\_ENALBED |    bit    |  1  |  0  |   N  |  N  | b'0' |      |
-|  8  |  DEV\_CLOUD\_QUOTA  |    int    |  10 |  0  |   N  |  N  |   0  |      |
+| Serial number |       name        | Data type | length | Decimal place | Allowable null value | Primary key | Default value |    description    |
+| :-----------: | :---------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :---------------: |
+|       1       |    PROJECT_ID     |  varchar  |   64   |       0       |          N           |      Y      |               |      Item ID      |
+|       2       |   UPDATED_USER    |  varchar  |   64   |       0       |          N           |      N      |               |     modifier      |
+|       3       |   UPDATED_TIME    | timestamp |   19   |       0       |          Y           |      N      |               | Modification time |
+|       4       |   BCSVM_ENALBED   |    bit    |   1    |       0       |          N           |      N      |     B '0'     |                   |
+|       5       |    BCSVM_QUOTA    |    int    |   10   |       0       |          N           |      N      |       0       |                   |
+|       6       |   IMPORT_QUOTA    |    int    |   10   |       0       |          N           |      N      |      30       |                   |
+|       7       | DEV_CLOUD_ENALBED |    bit    |   1    |       0       |          N           |      N      |     B '0'     |                   |
+|       8       |  DEV_CLOUD_QUOTA  |    int    |   10   |       0       |          N           |      N      |       0       |                   |

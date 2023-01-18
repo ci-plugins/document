@@ -1,143 +1,105 @@
-# 获取拦截记录
+# Obtain intercept record
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/quality/intercepts/list
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/quality/intercepts/list
 
-### 资源描述
+### Resource description
 
-#### 获取拦截记录
+#### Obtain intercept record
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| pipelineId | string | 否 | 流水线ID |  |
-| ruleHashId | string | 否 | 规则ID |  |
-| interceptResult | string | 否 | 状态 |  |
-| startTime | integer | 否 | 开始时间 |  |
-| endTime | integer | 否 | 截止时间 |  |
-| page | integer | 否 | 页号 | 1 |
-| pageSize | integer | 否 | 页数 | 20 |
+| Parameter name  | Parameter type | must | Parameter description | Default value |
+| :-------------- | :------------- | :--- | :-------------------- | :------------ |
+| pipelineId      | string         | no   | Pipeline ID           |               |
+| ruleHashId      | string         | no   | Rule ID               |               |
+| interceptResult | string         | no   | state                 |               |
+| startTime       | integer        | no   | Start time            |               |
+| endTime         | integer        | no   | Cut-off time          |               |
+| page            | integer        | no   | Page number           | 1             |
+| pageSize        | integer        | no   | Number of pages       | 20            |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型质量红线-拦截记录](obtain-interception-records.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Wrapper Model paging Data Wrapper model Quality Red Line - Intercept record](obtain-interception-records.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?pipelineId={pipelineId}&amp;ruleHashId={ruleHashId}&amp;interceptResult={interceptResult}&amp;startTime={startTime}&amp;endTime={endTime}&amp;page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace API address bar request address]? pipelineId={pipelineId}&ruleHashId={ruleHashId}&interceptResult={interceptResult}&startTime={startTime}&endTime={endTime }&page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "checkTimes" : 0,
-      "num" : 0,
-      "buildId" : "String",
-      "remark" : "String",
-      "buildNo" : "String",
-      "hashId" : "String",
-      "pipelineId" : "String",
-      "pipelineName" : "String",
-      "pipelineIsDelete" : true,
-      "interceptList" : [ {
-        "indicatorId" : "String",
-        "indicatorName" : "String",
-        "indicatorType" : "String",
-        "pass" : true,
-        "actualValue" : "String",
-        "logPrompt" : "String",
-        "detail" : "String",
-        "operation" : "ENUM",
-        "value" : "String",
-        "controlPoint" : "String"
-      } ],
-      "interceptResult" : "ENUM",
-      "ruleName" : "String",
-      "ruleHashId" : "String",
-      "timestamp" : 0
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "checkTimes" : 0,  "num" : 0,  "buildId" : "String",  "remark" : "String",  "buildNo" : "String",  "hashId" : "String",  "pipelineId" : "String",  "pipelineName" : "String",  "pipelineIsDelete" : true,  "interceptList" : [ {  "indicatorId" : "String",  "indicatorName" : "String",  "indicatorType" : "String",  "pass" : true,  "actualValue" : "String",  "logPrompt" : "String",  "detail" : "String",  "operation" : "ENUM",  "value" : "String",  "controlPoint" : "String"  } ],  "interceptResult" : "ENUM",  "ruleName" : "String",  "ruleHashId" : "String",  "timestamp" : 0  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型质量红线-拦截记录
+## Data Return Wrapper Model paging Data Wrapper model Quality Red Line - Intercept record
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型质量红线-拦截记录](obtain-interception-records.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Paging data wrapper model Quality Red Line - Intercept record](obtain-interception-records.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型质量红线-拦截记录
+## Paging data wrapper model Quality Red Line - Intercept record
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[质量红线-拦截记录](obtain-interception-records.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                               | must | Parameter description        |
+| :------------- | :----------------------------------------------------------- | :--- | :--------------------------- |
+| records        | List< [mass red line - intercept record](obtain-interception-records.md) > | is   | data                         |
+| count          | integer                                                      | is   | Total number of record lines |
+| totalPages     | integer                                                      | is   | How many pages in total?     |
+| pageSize       | integer                                                      | is   | How many pieces per page     |
+| page           | integer                                                      | is   | What page                    |
 
-## 质量红线-拦截记录
+## Mass red line. - Intercept log
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| checkTimes | integer | 是 | 检查次数 |
-| num | integer | 是 | 项目里的序号 |
-| buildId | string | 是 | 构建ID |
-| remark | string | 是 | 描述 |
-| buildNo | string | 是 | 构建号 |
-| hashId | string | 是 | hashId |
-| pipelineId | string | 是 | 流水线ID |
-| pipelineName | string | 是 | 流水线名称 |
-| pipelineIsDelete | boolean | 是 | 流水线是否已删除 |
-| interceptList | List&lt;[质量红线-拦截规则拦截记录](obtain-interception-records.md)&gt; | 是 | 描述列表 |
-| interceptResult | ENUM\(PASS, FAIL, \) | 是 | 拦截结果 |
-| ruleName | string | 是 | 规则名称 |
-| ruleHashId | string | 是 | 规则HashId |
-| timestamp | integer | 是 | 时间戳\(秒\) |
+| Parameter name   | Parameter type                                               | must | Parameter description                 |
+| :--------------- | :----------------------------------------------------------- | :--- | :------------------------------------ |
+| checkTimes       | integer                                                      | is   | Number of checks                      |
+| num              | integer                                                      | is   | The serial number in the project      |
+| buildId          | string                                                       | is   | Build ID                              |
+| remark           | string                                                       | is   | description                           |
+| buildNo          | string                                                       | is   | Build number                          |
+| hashId           | string                                                       | is   | hashId                                |
+| pipelineId       | string                                                       | is   | Pipeline ID                           |
+| pipelineName     | string                                                       | is   | Pipeline name                         |
+| pipelineIsDelete | boolean                                                      | is   | Whether the pipeline has been deleted |
+| interceptList    | List< [Mass red line - intercept rule intercept record](obtain-interception-records.md) > | is   | Description list                      |
+| interceptResult  | ENUM(PASS, FAIL, )                                           | is   | Intercept result                      |
+| ruleName         | string                                                       | is   | Rule name                             |
+| ruleHashId       | string                                                       | is   | Rule HashId                           |
+| timestamp        | integer                                                      | is   | Timestamp (seconds)                   |
 
-## 质量红线-拦截规则拦截记录
+## Mass Red Line - Intercept rule intercept record
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| indicatorId | string | 是 | 指标ID |
-| indicatorName | string | 是 | 指标名称 |
-| indicatorType | string | 否 | 指标插件类型 |
-| pass | boolean | 是 | 是否通过 |
-| actualValue | string | 是 | 实际值 |
-| logPrompt | string | 否 | 指标日志输出详情 |
-| detail | string | 是 | 指标详情 |
-| operation | ENUM\(GT, GE, LT, LE, EQ, \) | 是 | 关系 |
-| value | string | 是 | 阈值值大小 |
-| controlPoint | string | 是 | 控制点 |
-
+| Parameter name | Parameter type             | must | Parameter description              |
+| :------------- | :------------------------- | :--- | :--------------------------------- |
+| indicatorId    | string                     | is   | Indicator ID                       |
+| indicatorName  | string                     | is   | Index name                         |
+| indicatorType  | string                     | no   | Indicator plug-in type             |
+| pass           | boolean                    | is   | Pass or not                        |
+| actualValue    | string                     | is   | Actual value                       |
+| logPrompt      | string                     | no   | Details about indicator log output |
+| detail         | string                     | is   | Indicator details                  |
+| operation      | ENUM(GT, GE, LT, LE, EQ, ) | is   | relationship                       |
+| value          | string                     | is   | Threshold value                    |
+| controlPoint   | string                     | is   | Control point                      |

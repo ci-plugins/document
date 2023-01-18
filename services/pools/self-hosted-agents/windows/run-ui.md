@@ -1,17 +1,13 @@
-# windows agent启动界面程序的解决办法
+# windows agent startup interface program solution
+BKCI The third-party builder windows agent starts as a system service by default. When programs with UI are started through the agent, errors are reported or the interface is not visible
+Cause: All processes started by the Windows Service run in Session0. Session0 cannot display information or UI Windows to desktop users.
+In this case, you can start the agent in another way as follows:
+1. If the agent has been installed as the system service, run uninstall.bat to uninstall the agent service
 
-BKCI第三方构建机 windows agent 默认以系统服务的方式启动，通过agent启动带界面UI的程序时会报错或者碰到界面被不可见的问题
+2. Double-click devopsDaemon.exe to start the agent. Do not close the pop-up window
+  {% hint style="info" %}
+  The agent started in this mode does not have the startup function.
+  After the agent finishes the build task, all child processes started by the agent are automatically stopped. If you dont need to end the child processes, set the environment variable before starting the process: set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true
 
-原因：Windows Service启动的进程都运行在Session0内，Session0限制了不能向桌面用户弹出信息窗口、UI 窗口等信息。
-
-碰到这种情况可以换一种方式启动agent，方式如下：
-
-1. 如果agent已经安装成系统服务，执行 uninstall.bat 卸载agent服务
-2. 双击  devopsDaemon.exe 启动agent，注意不要关掉弹出窗口
-
-{% hint style="info" %}
-这种方式启动的agent没有开机启动功能。
-
-agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true
-{% endhint %}
+  {% endhint %}
 

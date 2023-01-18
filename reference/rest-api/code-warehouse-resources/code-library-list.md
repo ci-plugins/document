@@ -1,95 +1,76 @@
-# 代码库列表
+# Code base list
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/repositories/{projectId}/hasPermissionList
+#### GET /ms/openapi/api/apigw/v3/repositories/{projectId}/hasPermissionList
 
-### 资源描述
+### Resource description
 
-#### 代码库列表
+#### Code base list
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| repositoryType | string | 否 | 仓库类型 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| repositoryType | string         | no   | Warehouse type        |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型分页数据包装模型代码库模型-基本信息](code-library-list.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data Return Wrapper Model Paging Data wrapper model code base model - basic information](code-library-list.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?repositoryType={repositoryType}'
+```
+curl -X GET '[Please replace API address bar request address]? repositoryType={repositoryType}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "aliasName" : "String",
-      "updatedTime" : 0,
-      "repositoryId" : 0,
-      "type" : "ENUM",
-      "repositoryHashId" : "String",
-      "url" : "String"
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "aliasName" : "String",  "updatedTime" : 0,  "repositoryId" : 0,  "type" : "ENUM",  "repositoryHashId" : "String",  "url" : "String"  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型代码库模型-基本信息
+## Data Return Wrapper Model Paging Data wrapper model code base model - basic information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [分页数据包装模型代码库模型-基本信息](code-library-list.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Paging data wrapper model code base model - Basic information](code-library-list.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型代码库模型-基本信息
+## Paging data wrapper model code base model - Basic information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;[代码库模型-基本信息](code-library-list.md)&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                               | must | Parameter description        |
+| :------------- | :----------------------------------------------------------- | :--- | :--------------------------- |
+| records        | List< [Code base model - Basic Information](code-library-list.md) > | is   | data                         |
+| count          | integer                                                      | is   | Total number of record lines |
+| totalPages     | integer                                                      | is   | How many pages in total?     |
+| pageSize       | integer                                                      | is   | How many pieces per page     |
+| page           | integer                                                      | is   | What page                    |
 
-## 代码库模型-基本信息
+## Code base model - Basic information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| aliasName | string | 是 | 仓库别名 |
-| updatedTime | integer | 是 | 最后更新时间 |
-| repositoryId | integer | 否 | 仓库ID |
-| type | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 是 | 类型 |
-| repositoryHashId | string | 否 | 仓库哈希ID |
-| url | string | 是 | URL |
-
+| Parameter name   | Parameter type                                             | must | Parameter description |
+| :--------------- | :--------------------------------------------------------- | :--- | :-------------------- |
+| aliasName        | string                                                     | is   | Warehouse alias       |
+| updatedTime      | integer                                                    | is   | Last update time      |
+| repositoryId     | integer                                                    | no   | Warehouse ID          |
+| type             | ENUM(CODE_SVN, CODE_GIT, CODE_GITLAB, GITHUB, CODE_TGIT, ) | is   | type                  |
+| repositoryHashId | string                                                     | no   | Warehouse hash ID     |
+| url              | string                                                     | is   | URL                   |

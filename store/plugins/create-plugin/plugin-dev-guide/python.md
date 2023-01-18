@@ -1,79 +1,78 @@
-# Python 插件开发指引
+# Python Plugin Development Guidelines
 
-## 插件开发框架说明 <a id="%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AF%B4%E6%98%8E"></a>
+## Plugin development framework description
 
-* 开发者可以使用自己喜欢的框架开发，没有硬性要求
-* 示例以源码发布包的方式来组织插件
-  * 优点：跨平台，包简单小巧
-  * 缺点：执行前需使用 pip 安装，当有其他第三方包依赖时，需能访问镜像源安装依赖包
+* Developers can use their favorite framework for development, there are no hard and fast requirements
+* Examples of plugins organized in source distribution packages
+  * Pros: cross-platform, simple and small package
+  * Disadvantages: need to use pip installation before implementation, when there are other third-party package dependencies, need to be able to access the mirror source to install the dependency package
 
-**一、插件代码工程的整体结构示例如下：**
+**I. The overall structure of the plug-in code project example is as follows:**
 
 ```text
-|- ${你的插件标识}             # 插件包名
-    |- ${你的插件标识}         # 插件包名
-        |- __init__.py py     # py包标识
-        |- command_line.py    # 命令入口文件
-    |- python_atom_sdk        # 插件开发SDK包
-    |- MANIFEST.in            # 包文件类型申明
-    |- requirements.txt       # 依赖申明
-    |- setup.py               # 执行包打包配置
+|- ${your plugin identifier} # Plugin package name
+    |- ${your plugin identifier} # Plugin package name
+        |- __init__.py py # py package identifier
+        |- command_line.py # command entry file
+    |- python_atom_sdk # plugin development SDK package
+    |- MANIFEST.in # Package file type declaration
+    |- requirements.txt # dependency declaration
+    |- setup.py # Execute package packaging configuration
 ```
 
-**二、如何开发插件：**
+**II. How to develop plugins:**
 
-> 参考 [plugin-demo-python](https://github.com/ci-plugins/plugin-demo-python)
+> Reference [plugin-demo-python](https://github.com/ci-plugins/plugin-demo-python)
 
-* 创建插件代码工程
+* Create plugin code project
 
-  插件代码建议统一管理。通用的开源插件可以放到 [ci-plugins](https://github.com/ci-plugins) 下
+  Plugin code is recommended to be managed in a unified way. Generic open source plugins can be put under [ci-plugins](https://github.com/ci-plugins)
 
-* 修改包名为有辨识度的名称，建议可以和插件标识一致
-* 实现插件功能
-* 规范：
-  * [插件开发规范](../plugin-specification.md)
-  * [插件输出规范](../plugin-output.md)
+* Modify the package name to have a recognizable name, it is recommended to be consistent with the plugin logo
+* Implementing plug-in functionality
+* Specification.
+  * [plug-in development specification](../plugin-specification.md)
+  * [plugin-output-specification](../plugin-output.md)
 
-**三、如何打包发布：**
+**III. How to package and release:**
 
-1. 进入插件代码工程根目录下
-2. 执行打包命令打包
+1. enter the root directory of the plug-in code project
+2. Execute the package command package
 
    ```text
-   # 本示例以 setuptools 的 sdist 命令为例
-
+   # This example uses the setuptools sdist command as an example
+   
    python setup.py sdist
-   ```
+   
+3. Create a new folder in any location, name it: release\_pkg = ${your plugin identifier}\_release
+4. Copy the package produced in step 2 to ${release\_pkg}
+5. Add the task.json file to ${release\_pkg} under task.json See the example to configure it according to the plugin functionality.
 
-3. 在任意位置新建文件夹，命名示例：release\_pkg = ${你的插件标识}\_release
-4. 将步骤 2 生产的执行包拷贝到 ${release\_pkg} 下
-5. 添加 task.json 文件到 ${release\_pkg} 下 task.json 见示例，按照插件功能配置。
-
-   * [插件配置规范](../plugin-config.md)
-   * task.json示例：
+   * [Plugin configuration specification](../plugin-config.md)
+   * task.json example.
 
    ```text
    {
        "atomCode": "demo",
        "execution": {
            "language": "python",
-           "packagePath": "demo-1.1.0.tar.gz",             # 发布包中插件安装包的相对路径
+           "packagePath": "demo-1.1.0.tar.gz",             # Relative path to the plugin installation package in the release package
            "demands": [
-               "pip install demo-1.1.0.tar.gz --upgrade"   # 执行 target 命令前需进行的操作，如安装依赖等
+               "pip install demo-1.1.0.tar.gz --upgrade"   # actions to be performed before executing the target command, such as installing dependencies, etc.
            ],
            "target": "demo"
        },
        "input": {
            "inputDemo":{
-               "label": "输入示例",  
+               "label": "inputdemo",  
                "type": "vuex-input",
-               "placeholder": "输入示例",
-               "desc": "输入示例"
+               "placeholder": "inputdemo",
+               "desc": "inputdemo"
            }
        },
        "output": {
            "outputDemo": {
-               "description": "输出示例",
+               "description": "outputdemo",
                "type": "string",
                "isSensitive": false
            }
@@ -81,15 +80,15 @@
    }
    ```
 
-6. 在 ${release\_pkg} 目录下，把所有文件打成 `zip` 包即可
+6. In the ${release\_pkg} directory, just make a `zip` package of all the files
 
-`zip` 包结构示例：
+Example of `zip` package structure.
 
 ```text
-|- demo_release.zip         # 发布包
-   |- demo-1.1.0.tar.gz    # 插件执行包
-   |- task.json            # 插件配置文件
+|- demo_release.zip # Release package
+   |- demo-1.1.0.tar.gz # Plugin execution package
+   |- task.json # Plugin configuration file
 ```
 
-打包完成后，在插件工作台提单发布，即可测试或发布插件
+After the package is finished, raise a release order in the plugin workbench to test or release the plugin
 

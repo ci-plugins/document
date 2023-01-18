@@ -1,40 +1,36 @@
-# 流水线触发方式使用-手动执行/定时任务/远程触发等
+# Use different triggers in your pipeline
 
-触发方式是在Trigger下通过选择不同类型的插件使用
+The Trigger mode is used by selecting different types of plug-ins under the trigger
 
-*   手动执行
+* Manual execution
+  The default way to create a pipeline is manually executed, so simply add a stage\
+  Manual plug-in: manual execution pipeline. After the pipeline is established, click Save in the upper right corner and manually click the button of execution pipeline
 
-    创建流水线默认的触发方式为手动执行，这里简单添加一个stage\
-    Manual插件：手动执行流水线，指流水线建立之后，可以在右上角点击保存，并且手动点击执行流水线的按钮
+  ![](../../.gitbook/assets/image-20211209205014251.png)
 
-![](../../.gitbook/assets/image-20211209205014251.png)
+* Scheduled task
+  Add the Timer plug-in and define crontab expressions
 
-*   定时任务
+  ![](../../.gitbook/assets/image-20211209211036492.png)
 
-    添加Timer插件，定义crontab表达式
-
-![](../../.gitbook/assets/image-20211209211036492.png)
-
-因为没有选择Manual手动触发的方式，所以无法手动点击【执行】按钮来执行流水线
+Because the Manual triggering mode is not selected, the "Execute" button cannot be clicked manually to execute the pipeline
 
 ![](../../.gitbook/assets/image-20211209211118734.png)
 
-查看执行历史，可以看到流水线以每分钟自动定时执行一次
+Viewing the execution history, you can see that the pipeline automatically executes once per minute
 
 ![](../../.gitbook/assets/image-20211209211239418.png)
 
-*   远程触发
+* Remote trigger
+  Add a Remote plug-in -- This can be triggered remotely by executing commands
+  Copy the example command. If the trigger has defined variables, the command line automatically generates an example with variable parameters
 
-    添加Remote插件--可以通过执行命令进行远程触发
+  ![](../../.gitbook/assets/image-20211209211650003.png)
 
-    复制示例命令，如果trigger有定义变量的话，命令行会自动生成含变量参数的示例
-
-![](../../.gitbook/assets/image-20211209211650003.png)
-
-命令行中执行curl命令
+Run the curl command on the CLI
 
 ![](../../.gitbook/assets/image-20220301101202-tNslA.png)
 
-流水线执行历史上可以查看到执行记录
+You can view the execution history of the pipeline
 
 ![](../../.gitbook/assets/image-20211209211547148.png)

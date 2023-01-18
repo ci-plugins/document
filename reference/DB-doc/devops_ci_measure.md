@@ -1,128 +1,128 @@
-# devops\_ci\_measure
+# devops_ci_measure
 
-**数据库名：** devops\_ci\_measure
+**Database name:** devops_ci_measure
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_measure的数据库文档
+**Documentation description:** Database documentation for devops_ci_measure
 
-|                        表名                       |  说明 |
-| :---------------------------------------------: | :-: |
-|  [T\_MEASURE\_BUILD\_ELEMENT](broken-reference) |     |
-| [T\_MEASURE\_DASHBOARD\_VIEW](broken-reference) |     |
-| [T\_MEASURE\_PIPELINE\_BUILD](broken-reference) |     |
-|     [T\_MEASURE\_PROJECT](broken-reference)     |     |
-|   [T\_MEASURE\_WETEST\_INFO](broken-reference)  |     |
+|                  Table name                  | description |
+| :------------------------------------------: | :---------: |
+| [T_MEASURE_BUILD_ELEMENT](broken-reference)  |             |
+| [T_MEASURE_DASHBOARD_VIEW](broken-reference) |             |
+| [T_MEASURE_PIPELINE_BUILD](broken-reference) |             |
+|    [T_MEASURE_PROJECT](broken-reference)     |             |
+|  [T_MEASURE_WETEST_INFO](broken-reference)   |             |
 
-**表名：** T\_MEASURE\_BUILD\_ELEMENT
+**Table name:** T_MEASURE_BUILD_ELEMENT
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称     |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |      说明     |
-| :-: | :---------: | :------: | :---: | :-: | :--: | :-: | :-: | :---------: |
-|  1  | elementName |  varchar |   64  |  0  |   N  |  N  |     |     元素名称    |
-|  2  |  pipelineId |  varchar |   34  |  0  |   N  |  N  |     |    流水线ID    |
-|  3  |   buildId   |  varchar |   34  |  0  |   N  |  N  |     |     构建ID    |
-|  4  |    status   |  varchar |   32  |  0  |   N  |  N  |     |      状态     |
-|  5  |  beginTime  | datetime |   19  |  0  |   N  |  N  |     |     开始时间    |
-|  6  |   endTime   | datetime |   19  |  0  |   N  |  N  |     |     结束时间    |
-|  7  |  projectId  |  varchar |   32  |  0  |   N  |  N  |     |     项目ID    |
-|  8  |    extra    |   text   | 65535 |  0  |   Y  |  N  |     |     额外信息    |
-|  9  |     type    |  varchar |   32  |  0  |   N  |  N  |     |      类型     |
-|  10 |  elementId  |  varchar |   64  |  0  |   N  |  N  |     | 插件elementId |
-|  11 |      id     |    int   |   10  |  0  |   N  |  Y  |     |     主键ID    |
-|  12 |   atomCode  |  varchar |  128  |  0  |   N  |  N  |     |   插件的唯一标识   |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |            description             |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------------------------: |
+|       1       | elementName |  varchar  |   64   |       0       |          N           |      N      |               |            Element name            |
+|       2       | pipelineId  |  varchar  |   34   |       0       |          N           |      N      |               |            Pipeline ID             |
+|       3       |   buildId   |  varchar  |   34   |       0       |          N           |      N      |               |              Build ID              |
+|       4       |   status    |  varchar  |   32   |       0       |          N           |      N      |               |               state                |
+|       5       |  beginTime  | datetime  |   19   |       0       |          N           |      N      |               |             Start time             |
+|       6       |   endTime   | datetime  |   19   |       0       |          N           |      N      |               |              End time              |
+|       7       |  projectId  |  varchar  |   32   |       0       |          N           |      N      |               |              Item ID               |
+|       8       |    extra    |   text    | 65535  |       0       |          Y           |      N      |               |       Additional information       |
+|       9       |    type     |  varchar  |   32   |       0       |          N           |      N      |               |                type                |
+|      10       |  elementId  |  varchar  |   64   |       0       |          N           |      N      |               |         elementId plug-in          |
+|      11       |     id      |    int    |   10   |       0       |          N           |      Y      |               |           Primary key ID           |
+|      12       |  atomCode   |  varchar  |  128   |       0       |          N           |      N      |               | The unique identity of the plug-in |
 
-**表名：** T\_MEASURE\_DASHBOARD\_VIEW
+**Table name:** T_MEASURE_DASHBOARD_VIEW
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |     名称     |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 |   默认值  |  说明  |
-| :-: | :--------: | :--------: | :------: | :-: | :--: | :-: | :----: | :--: |
-|  1  |     id     |     int    |    10    |  0  |   N  |  Y  |        | 主键ID |
-|  2  |  projectId |   varchar  |    36    |  0  |   N  |  N  |        | 项目ID |
-|  3  |    user    |   varchar  |    32    |  0  |   N  |  N  |        |  用户  |
-|  4  |    NAME    |   varchar  |    64    |  0  |   N  |  N  |        |  名称  |
-|  5  | viewConfig | mediumtext | 16777215 |  0  |   N  |  N  |        | 视图配置 |
-|  6  |  viewType  |   varchar  |    32    |  0  |   N  |  N  | SINGLE | 视图类型 |
+| Serial number |    name    | Data type  |  length  | Decimal place | Allowable null value | Primary key | Default value |    description     |
+| :-----------: | :--------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :-----------: | :----------------: |
+|       1       |     id     |    int     |    10    |       0       |          N           |      Y      |               |   Primary key ID   |
+|       2       | projectId  |  varchar   |    36    |       0       |          N           |      N      |               |      Item ID       |
+|       3       |    user    |  varchar   |    32    |       0       |          N           |      N      |               |        user        |
+|       4       |    NAME    |  varchar   |    64    |       0       |          N           |      N      |               |        name        |
+|       5       | viewConfig | mediumtext | 16777215 |       0       |          N           |      N      |               | View configuration |
+|       6       |  viewType  |  varchar   |    32    |       0       |          N           |      N      |    SINGLE     |     View type      |
 
-**表名：** T\_MEASURE\_PIPELINE\_BUILD
+**Table name:** T_MEASURE_PIPELINE_BUILD
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 | 默认值 |      说明      |
-| :-: | :--------------: | :--------: | :------: | :-: | :--: | :-: | :-: | :----------: |
-|  1  |    pipelineId    |   varchar  |    34    |  0  |   N  |  N  |     |     流水线ID    |
-|  2  |      buildId     |   varchar  |    34    |  0  |   N  |  N  |     |     构建ID     |
-|  3  |     beginTime    |  datetime  |    19    |  0  |   N  |  N  |     |   流水线的启动时间   |
-|  4  |      endTime     |  datetime  |    19    |  0  |   N  |  N  |     |   流水线的结束时间   |
-|  5  |     startType    |   varchar  |    20    |  0  |   N  |  N  |     |   流水线的启动方式   |
-|  6  |     buildUser    |   varchar  |    255   |  0  |   N  |  N  |     |   流水线的启动用户   |
-|  7  |    isParallel    |     bit    |     1    |  0  |   N  |  N  |     |   流水线的是否并行   |
-|  8  |    buildResult   |   varchar  |    20    |  0  |   N  |  N  |     |   流水线的构建结果   |
-|  9  |     projectId    |   varchar  |    32    |  0  |   N  |  N  |     |     项目ID     |
-|  10 |     pipeline     | mediumtext | 16777215 |  0  |   N  |  N  |     |      流水线     |
-|  11 |     buildNum     |     int    |    10    |  0  |   N  |  N  |     |     构建版本号    |
-|  12 |        id        |     int    |    10    |  0  |   N  |  Y  |     |     主键ID     |
-|  13 |     metaInfo     |    text    |   65535  |  0  |   Y  |  N  |     |      元数据     |
-|  14 | parentPipelineId |   varchar  |    34    |  0  |   Y  |  N  |     | 启动子流水线的流水线ID |
-|  15 |   parentBuildId  |   varchar  |    34    |  0  |   Y  |  N  |     |  启动子流水线的构建ID |
+| Serial number |       name       | Data type  |  length  | Decimal place | Allowable null value | Primary key | Default value |              description               |
+| :-----------: | :--------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :-----------: | :------------------------------------: |
+|       1       |    pipelineId    |  varchar   |    34    |       0       |          N           |      N      |               |              Pipeline ID               |
+|       2       |     buildId      |  varchar   |    34    |       0       |          N           |      N      |               |                Build ID                |
+|       3       |    beginTime     |  datetime  |    19    |       0       |          N           |      N      |               |    The startup time of the pipeline    |
+|       4       |     endTime      |  datetime  |    19    |       0       |          N           |      N      |               |   The end time of the assembly line    |
+|       5       |    startType     |  varchar   |    20    |       0       |          N           |      N      |               |      The startup mode of pipeline      |
+|       6       |    buildUser     |  varchar   |   255    |       0       |          N           |      N      |               |         Pipelined startup user         |
+|       7       |    isParallel    |    bit     |    1     |       0       |          N           |      N      |               |     Whether pipelining is parallel     |
+|       8       |   buildResult    |  varchar   |    20    |       0       |          N           |      N      |               |  The result of pipeline construction   |
+|       9       |    projectId     |  varchar   |    32    |       0       |          N           |      N      |               |                Item ID                 |
+|      10       |     pipeline     | mediumtext | 16777215 |       0       |          N           |      N      |               |                pipeline                |
+|      11       |     buildNum     |    int     |    10    |       0       |          N           |      N      |               |          Build version number          |
+|      12       |        id        |    int     |    10    |       0       |          N           |      Y      |               |             Primary key ID             |
+|      13       |     metaInfo     |    text    |  65535   |       0       |          Y           |      N      |               |                metadata                |
+|      14       | parentPipelineId |  varchar   |    34    |       0       |          Y           |      N      |               | Pipeline ID of the initiator pipeline  |
+|      15       |  parentBuildId   |  varchar   |    34    |       0       |          Y           |      N      |               | The build ID of the initiator pipeline |
 
-**表名：** T\_MEASURE\_PROJECT
+**Table name:** T_MEASURE_PROJECT
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |     说明     |
-| :-: | :--------------: | :------: | :---: | :-: | :--: | :-: | :-: | :--------: |
-|  1  |        id        |    int   |   10  |  0  |   N  |  Y  |     |    主键ID    |
-|  2  | approval\_status |    int   |   10  |  0  |   Y  |  N  |     |    审核状态    |
-|  3  |      bg\_id      |    int   |   10  |  0  |   Y  |  N  |     |    事业群ID   |
-|  4  |     bg\_name     |  varchar |  120  |  0  |   Y  |  N  |     |    事业群名称   |
-|  5  |    cc\_app\_id   |    int   |   10  |  0  |   Y  |  N  |     |    应用ID    |
-|  6  |    center\_id    |    int   |   10  |  0  |   Y  |  N  |     |    中心ID    |
-|  7  |   center\_name   |  varchar |  120  |  0  |   Y  |  N  |     |    中心名字    |
-|  8  |    created\_at   | datetime |   19  |  0  |   Y  |  N  |     |    创建时间    |
-|  9  |      creator     |  varchar |   32  |  0  |   Y  |  N  |     |     创建者    |
-|  10 |     data\_id     |    int   |   10  |  0  |   Y  |  N  |     |    数据ID    |
-|  11 |   deploy\_type   |  varchar |  256  |  0  |   Y  |  N  |     |    部署类型    |
-|  12 |     dept\_id     |    int   |   10  |  0  |   Y  |  N  |     | 项目所属二级机构ID |
-|  13 |    dept\_name    |  varchar |  120  |  0  |   Y  |  N  |     | 项目所属二级机构名称 |
-|  14 |    description   |   text   | 65535 |  0  |   Y  |  N  |     |     描述     |
-|  15 |   project\_code  |  varchar |  128  |  0  |   Y  |  N  |     |   用户组所属项目  |
-|  16 |   is\_offlined   |    bit   |   1   |  0  |   Y  |  N  |     |    是否停用    |
-|  17 |    is\_secrecy   |    bit   |   1   |  0  |   Y  |  N  |     |    是否保密    |
-|  18 |       kind       |    int   |   10  |  0  |   Y  |  N  |     |    容器类型    |
-|  19 |    project\_id   |  varchar |   64  |  0  |   Y  |  N  |     |    项目ID    |
-|  20 |   project\_name  |  varchar |  256  |  0  |   Y  |  N  |     |    项目名称    |
-|  21 |   project\_type  |    int   |   10  |  0  |   Y  |  N  |     |    项目类型    |
-|  22 |    updated\_at   | datetime |   19  |  0  |   Y  |  N  |     |    更新时间    |
-|  23 |      use\_bk     |    bit   |   1   |  0  |   Y  |  N  |     |    是否用蓝鲸   |
-|  24 |    logo\_addr    |  varchar |  1024 |  0  |   Y  |  N  |     |   logo地址   |
-|  25 |  pipeline\_count |    int   |   10  |  0  |   Y  |  N  |  0  |    流水线数量   |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |       id        |    int    |   10   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       | approval_status |    int    |   10   |       0       |          Y           |      N      |               |                         Audit status                         |
+|       3       |      bg_id      |    int    |   10   |       0       |          Y           |      N      |               |                      Business group ID                       |
+|       4       |     bg_name     |  varchar  |  120   |       0       |          Y           |      N      |               |                     Business group name                      |
+|       5       |    cc_app_id    |    int    |   10   |       0       |          Y           |      N      |               |                        Application ID                        |
+|       6       |    center_id    |    int    |   10   |       0       |          Y           |      N      |               |                          Center ID                           |
+|       7       |   center_name   |  varchar  |  120   |       0       |          Y           |      N      |               |                         Central name                         |
+|       8       |   created_at    | datetime  |   19   |       0       |          Y           |      N      |               |                        Creation time                         |
+|       9       |     creator     |  varchar  |   32   |       0       |          Y           |      N      |               |                           founder                            |
+|      10       |     data_id     |    int    |   10   |       0       |          Y           |      N      |               |                           Data ID                            |
+|      11       |   deploy_type   |  varchar  |  256   |       0       |          Y           |      N      |               |                       Deployment type                        |
+|      12       |     dept_id     |    int    |   10   |       0       |          Y           |      N      |               |     The project belongs to the secondary organization ID     |
+|      13       |    dept_name    |  varchar  |  120   |       0       |          Y           |      N      |               | Name of the secondary organization to which the project belongs |
+|      14       |   description   |   text    | 65535  |       0       |          Y           |      N      |               |                         description                          |
+|      15       |  project_code   |  varchar  |  128   |       0       |          Y           |      N      |               |         The project to which the user group belongs          |
+|      16       |   is_offlined   |    bit    |   1    |       0       |          Y           |      N      |               |                      Deactivate or not                       |
+|      17       |   is_secrecy    |    bit    |   1    |       0       |          Y           |      N      |               |                    Confidentiality or not                    |
+|      18       |      kind       |    int    |   10   |       0       |          Y           |      N      |               |                        Container type                        |
+|      19       |   project_id    |  varchar  |   64   |       0       |          Y           |      N      |               |                           Item ID                            |
+|      20       |  project_name   |  varchar  |  256   |       0       |          Y           |      N      |               |                         Project name                         |
+|      21       |  project_type   |    int    |   10   |       0       |          Y           |      N      |               |                          Item type                           |
+|      22       |   updated_at    | datetime  |   19   |       0       |          Y           |      N      |               |                         Update time                          |
+|      23       |     use_bk      |    bit    |   1    |       0       |          Y           |      N      |               |                 Whether to use a blue whale                  |
+|      24       |    logo_addr    |  varchar  |  1024  |       0       |          Y           |      N      |               |                         logo address                         |
+|      25       | pipeline_count  |    int    |   10   |       0       |          Y           |      N      |       0       |                      Number of pipeline                      |
 
-**表名：** T\_MEASURE\_WETEST\_INFO
+**Table name:** T_MEASURE_WETEST_INFO
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |    说明   |
-| :-: | :---------------: | :------: | :---: | :-: | :--: | :-: | :-: | :-----: |
-|  1  |         ID        |  bigint  |   20  |  0  |   N  |  Y  |     |   主键ID  |
-|  2  |    elementKeyId   |    int   |   10  |  0  |   N  |  N  |     | 元素Keyid |
-|  3  |       testid      |  varchar |   64  |  0  |   Y  |  N  |     |         |
-|  4  |      passrate     |    int   |   10  |  0  |   Y  |  N  |  0  |   通过率   |
-|  5  |    failManuMap    |   text   | 65535 |  0  |   Y  |  N  |     |         |
-|  6  |   failVersionMap  |   text   | 65535 |  0  |   Y  |  N  |     | 失败版本map |
-|  7  | failResolutionMap |   text   | 65535 |  0  |   Y  |  N  |     | 失败解析map |
-|  8  |     errCodeMap    |   text   | 65535 |  0  |   Y  |  N  |     | 错误代码map |
-|  9  |    errLevelMap    |   text   | 65535 |  0  |   Y  |  N  |     | 错误等级map |
-|  10 |     createTime    | datetime |   19  |  0  |   Y  |  N  |     |   创建时间  |
+| Serial number |       name        | Data type | length | Decimal place | Allowable null value | Primary key | Default value |      description       |
+| :-----------: | :---------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :--------------------: |
+|       1       |        ID         |  bigint   |   20   |       0       |          N           |      Y      |               |     Primary key ID     |
+|       2       |   elementKeyId    |    int    |   10   |       0       |          N           |      N      |               |     Element Keyid      |
+|       3       |      testid       |  varchar  |   64   |       0       |          Y           |      N      |               |                        |
+|       4       |     passrate      |    int    |   10   |       0       |          Y           |      N      |       0       |       Pass rate        |
+|       5       |    failManuMap    |   text    | 65535  |       0       |          Y           |      N      |               |                        |
+|       6       |  failVersionMap   |   text    | 65535  |       0       |          Y           |      N      |               |   Failed version map   |
+|       7       | failResolutionMap |   text    | 65535  |       0       |          Y           |      N      |               | Failure resolution map |
+|       8       |    errCodeMap     |   text    | 65535  |       0       |          Y           |      N      |               |     Error code map     |
+|       9       |    errLevelMap    |   text    | 65535  |       0       |          Y           |      N      |               |    Error level map     |
+|      10       |    createTime     | datetime  |   19   |       0       |          Y           |      N      |               |     Creation time      |

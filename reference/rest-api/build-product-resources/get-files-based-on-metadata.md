@@ -1,122 +1,93 @@
-# 根据元数据获取文件
+# Get files based on metadata
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/artifactories
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/artifactories
 
-### 资源描述
+### Resource description
 
-#### 根据元数据获取文件
+#### Get files based on metadata
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| pipelineId | string | 是 | 流水线ID |  |
-| buildId | string | 是 | 构建ID |  |
-| page | integer | 否 | 第几页 | 1 |
-| pageSize | integer | 否 | 每页多少条\(不传默认全部返回\) | 20 |
+| Parameter name | Parameter type | must | Parameter description                                   | Default value |
+| :------------- | :------------- | :--- | :------------------------------------------------------ | :------------ |
+| pipelineId     | string         | is   | Pipeline ID                                             |               |
+| buildId        | string         | is   | Build ID                                                |               |
+| page           | integer        | no   | What page                                               | 1             |
+| pageSize       | integer        | no   | How many items per page (not passed default return all) | 20            |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型分页数据包装模型版本仓库-文件信息 |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | Data Return Wrapper model page Data wrapper model version repository - File information |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?pipelineId={pipelineId}&amp;buildId={buildId}&amp;page={page}&amp;pageSize={pageSize}'
+```
+curl -X GET '[Please replace API address bar request address]? pipelineId={pipelineId}&buildId={buildId}&page={page}&pageSize={pageSize}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "records" : [ {
-      "fullPath" : "String",
-      "modifiedTime" : 0,
-      "appVersion" : "String",
-      "shortUrl" : "String",
-      "downloadUrl" : "String",
-      "fullName" : "String",
-      "path" : "String",
-      "folder" : true,
-      "size" : 0,
-      "name" : "String",
-      "artifactoryType" : "ENUM",
-      "properties" : [ {
-        "value" : "String",
-        "key" : "String"
-      } ],
-      "md5" : "String"
-    } ],
-    "count" : 0,
-    "totalPages" : 0,
-    "pageSize" : 0,
-    "page" : 0
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "records" : [ {  "fullPath" : "String",  "modifiedTime" : 0,  "appVersion" : "String",  "shortUrl" : "String",  "downloadUrl" : "String",  "fullName" : "String",  "path" : "String",  "folder" : true,  "size" : 0,  "name" : "String",  "artifactoryType" : "ENUM",  "properties" : [ {  "value" : "String",  "key" : "String"  } ],  "md5" : "String"  } ],  "count" : 0,  "totalPages" : 0,  "pageSize" : 0,  "page" : 0  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型分页数据包装模型版本仓库-文件信息
+## Data Return Wrapper model page Data wrapper model version repository - File information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | 分页数据包装模型版本仓库-文件信息 | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | Paging data wrapper Model version repository - File information | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 分页数据包装模型版本仓库-文件信息
+## Paging data wrapper Model version repository - File information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| records | List&lt;版本仓库-文件信息&gt; | 是 | 数据 |
-| count | integer | 是 | 总记录行数 |
-| totalPages | integer | 是 | 总共多少页 |
-| pageSize | integer | 是 | 每页多少条 |
-| page | integer | 是 | 第几页 |
+| Parameter name | Parameter type                                | must | Parameter description        |
+| :------------- | :-------------------------------------------- | :--- | :--------------------------- |
+| records        | List< version repository - file information > | is   | data                         |
+| count          | integer                                       | is   | Total number of record lines |
+| totalPages     | integer                                       | is   | How many pages in total?     |
+| pageSize       | integer                                       | is   | How many pieces per page     |
+| page           | integer                                       | is   | What page                    |
 
-## 版本仓库-文件信息
+## Version repository - File information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| fullPath | string | 是 | 文件全路径 |
-| modifiedTime | integer | 是 | 更新时间 |
-| appVersion | string | 是 | app版本 |
-| shortUrl | string | 是 | 下载短链接 |
-| downloadUrl | string | 否 | 下载链接 |
-| fullName | string | 是 | 文件全名 |
-| path | string | 是 | 文件路径 |
-| folder | boolean | 是 | 是否文件夹 |
-| size | integer | 是 | 文件大小\(byte\) |
-| name | string | 是 | 文件名 |
-| artifactoryType | ENUM\(PIPELINE, CUSTOM\_DIR, \) | 是 | 仓库类型 |
-| properties | List&lt;版本仓库-元数据&gt; | 是 | 元数据 |
-| md5 | string | 否 | MD5 |
+| Parameter name  | Parameter type                        | must | Parameter description |
+| :-------------- | :------------------------------------ | :--- | :-------------------- |
+| fullPath        | string                                | is   | Full file path        |
+| modifiedTime    | integer                               | is   | Update time           |
+| appVersion      | string                                | is   | app version           |
+| shortUrl        | string                                | is   | Download short link   |
+| downloadUrl     | string                                | no   | Download link         |
+| fullName        | string                                | is   | Full name of document |
+| path            | string                                | is   | File path             |
+| folder          | boolean                               | is   | Yes folder            |
+| size            | integer                               | is   | File size (byte)      |
+| name            | string                                | is   | File name             |
+| artifactoryType | ENUM(PIPELINE, CUSTOM_DIR, )          | is   | Warehouse type        |
+| properties      | List< version repository - metadata > | is   | metadata              |
+| md5             | string                                | no   | MD5                   |
 
-## 版本仓库-元数据
+## Version Repository - Metadata
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 元数据值 |
-| key | string | 是 | 元数据键 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| value          | string         | is   | Metadata value        |
+| key            | string         | is   | Metadata key          |

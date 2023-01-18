@@ -1,29 +1,28 @@
-# 创建/编辑流水线
-
-流水线的核心页面之一，可通过可视化界面生成 CI 流水线。
-
+# Create/edit pipeline
+One of the core pages of the pipeline, the CI pipeline can be generated through the visual interface.
 ![](../../../.gitbook/assets/image%20%2811%29.png)
 
-1. 流水线面包屑：此处有两个点击事件
-   * 点击流水线名称：快速进入流水线执行历史
-   * 点击名称右侧的小三角：快速切换至其它流水线
-2. 流水线编辑标签，可以在流水线编排页、基础设置之间互相切换：
-   * 流水线编排区：参考 3
-   * 流水线基础设置：
-3. 流水线编排区：遵守[流水线核心理念](../../../overview/learn-pipeline-in-5-min.md)的可视化编排区域
-4. 流水线操作区，包含如下常用操作集合：
-   * 保存：每点一次保存，会生成一个从 1 开始自增的编排版本号，可用于回滚
-   * 执行：基于当前的编排版本号，生成一个快照流水线任务
-   * 重命名：对当前流水线名称进行改名
-   * 收藏：将当前流水线收藏，可以在“我的收藏”视图中查看
-   * 导出：将当前流水线导出为 JSON，可以在新建流水线时导入（可跨不同项目）
-   * 复制为：基于当前流水线的当前编排版本号，复制一个新的流水线“旧流水线名称\_copy”
-   * 另存为模板：将当前流水线的编排保存为流水线模板
-   * 删除：软删除，将放入流水线回收站
+1. Assembly line crumbs: There are two click events
+   * Click on the pipeline name: Quickly access the pipeline execution history
+   * Click the small triangle to the right of the name: Quickly switch to another pipeline
+2. Assembly line editing labels, which can switch between assembly line layout pages and basic Settings:
+   * Pipeline layout area: see 3
+   * Pipeline basic setup:
+3. Assembly line arrangement area: abide by [core concept of assembly line](../../../overview/learn-pipeline-in-5-min.md) visual orchestration area
+4. Pipeline operation area, including the following common operation set:
+   * Save: For each save click, a format version number incremented from 1 is generated, which can be used for rollback
+   * Execution: Generates a snapshot pipeline task based on the current orchestration version number
+   * Rename: Renames the current pipeline name
+   * Favorites: Bookmark the current pipeline, which can be viewed in the My Favorites view
+   * Export: Export the current pipeline as JSON, which can be imported when creating a new pipeline (across different projects)
+   * Copy to: Copy a new pipeline "old pipeline name \_copy" based on the current orchestration version number of the current pipeline
+   * Save as template: Saves the orchestration of the current pipeline as a pipeline template
+   * Delete: Soft delete, will be put into the pipeline recycle bin
 
-## 接下来你可能需要 <a id="&#x63A5;&#x4E0B;&#x6765;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;"></a>
 
-* [流水线执行历史](../pipeline-build-history.md)
-* [流水线列表页](../pipeline-list.md)
-* [流水线任务详情页](../pipeline-build-detail/)
 
+ #  Next you may need
+
+* [Pipeline execution history](../pipeline-build-history.md)
+* [pipeline list page](../pipeline-list.md)
+* [pipeline task details page](../pipeline-build-detail/)

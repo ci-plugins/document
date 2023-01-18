@@ -1,33 +1,39 @@
-# 使用模板创建流水线
+# Create pipeline by templates
 
-模板：流水线模板，通过创建流水线模板，预先设置好通用的流水线，新建流水线时可以选择模板来创建流水线。
+Template: pipeline-line template. You can create an pipeline-line template and set a general pipeline-line in advance. You can select a template to create an pipeline-line when creating an pipeline.
 
-* 流水线 -> 右上角选择模板管理，
+* Pipeline -> Select Template Management in the upper right corner
 
-![](../../.gitbook/assets/image-20211212172908537.png)
+  
+
+  ![](../../.gitbook/assets/image-20211212172908537.png)
+
+
 
 ![](../../.gitbook/assets/image-20211212174045747.png)
 
-简单新建一个stage测试
+Simply create a new stage test
 
 ![](../../.gitbook/assets/image-20211212193540068.png)
 
-点击保存，保存为新版本v1（当前版本默认为init版本，也可以保存在当前版本)
+Click Save and save it as the new version v1 (the current version is init by default, you can also save it in the current version).
 
 ![](../../.gitbook/assets/image-20211212193812300.png)
 
-点击右上角版本列表，可以查看当前版本，并且点击【加载】可以切换到其它版本
+Click the version list in the upper right corner to view the current version, and click "Load" to switch to another version
 
 ![](../../.gitbook/assets/image-20211212194017063.png)
 
-也可以在【设置】里针对流水线预先设置通知等
+You can also pre-set notifications for pipelines in [Settings]
 
 ![](../../.gitbook/assets/image-20211212215433258.png)
 
-* 使用模板新建流水线，选择创建好的模板
+* Create a pipeline using templates and select the template you created
 
-![](../../.gitbook/assets/image-20211212215811153.png)
+  ![](../../.gitbook/assets/image-20211212215811153.png)
 
-创建之后可以看到预先在模板配置的内容
+Once created, you can see the content that was previously configured in the template
+
+
 
 ![](../../.gitbook/assets/image-20211212215943119.png)

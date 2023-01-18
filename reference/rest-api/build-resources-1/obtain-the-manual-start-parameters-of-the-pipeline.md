@@ -1,154 +1,110 @@
-# 获取流水线手动启动参数
+# Gets pipeline manual startup parameters
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/manualStartupInfo
+#### GET /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/builds/manualStartupInfo
 
-### 资源描述
+### Resource description
 
-#### 获取流水线手动启动参数
+#### Gets pipeline manual startup parameters
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| channelCode | string | 否 | 渠道号，默认为BS |  |
+| Parameter name | Parameter type | must | Parameter description             | Default value |
+| :------------- | :------------- | :--- | :-------------------------------- | :------------ |
+| channelCode    | string         | no   | Channel number. The default is BS |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线ID |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline ID           |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型构建模型-流水线手动启动信息](obtain-the-manual-start-parameters-of-the-pipeline.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return packaging model build model - pipeline manual start information](obtain-the-manual-start-parameters-of-the-pipeline.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]?channelCode={channelCode}'
+```
+curl -X GET '[Please replace API address bar request address]? channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "canManualStartup" : true,
-    "canElementSkip" : true,
-    "buildNo" : {
-      "buildNoType" : "ENUM",
-      "buildNo" : 0,
-      "required" : true
-    },
-    "properties" : [ {
-      "defaultValue" : {
-        "string" : "string"
-      },
-      "containerType" : {
-        "os" : "ENUM",
-        "buildType" : "ENUM"
-      },
-      "glob" : "String",
-      "replaceKey" : "String",
-      "readOnly" : true,
-      "label" : "String",
-      "type" : "ENUM",
-      "required" : true,
-      "repoHashId" : "String",
-      "scmType" : "ENUM",
-      "relativePath" : "String",
-      "propertyType" : "String",
-      "options" : [ {
-        "value" : "String",
-        "key" : "String"
-      } ],
-      "searchUrl" : "String",
-      "id" : "String",
-      "placeholder" : "String",
-      "properties" : {
-        "string" : "string"
-      },
-      "desc" : "String"
-    } ]
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "canManualStartup" : true,  "canElementSkip" : true,  "buildNo" : {  "buildNoType" : "ENUM",  "buildNo" : 0,  "required" : true  },  "properties" : [ {  "defaultValue" : {  "string" : "string"  },  "containerType" : {  "os" : "ENUM",  "buildType" : "ENUM"  },  "glob" : "String",  "replaceKey" : "String",  "readOnly" : true,  "label" : "String",  "type" : "ENUM",  "required" : true,  "repoHashId" : "String",  "scmType" : "ENUM",  "relativePath" : "String",  "propertyType" : "String",  "options" : [ {  "value" : "String",  "key" : "String"  } ],  "searchUrl" : "String",  "id" : "String",  "placeholder" : "String",  "properties" : {  "string" : "string"  },  "desc" : "String"  } ]  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型构建模型-流水线手动启动信息
+## Data return packaging model build model - pipeline manual start information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [构建模型-流水线手动启动信息](obtain-the-manual-start-parameters-of-the-pipeline.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Build model - Pipeline manual startup information](obtain-the-manual-start-parameters-of-the-pipeline.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 构建模型-流水线手动启动信息
+## Build model - Pipeline manual startup information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| canManualStartup | boolean | 是 | 是否可手工启动 |
-| canElementSkip | boolean | 是 | 是否可跳过插件 |
-| buildNo | [BuildNo](obtain-the-manual-start-parameters-of-the-pipeline.md) | 是 | 指定的构建号 |
-| properties | List&lt;[构建模型-表单元素属性](obtain-the-manual-start-parameters-of-the-pipeline.md)&gt; | 是 | 启动表单元素列表 |
+| Parameter name   | Parameter type                                               | must | Parameter description              |
+| :--------------- | :----------------------------------------------------------- | :--- | :--------------------------------- |
+| canManualStartup | boolean                                                      | is   | Whether it can be manually started |
+| canElementSkip   | boolean                                                      | is   | Whether plug-ins can be skipped    |
+| buildNo          | [BuildNo](obtain-the-manual-start-parameters-of-the-pipeline.md) | is   | The specified build number         |
+| properties       | List< [Build Model-Form Element Attributes](obtain-the-manual-start-parameters-of-the-pipeline.md) > | is   | Launch the list of form elements   |
 
 ## BuildNo
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| buildNoType | ENUM\(CONSISTENT, SUCCESS\_BUILD\_INCREMENT, EVERY\_BUILD\_INCREMENT, \) | 否 | buildNoType |
-| buildNo | integer | 否 | buildNo |
-| required | boolean | 否 | required |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| buildNoType    | ENUM(CONSISTENT, SUCCESS_BUILD_INCREMENT, EVERY_BUILD_INCREMENT, ) | no   | buildNoType           |
+| buildNo        | integer                                                      | no   | buildNo               |
+| required       | boolean                                                      | no   | required              |
 
-## 构建模型-表单元素属性
+## Build Model - Form element attributes
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| defaultValue | object | 是 | 默认值 |
-| containerType | [BuildContainerType](obtain-the-manual-start-parameters-of-the-pipeline.md) | 否 | 构建机类型下拉 |
-| glob | string | 否 | 自定义仓库通配符 |
-| replaceKey | string | 否 | 替换搜索url中的搜素关键字 |
-| readOnly | boolean | 否 | 是否只读 |
-| label | string | 否 | 元素标签 |
-| type | ENUM\(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN\_TAG, GIT\_REF, MULTIPLE, CODE\_LIB, CONTAINER\_TYPE, ARTIFACTORY, SUB\_PIPELINE, CUSTOM\_FILE, PASSWORD, TEMPORARY, \) | 是 | 元素类型 |
-| required | boolean | 是 | 是否必须 |
-| repoHashId | string | 否 | repoHashId |
-| scmType | ENUM\(CODE\_SVN, CODE\_GIT, CODE\_GITLAB, GITHUB, CODE\_TGIT, \) | 否 | 代码库类型下拉 |
-| relativePath | string | 否 | relativePath |
-| propertyType | string | 否 | 元素模块 |
-| options | List&lt;[构建模型-下拉框表单元素值](obtain-the-manual-start-parameters-of-the-pipeline.md)&gt; | 否 | 下拉框列表 |
-| searchUrl | string | 否 | 搜索url, 当是下拉框选项时，列表值从url获取不再从option获取 |
-| id | string | 是 | 元素ID-标识符 |
-| placeholder | string | 否 | 元素placeholder |
-| properties | object | 否 | 文件元数据 |
-| desc | string | 否 | 描述 |
+| Parameter name | Parameter type                                               | must | Parameter description                                        |
+| :------------- | :----------------------------------------------------------- | :--- | :----------------------------------------------------------- |
+| defaultValue   | object                                                       | is   | Default value                                                |
+| containerType  | [BuildContainerType](obtain-the-manual-start-parameters-of-the-pipeline.md) | no   | Builder type drop-down                                       |
+| glob           | string                                                       | no   | Custom warehouse wildcards                                   |
+| replaceKey     | string                                                       | no   | Replace the search keyword in the search url                 |
+| readOnly       | boolean                                                      | no   | Whether to read only                                         |
+| label          | string                                                       | no   | Element tag                                                  |
+| type           | ENUM(STRING, TEXTAREA, ENUM, DATE, LONG, BOOLEAN, SVN_TAG, GIT_REF, MULTIPLE, CODE_LIB, CONTAINER_TYPE, ARTIFACTORY, SUB_PIPELINE, CUSTOM_FILE, PASSWORD, TEMPORARY, ) | is   | Element type                                                 |
+| required       | boolean                                                      | is   | Whether it is necessary                                      |
+| repoHashId     | string                                                       | no   | repoHashId                                                   |
+| scmType        | ENUM(CODE_SVN, CODE_GIT, CODE_GITLAB, GITHUB, CODE_TGIT, )   | no   | Code base type drop-down                                     |
+| relativePath   | string                                                       | no   | relativePath                                                 |
+| propertyType   | string                                                       | no   | Element module                                               |
+| options        | List< [Build Model-Dropdown form element Values](obtain-the-manual-start-parameters-of-the-pipeline.md) > | no   | Drop-down list                                               |
+| searchUrl      | string                                                       | no   | Search for the url. When it is a drop-down option, the list value is obtained from the url and not from Option |
+| id             | string                                                       | is   | Element ID- Identifier                                       |
+| placeholder    | string                                                       | no   | Element placeholder                                          |
+| properties     | object                                                       | no   | File metadata                                                |
+| desc           | string                                                       | no   | description                                                  |
 
 ## BuildContainerType
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| os | ENUM\(MACOS, WINDOWS, LINUX, \) | 否 | os |
-| buildType | ENUM\(ESXi, MACOS, DOCKER, IDC, PUBLIC\_DEVCLOUD, TSTACK, THIRD\_PARTY\_AGENT\_ID, THIRD\_PARTY\_AGENT\_ENV, THIRD\_PARTY\_PCG, THIRD\_PARTY\_DEVCLOUD, GIT\_CI, AGENT\_LESS, \) | 否 | buildType |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| os             | ENUM(MACOS, WINDOWS, LINUX, )                                | no   | os                    |
+| buildType      | ENUM(ESXi, MACOS, DOCKER, IDC, PUBLIC_DEVCLOUD, TSTACK, THIRD_PARTY_AGENT_ID, THIRD_PARTY_AGENT_ENV, THIRD_PARTY_PCG, THIRD_PARTY_DEVCLOUD, GIT_CI, AGENT_LESS, ) | no   | buildType             |
 
-## 构建模型-下拉框表单元素值
+## Build Model - Drop down box form element values
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| value | string | 是 | 元素值名称-显示用 |
-| key | string | 是 | 元素值ID-标识符 |
-
+| Parameter name | Parameter type | must | Parameter description            |
+| :------------- | :------------- | :--- | :------------------------------- |
+| value          | string         | is   | Element value Name - for display |
+| key            | string         | is   | Element value ID- identifier     |

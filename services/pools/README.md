@@ -1,2 +1,1 @@
-# 构建资源
-
+# Build resources

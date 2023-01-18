@@ -1,2 +1,1 @@
-# OPENAPI-构建资源
-
+# OPENAPI- Build resources

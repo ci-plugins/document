@@ -1,2 +1,1 @@
-# BKCI 代码结构
-
+# BKCI code structure

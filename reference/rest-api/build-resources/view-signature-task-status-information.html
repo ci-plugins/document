@@ -1,0 +1,93 @@
+<h1 id="view-the-status-of-signature-tasks">View the status of signature tasks</h1> 
+<h3 id="request-methodrequest-path">Request method/request path</h3> 
+<h4 id="get-msopenapiapiapigwv3signiparesignidstatus">GET /ms/openapi/api/apigw/v3/sign/ipa/{resignId}/status</h4> 
+<h3 id="resource-description">Resource description</h3> 
+<h4 id="view-the-status-of-signature-tasks-1">View the status of signature tasks</h4> 
+<h3 id="input-parameter-description">Input parameter description</h3> 
+<h4 id="path-parameter">Path parameter</h4> 
+<table> 
+ <colgroup> 
+  <col style="width: 21%"> 
+  <col style="width: 21%"> 
+  <col style="width: 6%"> 
+  <col style="width: 31%"> 
+  <col style="width: 19%"> 
+ </colgroup> 
+ <thead> 
+  <tr class="header"> 
+   <th style="text-align: left;">Parameter name</th> 
+   <th style="text-align: left;">Parameter type</th> 
+   <th style="text-align: left;">must</th> 
+   <th style="text-align: left;">Parameter description</th> 
+   <th style="text-align: left;">Default value</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr class="odd"> 
+   <td style="text-align: left;">resignId</td> 
+   <td style="text-align: left;">string</td> 
+   <td style="text-align: left;">is</td> 
+   <td style="text-align: left;">Signature task ID</td> 
+   <td style="text-align: left;"></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<h4 id="response">response</h4> 
+<table> 
+ <colgroup> 
+  <col style="width: 10%"> 
+  <col style="width: 22%"> 
+  <col style="width: 67%"> 
+ </colgroup> 
+ <thead> 
+  <tr class="header"> 
+   <th style="text-align: left;">HTTP code</th> 
+   <th style="text-align: left;">description</th> 
+   <th style="text-align: left;">Parameter type</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr class="odd"> 
+   <td style="text-align: left;">200</td> 
+   <td style="text-align: left;">successful operation</td> 
+   <td style="text-align: left;"><a href="view-signature-task-status-information.md">The data is returned to the wrapper model String</a></td> 
+  </tr> 
+ </tbody> 
+</table> 
+<h4 id="request-sample">Request sample</h4> 
+<pre><code>curl -X GET '[Please replace API address bar request address]' </code></pre> 
+<h4 id="header-example">HEADER example</h4> 
+<pre><code>accept: application/json Content-Type: application/json </code></pre> 
+<h3 id="return-example--200">Return example -200</h3> 
+<pre><code>{ "data" : "String", "message" : "String", "status" : 0 } </code></pre> 
+<h2 id="the-data-is-returned-to-the-wrapper-model-string">The data is returned to the wrapper model String</h2> 
+<table> 
+ <thead> 
+  <tr class="header"> 
+   <th style="text-align: left;">Parameter name</th> 
+   <th style="text-align: left;">Parameter type</th> 
+   <th style="text-align: left;">must</th> 
+   <th style="text-align: left;">Parameter description</th> 
+  </tr> 
+ </thead> 
+ <tbody> 
+  <tr class="odd"> 
+   <td style="text-align: left;">data</td> 
+   <td style="text-align: left;">string</td> 
+   <td style="text-align: left;">no</td> 
+   <td style="text-align: left;">data</td> 
+  </tr> 
+  <tr class="even"> 
+   <td style="text-align: left;">message</td> 
+   <td style="text-align: left;">string</td> 
+   <td style="text-align: left;">no</td> 
+   <td style="text-align: left;">Error message</td> 
+  </tr> 
+  <tr class="odd"> 
+   <td style="text-align: left;">status</td> 
+   <td style="text-align: left;">integer</td> 
+   <td style="text-align: left;">is</td> 
+   <td style="text-align: left;">Status code</td> 
+  </tr> 
+ </tbody> 
+</table>

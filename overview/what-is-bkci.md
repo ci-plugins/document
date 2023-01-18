@@ -1,23 +1,23 @@
-# BKCI 是什么？
+# what is bkci？
 
 ![](../.gitbook/assets/image%20%2818%29.png)
 
-蓝鲸持续集成平台（代号 bk-ci）是一个免费并开源的 CI 服务，可助你自动化构建-测试-发布工作流，持续、快速、高质量地交付你的产品。
+BK Continuous Integration Platform (codenamed bk-ci) is a free and open source CI service that helps you automate build-test-release workflows to deliver your products consistently, quickly, and with high quality.
 
-使用 bk-ci 屏蔽掉所有研发流程中的繁琐环节，让你聚焦于编码。它通常被用于：
+Use bk-ci to block out all the tedious aspects of the development process and let you focus on coding. It is commonly used for:
 
-* 工程编译
-* 静态代码检查
-* 运行测试用例，及时发现 BUG
-* 部署与发布
+* Engineering compilation
+* Static code check
+Run test cases to find bugs in time
+* Deployment and release
 
-bk-ci 提供了流水线、代码库、凭证管理、环境管理、研发商店 5 大核心服务，多重组合，满足企业不同场景的需求：
+bk-ci provides 5 core services: pipeline, code base, credential management, environment management, and R&D store, with multiple combinations to meet the needs of different enterprise scenarios.
 
-* **流水线**：将团队现有的研发流程以可视化方式呈现出来，编译、测试、部署，一条流水线搞定
-* **代码库**：将企业内已有的代码托管服务关联至 bk-ci
-* **凭证管理**：为代码库、流水线等服务提供不同类型的凭据、证书管理功能
-* **环境管理**：可以将企业内部的开发编译机托管至 bk-ci
-* **研发商店**：由流水线插件和流水线模板组成，插件用于对接企业内部的各种第三方服务，模板助力企业内部的研发流程规范化
+* **Pipeline** : Present the team's existing research and development process in a visual way, compile, test, deployment, complete in one pipeline
+* **Code base** : Associates existing code hosting services within the enterprise to bk-ci
+* **Credential Management** : Provides different types of credential and certificate management functions for code base, pipeline and other services
+* **Environmental Management** : Can be the enterprise internal development compiler hosting to bk-ci
+* **R&D Store** : It is composed of pipeline plug-in and pipeline template. The plug-in is used to connect various third-party services within the enterprise. The template helps standardize the internal R & D process of the enterprise
 
-目前，bk-ci 已在GitHub开源：[https://github.com/Tencent/bk-ci](https://github.com/Tencent/bk-ci) ，欢迎共建。
+Currently, bk-ci has been open sourced on GitHub: [https://github.com/Tencent/bk-ci](https://github.com/Tencent/bk-ci) , welcome to build together.
 

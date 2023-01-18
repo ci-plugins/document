@@ -1,2 +1,1 @@
-# 在 BKCI 里使用商店插件
-
+# Use the store plugin in BKCI

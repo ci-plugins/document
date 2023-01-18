@@ -1,2 +1,1 @@
-# 流水线任务详情页
-
+# Pipeline task details page

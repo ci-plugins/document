@@ -1,32 +1,33 @@
-# 插件错误码规范
+# Plugin error code specification
 
-## 总体要求 <a id="%E6%80%BB%E4%BD%93%E8%A6%81%E6%B1%82"></a>
+## General requirements
 
-* 插件开发者需对导致插件执行失败的各种场景进行细分，使用错误码（errorCode）进行标识，并在插件日志、使用指引中给出详细的描述和解决方法，方便用户快速定位和解决问题
-* 插件开发者需对导致插件执行失败的错误进行归类，指定错误类型 errorType，用于度量统计
+* Plugin developers need to subdivide the various scenarios that lead to the failure of plug-in execution, use errorCode to identify, and give detailed descriptions and solutions in the plug-in logs and usage guidelines, so that users can quickly locate and solve problems
+* Plugin developers need to categorize the errors that lead to the failure of plug-in execution, specify the error type errorType, used for metrics statistics
 
-## 错误类型和错误码规范 <a id="%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8B%E5%92%8C%E9%94%99%E8%AF%AF%E7%A0%81%E8%A7%84%E8%8C%83"></a>
+## Error type and error code specification
 
-### 1 插件错误类型（errorType） <a id="1-%E6%8F%92%E4%BB%B6%E9%94%99%E8%AF%AF%E7%B1%BB%E5%9E%8Berrortype"></a>
+### 1 Plugin error type (errorType)
 
-通过插件结果中的 errorType 字段上报：
+Reported through the errorType field in the plug-in results.
 
-| 错误类型 | 取值 | 含义 | 详细说明 |
+| errorType | value | meaning | details |
 | :--- | :--- | :--- | :--- |
-| USER | 1 | 用户配置错误 | 用户在流水线配置的插件参数有误，或是用户业务逻辑出错 |
-| THIRD\_PARTY | 2 | 第三方系统错误 | 非 bkci 的其他平台接口调用出错，如：第三方镜像平台接口错误、作业平台接口错误、织云上传接口请求失败等 |
-| PLUGIN | 3 | 插件执行错误（默认） | 插件执行逻辑出错，需开发者跟进和修复，插件开发者有义务将PLUGIN错误细分为其他类型 |
+| USER | 1 | User Configuration Error | The user has configured the wrong plug-in parameters in the pipeline, or the user has made a business logic error.
+| THIRD\_PARTY | 2 | Third-party system error | Error in calling interfaces of other platforms than bkci, such as: third-party mirroring platform interface error, job platform interface error, weaving cloud upload interface request failure, etc. |
+| PLUGIN | 3 | Plugin execution error (default) | Plugin execution logic error, the developer needs to follow up and repair, the plug-in developers are obliged to subdivide PLUGIN error into other types |
 
-注：插件SDK只提供1-3的传值枚举，插件结果内未指定或指定1-3以外的值，则错误类型取值为3（插件执行错误）
+Note: Plug-in SDK only provides 1-3 pass value enumeration, plug-in results are not specified within or specify a value other than 1-3, the error type takes the value of 3 (plug-in execution error)
 
-### 2 插件错误码（errorCode） <a id="2-%E6%8F%92%E4%BB%B6%E9%94%99%E8%AF%AF%E7%A0%81errorcode"></a>
 
-通过插件结果中的 errorCode 字段上报：
+### 2 plugin error code（errorCode）
 
-| 取值 | 含义 | 详细说明 |
+Reported via the errorCode field in the plugin results.
+
+| Value | Meaning | Details |
 | :--- | :--- | :--- |
-| 2199001 | 默认错误码 | 插件开发者未指定错误码时将使用 bkci 平台规范的插件默认错误码 |
-| 自定义 | 插件开发者定义的错误码 | 插件开发者按所处团队/平台使用的规范定义，可用于后期插件/构建的数据度量 |
+| 2199001 | Default Error Code | The default error code of the plugin will be used if the plugin developer does not specify an error code. |
+| Custom | Plugin developer-defined error codes | Plugin developer-defined specifications used by the team/platform they work for, data metrics that can be used in later plugins/builds |
 
-注：插件错误码有助于开发者定义完整的、成体系的错误信息，方便问题定位和报表生成
+Note: Plugin error codes help developers define complete and systematic error information for easy problem location and report generation.
 

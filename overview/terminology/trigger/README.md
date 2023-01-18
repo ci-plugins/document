@@ -1,24 +1,27 @@
 # Trigger
 
-bk-ci 支持多种方式触发流水线：
+bk-ci supports a variety of ways to trigger the pipeline:
+* API trigger
 
-* API 触发
-* 代码库事件触发
-* 子流水线调用插件触发
-* 定时触发
-* 手动触发
-* 远程触发
+* Code base event firing
 
-不同的触发方式下，系统内置的 BK\_CI\_START\_TYPE 取值也不同，你可以根据需要在流水线后续插件中使用该值：
+* Child pipeline call plug-in trigger
 
-| 触发方式 | BK\_CI\_START\_TYPE 值 |
-| :--- | :--- |
-| 远程触发 | REMOTE |
-| 手动触发 | MANUAL |
-| 定时触发 | TIME\_TRIGGER |
-| 子流水线插件触发 | PIPELINE |
-| 代码库 HOOK 触发 | WEB\_HOOK |
-| API 触发 | SERVICE |
+* timed trigger
 
-![](../../../.gitbook/assets/image%20%2845%29.png)
+* Manual trigger
+
+* Remote trigger
+  The built-in BK\_CI\_START\_TYPE value also varies depending on the trigger mode. You can use this value in the pipeline's subsequent plugins as needed:
+
+  | 触发方式               | BK\_CI\_START\_TYPE 值 |
+  | :--------------------- | :--------------------- |
+  | Remote Trigger         | REMOTE                 |
+  | Manual Trigger         | MANUAL                 |
+  | Timing Trigger         | TIME\_TRIGGER          |
+  | Child-Pipeline Trigger | PIPELINE               |
+  | Code Base Hook Trigger | WEB\_HOOK              |
+  | API Trigger            | SERVICE                |
+
+  ![](../../../.gitbook/assets/image%20%2845%29.png)
 

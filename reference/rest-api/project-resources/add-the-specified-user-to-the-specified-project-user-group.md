@@ -1,70 +1,64 @@
-# 添加指定用户到指定项目用户组
+# Adds the specified user to the specified project user group
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/createUser
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/createUser
 
-### 资源描述
+### Resource description
 
-#### 添加指定用户到指定项目用户组
+#### Adds the specified user to the specified project user group
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [ProjectCreateUserInfo](add-the-specified-user-to-the-specified-project-user-group.md) | 是 | 添加信息 |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [ProjectCreateUserInfo](add-the-specified-user-to-the-specified-project-user-group.md) | is   | Add information       |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | projectId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | projectId             |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](add-the-specified-user-to-the-specified-project-user-group.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](add-the-specified-user-to-the-specified-project-user-group.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
 ## ProjectCreateUserInfo
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| createUserId | string | 否 | 操作用户 |
-| roleId | integer | 否 | 角色Id |
-| userIds | List | 否 | 多目标用户id |
-| roleName | string | 否 | 角色名称 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| createUserId   | string         | no   | Operating user        |
+| roleId         | integer        | no   | Role Id               |
+| userIds        | List           | no   | Multi-target user id  |
+| roleName       | string         | no   | Role name             |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

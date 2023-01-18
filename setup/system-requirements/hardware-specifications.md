@@ -1,8 +1,4 @@
-# BKCI 硬件规格指南
-
-BKCI 服务器的硬件规格取决于许多因素，所以我们很难提前给出你所需的硬件规格。
-
-**Agent（构建资源）硬件要求**
-
-Agent上会运行你在流水线中编排的任务，所以它的硬件要求，往往取决于你要在Agent上运行什么样的流水线，如果是涉及到编译、自动化测试等特别占用
-
+# BKCI Hardware Specification Guide
+The hardware specifications of a BKCI server depend on many factors, so it is difficult to give you the hardware specifications you need in advance.
+**Agent (build resource) Hardware requirements**
+The Agent will run the tasks you choreograph in the pipeline, so its hardware requirements, often depends on what kind of pipeline you want to run on the Agent, if it is related to compilation, automated testing and other special occupation

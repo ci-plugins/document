@@ -1,89 +1,89 @@
-# devops\_ci\_artifactory
+# devops_ci_artifactory
 
-**数据库名：** devops\_ci\_artifactory
+**Database name:** devops_ci_artifactory
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_artifactory的数据库文档
+**Documentation:** Database documentation for devops_ci_artifactory
 
-|                    表名                    |    说明    |
-| :--------------------------------------: | :------: |
-|     [T\_FILE\_INFO](broken-reference)    |   文件信息表  |
-| [T\_FILE\_PROPS\_INFO](broken-reference) | 文件元数据信息表 |
-|     [T\_FILE\_TASK](broken-reference)    |  文件托管任务表 |
-|       [T\_TOKEN](broken-reference)       |          |
+|              Table name               |           description           |
+| :-----------------------------------: | :-----------------------------: |
+|    [T_FILE_INFO](broken-reference)    |     File information table      |
+| [T_FILE_PROPS_INFO](broken-reference) | File metadata information table |
+|    [T_FILE_TASK](broken-reference)    |     File hosting task table     |
+|      [T_TOKEN](broken-reference)      |                                 |
 
-**表名：** T\_FILE\_INFO
+**Table name:** T_FILE_INFO
 
-**说明：** 文件信息表
+File information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |  长度  | 小数位 | 允许空值 |  主键 |         默认值        |    说明   |
-| :-: | :-----------: | :------: | :--: | :-: | :--: | :-: | :----------------: | :-----: |
-|  1  |       ID      |  varchar |  32  |  0  |   N  |  Y  |                    |   主键ID  |
-|  2  | PROJECT\_CODE |  varchar |  64  |  0  |   Y  |  N  |                    | 用户组所属项目 |
-|  3  |   FILE\_TYPE  |  varchar |  32  |  0  |   N  |  N  |                    |   文件类型  |
-|  4  |   FILE\_PATH  |  varchar | 1024 |  0  |   Y  |  N  |                    |   文件路径  |
-|  5  |   FILE\_NAME  |  varchar |  128 |  0  |   N  |  N  |                    |   文件名字  |
-|  6  |   FILE\_SIZE  |  bigint  |  20  |  0  |   N  |  N  |                    |   文件大小  |
-|  7  |    CREATOR    |  varchar |  50  |  0  |   N  |  N  |       system       |   创建者   |
-|  8  |    MODIFIER   |  varchar |  50  |  0  |   N  |  N  |       system       |   修改者   |
-|  9  |  CREATE\_TIME | datetime |  19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |   创建时间  |
-|  10 |  UPDATE\_TIME | datetime |  19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |   更新时间  |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |                 description                 |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :-----------------------------------------: |
+|       1       |      ID      |  varchar  |   32   |       0       |          N           |      Y      |                   |               Primary key ID                |
+|       2       | PROJECT_CODE |  varchar  |   64   |       0       |          Y           |      N      |                   | The project to which the user group belongs |
+|       3       |  FILE_TYPE   |  varchar  |   32   |       0       |          N           |      N      |                   |                  File type                  |
+|       4       |  FILE_PATH   |  varchar  |  1024  |       0       |          Y           |      N      |                   |                  File path                  |
+|       5       |  FILE_NAME   |  varchar  |  128   |       0       |          N           |      N      |                   |                  File name                  |
+|       6       |  FILE_SIZE   |  bigint   |   20   |       0       |          N           |      N      |                   |                  File size                  |
+|       7       |   CREATOR    |  varchar  |   50   |       0       |          N           |      N      |      system       |                   founder                   |
+|       8       |   MODIFIER   |  varchar  |   50   |       0       |          N           |      N      |      system       |                  modifier                   |
+|       9       | CREATE_TIME  | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |                Creation time                |
+|      10       | UPDATE_TIME  | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |                 Update time                 |
 
-**表名：** T\_FILE\_PROPS\_INFO
+**Table name:** T_FILE_PROPS_INFO
 
-**说明：** 文件元数据信息表
+File metadata information table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |  长度 | 小数位 | 允许空值 |  主键 |         默认值        |     说明    |
-| :-: | :----------: | :------: | :-: | :-: | :--: | :-: | :----------------: | :-------: |
-|  1  |      ID      |  varchar |  32 |  0  |   N  |  Y  |                    |    主键ID   |
-|  2  |  PROPS\_KEY  |  varchar |  64 |  0  |   Y  |  N  |                    |  属性字段key  |
-|  3  | PROPS\_VALUE |  varchar | 256 |  0  |   Y  |  N  |                    | 属性字段value |
-|  4  |   FILE\_ID   |  varchar |  32 |  0  |   N  |  N  |                    |    文件ID   |
-|  5  |    CREATOR   |  varchar |  50 |  0  |   N  |  N  |       system       |    创建者    |
-|  6  |   MODIFIER   |  varchar |  50 |  0  |   N  |  N  |       system       |    修改者    |
-|  7  | CREATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |    创建时间   |
-|  8  | UPDATE\_TIME | datetime |  19 |  0  |   N  |  N  | CURRENT\_TIMESTAMP |    更新时间   |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |      description      |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :-------------------: |
+|       1       |     ID      |  varchar  |   32   |       0       |          N           |      Y      |                   |    Primary key ID     |
+|       2       |  PROPS_KEY  |  varchar  |   64   |       0       |          Y           |      N      |                   |  Property field key   |
+|       3       | PROPS_VALUE |  varchar  |  256   |       0       |          Y           |      N      |                   | Attribute field value |
+|       4       |   FILE_ID   |  varchar  |   32   |       0       |          N           |      N      |                   |        File ID        |
+|       5       |   CREATOR   |  varchar  |   50   |       0       |          N           |      N      |      system       |        founder        |
+|       6       |  MODIFIER   |  varchar  |   50   |       0       |          N           |      N      |      system       |       modifier        |
+|       7       | CREATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |     Creation time     |
+|       8       | UPDATE_TIME | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |      Update time      |
 
-**表名：** T\_FILE\_TASK
+**Table name:** T_FILE_TASK
 
-**说明：** 文件托管任务表
+File hosting task table
 
-**数据列：**
+**Data column:**
 
-|  序号 |      名称      |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |   说明   |
-| :-: | :----------: | :------: | :---: | :-: | :--: | :-: | :-: | :----: |
-|  1  |   TASK\_ID   |  varchar |   64  |  0  |   N  |  Y  |     |  任务ID  |
-|  2  |  FILE\_TYPE  |  varchar |   32  |  0  |   Y  |  N  |     |  文件类型  |
-|  3  |  FILE\_PATH  |   text   | 65535 |  0  |   Y  |  N  |     |  文件路径  |
-|  4  |  MACHINE\_IP |  varchar |   32  |  0  |   Y  |  N  |     | 机器ip地址 |
-|  5  |  LOCAL\_PATH |   text   | 65535 |  0  |   Y  |  N  |     |  本地路径  |
-|  6  |    STATUS    | smallint |   6   |  0  |   Y  |  N  |     |   状态   |
-|  7  |   USER\_ID   |  varchar |   32  |  0  |   Y  |  N  |     |  用户ID  |
-|  8  |  PROJECT\_ID |  varchar |   64  |  0  |   Y  |  N  |     |  项目ID  |
-|  9  | PIPELINE\_ID |  varchar |   34  |  0  |   Y  |  N  |     |  流水线ID |
-|  10 |   BUILD\_ID  |  varchar |   34  |  0  |   Y  |  N  |     |  构建ID  |
-|  11 | CREATE\_TIME | datetime |   19  |  0  |   Y  |  N  |     |  创建时间  |
-|  12 | UPDATE\_TIME | datetime |   19  |  0  |   Y  |  N  |     |  修改时间  |
+| Serial number |    name     | Data type | length | Decimal place | Allowable null value | Primary key | Default value |    description     |
+| :-----------: | :---------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------: |
+|       1       |   TASK_ID   |  varchar  |   64   |       0       |          N           |      Y      |               |      Task ID       |
+|       2       |  FILE_TYPE  |  varchar  |   32   |       0       |          Y           |      N      |               |     File type      |
+|       3       |  FILE_PATH  |   text    | 65535  |       0       |          Y           |      N      |               |     File path      |
+|       4       | MACHINE_IP  |  varchar  |   32   |       0       |          Y           |      N      |               | Machine ip address |
+|       5       | LOCAL_PATH  |   text    | 65535  |       0       |          Y           |      N      |               |     Local path     |
+|       6       |   STATUS    | smallint  |   6    |       0       |          Y           |      N      |               |       state        |
+|       7       |   USER_ID   |  varchar  |   32   |       0       |          Y           |      N      |               |      User ID       |
+|       8       | PROJECT_ID  |  varchar  |   64   |       0       |          Y           |      N      |               |      Item ID       |
+|       9       | PIPELINE_ID |  varchar  |   34   |       0       |          Y           |      N      |               |    Pipeline ID     |
+|      10       |  BUILD_ID   |  varchar  |   34   |       0       |          Y           |      N      |               |      Build ID      |
+|      11       | CREATE_TIME | datetime  |   19   |       0       |          Y           |      N      |               |   Creation time    |
+|      12       | UPDATE_TIME | datetime  |   19   |       0       |          Y           |      N      |               | Modification time  |
 
-**表名：** T\_TOKEN
+**Table name:** T_TOKEN
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 |         默认值        |   说明   |
-| :-: | :---------------: | :------: | :---: | :-: | :--: | :-: | :----------------: | :----: |
-|  1  |         ID        |  bigint  |   20  |  0  |   N  |  Y  |                    |  主键ID  |
-|  2  |      USER\_ID     |  varchar |   64  |  0  |   N  |  N  |                    |  用户ID  |
-|  3  |    PROJECT\_ID    |  varchar |   32  |  0  |   N  |  N  |                    |  项目ID  |
-|  4  | ARTIFACTORY\_TYPE |  varchar |   32  |  0  |   N  |  N  |                    | 归档仓库类型 |
-|  5  |        PATH       |   text   | 65535 |  0  |   N  |  N  |                    |   路径   |
-|  6  |       TOKEN       |  varchar |   64  |  0  |   N  |  N  |                    |  TOKEN |
-|  7  |    EXPIRE\_TIME   | datetime |   19  |  0  |   N  |  N  |                    |  过期时间  |
-|  8  |    CREATE\_TIME   | datetime |   19  |  0  |   N  |  N  |                    |  创建时间  |
-|  9  |    UPDATE\_TIME   | datetime |   19  |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  更新时间  |
+| Serial number |       name       | Data type | length | Decimal place | Allowable null value | Primary key |   Default value   |        description        |
+| :-----------: | :--------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :---------------: | :-----------------------: |
+|       1       |        ID        |  bigint   |   20   |       0       |          N           |      Y      |                   |      Primary key ID       |
+|       2       |     USER_ID      |  varchar  |   64   |       0       |          N           |      N      |                   |          User ID          |
+|       3       |    PROJECT_ID    |  varchar  |   32   |       0       |          N           |      N      |                   |          Item ID          |
+|       4       | ARTIFACTORY_TYPE |  varchar  |   32   |       0       |          N           |      N      |                   | Type of archive warehouse |
+|       5       |       PATH       |   text    | 65535  |       0       |          N           |      N      |                   |           path            |
+|       6       |      TOKEN       |  varchar  |   64   |       0       |          N           |      N      |                   |           TOKEN           |
+|       7       |   EXPIRE_TIME    | datetime  |   19   |       0       |          N           |      N      |                   |      Expiration time      |
+|       8       |   CREATE_TIME    | datetime  |   19   |       0       |          N           |      N      |                   |       Creation time       |
+|       9       |   UPDATE_TIME    | datetime  |   19   |       0       |          N           |      N      | CURRENT_TIMESTAMP |        Update time        |

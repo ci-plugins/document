@@ -1,2 +1,1 @@
-# OPENAPI-构建产物资源
-
+# OPENAPI- Build product resources

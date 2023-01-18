@@ -1,68 +1,67 @@
-# 已知问题
+# Known problem
 
+#### Q: User groups and user-defined permissions overlap. As a result, user permissions on the pipeline do not meet expectations. ci <1.7
 
-#### Q: 用户组和用户自定义权限重叠导致用户对流水线的权限不符合预期，ci <1.7
+#### **Version: ci<1.7**
 
-#### **出现版本：ci<1.7**&#x20;
+Occasional/obligatory: Obligatory
 
-偶现/必现：必现&#x20;
+Description: The user group to which the user belongs has all permission for the test project, and the user-defined permission has some pipeline permission for the test project. When the pipeline page is displayed, the pipeline may fail to **be** viewed
 
-描述：用户所在的用户组拥有「test」项目全部权限，同时用户自定义权限有「test项目」部分流水线权限，进入流水线页面，**概率性**出现无法查看流水线的情况  &#x20;
+![��札�ョ��羌�羂雁鎖](../../.gitbook/assets/image-20220301101202-Tnoda.png)You can look at the pipeline
 
-![可以查看流水线](../../.gitbook/assets/image-20220301101202-Tnoda.png)
+![��羈��ョ��羌�羂雁鎖](../../.gitbook/assets/image-20220301101202-SOWdg.png)Unable to view pipeline
 
-![无法查看流水线](../../.gitbook/assets/image-20220301101202-SOWdg.png)
-
-**Q: gitlab偶现获取凭证失败**
+**Q: gitlab occasionally fails to obtain credentials**
 
 ![](../../.gitbook/assets/wecom-temp-941115d684647ac6fe940676a7854656.png)
 
-已知问题，**影响版本<=1.5.23**
+A known **problem affects version <=1.5.23**
 
-把ticket/lib/bcprov-jdk15on-1.64.jar这个包删除，然后重启ticket服务`systemctl restart bk-ci-ticket.service`
+Delete the ticket/lib/bcprov-jdk15on-1.64.jar package and restart the ticket service`systemctl restart bk-ci-ticket.service`
 
-**Q: 我想把单元测试报告作为产出物报告，上传成功。但是打开报告，无法正常显示，报错「This request有 哈哈是beenblocked； the content must be served over https」**
+**Q: I want to upload the unit test report as the output report successfully. However, when the report is opened, it cannot be displayed normally. Error "This request has beenblocked; It cannot be displayed normally. Error" This request has beenblocked; the content must be served over https "is displayed.**
 
 ![](../../.gitbook/assets/wecom-temp-76f4802ef5f78b0abfda917c2575106a.png)
 
-已知问题，**影响版本: 1.5.x**
+Known problem, **affected Version: 1.5.x**
 
-**Q: 使用了模板创建了3个流水线实例，删除了一个，还是显示3个实例，把所有实例删除后，模板也无法删除**
+**Q: Three pipeline instances are created using the template, but three instances are displayed after one is deleted. The template cannot be deleted even after all instances are deleted**
 
 ![](../../.gitbook/assets/企业微信截图_16389525588929.png)
 
 ![](../../.gitbook/assets/企业微信截图_16389527024197.png)
 
-已知问题，影响范围：版本<**1.5.x**
+Known problem, scope of impact: Version <**1.5.x**
 
-已在v1.7版本中进行了修复
+It was fixed in v1.7
 
-**Q: 通过流水线创建的代码分析任务，如果流水线删除后，再停掉代码分析任务，会报错**
+**Q: If a code analysis task created through the pipeline is stopped after the pipeline is deleted, an error message is displayed**
 
 ![](../../.gitbook/assets/image-20220301101202-nkPoi.png)
 
 ![](../../.gitbook/assets/企业微信截图_16395354744740.png)
 
-已知问题，影响范围：**版本1.5.x**
+Known problem, scope of impact: **Version 1.5.x**
 
-**Q: 蓝盾输出的日志先后顺序混乱**
+**Q: BKCI logs are generated in a disorderly sequence**
 
 ![](../../.gitbook/assets/企业微信截图_16316936739387.png)
 
-已知问题，影响范围：**版本1.5.x**
+Known problem, scope of impact: **Version 1.5.x**
 
-**Q: 蓝盾流水线申请权限的时候，点了去申请，页面没有跳转到权限中心，F12查看响应有bkiam v3 failed报错**
+**Q: When BKCI pipeline applies for permission, click "Apply", but the page does not go to the permission center. F12 displays an error message indicating bkiam v3 failed**
 
 ![](../../.gitbook/assets/企业微信截图_16384143961812.png)
 
 ![](../../.gitbook/assets/企业微信截图_16384146286005.png)
 
-已知问题，影响范围：**版本1.5.x**
+Known problem, scope of impact: **Version 1.5.x**
 
-**Q: 项目不允许使用TGit插件，请检查插件是否被正确安装**
+**Q: The TGit plug-in is not allowed in the project. Please check whether the plug-in is installed correctly**
 
 ![](../../.gitbook/assets/image-20220125154003687.png)
 
-已知问题，TGit对接的是腾讯的工蜂，社区版使用受限**，影响版本<1.5.35**
+Known problems, TGit docking is Tencent's worker bee, the use of community version is limited, **affected** version <1.5.35. Known problems, tgit docking is Tencent's worker bee, the use of community **version is limited, affected version <1.5.35**
 
-****
+------

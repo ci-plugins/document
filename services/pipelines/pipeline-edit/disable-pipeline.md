@@ -1,18 +1,11 @@
-# 锁定流水线
+# Lock pipeline
+## What is locking pipeline
+In some scenarios, you may need to disable pipeline triggering for a period of time and enable it again at a future time.
+## How do I lock the pipeline
 
-## 什么是锁定流水线
-
-有些场景下，可能需要禁用掉一段时间的流水线触发方式，在未来某个时间再次开启，可以使用本功能。
-
-## 如何锁定流水线
-
-自由模式与约束模式的流水线都可以设置锁定，锁定方式如下：
-
-进入流水线编辑页-&gt;基础设置-&gt;运行锁定
-
+The pipeline of both free mode and constrained mode can be locked. The locking method is as follows:
+Enter the pipeline editing page. Basic setup -&gt; Run lock
 ![](../../../.gitbook/assets/image%20%2848%29.png)
 
-## 锁定后的影响
-
-流水线一旦开启锁定，任何触发方式都无法启动该流水线。
-
+## Impact after locking
+Once the pipeline is unlocked, no triggering method can start the pipeline.

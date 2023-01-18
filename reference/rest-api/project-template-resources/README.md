@@ -1,2 +1,2 @@
-# OPENAPI-项目模板资源
+# OPENAPI- Project template resource
 

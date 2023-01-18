@@ -1,28 +1,33 @@
-# 插件开发规范
+# Plug-in development specification
 
-## 插件定义规范 <a id="%E6%8F%92%E4%BB%B6%E5%AE%9A%E4%B9%89%E8%A7%84%E8%8C%83"></a>
+## Plug-in definition specification
+* The basic information of the plug-in description class is defined through the online process
 
-* 插件描述类基本信息通过线上流程定义
-  * 插件工作台新增插件时，可指定标识、名称、开发语言
-    * 标识、开发语言初始化之后不能再更改
-  * 上架/升级插件时，可更新插件基本信息，包括名称、分类、描述等信息
-* 插件执行、输入、输出相关定义，通过插件代码库中名为 task.json 的文件定义
-  * task.json 存储在插件代码库根路径下
-  * 详见[插件配置规范](plugin-config.md)
+  * When you add a plug-in to the plug-in workbench, you can specify the identity, name, and development language
+    * The identity and development language cannot be changed after initialization
 
-## 插件开发规范 <a id="%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"></a>
+  * The basic information of the plug-in can be updated when the plug-in is put on the shelf/upgraded, including the name, classification, description and other information
 
-* 插件封装为命令行可执行命令：
-  * 调起命令由task.json的 `execution.target` 字段指定
-    * execution.target 格式为字符串
-    * 调起命令中可以使用 ${var\_name} 的方式获取变量
-  * 若调起执行前需安装依赖，安装命令由 task.json 的 `execution.demands` 字段指定
-    * execution.demands 为列表，可配置多个安装命令
-    * 安装命令可以使用 ${var\_name} 的方式获取变量
-* 插件输入字段值，从指定的输入文件中获取
-  * 输入信息文件名，由环境变量 `bk_data_input` 指定
-  * 输入信息文件存放路径，由环境变量 `bk_data_dir` 指定
-  * 输入信息文件内容为json，示例如下：
+* Plug-in execution, input, and output definitions are defined in a file named task.json in the plug-in codease
+
+  * task.json is stored in the root path of the plug-in codebase
+  * See [Plug-in Configuration Specification](plugin-config.md) for details.
+## Plug-in development specification
+* Plug-ins are packaged as command-line executable commands:
+
+    * The call-up command is specified by the `execution.target` field of task.json
+      * execution.target is a string
+      * ${var\_name} can be used to retrieve variables in the call up command
+
+    * Installation demands are specified by the `execution.demands` field of task.json if a dependency needs to be installed before execution
+      * execution.demands is a list. Multiple installation commands can be configured
+      * The installation command can use ${var\_name} to get variables
+
+* Plug-in input field value, obtained from the specified input file
+
+    * Input information file name, specified by the environment variable `bk_data_input`
+    * Path to the input information file, which is specified by the environment variable `bk_data_dir`
+    * The input information file is json, as shown in the following example:
 
     ```text
     {
@@ -31,78 +36,76 @@
     }
     ```
 
-  * 使用 SDK 进行开发时，无需关注输入文件位置和命名，使用 SDK 提供的方法获取输入即可
-* 插件输出信息通过写文件的方式通知 bkci agent
-  * 输出信息文件名，由环境变量 `bk_data_output` 指定
-  * 输出信息文件存放路径，由环境变量 `bk_data_dir` 指定
-  * 输出信息文件格式，详见[插件输出规范](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/specification/plugin_output.md)
-  * 使用 SDK 进行开发时，无需关注输出文件位置和名称，使用 SDK 提供的方法设置输出即可
-* 插件执行结果将由两个策略判定：
-  * 若输出信息文件中指定了 `status` 字段，则以该字段值为准
-  * 若未指定输出信息文件，则以插件执行命令返回值为准
-    * 返回值为0，标识成功
-    * 返回值非0，标识失败
-* 插件日志输出到控制台
-  * bkci agent 将收集控制台日志（标准输出流、标准错误流）展示到流水线前台
-* 插件级别的敏感信息管理
-  * 如账号密码等敏感数据，可以在插件设置→私有设置界面管理
-    * 平台将加密存储
-    * 插件中使用时，通过SDK提供的方法获取即可
-* 插件错误码和错误分类
-  * 插件开发者需对导致插件执行失败的各种场景进行细分，使用错误码（errorCode）进行标识，并在插件日志、使用指引中给出详细的描述和解决方法，方便用户快速定位和解决问题
-  * 插件开发者需对导致插件执行失败的错误进行归类，指定错误类型 errorType，用于度量统计
+    * When using the SDK for development, you do not need to pay attention to the location and name of the input file. You can use the methods provided by the SDK to obtain the input
 
-## 插件代码库管理规范 <a id="%E6%8F%92%E4%BB%B6%E4%BB%A3%E7%A0%81%E5%BA%93%E7%AE%A1%E7%90%86%E8%A7%84%E8%8C%83"></a>
+* bkci agent is notified of plug-in output by writing files
 
-插件代码建议统一管理，便于分享、交接和系统级别的管理。
+    * File name of the output information, specified by the environment variable `bk_data_output`
+    * Path for storing the output information file, specified by the environment variable `bk_data_dir`
+    * Output information file format, See [plug-in output specification](vscode webview - resource: //c9 cf071b 83-05 d8-44-934 f - 26 f3182c6000 /file ///Users/zhaozhihui/Downloads/ci - plugins - w iki/specification/plugin_output.md)
+    * When using the SDK for development, you do not need to pay attention to the location and name of the output file. You can use the methods provided by the SDK to set the output
 
-* 企业内部按照企业代码管理方式，统一到一个group下管理
-* 开源的通用插件，可以联系bkci客服，提交到bkci开源版插件组 [ci-plugins](https://github.com/ci-plugins) 下
+* Plug-in execution results are determined by two policies:
 
-## 插件帮助文档（详细描述）规范 <a id="%E6%8F%92%E4%BB%B6%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3%E8%AF%A6%E7%BB%86%E6%8F%8F%E8%BF%B0%E8%A7%84%E8%8C%83"></a>
+    * If the 'status' field is specified in the output information file, the value of the field shall prevail
+    * If no output information file is specified, the value returned by the plug-in command shall prevail
+      * If the return value is 0, success is indicated
+      * If the return value is not 0, it indicates failure
 
-* 目的
-  * 方便用户了解插件工作原理和适用范围
-  * 方便用户遇到问题时自助获取解决方案
-* 提供方式
-  * 发布插件时，填写在插件详细描述字段
-  * 将展示在研发商店查看插件详情界面，或执行日志查看帮助。
-* 使用文档**使用markdown语言**撰写，建议包含如下内容：
+* Plug-in log output to the console
 
-### 1、插件介绍 <a id="1%E6%8F%92%E4%BB%B6%E4%BB%8B%E7%BB%8D"></a>
+    * bkci agent displays the collection console logs (standard output stream, standard error stream) to the pipeline foreground
 
-* 简要说明插件功能
+* Plug-in level sensitive information management
 
-### 2、插件适用场景 <a id="2%E6%8F%92%E4%BB%B6%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"></a>
+    * Sensitive data such as account password can be managed in the plug-in Settings → Private Settings interface
+      * The platform will be encrypted and stored
+      * When used in the plug-in, you can obtain it through the methods provided by the SDK
 
-* 详细描述插件适用场景
+* Plug-in error codes and error categories
 
-### 3、插件使用限制和受限解决方案 <a id="3%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6%E5%92%8C%E5%8F%97%E9%99%90%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"></a>
-
-* \[可选\]调用频率限制
-* \[可选\]并发限制
-* \[可选\]网络限制，说明网络要求，或者需申请的网络策略
-* \[可选\]若插件使用有权限控制（IP、用户等），需详细描述申请方式
-
-### 4、插件常见的失败原因和解决方案 <a id="4%E6%8F%92%E4%BB%B6%E5%B8%B8%E8%A7%81%E7%9A%84%E5%A4%B1%E8%B4%A5%E5%8E%9F%E5%9B%A0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"></a>
-
-* 列举可能的失败原因、错误码，针对场景给出解决方案，方便用户快速解决问题
-
-## 插件新增/发布流程 <a id="%E6%8F%92%E4%BB%B6%E6%96%B0%E5%A2%9E%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B"></a>
-
-### 插件状态流转图 <a id="%E6%8F%92%E4%BB%B6%E7%8A%B6%E6%80%81%E6%B5%81%E8%BD%AC%E5%9B%BE"></a>
-
+    * The plug-in developer needs to subdivide the scenarios that cause plug-in execution failures, use the errorCode to identify them, and provide detailed descriptions and solutions in the plug-in logs and user guides, so that users can quickly locate and solve the problems
+    * The plug-in developer should classify the errors that cause the plug-in to fail and specify the error type errorType for measurement statistics
+## Plug-in code base management specification
+You are advised to manage plug-in codes in a unified manner to facilitate sharing, handover, and system-level management.
+* Enterprise internal management in accordance with the enterprise code management, unified management under a group
+* Open source general plug-ins can be submitted to the bkci open source plugins group [ci-plugins](https://github.com/ci-plugins) by contact with bkci customer service
+## Plug-in Help Documentation (detailed description) specification
+* Purpose
+  * It is convenient for users to understand the working principle and application scope of the plug-in
+  * Convenient for users to obtain solutions when they encounter problems
+* Way of provision
+  * When publishing a plug-in, enter the plug-in description field
+  * The plugin details screen will be displayed in the R&D store, or the log view help will be performed.
+* Use the document **Write in markdown language**. It is recommended to include the following contents:
+### 1. Plug-in introduction
+* A brief description of the plug-in's functions
+### 2. Plug-in application scenarios
+* Describes the plug-in application scenarios in detail
+### 3. Plug-in usage restrictions and restricted solutions
+* \[Optional \] Call frequency limit
+* \[Optional \] Concurrency limit
+* \[Optional \] Network restrictions, stating network requirements, or network policies to apply
+* \[Optional \] If the plug-in has permission control (IP, user, etc.), describe the application method in detail
+### 4. Common plug-in failure reasons and solutions
+* Lists possible failure causes and error codes, and provides solutions based on the scenarios to help users quickly resolve the problem
+## Plug-in addition/release process
+### plug-in state flow diagram
 ![](vscode-webview-resource://83cf071b-05d8-44c9-934f-26f3182c6000/file///Users/zhaozhihui/Downloads/ci-plugins-wiki/assets/status.png)
 
-### 流程描述 <a id="%E6%B5%81%E7%A8%8B%E6%8F%8F%E8%BF%B0"></a>
+### Process description
+* Developers add plugins to the plugin workbench
 
-* 开发者在插件工作台新增插件
-  * 初始化的目的是拿到系统中唯一的插件标识
-* 开发者本地开发调试插件
-* 开发者调试OK后，在插件工作台新增版本，启动发布流程
-* 提交版本后：
-  * 进入测试阶段
-    * 开发者可以在新增插件时选择的调试项目下，创建测试流水线，判断插件是否符合预期
-    * 测试过程中，若发现问题，可修复代码bug后重新打成包，再重新传包后继续测试
-  * 测试OK后，开发者点【继续】确认，则成功发布版本到研发商店
+  * The purpose of initialization is to get the unique plug-in ID in the system
 
+* Developers develop debugging plug-ins locally
+
+* Developers debug OK, add a new version in the plug-in workbench, start the release process
+
+* After version submission:
+
+  * Enter the testing phase
+    * Developers can create a test pipeline under the debug project selected when adding a plug-in to determine whether the plug-in meets expectations
+    * During the testing process, if you find problems, you can fix the code bug and re-pack it, and then re-transmit the package to continue the testing
+
+  * After the test is OK, the developer will click "Continue" to confirm, and the version will be successfully released to the R&D store

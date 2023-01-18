@@ -1,19 +1,18 @@
-# gitlab事件触发插件无法触发事件?
+# Can the gitlab event trigger plugin fail to trigger events?
 
-1. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
-2. 如果没有注册
-   1. 查看repository服务到gitlba的网络是否能通
-   2. 查看gitlab仓库的权限是否是master权限
-   3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
-3. 如果已注册，还是没有触发，
-   1. 到gitlab的webhook页面，查看是否有注册成功，如图1
-   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://域名/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
-   3. 查看gitlab没有发送的详情，如图3
-4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
+1. Check whether the pipeline_devops_ci_process. T_PIPELINE_WEBHOOK table is registered. SELECT * FROM devops_ci_process.T_PIPELINE_WEBHOOK WHERE pipeline_id = pipeline_id, {pipeline_id} can be obtained from the url
+2. If not registered
+   1. Check whether the repository service is connected to gitlba
+   2. Check whether the gitlab warehouse has master permissions
+   3. In the repository service deployment on the machine, The implementation of the grep "Start to add the web hook of" BK_HOME/logs/ci/repository/repository - the conversation. *Registered* the log to *find* *reasons* for *failure*, BK_HOME The default value is /data/bkce
+3. If it's registered and still not triggered,
+   1. Go to gitlab's webhook page and see if any registrations have been successful, as shown in Figure 1
+   2. If you have any registered gitlab url, the url is [http://domain name/external/SCM/codegit/commit](http://域名/external/scm/codegit/commit) and then click edit, send details view, as shown in figure 2
+   3. See the details that gitlab did not send, as shown in Figure 3
+4. If above all no problem, in the process of service deployment machine, Perform the grep "Trigger gitlab build" $BK_HOME/logs/ci/process/process - the conversation. The log search logs, find out the entry log Trigger
 
-![](../../.gitbook/assets/image%20%2858%29%20%281%29.png)
+![img](../../.gitbook/assets/image%20%2858%29%20%281%29.png)
 
-![](../../.gitbook/assets/image%20%2859%29.png)
+![img](../../.gitbook/assets/image%20%2859%29.png)
 
-![](../../.gitbook/assets/image%20%2857%29.png)
-
+![img](../../.gitbook/assets/image%20%2857%29.png)

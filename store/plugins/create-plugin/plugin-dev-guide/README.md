@@ -1,7 +1,5 @@
-# 插件开发指引
-
-本文档目的是介绍 `bkci` 流水线插件的原理，指引插件开发者快速上手插件开发和发布插件供流水线使用。
-
+# Plugin development guidelines
+This document describes the principles of the bkci pipeline plug-in, and provides guidance for plug-in developers to quickly learn how to develop plug-ins and publish plug-ins for the pipeline.
 {% page-ref page="java.md" %}
 
 {% page-ref page="python.md" %}

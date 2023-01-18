@@ -1,2 +1,1 @@
-# OPENAPI-代码仓库资源
-
+# OPENAPI- Code repository resource

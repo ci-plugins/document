@@ -1,2 +1,1 @@
-# OPENAPI-构建产物托管任务资源
-
+# OPENAPI- Build artifact managed task resources

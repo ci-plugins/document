@@ -1,59 +1,65 @@
-# 流水线条件判断
+# Pipeline condition judgment
 
-* 新建多个stage
+* Create multiple stages
 
-![](../../.gitbook/assets/image-20211215150951360.png)
+  ![](../../.gitbook/assets/image-20211215150951360.png)
 
-添加shell script插件，随便输入脚本：echo 1
+To add a shell script plug-in, enter any script: echo 1
 
 ![](../../.gitbook/assets/image-20211226153407230.png)
 
-在添加一个并行的stage&#x20;
+Add a parallel stage
 
+&#x20;
 ![](../../.gitbook/assets/image-20211226153240321.png)
+
+
 
 ![](../../.gitbook/assets/image-20220301101202-tfPup.png)
 
-后面新加一个stage
+
+
+add  a new stage
 
 ![](../../.gitbook/assets/image-20211226153714984.png)
 
+
+
 ![](../../.gitbook/assets/image-20211226153730961.png)
 
-添加finally stage
-
-Finally stage: 流水线执行的最后一步，无论流水线执行失败还是成功，都会执行finally stage定义的步骤
+Add a finally stage
+Finally stage: The last step in the pipeline execution. The steps defined in the finally stage are executed whether the pipeline execution fails or succeeds
 
 ![](../../.gitbook/assets/image-20211226153811917.png)
 
+
+
 ![](../../.gitbook/assets/image-20211226153848275.png)
 
-*   场景：配置好上述的流水线之后，假如有这么一个使用需求，在满足一定条件下，只执行2-1的Job，并且跳过执行2-2和3-1
+* Scenario: After the preceding pipeline is configured, if a service requirement exists, only 2-1 jobs are executed and 2-2 and 3-1 are skipped if certain conditions are met
+  Achieved by configuring variables
+  
+  * To define pipeline variables, click trigger and define test1 and test2
+    
+    ![](../../.gitbook/assets/image-20220301101202-yFjnM.png)
+  
+* Configure Job 2-1, select 【Run only when all user-defined variables are met】, and enter two user-defined variables, test1 and test2, whose values are the same as those defined by trigger
 
-    通过配置变量的方式实现
+  ![](../../.gitbook/assets/image-20220301101202-aLqEe.png)
 
-    * 定义流水线变量，点击trigger，定义test1和test2两个变量
+* Configure Job 2-2, click 2-2 Linux, select 【Run only when all user-defined variables are satisfied】, enter the two variables test1 and test2 that have just been customized, and write the values as you like, which are different from those defined by the trigger just now
 
-![](../../.gitbook/assets/image-20220301101202-yFjnM.png)
+  ![](../../.gitbook/assets/image-20211226154729382.png)
 
-* 配置2-1的Job，选择【自定义变量全部满足时才运行】，输入刚刚自定义的两个变量test1、test2，变量值与trigger定义的值相同
+* Configure the 3-1 stage, select 【Run only when all user-defined variables are satisfied】, input the two variables test1 and test2 that have just been customized, and write the values arbitrarily, which are different from those defined by the trigger just now
+  Note: Pipelining can be configured for stage/Job/ plug-in execution conditions
 
-![](../../.gitbook/assets/image-20220301101202-aLqEe.png)
+  ![](../../.gitbook/assets/image-20211226154952271.png)
 
-* 配置2-2的Job，点击2-2 Linux，选择【自定义变量全部满足时才运行】，输入刚刚自定义的两个变量test1、test2，值随便写，与刚刚trigger定义的值不同即可
+* start pipeline, test1 and test2 variables with default values
 
-![](../../.gitbook/assets/image-20211226154729382.png)
+  ![](../../.gitbook/assets/image-20211226155258274.png)
 
-*   配置3-1 stage，选择【自定义变量全部满足时才运行】，输入刚刚自定义的两个变量test1、test2，值随便写，与刚刚trigger定义的值不同即可
-
-    注：流水线可以针对stage/Job/插件来配置执行条件
-
-![](../../.gitbook/assets/image-20211226154952271.png)
-
-* 执行流水线，test1和test2变量值保持默认
-
-![](../../.gitbook/assets/image-20211226155258274.png)
-
-查看执行结果，可以看到2-2Job和stage3因为变量条件不满足，直接跳过不执行
+View the execution result. You can see that 2-2Job and stage3 are skipped because variable conditions are not met
 
 ![](../../.gitbook/assets/image-20211226155240606.png)

@@ -1,68 +1,62 @@
-# 安装研发商店模板到项目
+# Install the R&D store template into the project
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/market/template/installFromStore
+#### POST /ms/openapi/api/apigw/v3/market/template/installFromStore
 
-### 资源描述
+### Resource description
 
-#### 安装研发商店模板到项目
+#### Install the R&D store template into the project
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [安装模板到项目请求报文](install-the-r-and-d-store-template-into-the-project.md) | 是 | 安装研发商店模板到项目请求报文体 |  |
+| Parameter name | Parameter type                                               | must | Parameter description                                        | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :----------------------------------------------------------- | :------------ |
+| body           | [Install template to project request message](install-the-r-and-d-store-template-into-the-project.md) | is   | Install the R&D store template into the project request style |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+|                |                |      |                       |               |
 
+#### response
 
-#### 响应
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [Data return wrapper model Boolean](install-the-r-and-d-store-template-into-the-project.md) |
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型Boolean](install-the-r-and-d-store-template-into-the-project.md) |
+#### Request sample
 
-#### 请求样例
-
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 安装模板到项目请求报文
+## Install template to project request message
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| projectCodeList | List | 是 | 项目标识 |
-| templateCode | string | 是 | 模板代码 |
+| Parameter name  | Parameter type | must | Parameter description |
+| :-------------- | :------------- | :--- | :-------------------- |
+| projectCodeList | List           | is   | Item identification   |
+| templateCode    | string         | is   | Template code         |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

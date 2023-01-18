@@ -1,14 +1,10 @@
-# Golang 插件开发指引
-
-## 插件开发框架说明 <a id="%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AF%B4%E6%98%8E"></a>
-
-> 插件最终打包成一个命令行可执行的命令即可，对开发框架无硬性要求 下边以 demo 插件为例示范
-
-**一、示例插件代码工程的整体结构如下：**
+# Golang Plugin Development Guide
+## Plug-in development framework description
+> The plug-in can be packaged into a command line executable command. There is no requirement on the development framework. The following uses the demo plug-in as an example
+** I. The overall structure of the sample plug-in code project is as follows:**
 
 ```text
-|- ${你的插件标识}
-    |- cmd
+| - ${your plugin id}    |- cmd
         |- application
             |- main.go
 
@@ -16,74 +12,68 @@
         |- hello.go
 ```
 
-**二、如何开发插件：**
+**II. How to develop plug-ins:**
 
-> 参考 [plugin-demo-golang](https://github.com/ci-plugins/plugin-demo-golang)
+> See [plugin-demo-golang](https://github.com/ci-plugins/plugin-demo-golang)
+Create plug-in code projects
+You are advised to manage plug-in codes in a unified manner. Generic open source plug-ins can be placed under [ci-plugins](https://github.com/ci-plugins)
+* Implement plug-in functions
 
-* 创建插件代码工程
+  Specification:
 
-  插件代码建议统一管理。通用的开源插件可以放到 [ci-plugins](https://github.com/ci-plugins) 下
+  * [Plug-in Development Specification](../plugin-specification.md)
+  * [Plug-in output specification](../plugin-output.md)
 
-* 实现插件功能
-* 规范：
-  * [插件开发规范](../plugin-specification.md)
-  * [插件输出规范](../plugin-output.md)
+**III. How to package and publish:**
 
-**三、如何打包发布：**
-
-1. 进入插件代码工程目录下
-2. 打包
+1. Go to the plug-in code project directory
+2. Pack
 
 ```text
 cd cmd/application
 go build -o bin/${executable}
 ```
 
-1. 在任意位置新建文件夹，命名示例：release\_pkg = ${你的插件标识}\_release
-2. 将步骤 2 生产的执行包拷贝到 ${release\_pkg} 下
-3. 添加 task.json 文件到 ${release\_pkg} 下 task.json 见示例，按照插件功能配置。
-
-   * [插件配置规范](../plugin-config.md)
-   * task.json示例：
-
-   ```text
-   {
-       "atomCode": "demo",
-       "execution": {
-           "language": "golang",
-           "packagePath": "app",             # 发布包中插件安装包的相对路径
-           "demands": [
-               ""                            # 插件启动前需要执行的安装命令，顺序执行
-           ],
-           "target": "./app"
-       },
-       "input": {
-           "inputDemo":{
-               "label": "输入示例",  
-               "type": "vuex-input",
-               "placeholder": "输入示例",
-               "desc": "输入示例"
-           }
-       },
-       "output": {
-           "outputDemo": {
-               "description": "输出示例",
-               "type": "string",
-               "isSensitive": false
-           }
-       }
-   }
-   ```
-
-4. 在 ${release\_pkg} 目录下，把所有文件打成 `zip` 包即可
-
-`zip` 包结构示例：
-
+1. Create a new folder anywhere and name it as follows: release\_pkg = ${your plugin id}\_release
+2. Copy the execution package produced in Step 2 to ${release\_pkg}
+3. Add the task.json file to the task.json file under ${release\_pkg}. See the example.
+   * [Plug-in Configuration Specification](../plugin-config.md)
+   * task.json Example:
 ```text
-|- demo_release.zip         # 发布包
-   |- app                  # 插件执行包
-   |- task.json            # 插件配置文件
+{
+    "atomCode": "demo",
+    "execution": {
+        "language": "golang",
+        "packagePath": "app",             # Relative path to the plugin installation package in the release package
+        "demands": [
+            ""                            # The installation commands to be executed before the plugin is launched, in order
+        ],
+        "target": "./app"
+    },
+    "input": {
+        "inputDemo":{
+            "label": "inputdemo",  
+            "type": "vuex-input",
+            "placeholder": "inputdemo",
+            "desc": "inputdemo"
+        }
+    },
+    "output": {
+        "outputDemo": {
+            "description": "outputdemo",
+            "type": "string",
+            "isSensitive": false
+        }
+    }
+}
 ```
 
-打包完成后，在插件工作台提单发布，即可测试或发布插件
+4. In the ${release\_pkg} directory, type all files into a `zip` package
+Example `zip` package structure:
+```text
+| - demo_release.zip # distribution package
+	| - app # plug-in package execution
+	| - task.json  # plug-in configuration file
+```
 
+After packaging is complete, the plug-in workbench bill of lading is published, and the plug-in can be tested or released

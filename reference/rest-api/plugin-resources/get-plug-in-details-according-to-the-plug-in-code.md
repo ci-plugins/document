@@ -1,193 +1,125 @@
-# 根据插件代码获取插件详细信息
+# Get plug-in details from the plug-in code
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### GET  /ms/openapi/api/apigw/v3/atoms/{atomCode}
+#### GET /ms/openapi/api/apigw/v3/atoms/{atomCode}
 
-### 资源描述
+### Resource description
 
-#### 根据插件代码获取插件详细信息
+#### Get plug-in details from the plug-in code
 
-### 输入参数说明
+### Input parameter description
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| atomCode | string | 是 | 插件代码 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| atomCode       | string         | is   | Plug-in code          |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型AtomVersion |
+| HTTP code | description          | Parameter type                                 |
+| :-------- | :------------------- | :--------------------------------------------- |
+| 200       | successful operation | The data returns the wrapper model AtomVersion |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X GET '[请替换为API地址栏请求地址]'
+```
+curl -X GET '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "versionContent" : "String",
-    "flag" : true,
-    "modifier" : "String",
-    "description" : "String",
-    "language" : "String",
-    "yamlFlag" : true,
-    "atomId" : "String",
-    "atomStatus" : "String",
-    "initProjectCode" : "String",
-    "codeSrc" : "String",
-    "htmlTemplateVersion" : "String",
-    "projectCode" : "String",
-    "releaseType" : "String",
-    "pkgName" : "String",
-    "jobType" : "String",
-    "atomType" : "String",
-    "classifyName" : "String",
-    "userCommentInfo" : {
-      "commentFlag" : true,
-      "commentId" : "String"
-    },
-    "summary" : "String",
-    "recommendFlag" : true,
-    "editFlag" : true,
-    "creator" : "String",
-    "defaultFlag" : true,
-    "docsLink" : "String",
-    "os" : "string",
-    "updateTime" : "String",
-    "privateReason" : "String",
-    "version" : "String",
-    "logoUrl" : "String",
-    "atomCode" : "String",
-    "labelList" : [ {
-      "createTime" : 0,
-      "labelType" : "String",
-      "updateTime" : 0,
-      "id" : "String",
-      "labelName" : "String",
-      "labelCode" : "String"
-    } ],
-    "createTime" : "String",
-    "visibilityLevel" : "String",
-    "frontendType" : "ENUM",
-    "name" : "String",
-    "repositoryAuthorizer" : "String",
-    "publisher" : "String",
-    "classifyCode" : "String",
-    "category" : "String",
-    "dailyStatisticList" : [ {
-      "dailySuccessNum" : 0,
-      "statisticsTime" : "String",
-      "dailyFailNum" : 0,
-      "dailyFailRate" : "parse error",
-      "dailyDownloads" : 0,
-      "totalDownloads" : 0,
-      "dailySuccessRate" : "parse error",
-      "dailyFailDetail" : {
-        "string" : "string"
-      }
-    } ]
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "versionContent" : "String",  "flag" : true,  "modifier" : "String",  "description" : "String",  "language" : "String",  "yamlFlag" : true,  "atomId" : "String",  "atomStatus" : "String",  "initProjectCode" : "String",  "codeSrc" : "String",  "htmlTemplateVersion" : "String",  "projectCode" : "String",  "releaseType" : "String",  "pkgName" : "String",  "jobType" : "String",  "atomType" : "String",  "classifyName" : "String",  "userCommentInfo" : {  "commentFlag" : true,  "commentId" : "String"  },  "summary" : "String",  "recommendFlag" : true,  "editFlag" : true,  "creator" : "String",  "defaultFlag" : true,  "docsLink" : "String",  "os" : "string",  "updateTime" : "String",  "privateReason" : "String",  "version" : "String",  "logoUrl" : "String",  "atomCode" : "String",  "labelList" : [ {  "createTime" : 0,  "labelType" : "String",  "updateTime" : 0,  "id" : "String",  "labelName" : "String",  "labelCode" : "String"  } ],  "createTime" : "String",  "visibilityLevel" : "String",  "frontendType" : "ENUM",  "name" : "String",  "repositoryAuthorizer" : "String",  "publisher" : "String",  "classifyCode" : "String",  "category" : "String",  "dailyStatisticList" : [ {  "dailySuccessNum" : 0,  "statisticsTime" : "String",  "dailyFailNum" : 0,  "dailyFailRate" : "parse error",  "dailyDownloads" : 0,  "totalDownloads" : 0,  "dailySuccessRate" : "parse error",  "dailyFailDetail" : {  "string" : "string"  }  } ]  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型AtomVersion
+## The data returns the wrapper model AtomVersion
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | AtomVersion | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | AtomVersion    | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |
 
 ## AtomVersion
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| versionContent | string | 否 | 版本日志 |
-| flag | boolean | 否 | 是否可安装标识 |
-| modifier | string | 否 | 修改人 |
-| description | string | 否 | 插件描述 |
-| language | string | 否 | 开发语言 |
-| yamlFlag | boolean | 否 | yaml可用标识 true：是，false：否 |
-| atomId | string | 否 | 插件ID |
-| atomStatus | string | 是 | 插件状态 |
-| initProjectCode | string | 否 | 插件的初始化项目 |
-| codeSrc | string | 否 | 代码库链接 |
-| htmlTemplateVersion | string | 否 | 前端渲染模板版本（1.0代表历史存量插件渲染模板版本） |
-| projectCode | string | 否 | 插件的调试项目 |
-| releaseType | string | 否 | 发布类型 |
-| pkgName | string | 否 | 插件包名 |
-| jobType | string | 否 | 适用Job类型 |
-| atomType | string | 否 | 插件类型 |
-| classifyName | string | 否 | 插件分类名称 |
-| userCommentInfo | 用户评论信息 | 否 | 用户评论信息 |
-| summary | string | 否 | 插件简介 |
-| recommendFlag | boolean | 否 | 是否推荐标识 true：推荐，false：不推荐 |
-| editFlag | boolean | 否 | 是否可编辑 |
-| creator | string | 否 | 创建人 |
-| defaultFlag | boolean | 否 | 是否为默认插件（默认插件默认所有项目可见）true：默认插件 false：普通插件 |
-| docsLink | string | 否 | 插件说明文档链接 |
-| os | List | 否 | 操作系统 |
-| updateTime | string | 否 | 修改时间 |
-| privateReason | string | 否 | 插件代码库不开源原因 |
-| version | string | 否 | 版本号 |
-| logoUrl | string | 否 | logo地址 |
-| atomCode | string | 否 | 插件标识 |
-| labelList | List&lt;标签信息&gt; | 否 | 标签列表 |
-| createTime | string | 否 | 创建时间 |
-| visibilityLevel | string | 否 | 项目可视范围,PRIVATE:私有 LOGIN\_PUBLIC:登录用户开源 |
-| frontendType | ENUM\(HISTORY, NORMAL, SPECIAL, \) | 否 | 前端UI渲染方式 |
-| name | string | 否 | 插件名称 |
-| repositoryAuthorizer | string | 否 | 插件代码库授权者 |
-| publisher | string | 否 | 发布者 |
-| classifyCode | string | 否 | 插件分类code |
-| category | string | 否 | 插件范畴 |
-| dailyStatisticList | List&lt;每日统计信息&gt; | 否 | 每日统计信息列表 |
+| Parameter name       | Parameter type                   | must | Parameter description                                        |
+| :------------------- | :------------------------------- | :--- | :----------------------------------------------------------- |
+| versionContent       | string                           | no   | Version log                                                  |
+| flag                 | boolean                          | no   | Whether a label can be installed                             |
+| modifier             | string                           | no   | modifier                                                     |
+| description          | string                           | no   | Plug-in description                                          |
+| language             | string                           | no   | Development language                                         |
+| yamlFlag             | boolean                          | no   | yaml can be marked true: yes, false: no                      |
+| atomId               | string                           | no   | Plug-in ID                                                   |
+| atomStatus           | string                           | is   | Plug-in status                                               |
+| initProjectCode      | string                           | no   | The initialization project of the plug-in                    |
+| codeSrc              | string                           | no   | Code base link                                               |
+| htmlTemplateVersion  | string                           | no   | Front-end rendering template version (1.0 stands for inventory plug-in rendering template version) |
+| projectCode          | string                           | no   | Debug project for the plug-in                                |
+| releaseType          | string                           | no   | Publication type                                             |
+| pkgName              | string                           | no   | Plug-in package name                                         |
+| jobType              | string                           | no   | Applicable Job type                                          |
+| atomType             | string                           | no   | Plug-in type                                                 |
+| classifyName         | string                           | no   | Plug-in class name                                           |
+| userCommentInfo      | User review information          | no   | User review information                                      |
+| summary              | string                           | no   | Plug-in introduction                                         |
+| recommendFlag        | boolean                          | no   | Recommended Value true: recommended, false: not recommended  |
+| editFlag             | boolean                          | no   | Editable or not                                              |
+| creator              | string                           | no   | founder                                                      |
+| defaultFlag          | boolean                          | no   | Whether to be the default plug-in (The default plug-in is visible to all items by default) true: default plug-in false: common plug-in |
+| docsLink             | string                           | no   | Link to plug-in specification documentation                  |
+| os                   | List                             | no   | Operating system                                             |
+| updateTime           | string                           | no   | Modification time                                            |
+| privateReason        | string                           | no   | Plug-in codebase is not open source                          |
+| version              | string                           | no   | Version number                                               |
+| logoUrl              | string                           | no   | logo address                                                 |
+| atomCode             | string                           | no   | Plug-in identification                                       |
+| labelList            | List< tag information >          | no   | Tag list                                                     |
+| createTime           | string                           | no   | Creation time                                                |
+| visibilityLevel      | string                           | no   | Project visibility. PRIVATE: private LOGIN_PUBLIC: Open source for login users |
+| frontendType         | ENUM(HISTORY, NORMAL, SPECIAL, ) | no   | Front-end UI rendering                                       |
+| name                 | string                           | no   | Plug-in name                                                 |
+| repositoryAuthorizer | string                           | no   | Plug-in code base owner                                      |
+| publisher            | string                           | no   | publisher                                                    |
+| classifyCode         | string                           | no   | Plug-in classification code                                  |
+| category             | string                           | no   | Plug-in category                                             |
+| dailyStatisticList   | List< Daily Statistics >         | no   | Daily statistics list                                        |
 
-## 用户评论信息
+## User review information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| commentFlag | boolean | 是 | 是否已评论 true:是，false:否 |
-| commentId | string | 否 | 评论ID |
+| Parameter name | Parameter type | must | Parameter description                |
+| :------------- | :------------- | :--- | :----------------------------------- |
+| commentFlag    | boolean        | is   | Commented or not true: yes false: no |
+| commentId      | string         | no   | Comment ID                           |
 
-## 标签信息
+## Label information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| createTime | integer | 否 | 创建日期 |
-| labelType | string | 是 | 类别 ATOM:插件 TEMPLATE:模板 IMAGE:镜像 IDE\_ATOM:IDE插件 |
-| updateTime | integer | 否 | 更新日期 |
-| id | string | 是 | 标签ID |
-| labelName | string | 是 | 标签名称 |
-| labelCode | string | 是 | 标签代码 |
+| Parameter name | Parameter type | must | Parameter description                                        |
+| :------------- | :------------- | :--- | :----------------------------------------------------------- |
+| createTime     | integer        | no   | Creation date                                                |
+| labelType      | string         | is   | Category ATOM: plug-in TEMPLATE: template IMAGE: image IDE_ATOM:IDE plug-in |
+| updateTime     | integer        | no   | Update date                                                  |
+| id             | string         | is   | Tag ID                                                       |
+| labelName      | string         | is   | Label name                                                   |
+| labelCode      | string         | is   | Tag code                                                     |
 
-## 每日统计信息
+## Daily statistics
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| dailySuccessNum | integer | 否 | 每日执行成功数 |
-| statisticsTime | string | 否 | 统计时间，格式yyyy-MM-dd HH:mm:ss |
-| dailyFailNum | integer | 否 | 每日执行失败数 |
-| dailyFailRate | number | 否 | 每日执行失败率 |
-| dailyDownloads | integer | 否 | 每日下载量 |
-| totalDownloads | integer | 否 | 总下载量 |
-| dailySuccessRate | number | 否 | 每日执行成功率 |
-| dailyFailDetail | object | 否 | 每日执行失败详情 |
-
+| Parameter name   | Parameter type | must | Parameter description                                     |
+| :--------------- | :------------- | :--- | :-------------------------------------------------------- |
+| dailySuccessNum  | integer        | no   | Number of successful executions per day                   |
+| statisticsTime   | string         | no   | The statistical time is in the format yyyy-MM-dd HH:mm:ss |
+| dailyFailNum     | integer        | no   | Number of execution failures per day                      |
+| dailyFailRate    | number         | no   | Daily execution failure rate                              |
+| dailyDownloads   | integer        | no   | Daily downloads                                           |
+| totalDownloads   | integer        | no   | Total downloads                                           |
+| dailySuccessRate | number         | no   | Daily execution success rate                              |
+| dailyFailDetail  | object         | no   | Daily execution failure details                           |

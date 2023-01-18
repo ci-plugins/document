@@ -1,2 +1,1 @@
-# OPENAPI-插件资源
-
+# OPENAPI- Plug-in resources

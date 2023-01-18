@@ -1,74 +1,68 @@
-# 安装插件到项目
+# Install the plug-in into the project
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/atoms/{atomCode}/install
+#### POST /ms/openapi/api/apigw/v3/atoms/{atomCode}/install
 
-### 资源描述
+### Resource description
 
-#### 安装插件到项目
+#### Install the plug-in into the project
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| channelCode | string | 否 | 渠道类型 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| channelCode    | string         | no   | Channel type          |               |
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | 安装插件到项目请求报文 | 是 | 安装插件到项目请求报文体 |  |
+| Parameter name | Parameter type                             | must | Parameter description                            | Default value |
+| :------------- | :----------------------------------------- | :--- | :----------------------------------------------- | :------------ |
+| body           | Install plug-in to project request message | is   | Install the plug-in to the project request style |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+|                |                |      |                       |               |
 
+#### response
 
-#### 响应
+| HTTP code | description          | Parameter type                    |
+| :-------- | :------------------- | :-------------------------------- |
+| 200       | successful operation | Data return wrapper model Boolean |
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | 数据返回包装模型Boolean |
+#### Request sample
 
-#### 请求样例
-
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?channelCode={channelCode}'
+```
+curl -X POST '[please replace API address bar request address]? channelCode={channelCode}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : true,
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : true,  "message" : "String",  "status" : 0 } 
 ```
 
-## 安装插件到项目请求报文
+## Install plug-in to project request message
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| atomCode | string | 是 | 插件标识 |
-| projectCode | List | 是 | 项目标识 |
+| Parameter name | Parameter type | must | Parameter description  |
+| :------------- | :------------- | :--- | :--------------------- |
+| atomCode       | string         | is   | Plug-in identification |
+| projectCode    | List           | is   | Item identification    |
 
-## 数据返回包装模型Boolean
+## Data return wrapper model Boolean
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | boolean | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| data           | boolean        | no   | data                  |
+| message        | string         | no   | Error message         |
+| status         | integer        | is   | Status code           |

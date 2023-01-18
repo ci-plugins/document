@@ -1,76 +1,65 @@
-# 批量创建callback回调
+# Example Create callbacks in batches
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/batch
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/callbacks/batch
 
-### 资源描述
+### Resource description
 
-#### 批量创建callback回调
+#### Example Create callbacks in batches
 
-### 输入参数说明
+### Input parameter description
 
-#### Query参数
+#### Query parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| url | string | 是 | url |  |
-| region | string | 是 | region |  |
-| event | string | 是 | event |  |
-| secretToken | string | 否 | secretToken |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| url            | string         | is   | url                   |               |
+| region         | string         | is   | region                |               |
+| event          | string         | is   | event                 |               |
+| secretToken    | string         | no   | secretToken           |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | projectId |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | projectId             |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型项目的流水线回调创建结果](create-callbacks-in-batches.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data returns the result of the pipeline callback creation for the wrapper model project](create-callbacks-in-batches.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]?url={url}&amp;region={region}&amp;event={event}&amp;secretToken={secretToken}'
+```
+curl -X POST '[please replace API address bar request address]? url={url}&region={region}&event={event}&secretToken={secretToken}' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "successEvents" : "string",
-    "failureEvents" : {
-      "string" : "string"
-    }
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "successEvents" : "string",  "failureEvents" : {  "string" : "string"  }  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 数据返回包装模型项目的流水线回调创建结果
+## The data returns the result of the pipeline callback creation for the wrapper model project
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [项目的流水线回调创建结果](create-callbacks-in-batches.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                               | must | Parameter description |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- |
+| data           | [Pipelined callback creation results for the project](create-callbacks-in-batches.md) | no   | data                  |
+| message        | string                                                       | no   | Error message         |
+| status         | integer                                                      | is   | Status code           |
 
-## 项目的流水线回调创建结果
+## Pipelined callback creation results for the project
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| successEvents | List | 否 | successEvents |
-| failureEvents | object | 否 | failureEvents |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| successEvents  | List           | no   | successEvents         |
+| failureEvents  | object         | no   | failureEvents         |

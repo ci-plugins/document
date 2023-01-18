@@ -1,234 +1,234 @@
-# devops\_ci\_notify
+# devops_ci_notify
 
-**数据库名：** devops\_ci\_notify
+**Database name:** devops_ci_notify
 
-**文档版本：** 1.0.0
+**Issue:** 1.0.0
 
-**文档描述：** devops\_ci\_notify的数据库文档
+**Document description:** Database document of devops_ci_notify
 
-|                            表名                            |     说明    |
-| :------------------------------------------------------: | :-------: |
-| [T\_COMMON\_NOTIFY\_MESSAGE\_TEMPLATE](broken-reference) |   基础模板表   |
-| [T\_EMAILS\_NOTIFY\_MESSAGE\_TEMPLATE](broken-reference) |  email模板表 |
-|           [T\_NOTIFY\_EMAIL](broken-reference)           |           |
-|            [T\_NOTIFY\_RTX](broken-reference)            |   rtx流水表  |
-|            [T\_NOTIFY\_SMS](broken-reference)            |           |
-|           [T\_NOTIFY\_WECHAT](broken-reference)          |   微信流水表   |
-|           [T\_NOTIFY\_WEWORK](broken-reference)          |  企业微信流水表  |
-|   [T\_RTX\_NOTIFY\_MESSAGE\_TEMPLATE](broken-reference)  |   rtx模板表  |
-| [T\_WECHAT\_NOTIFY\_MESSAGE\_TEMPLATE](broken-reference) | wechat模板表 |
-| [T\_WEWORK\_NOTIFY\_MESSAGE\_TEMPLATE](broken-reference) | wework模板表 |
+|                      Table name                      |          description          |
+| :--------------------------------------------------: | :---------------------------: |
+| [T_COMMON_NOTIFY_MESSAGE_TEMPLATE](broken-reference) |      Base template table      |
+| [T_EMAILS_NOTIFY_MESSAGE_TEMPLATE](broken-reference) |     email template table      |
+|          [T_NOTIFY_EMAIL](broken-reference)          |                               |
+|           [T_NOTIFY_RTX](broken-reference)           |        rtx flow chart         |
+|           [T_NOTIFY_SMS](broken-reference)           |                               |
+|         [T_NOTIFY_WECHAT](broken-reference)          |      Wechat water table       |
+|         [T_NOTIFY_WEWORK](broken-reference)          | Enterprise wechat water table |
+|  [T_RTX_NOTIFY_MESSAGE_TEMPLATE](broken-reference)   |      rtx template table       |
+| [T_WECHAT_NOTIFY_MESSAGE_TEMPLATE](broken-reference) |     wechat template table     |
+| [T_WEWORK_NOTIFY_MESSAGE_TEMPLATE](broken-reference) |     wework template table     |
 
-**表名：** T\_COMMON\_NOTIFY\_MESSAGE\_TEMPLATE
+**Table name:** T_COMMON_NOTIFY_MESSAGE_TEMPLATE
 
-**说明：** 基础模板表
+Basic template table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称         |   数据类型  |  长度 | 小数位 | 允许空值 |  主键 | 默认值 |                    说明                    |
-| :-: | :-----------------: | :-----: | :-: | :-: | :--: | :-: | :-: | :--------------------------------------: |
-|  1  |          ID         | varchar |  32 |  0  |   N  |  Y  |     |                   主键ID                   |
-|  2  |    TEMPLATE\_CODE   | varchar |  64 |  0  |   N  |  N  |     |                   模板代码                   |
-|  3  |    TEMPLATE\_NAME   | varchar | 128 |  0  |   N  |  N  |     |                   模板名称                   |
-|  4  | NOTIFY\_TYPE\_SCOPE | varchar |  64 |  0  |   N  |  N  |     | 适用的通知类型（EMAIL:邮件RTX:企业微信WECHAT:微信SMS:短信） |
-|  5  |       PRIORITY      | tinyint |  4  |  0  |   N  |  N  |     |                    优先级                   |
-|  6  |        SOURCE       | tinyint |  4  |  0  |   N  |  N  |     |                   邮件来源                   |
+| Serial number |       name        | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :---------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |        ID         |  varchar  |   32   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |   TEMPLATE_CODE   |  varchar  |   64   |       0       |          N           |      N      |               |                        Template code                         |
+|       3       |   TEMPLATE_NAME   |  varchar  |  128   |       0       |          N           |      N      |               |                        Template name                         |
+|       4       | NOTIFY_TYPE_SCOPE |  varchar  |   64   |       0       |          N           |      N      |               | Applicable notification types (EMAIL: Mail RTX: enterprise WECHAT: wechat: SMS: Short message) |
+|       5       |     PRIORITY      |  tinyint  |   4    |       0       |          N           |      N      |               |                           priority                           |
+|       6       |      SOURCE       |  tinyint  |   4    |       0       |          N           |      N      |               |                        Source of mail                        |
 
-**表名：** T\_EMAILS\_NOTIFY\_MESSAGE\_TEMPLATE
+**Table name:** T_EMAILS_NOTIFY_MESSAGE_TEMPLATE
 
-**说明：** email模板表
+**Note:** email template table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称          |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 |         默认值        |         说明         |
-| :-: | :------------------: | :--------: | :------: | :-: | :--: | :-: | :----------------: | :----------------: |
-|  1  |          ID          |   varchar  |    32    |  0  |   N  |  Y  |                    |        主键ID        |
-|  2  | COMMON\_TEMPLATE\_ID |   varchar  |    32    |  0  |   N  |  N  |                    |        模板ID        |
-|  3  |        CREATOR       |   varchar  |    50    |  0  |   N  |  N  |                    |         创建者        |
-|  4  |       MODIFIOR       |   varchar  |    50    |  0  |   N  |  N  |                    |         修改者        |
-|  5  |        SENDER        |   varchar  |    128   |  0  |   N  |  N  |       DevOps       |        邮件发送者       |
-|  6  |         TITLE        |   varchar  |    256   |  0  |   Y  |  N  |                    |        邮件标题        |
-|  7  |         BODY         | mediumtext | 16777215 |  0  |   N  |  N  |                    |        邮件内容        |
-|  8  |     BODY\_FORMAT     |   tinyint  |     4    |  0  |   N  |  N  |                    | 邮件格式（0:文本1:html网页） |
-|  9  |      EMAIL\_TYPE     |   tinyint  |     4    |  0  |   N  |  N  |                    | 邮件类型（0:外部邮件1:内部邮件） |
-|  10 |     CREATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |        创建时间        |
-|  11 |     UPDATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |        更新时间        |
+| Serial number |        name        | Data type  |  length  | Decimal place | Allowable null value | Primary key |   Default value   |                  description                  |
+| :-----------: | :----------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :---------------: | :-------------------------------------------: |
+|       1       |         ID         |  varchar   |    32    |       0       |          N           |      Y      |                   |                Primary key ID                 |
+|       2       | COMMON_TEMPLATE_ID |  varchar   |    32    |       0       |          N           |      N      |                   |                  Template ID                  |
+|       3       |      CREATOR       |  varchar   |    50    |       0       |          N           |      N      |                   |                    founder                    |
+|       4       |      MODIFIOR      |  varchar   |    50    |       0       |          N           |      N      |                   |                   modifier                    |
+|       5       |       SENDER       |  varchar   |   128    |       0       |          N           |      N      |      DevOps       |                  Mail sender                  |
+|       6       |       TITLE        |  varchar   |   256    |       0       |          Y           |      N      |                   |              Subject of message               |
+|       7       |        BODY        | mediumtext | 16777215 |       0       |          N           |      N      |                   |                 Email content                 |
+|       8       |    BODY_FORMAT     |  tinyint   |    4     |       0       |          N           |      N      |                   |     Mail Format (0: text 1:html web page)     |
+|       9       |     EMAIL_TYPE     |  tinyint   |    4     |       0       |          N           |      N      |                   | Mail type (0: external mail 1: internal mail) |
+|      10       |    CREATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |                 Creation time                 |
+|      11       |    UPDATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |                  Update time                  |
 
-**表名：** T\_NOTIFY\_EMAIL
+**Table name:** T_NOTIFY_EMAIL
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 | 默认值 |               说明              |
-| :-: | :--------------: | :--------: | :------: | :-: | :--: | :-: | :-: | :---------------------------: |
-|  1  |        ID        |   varchar  |    32    |  0  |   N  |  Y  |     |              主键ID             |
-|  2  |      SUCCESS     |     bit    |     1    |  0  |   N  |  N  |     |              是否成功             |
-|  3  |      SOURCE      |   varchar  |    255   |  0  |   N  |  N  |     |              邮件来源             |
-|  4  |      SENDER      |   varchar  |    255   |  0  |   N  |  N  |     |             邮件发送者             |
-|  5  |        TO        |    text    |   65535  |  0  |   N  |  N  |     |             邮件接收者             |
-|  6  |       TITLE      |   varchar  |    255   |  0  |   N  |  N  |     |              邮件标题             |
-|  7  |       BODY       | mediumtext | 16777215 |  0  |   N  |  N  |     |              邮件内容             |
-|  8  |     PRIORITY     |     int    |    10    |  0  |   N  |  N  |     |              优先级              |
-|  9  |   RETRY\_COUNT   |     int    |    10    |  0  |   N  |  N  |     |              重试次数             |
-|  10 |    LAST\_ERROR   |    text    |   65535  |  0  |   Y  |  N  |     |             最后错误内容            |
-|  11 |   CREATED\_TIME  |  datetime  |    19    |  0  |   N  |  N  |     |              创建时间             |
-|  12 |   UPDATED\_TIME  |  datetime  |    19    |  0  |   N  |  N  |     |              更新时间             |
-|  13 |        CC        |    text    |   65535  |  0  |   Y  |  N  |     |            邮件抄送接收者            |
-|  14 |        BCC       |    text    |   65535  |  0  |   Y  |  N  |     |            邮件密送接收者            |
-|  15 |      FORMAT      |     int    |    10    |  0  |   N  |  N  |     |               格式              |
-|  16 |       TYPE       |     int    |    10    |  0  |   N  |  N  |     |               类型              |
-|  17 |   CONTENT\_MD5   |   varchar  |    32    |  0  |   N  |  N  |     | 内容md5值，由title和body计算得，频率限制时使用 |
-|  18 | FREQUENCY\_LIMIT |     int    |    10    |  0  |   Y  |  N  |     |   频率限制时长，单位分钟，即n分钟内不重发成功的消息   |
-|  19 |   TOF\_SYS\_ID   |   varchar  |    20    |  0  |   Y  |  N  |     |            tof系统id            |
-|  20 |   FROM\_SYS\_ID  |   varchar  |    20    |  0  |   Y  |  N  |     |           发送消息的系统id           |
-|  21 |   DelaySeconds   |     int    |    10    |  0  |   Y  |  N  |     |           延迟发送的时间，秒           |
+| Serial number |      name       | Data type  |  length  | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |       ID        |  varchar   |    32    |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |     SUCCESS     |    bit     |    1     |       0       |          N           |      N      |               |                        Success or not                        |
+|       3       |     SOURCE      |  varchar   |   255    |       0       |          N           |      N      |               |                        Source of mail                        |
+|       4       |     SENDER      |  varchar   |   255    |       0       |          N           |      N      |               |                         Mail sender                          |
+|       5       |       TO        |    text    |  65535   |       0       |          N           |      N      |               |                        Mail recipient                        |
+|       6       |      TITLE      |  varchar   |   255    |       0       |          N           |      N      |               |                      Subject of message                      |
+|       7       |      BODY       | mediumtext | 16777215 |       0       |          N           |      N      |               |                        Email content                         |
+|       8       |    PRIORITY     |    int     |    10    |       0       |          N           |      N      |               |                           priority                           |
+|       9       |   RETRY_COUNT   |    int     |    10    |       0       |          N           |      N      |               |                         Retry times                          |
+|      10       |   LAST_ERROR    |    text    |  65535   |       0       |          Y           |      N      |               |                      Last error content                      |
+|      11       |  CREATED_TIME   |  datetime  |    19    |       0       |          N           |      N      |               |                        Creation time                         |
+|      12       |  UPDATED_TIME   |  datetime  |    19    |       0       |          N           |      N      |               |                         Update time                          |
+|      13       |       CC        |    text    |  65535   |       0       |          Y           |      N      |               |                Cc the recipient of the email                 |
+|      14       |       BCC       |    text    |  65535   |       0       |          Y           |      N      |               |               The mail is BCC to the recipient               |
+|      15       |     FORMAT      |    int     |    10    |       0       |          N           |      N      |               |                            format                            |
+|      16       |      TYPE       |    int     |    10    |       0       |          N           |      N      |               |                             type                             |
+|      17       |   CONTENT_MD5   |  varchar   |    32    |       0       |          N           |      N      |               | Content md5 value, calculated by title and body, used when frequency is limited |
+|      18       | FREQUENCY_LIMIT |    int     |    10    |       0       |          Y           |      N      |               | Frequency limit duration (unit minute) : No message is resold within n minutes |
+|      19       |   TOF_SYS_ID    |  varchar   |    20    |       0       |          Y           |      N      |               |                        tof System id                         |
+|      20       |   FROM_SYS_ID   |  varchar   |    20    |       0       |          Y           |      N      |               |            id of the system that sent the message            |
+|      21       |  DelaySeconds   |    int     |    10    |       0       |          Y           |      N      |               |               The delay in sending, in seconds               |
 
-**表名：** T\_NOTIFY\_RTX
+**Table name:** T_NOTIFY_RTX
 
-**说明：** rtx流水表
+rtx water table
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |               说明              |
-| :-: | :--------------: | :------: | :---: | :-: | :--: | :-: | :-: | :---------------------------: |
-|  1  |        ID        |  varchar |   32  |  0  |   N  |  Y  |     |              主键ID             |
-|  2  |     BATCH\_ID    |  varchar |   32  |  0  |   N  |  N  |     |           RTX通知批次ID           |
-|  3  |      SUCCESS     |    bit   |   1   |  0  |   N  |  N  |     |              是否成功             |
-|  4  |      SOURCE      |  varchar |  255  |  0  |   N  |  N  |     |              邮件来源             |
-|  5  |      SENDER      |  varchar |  255  |  0  |   N  |  N  |     |             邮件发送者             |
-|  6  |     RECEIVERS    |   text   | 65535 |  0  |   N  |  N  |     |             通知接收者             |
-|  7  |       TITLE      |  varchar |  255  |  0  |   N  |  N  |     |              邮件标题             |
-|  8  |       BODY       |   text   | 65535 |  0  |   N  |  N  |     |              邮件内容             |
-|  9  |     PRIORITY     |    int   |   10  |  0  |   N  |  N  |     |              优先级              |
-|  10 |   RETRY\_COUNT   |    int   |   10  |  0  |   N  |  N  |     |              重试次数             |
-|  11 |    LAST\_ERROR   |   text   | 65535 |  0  |   Y  |  N  |     |             最后错误内容            |
-|  12 |   CREATED\_TIME  | datetime |   19  |  0  |   N  |  N  |     |              创建时间             |
-|  13 |   UPDATED\_TIME  | datetime |   19  |  0  |   N  |  N  |     |              更新时间             |
-|  14 |   CONTENT\_MD5   |  varchar |   32  |  0  |   N  |  N  |     | 内容md5值，由title和body计算得，频率限制时使用 |
-|  15 | FREQUENCY\_LIMIT |    int   |   10  |  0  |   Y  |  N  |     |   频率限制时长，单位分钟，即n分钟内不重发成功的消息   |
-|  16 |   TOF\_SYS\_id   |  varchar |   20  |  0  |   Y  |  N  |     |            tof系统id            |
-|  17 |   FROM\_SYS\_ID  |  varchar |   20  |  0  |   Y  |  N  |     |           发送消息的系统id           |
-|  18 |   DelaySeconds   |    int   |   10  |  0  |   Y  |  N  |     |           延迟发送的时间，秒           |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |       ID        |  varchar  |   32   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |    BATCH_ID     |  varchar  |   32   |       0       |          N           |      N      |               |        RTX Indicates the ID of the notification batch        |
+|       3       |     SUCCESS     |    bit    |   1    |       0       |          N           |      N      |               |                        Success or not                        |
+|       4       |     SOURCE      |  varchar  |  255   |       0       |          N           |      N      |               |                        Source of mail                        |
+|       5       |     SENDER      |  varchar  |  255   |       0       |          N           |      N      |               |                         Mail sender                          |
+|       6       |    RECEIVERS    |   text    | 65535  |       0       |          N           |      N      |               |                       Notify receiver                        |
+|       7       |      TITLE      |  varchar  |  255   |       0       |          N           |      N      |               |                      Subject of message                      |
+|       8       |      BODY       |   text    | 65535  |       0       |          N           |      N      |               |                        Email content                         |
+|       9       |    PRIORITY     |    int    |   10   |       0       |          N           |      N      |               |                           priority                           |
+|      10       |   RETRY_COUNT   |    int    |   10   |       0       |          N           |      N      |               |                         Retry times                          |
+|      11       |   LAST_ERROR    |   text    | 65535  |       0       |          Y           |      N      |               |                      Last error content                      |
+|      12       |  CREATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                        Creation time                         |
+|      13       |  UPDATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                         Update time                          |
+|      14       |   CONTENT_MD5   |  varchar  |   32   |       0       |          N           |      N      |               | Content md5 value, calculated by title and body, used when frequency is limited |
+|      15       | FREQUENCY_LIMIT |    int    |   10   |       0       |          Y           |      N      |               | Frequency limit duration (unit minute) : No message is resold within n minutes |
+|      16       |   TOF_SYS_id    |  varchar  |   20   |       0       |          Y           |      N      |               |                        tof System id                         |
+|      17       |   FROM_SYS_ID   |  varchar  |   20   |       0       |          Y           |      N      |               |            id of the system that sent the message            |
+|      18       |  DelaySeconds   |    int    |   10   |       0       |          Y           |      N      |               |               The delay in sending, in seconds               |
 
-**表名：** T\_NOTIFY\_SMS
+**Table name:** T_NOTIFY_SMS
 
-**说明：**
+**Explanation:**
 
-**数据列：**
+**Data column:**
 
-|  序号 |         名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |               说明              |
-| :-: | :---------------: | :------: | :---: | :-: | :--: | :-: | :-: | :---------------------------: |
-|  1  |         ID        |  varchar |   32  |  0  |   N  |  Y  |     |              主键ID             |
-|  2  |      SUCCESS      |    bit   |   1   |  0  |   N  |  N  |     |              是否成功             |
-|  3  |       SOURCE      |  varchar |  255  |  0  |   N  |  N  |     |              邮件来源             |
-|  4  |       SENDER      |  varchar |  255  |  0  |   N  |  N  |     |             邮件发送者             |
-|  5  |     RECEIVERS     |   text   | 65535 |  0  |   N  |  N  |     |             通知接收者             |
-|  6  |        BODY       |   text   | 65535 |  0  |   N  |  N  |     |              邮件内容             |
-|  7  |      PRIORITY     |    int   |   10  |  0  |   N  |  N  |     |              优先级              |
-|  8  |    RETRY\_COUNT   |    int   |   10  |  0  |   N  |  N  |     |              重试次数             |
-|  9  |    LAST\_ERROR    |   text   | 65535 |  0  |   Y  |  N  |     |             最后错误内容            |
-|  10 |   CREATED\_TIME   | datetime |   19  |  0  |   N  |  N  |     |              创建时间             |
-|  11 |   UPDATED\_TIME   | datetime |   19  |  0  |   N  |  N  |     |              更新时间             |
-|  12 |     BATCH\_ID     |  varchar |   32  |  0  |   N  |  N  |     |             通知批次ID            |
-|  13 | T\_NOTIFY\_SMScol |  varchar |   45  |  0  |   Y  |  N  |     |                               |
-|  14 |    CONTENT\_MD5   |  varchar |   32  |  0  |   N  |  N  |     | 内容md5值，由title和body计算得，频率限制时使用 |
-|  15 |  FREQUENCY\_LIMIT |    int   |   10  |  0  |   Y  |  N  |     |   频率限制时长，单位分钟，即n分钟内不重发成功的消息   |
-|  16 |    TOF\_SYS\_ID   |  varchar |   20  |  0  |   Y  |  N  |     |            tof系统id            |
-|  17 |   FROM\_SYS\_ID   |  varchar |   20  |  0  |   Y  |  N  |     |           发送消息的系统id           |
-|  18 |    DelaySeconds   |    int   |   10  |  0  |   Y  |  N  |     |           延迟发送的时间，秒           |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |       ID        |  varchar  |   32   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |     SUCCESS     |    bit    |   1    |       0       |          N           |      N      |               |                        Success or not                        |
+|       3       |     SOURCE      |  varchar  |  255   |       0       |          N           |      N      |               |                        Source of mail                        |
+|       4       |     SENDER      |  varchar  |  255   |       0       |          N           |      N      |               |                         Mail sender                          |
+|       5       |    RECEIVERS    |   text    | 65535  |       0       |          N           |      N      |               |                       Notify receiver                        |
+|       6       |      BODY       |   text    | 65535  |       0       |          N           |      N      |               |                        Email content                         |
+|       7       |    PRIORITY     |    int    |   10   |       0       |          N           |      N      |               |                           priority                           |
+|       8       |   RETRY_COUNT   |    int    |   10   |       0       |          N           |      N      |               |                         Retry times                          |
+|       9       |   LAST_ERROR    |   text    | 65535  |       0       |          Y           |      N      |               |                      Last error content                      |
+|      10       |  CREATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                        Creation time                         |
+|      11       |  UPDATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                         Update time                          |
+|      12       |    BATCH_ID     |  varchar  |   32   |       0       |          N           |      N      |               |                    Notification batch ID                     |
+|      13       | T_NOTIFY_SMScol |  varchar  |   45   |       0       |          Y           |      N      |               |                                                              |
+|      14       |   CONTENT_MD5   |  varchar  |   32   |       0       |          N           |      N      |               | Content md5 value, calculated by title and body, used when frequency is limited |
+|      15       | FREQUENCY_LIMIT |    int    |   10   |       0       |          Y           |      N      |               | Frequency limit duration (unit minute) : No message is resold within n minutes |
+|      16       |   TOF_SYS_ID    |  varchar  |   20   |       0       |          Y           |      N      |               |                        tof System id                         |
+|      17       |   FROM_SYS_ID   |  varchar  |   20   |       0       |          Y           |      N      |               |            id of the system that sent the message            |
+|      18       |  DelaySeconds   |    int    |   10   |       0       |          Y           |      N      |               |               The delay in sending, in seconds               |
 
-**表名：** T\_NOTIFY\_WECHAT
+**Table name:** T_NOTIFY_WECHAT
 
-**说明：** 微信流水表
+Wechat water table
 
-**数据列：**
+**Data column:**
 
-|  序号 |        名称        |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 | 默认值 |               说明              |
-| :-: | :--------------: | :------: | :---: | :-: | :--: | :-: | :-: | :---------------------------: |
-|  1  |        ID        |  varchar |   32  |  0  |   N  |  Y  |     |              主键ID             |
-|  2  |      SUCCESS     |    bit   |   1   |  0  |   N  |  N  |     |              是否成功             |
-|  3  |      SOURCE      |  varchar |  255  |  0  |   N  |  N  |     |              邮件来源             |
-|  4  |      SENDER      |  varchar |  255  |  0  |   N  |  N  |     |             邮件发送者             |
-|  5  |     RECEIVERS    |   text   | 65535 |  0  |   N  |  N  |     |             通知接收者             |
-|  6  |       BODY       |   text   | 65535 |  0  |   N  |  N  |     |              邮件内容             |
-|  7  |     PRIORITY     |    int   |   10  |  0  |   N  |  N  |     |              优先级              |
-|  8  |   RETRY\_COUNT   |    int   |   10  |  0  |   N  |  N  |     |              重试次数             |
-|  9  |    LAST\_ERROR   |   text   | 65535 |  0  |   Y  |  N  |     |             最后错误内容            |
-|  10 |   CREATED\_TIME  | datetime |   19  |  0  |   N  |  N  |     |              创建时间             |
-|  11 |   UPDATED\_TIME  | datetime |   19  |  0  |   N  |  N  |     |              更新时间             |
-|  12 |   CONTENT\_MD5   |  varchar |   32  |  0  |   N  |  N  |     | 内容md5值，由title和body计算得，频率限制时使用 |
-|  13 | FREQUENCY\_LIMIT |    int   |   10  |  0  |   Y  |  N  |     |   频率限制时长，单位分钟，即n分钟内不重发成功的消息   |
-|  14 |   TOF\_SYS\_ID   |  varchar |   20  |  0  |   Y  |  N  |     |            tof系统id            |
-|  15 |   FROM\_SYS\_ID  |  varchar |   20  |  0  |   Y  |  N  |     |           发送消息的系统id           |
-|  16 |   DelaySeconds   |    int   |   10  |  0  |   Y  |  N  |     |           延迟发送的时间，秒           |
+| Serial number |      name       | Data type | length | Decimal place | Allowable null value | Primary key | Default value |                         description                          |
+| :-----------: | :-------------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :-----------: | :----------------------------------------------------------: |
+|       1       |       ID        |  varchar  |   32   |       0       |          N           |      Y      |               |                        Primary key ID                        |
+|       2       |     SUCCESS     |    bit    |   1    |       0       |          N           |      N      |               |                        Success or not                        |
+|       3       |     SOURCE      |  varchar  |  255   |       0       |          N           |      N      |               |                        Source of mail                        |
+|       4       |     SENDER      |  varchar  |  255   |       0       |          N           |      N      |               |                         Mail sender                          |
+|       5       |    RECEIVERS    |   text    | 65535  |       0       |          N           |      N      |               |                       Notify receiver                        |
+|       6       |      BODY       |   text    | 65535  |       0       |          N           |      N      |               |                        Email content                         |
+|       7       |    PRIORITY     |    int    |   10   |       0       |          N           |      N      |               |                           priority                           |
+|       8       |   RETRY_COUNT   |    int    |   10   |       0       |          N           |      N      |               |                         Retry times                          |
+|       9       |   LAST_ERROR    |   text    | 65535  |       0       |          Y           |      N      |               |                      Last error content                      |
+|      10       |  CREATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                        Creation time                         |
+|      11       |  UPDATED_TIME   | datetime  |   19   |       0       |          N           |      N      |               |                         Update time                          |
+|      12       |   CONTENT_MD5   |  varchar  |   32   |       0       |          N           |      N      |               | Content md5 value, calculated by title and body, used when frequency is limited |
+|      13       | FREQUENCY_LIMIT |    int    |   10   |       0       |          Y           |      N      |               | Frequency limit duration (unit minute) : No message is resold within n minutes |
+|      14       |   TOF_SYS_ID    |  varchar  |   20   |       0       |          Y           |      N      |               |                        tof System id                         |
+|      15       |   FROM_SYS_ID   |  varchar  |   20   |       0       |          Y           |      N      |               |            id of the system that sent the message            |
+|      16       |  DelaySeconds   |    int    |   10   |       0       |          Y           |      N      |               |               The delay in sending, in seconds               |
 
-**表名：** T\_NOTIFY\_WEWORK
+**Table name:** T_NOTIFY_WEWORK
 
-**说明：** 企业微信流水表
+Enterprise wechat water table
 
-**数据列：**
+**Data column:**
 
-|  序号 |       名称      |   数据类型   |   长度  | 小数位 | 允许空值 |  主键 |          默认值          |   说明   |
-| :-: | :-----------: | :------: | :---: | :-: | :--: | :-: | :-------------------: | :----: |
-|  1  |       ID      |  bigint  |   20  |  0  |   N  |  Y  |                       |  主键ID  |
-|  2  |    SUCCESS    |    bit   |   1   |  0  |   N  |  N  |                       |  是否成功  |
-|  3  |   RECEIVERS   |   text   | 65535 |  0  |   N  |  N  |                       |  通知接收者 |
-|  4  |      BODY     |   text   | 65535 |  0  |   N  |  N  |                       |  邮件内容  |
-|  5  |  LAST\_ERROR  |   text   | 65535 |  0  |   Y  |  N  |                       | 最后错误内容 |
-|  6  | CREATED\_TIME | datetime |   26  |  0  |   Y  |  N  | CURRENT\_TIMESTAMP(6) |  创建时间  |
-|  7  | UPDATED\_TIME | datetime |   26  |  0  |   Y  |  N  | CURRENT\_TIMESTAMP(6) |  更新时间  |
+| Serial number |     name     | Data type | length | Decimal place | Allowable null value | Primary key |    Default value     |    description     |
+| :-----------: | :----------: | :-------: | :----: | :-----------: | :------------------: | :---------: | :------------------: | :----------------: |
+|       1       |      ID      |  bigint   |   20   |       0       |          N           |      Y      |                      |   Primary key ID   |
+|       2       |   SUCCESS    |    bit    |   1    |       0       |          N           |      N      |                      |   Success or not   |
+|       3       |  RECEIVERS   |   text    | 65535  |       0       |          N           |      N      |                      |  Notify receiver   |
+|       4       |     BODY     |   text    | 65535  |       0       |          N           |      N      |                      |   Email content    |
+|       5       |  LAST_ERROR  |   text    | 65535  |       0       |          Y           |      N      |                      | Last error content |
+|       6       | CREATED_TIME | datetime  |   26   |       0       |          Y           |      N      | CURRENT_TIMESTAMP(6) |   Creation time    |
+|       7       | UPDATED_TIME | datetime  |   26   |       0       |          Y           |      N      | CURRENT_TIMESTAMP(6) |    Update time     |
 
-**表名：** T\_RTX\_NOTIFY\_MESSAGE\_TEMPLATE
+**Table name:** T_RTX_NOTIFY_MESSAGE_TEMPLATE
 
-**说明：** rtx模板表
+rtx template table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称          |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 |         默认值        |   说明  |
-| :-: | :------------------: | :--------: | :------: | :-: | :--: | :-: | :----------------: | :---: |
-|  1  |          ID          |   varchar  |    32    |  0  |   N  |  Y  |                    |  主键ID |
-|  2  | COMMON\_TEMPLATE\_ID |   varchar  |    32    |  0  |   N  |  N  |                    |  模板ID |
-|  3  |        CREATOR       |   varchar  |    50    |  0  |   N  |  N  |                    |  创建者  |
-|  4  |       MODIFIOR       |   varchar  |    50    |  0  |   N  |  N  |                    |  修改者  |
-|  5  |        SENDER        |   varchar  |    128   |  0  |   N  |  N  |       DevOps       | 邮件发送者 |
-|  6  |         TITLE        |   varchar  |    256   |  0  |   Y  |  N  |                    |  邮件标题 |
-|  7  |         BODY         | mediumtext | 16777215 |  0  |   N  |  N  |                    |  邮件内容 |
-|  8  |     CREATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  创建时间 |
-|  9  |     UPDATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  更新时间 |
+| Serial number |        name        | Data type  |  length  | Decimal place | Allowable null value | Primary key |   Default value   |    description     |
+| :-----------: | :----------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :---------------: | :----------------: |
+|       1       |         ID         |  varchar   |    32    |       0       |          N           |      Y      |                   |   Primary key ID   |
+|       2       | COMMON_TEMPLATE_ID |  varchar   |    32    |       0       |          N           |      N      |                   |    Template ID     |
+|       3       |      CREATOR       |  varchar   |    50    |       0       |          N           |      N      |                   |      founder       |
+|       4       |      MODIFIOR      |  varchar   |    50    |       0       |          N           |      N      |                   |      modifier      |
+|       5       |       SENDER       |  varchar   |   128    |       0       |          N           |      N      |      DevOps       |    Mail sender     |
+|       6       |       TITLE        |  varchar   |   256    |       0       |          Y           |      N      |                   | Subject of message |
+|       7       |        BODY        | mediumtext | 16777215 |       0       |          N           |      N      |                   |   Email content    |
+|       8       |    CREATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |   Creation time    |
+|       9       |    UPDATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |    Update time     |
 
-**表名：** T\_WECHAT\_NOTIFY\_MESSAGE\_TEMPLATE
+**Table name:** T_WECHAT_NOTIFY_MESSAGE_TEMPLATE
 
-**说明：** wechat模板表
+wechat template table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称          |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 |         默认值        |   说明  |
-| :-: | :------------------: | :--------: | :------: | :-: | :--: | :-: | :----------------: | :---: |
-|  1  |          ID          |   varchar  |    32    |  0  |   N  |  Y  |                    |  主键ID |
-|  2  | COMMON\_TEMPLATE\_ID |   varchar  |    32    |  0  |   N  |  N  |                    |  模板ID |
-|  3  |        CREATOR       |   varchar  |    50    |  0  |   N  |  N  |                    |  创建者  |
-|  4  |       MODIFIOR       |   varchar  |    50    |  0  |   N  |  N  |                    |  修改者  |
-|  5  |        SENDER        |   varchar  |    128   |  0  |   N  |  N  |       DevOps       | 邮件发送者 |
-|  6  |         TITLE        |   varchar  |    256   |  0  |   Y  |  N  |                    |  邮件标题 |
-|  7  |         BODY         | mediumtext | 16777215 |  0  |   N  |  N  |                    |  邮件内容 |
-|  8  |     CREATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  创建时间 |
-|  9  |     UPDATE\_TIME     |  datetime  |    19    |  0  |   N  |  N  | CURRENT\_TIMESTAMP |  更新时间 |
+| Serial number |        name        | Data type  |  length  | Decimal place | Allowable null value | Primary key |   Default value   |    description     |
+| :-----------: | :----------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :---------------: | :----------------: |
+|       1       |         ID         |  varchar   |    32    |       0       |          N           |      Y      |                   |   Primary key ID   |
+|       2       | COMMON_TEMPLATE_ID |  varchar   |    32    |       0       |          N           |      N      |                   |    Template ID     |
+|       3       |      CREATOR       |  varchar   |    50    |       0       |          N           |      N      |                   |      founder       |
+|       4       |      MODIFIOR      |  varchar   |    50    |       0       |          N           |      N      |                   |      modifier      |
+|       5       |       SENDER       |  varchar   |   128    |       0       |          N           |      N      |      DevOps       |    Mail sender     |
+|       6       |       TITLE        |  varchar   |   256    |       0       |          Y           |      N      |                   | Subject of message |
+|       7       |        BODY        | mediumtext | 16777215 |       0       |          N           |      N      |                   |   Email content    |
+|       8       |    CREATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |   Creation time    |
+|       9       |    UPDATE_TIME     |  datetime  |    19    |       0       |          N           |      N      | CURRENT_TIMESTAMP |    Update time     |
 
-**表名：** T\_WEWORK\_NOTIFY\_MESSAGE\_TEMPLATE
+**Table name:** T_WEWORK_NOTIFY_MESSAGE_TEMPLATE
 
-**说明：** wework模板表
+**wework** template table
 
-**数据列：**
+**Data column:**
 
-|  序号 |          名称          |    数据类型    |    长度    | 小数位 | 允许空值 |  主键 |          默认值          |   说明  |
-| :-: | :------------------: | :--------: | :------: | :-: | :--: | :-: | :-------------------: | :---: |
-|  1  |          ID          |   varchar  |    32    |  0  |   N  |  Y  |                       |  主键ID |
-|  2  | COMMON\_TEMPLATE\_ID |   varchar  |    32    |  0  |   N  |  N  |                       |  模板ID |
-|  3  |        CREATOR       |   varchar  |    50    |  0  |   N  |  N  |                       |  创建者  |
-|  4  |       MODIFIOR       |   varchar  |    50    |  0  |   N  |  N  |                       |  修改者  |
-|  5  |        SENDER        |   varchar  |    128   |  0  |   N  |  N  |         DevOps        | 邮件发送者 |
-|  6  |         TITLE        |   varchar  |    256   |  0  |   Y  |  N  |                       |  邮件标题 |
-|  7  |         BODY         | mediumtext | 16777215 |  0  |   N  |  N  |                       |  邮件内容 |
-|  8  |     CREATE\_TIME     |  datetime  |    26    |  0  |   N  |  N  | CURRENT\_TIMESTAMP(6) |  创建时间 |
-|  9  |     UPDATE\_TIME     |  datetime  |    26    |  0  |   Y  |  N  |                       |  更新时间 |
+| Serial number |        name        | Data type  |  length  | Decimal place | Allowable null value | Primary key |    Default value     |    description     |
+| :-----------: | :----------------: | :--------: | :------: | :-----------: | :------------------: | :---------: | :------------------: | :----------------: |
+|       1       |         ID         |  varchar   |    32    |       0       |          N           |      Y      |                      |   Primary key ID   |
+|       2       | COMMON_TEMPLATE_ID |  varchar   |    32    |       0       |          N           |      N      |                      |    Template ID     |
+|       3       |      CREATOR       |  varchar   |    50    |       0       |          N           |      N      |                      |      founder       |
+|       4       |      MODIFIOR      |  varchar   |    50    |       0       |          N           |      N      |                      |      modifier      |
+|       5       |       SENDER       |  varchar   |   128    |       0       |          N           |      N      |        DevOps        |    Mail sender     |
+|       6       |       TITLE        |  varchar   |   256    |       0       |          Y           |      N      |                      | Subject of message |
+|       7       |        BODY        | mediumtext | 16777215 |       0       |          N           |      N      |                      |   Email content    |
+|       8       |    CREATE_TIME     |  datetime  |    26    |       0       |          N           |      N      | CURRENT_TIMESTAMP(6) |   Creation time    |
+|       9       |    UPDATE_TIME     |  datetime  |    26    |       0       |          Y           |      N      |                      |    Update time     |

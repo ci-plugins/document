@@ -1,2 +1,2 @@
-# OPENAPI-构建日志资源
+# OPENAPI-Building Logging Resources
 

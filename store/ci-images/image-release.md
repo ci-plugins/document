@@ -1,69 +1,62 @@
-# 发布一个CI镜像
-
-## 准备容器镜像 <a id="&#x51C6;&#x5907;&#x5BB9;&#x5668;&#x955C;&#x50CF;"></a>
-
-若没有镜像，请参考[构建并托管一个CI镜像](image-build.md)
-
-## 发布容器镜像 <a id="&#x53D1;&#x5E03;&#x5BB9;&#x5668;&#x955C;&#x50CF;"></a>
-
-### 入口 <a id="&#x5165;&#x53E3;"></a>
-
-工作台-&gt;容器镜像-&gt;关联镜像
-
+# Publish a CI image
+## Prepare the container image
+If no image is available, see [build and Host a CI Image](image-build.md)
+## Publish container image
+### Entrance
+Worktable -&gt; Container mirror image -&gt; Associated mirror
 ![](../../.gitbook/assets/image%20%2839%29.png)
 
-### 关联镜像 <a id="&#x5173;&#x8054;&#x955C;&#x50CF;"></a>
-
+### Associated mirror
 ![](../../.gitbook/assets/image%20%281%29.png)
 
-1. 镜像在研发商店中的唯一标识，不重名即可
-2. 镜像发布过程中，可以在此调试项目下，验证镜像功能是否正常。建议使用专用的测试项目验证
-3. 若为私有镜像，请在凭证管理创建一个凭证，关联到此镜像。执行时，系统使用此凭证去拉取镜像
+1. The unique identity of the image in the R&D store, not the same name
+2. During image publishing, check whether the image function is normal under this debugging item. It is recommended to use dedicated test items for verification
+3. If the image is a private image, create a credential in Credentials management and associate it with the image. At execution time, the system uses this credent to pull the image
 
-### 上架/升级镜像 <a id="&#x4E0A;&#x67B6;/&#x5347;&#x7EA7;&#x955C;&#x50CF;"></a>
-
-**入口如下**
-
+### Mount/upgrade image
+**Entry is as follows**
 ![](../../.gitbook/assets/image%20%2846%29.png)
 
-**填写基本信息**
-
+**Fill in the basic information**
 ![](../../.gitbook/assets/image%20%2831%29.png)
 
 ![](../../.gitbook/assets/image%20%2819%29.png)
 
-1. 镜像库 host
-   * 若为 docker hub 镜像，可以不填，或者填 docker.io
-2. 镜像名称，包括镜像命名空间
-3. 镜像 tag
-4. 凭证：私有镜像需要指定访问的凭证
-5. Dockerfile：将展示在研发商店中，供用户了解镜像细节
+1. Mirror the library host
+   * If docker hub image is used, you can leave this field blank or enter docker.io
 
-当升级镜像时，有三种升级模式：
+2. Image name, including the image namespace
 
-![](../../.gitbook/assets/image%20%2841%29.png)
+3. Image tag
 
-1. 非兼容式升级：
-   * 镜像功能逻辑发生重大变更，和老版本不兼容时使用
-   * 此类型版本发布后，已使用该镜像的流水线不会自动升级版本，需用户手动修改版本号
-   * 主版本号 +1
-2. 兼容式功能更新：
-   * 镜像功能更新或新增\(不影响已使用用户\)时使用
-   * 此类型版本发布后，已使用该镜像且版本号选为\[主版本.latest\]的流水线自动使用新版本，无需手动编辑流水线
-   * 次版本号 +1
-3. 兼容式问题修正：
-   * 镜像功能兼容旧版本，仅做问题修正
-   * 此类型版本发布后，已使用该镜像且版本号选为\[主版本.latest\]的流水线自动使用新版本，无需手动编辑流水线
-   * 修正号 +1
+4. Credentials: Private mirrors need to specify access credentials
 
-**验证镜像**
+5. Dockerfile: It will be displayed in the R&D store for users to understand the details of the image
+    When upgrading an image, there are three upgrade modes:
+    ![](../../.gitbook/assets/image%20%2841%29.png)
 
-提交发布后，可以在调试项目下验证镜像功能是否满足预期
+1. Incompatible upgrade:
+   * Used when the mirror function logic has changed significantly and is incompatible with older versions
+   * After this version is released, the pipeline that uses the image does not automatically upgrade the version. You need to manually change the version number
+   * Major version number +1
+2. Compatible function update:
+   * Used when the mirror function is updated or added \(does not affect existing users \)
+   * After this type of version is released, pipelinesthat are already using the image and version number is \[major version.latest] will automatically use the new version without manually editing the pipelines5
+   * Minor version number +1
+3. Compatible problem correction:
 
-![](../../.gitbook/assets/image%20%2814%29.png)
+   * Mirror function compatible with older versions, only to do problem correction
 
-1. 测试：点击后跳转到调试项目的流水线服务下，可以使用此镜像执行流水线 Job，验证功能是否满足预期
-2. 若发现问题，重新推送镜像后，重新验证并测试
-   * 验证镜像步骤，仅校验镜像是否能成功拉取，功能是否正常还需要发布者自行测试
-3. 测试 OK 后，手动继续发布流程，将镜像发布到研发商店，供其他用户/项目使用
+   * After this type of version is released, pipelinesthat are already using the image and version number is \[major version.latest] will automatically use the new version without manually editing the pipelines5
 
+   * Correction sign +1
+
+
+**Verify image**
+After the release is submitted, you can verify that the mirroring function meets expectations under the debugging project
+     ![](../../.gitbook/assets/image%20%2814%29.png)
+
+1. Test: Click and jump to the pipeline service of the debugging project. You can use this image to perform the pipeline Job and verify whether the function meets expectations
+2. If any problem is found, push the image again, verify and test it again
+   * Image verification steps, only verify whether the image can be successfully pulled, whether the function is normal needs to be tested by the publisher
+3. After the test is OK, continue the release process manually and release the image to the R&D store for other users/projects

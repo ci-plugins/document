@@ -1,42 +1,32 @@
-# BKCI 规格要求
-
-我们提供了以最小化硬件成本搭建起 BKCI 的最低要求。如果你正尝试将 BKCI 投入生产环境，请仔细阅读：[BKCI 硬件规格指南](bkci-ying-jian-gui-ge-zhi-nan.md)
-
+# BKCI specification requirements
+We provide the minimum requirements to set up BKCI with minimal hardware costs. If you are trying to put bkci into production, please read: [BKCI Hardware Specification Guide](bkci-Ying-jian-gui-ge-zhi-nan.md)
 {% tabs %}
-{% tab title="Web客户端要求" %}
-BKCI 支持如下主流的浏览器：
-
+{% tab title="Web Client Requirements "%}
+BKCI supports the following major browsers:
 * Google Chrome
 * Microsoft Edge
 {% endtab %}
 
-{% tab title="Server要求" %}
-**硬件**
+{% tab title="Server requirement "%}
+**Hardware**
 
-* CPU：最少2核/2GHz
-* 内存：最少1GB，推荐2GB
-* 磁盘空间：最少1GB
+* CPU: Minimum 2 cores /2GHz
+* Memory: 1GB minimum, 2GB recommended
+* Disk space: at least 1GB
+** Supported operating systems **
+* CentOS/RedHat: 6.0 or later{% endtab %}
 
-**支持的操作系统**
-
-* CentOS/RedHat：6.0及以上版本
-{% endtab %}
-
-{% tab title="Agent要求" %}
-**支持的操作系统**
+{% tab title="Agent requirement "%}
+**Supported operating systems**
 
 * Windows：Windows Server 2012/2016; Win10
-* macOS：10.14及以上（Intel处理器）
-* Linux：CentOS/Ubuntu
+* macOS: 10.14 and above (Intel processor)* Linux：CentOS/Ubuntu
 
-**硬件**
+**Hardware**
 
 * CPU：2GHz
-* 内存：最少128MB，推荐256MB
-
-**附加要求**
-
-[第三方构建机环境准备](../../services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/di-san-fang-gou-jian-ji-huan-jing-zhun-bei.md)
-{% endtab %}
+* Memory: 128MB minimum, 256MB recommended
+**Additional requirements**
+[Third-Party builder environment preparation](../../services/pools/jiang-ni-de-gou-jian-ji-tuo-guan-zhi-bkci/di-san-fang-gou-jian-ji-huan-jing-zhun-bei.md){% endtab %}
 {% endtabs %}
 

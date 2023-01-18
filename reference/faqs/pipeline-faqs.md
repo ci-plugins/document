@@ -1,28 +1,24 @@
----
-coverY: 0
----
+# Pipeline FAQ
 
-# 流水线FAQ
+### Q: How can I make my pipeline log display with different colors
 
-### Q: 如何让自己的流水线日志显示带上不同颜色
+In the pipeline logging component, we define the following keywords for plug-in developers to use.
 
-在流水线日志组件中，我们定义了以下关键字供插件开发者使用。
+| Key word       | function                                          | remarks                                                      |
+| -------------- | ------------------------------------------------- | ------------------------------------------------------------ |
+| ##[section]    | The beginning of a Job or plugin                  | If it is the start of a plug-in, it must be included in the Starting of a Job |
+| ##[endsection] | The end of a Job or plugin                        | If it is a plug-in ending, it must be included in the Finishing of a Job |
+| ##[command]    | Highlight the following string as ShellScripts    | #0070BB                                                      |
+| ##[info]       | Mark the following string as the info color       | #48BB31                                                      |
+| ##[warning]    | Mark the following string as the color of warning | #BBBB23                                                      |
+| ##[error]      | Mark the following string as the error color      | #DE0A1A                                                      |
+| ##[debug]      | Mark the following string as the debug color      | #0D8F61                                                      |
+| ##[group]      | The beginning of a fold                           |                                                              |
+| ##[endgroup]   | The end of a fold                                 |                                                              |
 
-| 关键字             | 作用                     | 备注                            |
-| --------------- | ---------------------- | ----------------------------- |
-| ##\[section]    | 一个Job或者插件的开头           | 如果是插件开头，必须包含在一个Job的Starting内  |
-| ##\[endsection] | 一个Job或者插件的结尾           | 如果是插件结尾，必须包含在一个Job的Finishing内 |
-| ##\[command]    | 将后面的字符串以ShellScripts高亮 | #0070BB                       |
-| ##\[info]       | 将后面的字符串标记为info颜色       | #48BB31                       |
-| ##\[warning]    | 将后面的字符串标记为warning颜色    | #BBBB23                       |
-| ##\[error]      | 将后面的字符串标记为error颜色      | #DE0A1A                       |
-| ##\[debug]      | 将后面的字符串标记为debug颜色      | #0D8F61                       |
-| ##\[group]      | 一个折叠的开始                |                               |
-| ##\[endgroup]   | 一个折叠的结束                |                               |
+**Take the Bash plug-in as an example:**
 
-**以Bash插件为例：**
-
-```bash
+```
 echo "##[command]whoami"
 whoami
 echo "##[command]pwd"
@@ -42,308 +38,309 @@ env
 echo "##[endgroup]"
 ```
 
-你将看到如下图所示效果
+You should see something like the image below
 
-![](../../.gitbook/assets/image2020-1-9\_21-59-12.png)
+![img](../../.gitbook/assets/image2020-1-9_21-59-12.png)
 
-### Q: gitlab事件触发插件无法触发事件?
+### Q: Does the gitlab event trigger plugin fail to trigger events?
 
-1. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
-2. 如果没有注册
-   1. 查看repository服务到gitlba的网络是否能通
-   2. 查看gitlab仓库的权限是否是master权限
-   3. 在repository服务部署的机器上，执行grep "Start to add the web hook of " $BK\_HOME/logs/ci/repository/repository-devops.log查找注册失败原因，$BK\_HOME默认是/data/bkce
-3. 如果已注册，还是没有触发，
-   1. 到gitlab的webhook页面，查看是否有注册成功，如图1
-   2. 如果gitlab中有注册的url，url是 [http://域名/external/scm/codegit/commit](http://xn--eqrt2g/external/scm/codegit/commit) 然后点击编辑，查看发送的详情，如图2
-   3. 查看gitlab没有发送的详情，如图3
-4. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志
+1. Check whether the pipeline_devops_ci_process. T_PIPELINE_WEBHOOK table is registered. SELECT * FROM devops_ci_process.T_PIPELINE_WEBHOOK WHERE pipeline_id = pipeline_id, {pipeline_id} can be obtained from the url
+2. If not registered
+   1. Check whether the repository service is connected to gitlba
+   2. Check whether the gitlab warehouse has master permissions
+   3. In the repository service deployment on the machine, the implementation of the grep "Start to add the web hook of" BK_HOME/logs/ci/repository/repository - the conversation. *Registered* the log to *find* *reasons* for *failure*, BK_HOME The default value is /data/bkce
+3. If it's registered and still not triggered,
+   1. Go to gitlab's webhook page and see if any registrations have been successful, as shown in Figure 1
+   2. If you have any registered gitlab url, the url is [http:// domain name/external/SCM/codegit/commit](http://xn--eqrt2g/external/scm/codegit/commit) and then click edit, send details view, as shown in figure 2
+   3. See the details that gitlab did not send, as shown in Figure 3
+4. If above all no problem, in the process of service deployment machine, perform the grep "Trigger gitlab build" $BK_HOME/logs/ci/process/process - the conversation. The log search logs, find out the entry log Trigger
 
-![](<../../.gitbook/assets/image (58) (1).png>)
+![img](../../.gitbook/assets/image%20(58)%20(1).png)
 
-![](<../../.gitbook/assets/image (59).png>)
+![img](../../.gitbook/assets/image%20(59).png)
 
-![](<../../.gitbook/assets/image (57).png>)
+![img](../../.gitbook/assets/image%20(57).png)
 
-### Q: 流水线的各个状态代表什么意思？
+### Q: What do the states of the assembly line represent?
 
-流水线的状态汇总如下：
+The status of the pipeline is summarized as follows:
 
-![](../../.gitbook/assets/image-20220301101202-uphlD.png)
+![img](../../.gitbook/assets/image-20220301101202-uphlD.png)
 
-### Q: 蓝盾流水线进度条是如何计算的？
+### Q: How is the bkci pipeline progress bar calculated?
 
-进度条是蓝盾前端根据流水线相关的数据做出的预估。此进度不是准确的时间，仅供参考。
+The progress bar is an estimate made by the bkci front end based on pipeline-related data. This schedule is not the exact time, for reference only.
 
-![](../../.gitbook/assets/进度条.png)
+![img](../../.gitbook/assets/进度条.png)
 
-### Q: 蓝盾流水线构建出的产物如何支持服务器分发限速配置?
+### Q: How does the bkci pipeline build support server distribution rate-limiting configurations?
 
-调整分发源的限速，如下图。 对于已经安装agent的机器，可以先移除，再安装。 分发源机器IP: 192.168.5.134
+Adjust the rate limiting of the distribution source, as shown in the following figure. If the agent has been installed on a machine, you can remove the Agent and then install it. IP address of the source machine: 192.168.5.134
 
-![](../../.gitbook/assets/image-20220301101202-PluSB.png)
+![img](../../.gitbook/assets/image-20220301101202-PluSB.png)
 
-### Q: 如何获取流水线id？
+### Q: How do I obtain the pipeline id?
 
-流水线url中，pipeline后的参数分别为项目id和流水线id。如：http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history 中，iccentest 为项目id，p-xxx 即为流水线id。
+In the pipeline url, the parameters after the pipeline are the project id and pipeline id respectively. Such as: http://devops.bktencent.com/console/pipeline/iccentest/p-8f3d1b399897452e901796cf4048c9e2/history, iccentest for project id, p-xxx indicates the pipeline id.
 
-### Q: 项目名称是否支持修改？
+### Q: Does the project name support modification?
 
-项目名称可在项目管理内更改，项目英文缩写（即项目id）不能更改。
+The project name can be changed in Project Management, the project abbreviation (i.e., project id) cannot be changed.
 
-![](../../.gitbook/assets/image-20220301101202-qTzdw.png)
+![img](../../.gitbook/assets/image-20220301101202-qTzdw.png)
 
-![](../../.gitbook/assets/image-20220301101202-FyiDk.png)
+![img](../../.gitbook/assets/image-20220301101202-FyiDk.png)
 
-### Q: 流水线执行失败了，插件为什么没有重试按钮？
+### Q: Pipelining failed. Why doesn't the plugin have a retry button?
 
-只有最新一次的构建可以重试。
+Only the latest build can be retried.
 
-### Q: 如何通过蓝盾将构建产物自动分发到指定服务器？
+### Q: How do I automatically distribute builds to specific servers through bkci?
 
-有了部署机器，我们可以将构件分发至测试机上了。首先添加一个无编译环境Job 3-1，添加插件作业平台-构件分发并完成配置。
+With the deployment machine, we can distribute the artifacts to the test machine. Start by adding a non-compile environment, Job 3-1, adding the plug-in job platform-component distribution and completing the configuration.
 
-![](../../.gitbook/assets/image-20220301101202-vGRcA.png)
+![img](../../.gitbook/assets/image-20220301101202-vGRcA.png)
 
-### Q: 蓝盾有哪些全局变量？
+### Q: What are the global variables of bkci?
 
-{% content-ref url="../pre-define-var/" %}
 [pre-define-var](../pre-define-var/)
-{% endcontent-ref %}
 
-### Q: 查看日志时，如何查看时间戳？
+### Q: How do I view the timestamp when viewing logs?
 
-查看日志页，Show/Hide Timestamp
+Go to the log page, Show/Hide Timestamp
 
-![](../../.gitbook/assets/image-20220301101202-QERjn.png)
+![img](../../.gitbook/assets/image-20220301101202-QERjn.png)
 
-### Q: 蓝盾流水线中的视图管理、标签管理有什么用？
+### Q: What is the use of view management and tag management in bkci pipeline?
 
-对流水线进行分类，当流水线数量较多时，标签、视图会有更大作用。
+If there are a large number of pipelines, labels and views play a bigger role.
 
-### Q: 为什么有时候会出现需要申请流水线权限的情况，但是F5刷新之后恢复？
+### Q: Why is it sometimes necessary to apply for pipelining permission, but F5 is restored after refreshing?
 
-存在权限冲突，在用户组权限里，是有多个流水线的权限。 但是自定义里面只有一个流水线的权限。 后续更新版本会修复这个问题。解决方案为删除自定义权限。后续会通过版本更新修复该问题。
+There is a permission conflict. In the user group permission, there are multiple pipeline permissions. But customization only has pipelining permissions. This will be fixed in subsequent updates. The solution is to delete the custom permission. This issue will be fixed with a future version update.
 
-![](../../.gitbook/assets/image-20220301101202-HIaKn.png)
+![img](../../.gitbook/assets/image-20220301101202-HIaKn.png)
 
-### Q: python的环境变量添加后，在job执行的时候未生效。（job报错“系统找不到指定的文件”）
+### Q: python environment variables are added but do not take effect when the job is executed. (job error "System cannot find the specified file")
 
-因为蓝盾agent和蓝鲸agent使用的账户是system，所以加到administrator的环境变量不生效 需要把python.exe和pip3.exe pip.exe加入到系统环境变量里，再重启操作系统
+Since bkci agent and BK agent use the system account, the environment variables added to the administrator account do not take effect. You need to add python.exe and pip3.exe to the system environment variables and restart the operating system
 
-### Q: 可以通过蓝盾流水线上传构建产物到指定私有GitLab仓库吗？
+### Q: Can I upload builds to designated private GitLab warehouses via the bkci pipeline?
 
-蓝盾git插件暂无push功能。用户可将ssh私钥放置构建机上，在Batch Script插件或者Bash插件里使用git命令push产物达到临时解决方案。
+bkci git plug-in does not have push function. Users can put the ssh private key on the build machine and use the git command push product in the Batch Script plug-in or Bash plug-in to achieve a temporary solution.
 
-### Q: 如何在bash插件之间传递变量，上一个bash插件输出变量，下一个bash插件能引用到？
+### Q: How do I pass variables between bash plug-ins so that the previous bash plug-in outputs variables that the next bash plug-in can reference?
 
-蓝盾为bash插件提供了 setEnv 命令来设置蓝盾的全局变量, `setEnv '变量名' '变量值'` 如：
-
-`setEnv 'cmdb' '3.2.16'`
-
-setEnv 设置的是当前bash的输出参数，在下游才会生效，当前的bash里打印不出来的。
-
-在windows batchscript插件里使用`call:setEnv "FILENAME" "package.zip"` 然后在后续的batchscript插件中使用%FILENAME%引用这个变量
-
-### Q: 节点机器，显示正常，为什么监控网络io没有数据？
-
-![](../../.gitbook/assets/image-20220301101202-Lkelb.png)
-
-没有启用. 这个监控并无意义, 也不影响调度. 建议使用蓝鲸监控等专门的监控系统负责.
-
-如果要启用:
+bkci provides the bash plugin with the setEnv command to set bkci's global variables, `setEnv 'variable name' 'variable value'` Such as:
 
 ```
-1. 配置 bin/03-userdef/ci.env 
-2. 添加 BK_CI_ENVIRONMENT_AGENT_COLLECTOR_ON=true
-3. 然后添加 influxdb相关的配置项.
-4. 重新安装ci-environment. 可以直接使用 ./bk_install ci 安装.
-5. 修改已有agent:编辑.agent.properties , 配置devops.agent.collectorOn=true, 重启agent.
+setEnv 'cmdb' '3.2.16'
 ```
 
-### Q: 有方法可以从标准运维调用蓝盾吗？
+setEnv sets the output parameter of the current bash. This parameter takes effect only in the downstream. It cannot be printed in the current bash.
 
-流水线stage-1 trigger选择remote. 然后标准运维调用job快速执行脚本, 调用remote插件里提示的url.
+Used in windows batchscript plugin`call:setEnv "FILENAME" "package.zip"` This variable is then referenced in subsequent batchscript plug-ins using %FILENAME%
 
-### Q:构建里面如何使用docker build 打包镜像，然后推送镜像到harbor，我的是dockerbuild环境 里面没有docker命令
+### Q: Node machine, the display is normal. Why is there no data on monitoring network io?
 
-可以使用私有构建机. 容器内是没有dockerd的, 出于安全考虑, 容器内是不能操作主机的dockerd的，或者如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
+![img](../../.gitbook/assets/image-20220301101202-Lkelb.png)
 
-### Q:使用docker build生成镜像是不是只能使用私有构建机才行？
+Not enabled. This monitoring is meaningless and does not affect scheduling. Special monitoring systems such as BK monitoring are recommended.
 
-建议使用私有构建机, 公共构建机DinD方案存在安全隐患, 所以需要私有构建机制作镜像.
-
-如果蓝盾使用者是受信任的话，可以使用我们交付团队的DinD**方案**
-
-### Q:ci不显示日志
-
-![](../../.gitbook/assets/image-20220301101202-xwkmo.png)
-
-查看对应微服务日志 /data/bkce/logs/ci/log/
-
-![](../../.gitbook/assets/image-20220301101202-bduGg.png)
-
-一个index占了12个shards，超过了es7 设置的shards最大值，这是es7的限制
-
-解决方法：清理一些无用的索引
+If you want to enable:
 
 ```
-查看目前所有的索引
+1. configure bin/03-userdef/ci.env 
+2. add BK_CI_ENVIRONMENT_AGENT_COLLECTOR_ON=true
+3. Then add the influxdb-related configuration items. 4.
+Reinstall the ci-environment. You can use . /bk_install ci to install it.
+5. Modify the existing agent: edit .agent.properties , configure devops.agent.collectorOn=true, restart the agent.
+```
+
+### Q: Is there a way to call bkci from standard operations?
+
+Pipeline-stage-1 trigger selects remote. Then standard operations invokes the job to quickly execute the script, invoking the url prompted in the remote plug-in.
+
+### Q: How do I use dockerbuild to package the image and then push the image to harbor? My dockerbuild environment does not have docker commands
+
+You can use a private build machine. There is no dockerd in the container, and for security reasons, the host dockerd cannot be operated in the container, or if the bkci user is trusted, the DinD **solution** from our delivery team can be used
+
+### Q: Is it only possible to use private build machines to generate images using docker build?
+
+You are advised to use a private builder. The public builder DinD solution has security risks. Therefore, a private builder is required for mirroring.
+
+If bkci users are trusted, they can use our delivery team's DinD **solution**
+
+### Q:ci does not display logs
+
+![img](../../.gitbook/assets/image-20220301101202-xwkmo.png)
+
+View microservice logs/ data/bkce/logs/ci/log/
+
+![img](../../.gitbook/assets/image-20220301101202-bduGg.png)
+
+One index accounts for 12 shards, exceeding the maximum set by es7, which is the limit for es7
+
+Solution: Clean up some useless indexes
+
+```
+# View all current indexes
 source /data/install/utils.fc
 curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X GET http://$BK_ES7_IP:9200/_cat/indices?v
-删除索引 # index 是索引名称
+# Delete index # index is the name of the index
 curl -s -u elastic:$BK_ES7_ADMIN_PASSWORD -X DELETE http://$BK_ES7_IP:9200/index
-# 注意：不能删除 .security-7
+# cant delete .security-7
 ```
 
-![](../../.gitbook/assets/image-20220301101202-RWPNo.png)
+![img](../../.gitbook/assets/image-20220301101202-RWPNo.png)
 
-**另一种可能是用户未安装es7**
+**Another possibility is that the user does not have es7 installed**
 
-### Q:公共构建机，这几类都支持吗？
+### Q: Common builder, are all of these supported?
 
-![](../../.gitbook/assets/image-1646103610029.png)
+![img](../../.gitbook/assets/image-1646103610029.png)
 
-公共构建机依赖docker, 只能运行linux. 目前只能运行基于我们 bkci/ci:alpine (debian系统)制作的构建镜像.
+The common builder relies on docker and can only run linux. Currently, it can only run build images based on our bkci/ci:alpine (debian system).
 
-### Q:私有构建机必须是物理机吗？可以是docker容器吗?
+### Q: Does a private build machine have to be a physical machine? Can it be a docker container?
 
-私有构建机和项目绑定, 且需安装agent并注册. 建议使用物理机/虚拟机等变动少的场景. 容器化使用公共构建机即可.
+The private builder is bound to the project, and the agent must be installed and registered. You are advised to use scenarios with few changes, such as physical machines or VMS. Containerization can be done using a common builder.
 
-### Q:上传镜像报错，程序默认把http方式换成https了
+### Q: An error occurs when uploading an image. The program changes the http mode to https by default
 
-![](../../.gitbook/assets/image-20220301101202-UayBz.png)
+![img](../../.gitbook/assets/image-20220301101202-UayBz.png)
 
-docker默认是https的, 这个要改服务端的docker. 需要在dockerhost机器的/etc/docker/daemon.json添加insecure-registry.
+docker is https by default, so docker on the server should be changed. You need to add insecure-registry to /etc/docker/daem. json on the dockerhost machine.
 
-BKCI这边推送镜像默认都走https，如果要走http需要把仓库域名配置进insecure
+By default, all images pushed by BKCI use https. To use http, you need to configure the warehouse domain name into insecure
 
-走https的话如果仓库域名不是docker客户端开始装的时候对应的那个证书的话，需要在构建机导入这个域名对应的证书
+If https is used, if the warehouse domain name is not the corresponding certificate when docker client starts to install, the certificate corresponding to this domain name needs to be imported into the builder
 
 ### Q:no available Docker VM
 
-![](../../.gitbook/assets/image-20220301101202-ceNsG.png)
+![img](../../.gitbook/assets/image-20220301101202-ceNsG.png)
 
-是没有可用的ci-dockerhost.需要:
+No ci-dockerhost is available.
 
-1\. 在ci-dispatch节点执行 /data/src/ci/scripts/bkci-op.sh list 查看是否有状态为true的行.
+\1. In the ci - dispatch nodes perform/data/SRC/ci/scripts/bkci - op. Sh list check whether there is a condition is true.
 
-2\. 如果依旧无法调度, 需要检查ci-dispatch的日志有无异常. 或者涉及dockerhost ip的日志.
+\2. If the dispatch still fails, check whether the ci-dispatch logs are abnormal. Or log involving dockerhost ip.
 
-原因是当时部署蓝盾的时候因为服务器资源有限，把构建机 微服务 网关都放到一台机器上 导致构建机内存使用率过高，构建环境的时候找不到可用构建机，现在把构建机单独部署到别的机器上 之前的那些报错就都没了。
+The reason was that when bkci was deployed, due to limited server resources, the construction machine microservice gateway was placed on one machine, resulting in high memory usage of the construction machine. When building the environment, the construction machine could not be found. Now those errors before the construction machine was deployed on another machine are gone.
 
-### Q: 哪里可以查看上传到 制品库 的jar包？使用默认方式&#x20;
+### Q: Where can I view the jar packages uploaded to the artifact library? Use the default
 
-蓝鲸社区参考：[https://bk.tencent.com/s-mart/community/question/2380](https://bk.tencent.com/s-mart/community/question/2380)
+The BK community reference: https://bk.tencent.com/s-mart/community/question/2380
 
-### Q:gitlab事件触发插件无法触发事件
+### Q: The gitlab event trigger plug-in cannot trigger events
 
-参考 https://docs.bkci.net/reference/faqs 排查下
+Refer to the https://docs.bkci.net/reference/faqs under the screen
 
-### Q: 拉取镜像失败，错误信息：status 500
+### Q: Failed to pull a mirror with error message status 500
 
-![](../../.gitbook/assets/image-20220301101202-CVycR.png)
+![img](../../.gitbook/assets/image-20220301101202-CVycR.png)
 
-用户自行配置的仓库，需要先保证网路可达
+If the warehouse is configured by users, ensure that the network is reachable
 
-### Q: 一台mac只能装一个agent吗
+### Q: Can only one agent be installed on a mac
 
-可以多个, 在不同目录启动agent即可. 每个agent实例需要全新安装, 不能直接复制已有agent目录.
+You can start multiple agents in different directories. Each agent instance needs to be newly installed. The existing agent directory cannot be directly copied.
 
-### Q: windos构建机 流水线执行用python去打开exe 失败
+### Q: Failed in windos builder pipelining to open the exe using python
 
-windows下，agent无法拉起有UI界面的exe
+Symptom In windows, the agent cannot pull up the UI exe
 
-这个是windows session 0 限制
+This is the windows session 0 limit
 
-### Q: failed to connect to gitlib.xxx.com port 443:connection timed out 构建失败 提示连接443端口超时
+### Q: failed to connect to gitlib.xxx.com port 443:connection timed out Q: Failed to connect to gitlib.xxx.com port 443: Connection timed out
 
-![](../../.gitbook/assets/image-20220301101202-AaxCJ.png)
+![img](../../.gitbook/assets/image-20220301101202-AaxCJ.png)
 
-这里断网的原因是dockerhost启动后, 执行过sysctl -p等价的命令, 导致 net.ipv4.ip\_forward 被重置为0, 导致容器断网.
+The reason for the network disconnection is that after dockerhost is started, a sysctl -p equivalent command is executed. As a result, net.ipv4.ip_forward is reset to 0, resulting in network disconnection of the container.
 
 ```
 sysctl -p | grep -F net.ipv4.ip_forward
 net.ipv4.ip_forward = 0
-单独启动一个测试容器:
+Start a separate test container:
 docker run -it --rm centos 
-应该会看到
+You should see:
 WARNING: IPv4 forwarding is disabled. Networking will not work.
-容器内执行命令, 等待后会看到提示超时:
+Execute the command inside the container, and you will see a timeout:
 curl -m 3 -v paas.service.consul
-然后执行 systemctl restart bk-ci-docker-dns-redirect
-单独启动一个测试容器:
+then run: 
+systemctl restart bk-ci-docker-dns-redirect
+Start a separate test container:
 docker run -it --rm centos 
-容器内执行命令, 可以看到网络恢复:
+Execute the command inside the container, and you should see the network resume:
 curl -v paas.service.consul
 ```
 
-### Q:agent里面需要连网下docker，服务器连不了网，要如何处理呢？
+### Q: docker needs to be connected to the network in the agent, but the server cannot connect to the network. How to deal with it?
 
-目前公共构建机可以使用任意镜像, 无编译环境需要联网下载镜像.
+Currently, any image can be used by the public builder. No build environment requires the Internet to download the image.
 
-目前需要你将无编译环境部署到可联网的区域, 并放行访问docker hub的地址.
+It is currently required that you deploy the non-compile environment to a network accessible area and grant access to the docker hub address.
 
-公共构建机填写镜像地址为你们的私有docker registry.
+The public builder fills in the image address for your private docker registry.
 
-并人工转存docker hub上的bkci/ci:latest到私有docker registry.
+And manually transfer bkci/ci:latest on the docker hub to the private docker registry.
 
-### Q:新增完凭据之后 选择的时候没有
+### Q: Not when selecting credentials after adding them
 
-检查创建完毕后浏览器有无报错, 检查 ci-auth 及 ci-ticket 的日志有无异常.
+Check whether the browser reports an error after the creation, and check whether the ci-auth and ci-ticket logs are abnormal.
 
-如果是普通用户创建的, 可以切换到管理员账户查看是否成功创建.
+If it is created by a common user, you can switch to the administrator account to check whether it is created successfully.
 
-### Q: 挂载如何使用， 下拉框没数据
+### Q: How do I use mount? No data in the drop-down box
 
-![](../../.gitbook/assets/image-20220301101202-sxXbU.png)
+![img](../../.gitbook/assets/image-20220301101202-sxXbU.png)
 
-这个需要维护一个NFS共享存储服务，不太推荐使用了，后续有可能移除
+This service requires the maintenance of an NFS shared storage service. Therefore, it is not recommended and may be removed later
 
-最好的做法是，将依赖工具打包到镜像里，有2个阶段
+The best way to do this is to package the dependency tool into the image, which has two phases
 
-阶段A 里面的 job 有个 task-A ：是克隆git 代码后构建编译打包jar
+The job in stage A has a task-A: clone git code and build the package jar
 
-阶段B 里面的 job 有个 task-B：是把 task-A 中构建好的 jar scp 到部署发布到服务器 。
+The job in phase B has a task-B: It is to distribute the jar scp built in task-A to the deployment server.
 
-验证下来的结果是 这两个阶段的 workspace 是不共通的。目前的做法是我都放到一个 Job里面才行，这样才能共用一个 workspace 里面构建生产的 jar文件。
+The result is that the workspace of these two phases is not common. The current practice is to put them all into the same Job, so that the production jar files can be built in the same workspace.
 
-设计如此，CI的产物如果要部署出去，必须走到制品库，用maven私服的思路没错
+By design, if a CI artifact is to be deployed, it has to go to the artifact repository, and using maven for private service is a good idea
 
-### Q: 研发商店：插件配置文件\[task.json]atomCode字段与工作台录入的不一致
+### Q: R&D store: plug-in configuration file [task.json] The atomCode field is inconsistent with that entered by the workbench
 
-![](../../.gitbook/assets/image-20220301101202-WRucB.png)
+![img](../../.gitbook/assets/image-20220301101202-WRucB.png)
 
-上传的，可能不是插件发布包，是源代码。发布过程看插件的readme
+The uploaded, probably not plug-in distribution, is source code. The release process looks at the plug-in's readme
 
-如果上传的是正确的发布包可以临时编辑插件zip包内的task.json, 修改atomCode(和上传界面一致, 不含下划线)后重新打包上传.
+If the correct distribution package is uploaded, you can temporarily edit task.json in the plug-in zip package, modify atomCode(consistent with the upload interface, without underscores), repackage and upload.
 
-### Q: 插件包上传失败
+### Q: The plug-in package fails to be uploaded
 
-![](../../.gitbook/assets/image-20220301101202-iJWQt.png)
+![img](../../.gitbook/assets/image-20220301101202-iJWQt.png)
 
-可以先检查下blueking用户能否正常读写 artifactory数据目录: /data/bkce/public/ci/artifactory/
+Can check artifactory blueking users whether normal, speaking, reading and writing data directory: / data/bkce/public/ci/artifactory /
 
-然后检查artifactory日志文件, 看看报错.
+Then check the artifactory log file for errors.
 
-### Q: 蓝盾添加节点的时候报错 bkiam v3 failed&#x20;
+### Q: A bkiam v3 failed error is displayed when bkci is adding a node
 
-![](../../.gitbook/assets/image-20220301101202-MyIAk.png)
+![img](../../.gitbook/assets/image-20220301101202-MyIAk.png)
 
-### 然后根据给出的文档排查了日志
+### Then check the log according to the given documentation
 
 /data/bkce/ci/environment/logs/environment-devops.log
 
 /data/bkce/ci/environment/logs/auth-devops.log
 
-![](../../.gitbook/assets/image-20220301101202-GyIic.png)
+![img](../../.gitbook/assets/image-20220301101202-GyIic.png)
 
-排查发现ci auth库下的 T\_AUTH\_IAM\_CALLBACK表 为空
+The T_AUTH_IAM_CALLBACK table in the ci auth library is empty
 
-原因是集群初始配置失败，但脚本并没有终止
+The initial cluster configuration failed, but the script did not terminate
 
 ```
-ci初始化
+ci init
 reg ci-auth callback.
 [1] 19:29:00 [SUCCESS] 172.16.1.49
 {
@@ -353,583 +350,610 @@ reg ci-auth callback.
   "message" : "",
   "path" : "/api/op/auth/iam/callback/"
 }Stderr: * About to connect() to localhost port 21936 (#0)
-解决方法：可尝试手动 注册ci-auth的回调.
+Solution: You can try to manually register the ci-auth callback.
 source /data/install/load_env.sh
 iam_callback="support-files/ms-init/auth/iam-callback-resource-registere.conf"
 ./pcmd.sh -H "$BK_CI_AUTH_IP0" curl -vsX POST "http://localhost:$BK_CI_AUTH_API_PORT/api/op/auth/iam/callback/" -H "Content-Type:application/json" -d @${BK_PKG_SRC_PATH:-/data/src}/ci/support-files/ms-init/auth/iam-callback-resource-registere.conf
 ```
 
-### Q: Upload artifacts这个上传功能是上传到当前使用stage的构建的构建机里面还是有单独的仓库位置&#x20;
+### Q: Upload artifacts Does the upload function upload artifacts to the build machine that is currently using the stage or does it have a separate repository location
 
-归档构件，是把构建机上的产物归档到专用的产物仓库，产物仓库和构建机无关，由 Artifactory 服务决定。
+Archiving component is to archive the products of the construction machine to a dedicated product warehouse, product warehouse and construction machine unrelated, determined by Artifactory service.
 
-CI 的归档，是将产物暂存到仓库，方便流水线下游操作使用，或者作为后续部署的来源，目前没有支持归档时根据当前构建机所在的云指定构件存储方式。
+The archiving of CI is to temporarily store the product in the warehouse for the convenience of downstream operation of the pipeline, or as the source of subsequent deployment. Currently, there is no support for archiving the storage mode of components specified according to the cloud where the current builder resides.
 
-你描述的，看起来像是构件的分发，通过部署工具去操作可能更合理。
+What you describe looks like a distribution of components that might make more sense through deployment tools.
 
-或者你也可以自定义插件自行实现归档
+Or you can customize plugins to do the archiving themselves
 
-### Q: bkci插件如何开发有文件说明吗？
+### Q: Is there documentation on how to develop bkci plug-ins?
 
-插件开发指引：https://docs.bkci.net/store/plugins/create-plugin
+Plug-in development guidance: https://docs.bkci.net/store/plugins/create-plugin
 
-### Q: JOOQ;uncategorized SQLException for SQL
+### Q: JOOQ; uncategorized SQLException for SQL
 
-![](../../.gitbook/assets/image-20220301101202-rtxbB.png)
+![img](../../.gitbook/assets/image-20220301101202-rtxbB.png)
 
-旧sql没有清理的缘故
+The old sql is not cleaned up
 
 ```
-# 清理flag文件, 重新导入全部sql文件
+# Clean up the flag file, re-import all sql files
 for sql_flag in $HOME/.migrate/*_ci_*.sql; do
 chattr -i "$sql_flag" && rm "$sql_flag"
 done
-# 导入数据库 SQL 仅在中控机执行
+# Importing database SQL is executed only at the central console
 cd ${CTRL_DIR:-/data/install}
 ./bin/sql_migrate.sh -n mysql-ci /data/src/ci/support-files/sql/*.sql
 ```
 
-### Q: private configuration of key JOB\_HOST is missing
+### Q: private configuration of key JOB_HOST is missing
 
-![](../../.gitbook/assets/image-20220301101202-QtZoR.png)
+![img](../../.gitbook/assets/image-20220301101202-QtZoR.png)
 
-job脚本执行插件链接：[https://github.com/TencentBlueKing/ci-executeJobScript](https://github.com/TencentBlueKing/ci-executeJobScript)
+The job script execution plug-in link: https://github.com/TencentBlueKing/ci-executeJobScript
 
-私有配置缺少JOB\_HOST字段，按照上图配置好即可
+The JOB_HOST field is missing in the private configuration. Configure the job_host field as shown in the preceding figure
 
-![](../../.gitbook/assets/脚本执行配置1.png)
+![img](../../.gitbook/assets/脚本执行配置1.png)
 
-### Q: 发送邮件插件不可用
+### Q: The email sending plug-in is unavailable
 
-![](../../.gitbook/assets/企业微信截图\_16408694122894.png)
+![img](../../.gitbook/assets/企业微信截图_16408694122894.png)
 
-插件的执行环境分为有编译和无编译，发送邮件插件的执行环境为无编译环境，在创建Job的步骤时，需要选Job类型为无编译环境，即Agentless
+Plug-in execution environments are compiled and non-compiled. The execution environment of the email plug-in is non-compiled. When creating a Job, select a Job type that is non-compiled, that is, Agentless
 
-![](../../.gitbook/assets/image-20220301101202-SfGeA.png)
+![img](../../.gitbook/assets/image-20220301101202-SfGeA.png)
 
-![](../../.gitbook/assets/image-20220301101202-dhitX.png)
+![img](../../.gitbook/assets/image-20220301101202-dhitX.png)
 
-### Q: 发送邮件插件执行成功，但没收到邮件
+### Q: The email sending plug-in is successfully executed, but no email is received
 
-1. 首先配置ESB的邮件信息，参考：[https://bk.tencent.com/s-mart/community/question/2532](https://bk.tencent.com/s-mart/community/question/2532)
-2. 配置插件的私有配置，参考：[https://github.com/TencentBlueKing/ci-sendEmail](https://github.com/TencentBlueKing/ci-sendEmail)
+1. First configure the ESB email information, refer to: https://bk.tencent.com/s-mart/community/question/2532
+2. Configure the plug-in private configuration, refer to: https://github.com/TencentBlueKing/ci-sendEmail
 
-### Q: 发送邮件插件的sender配置不是我配置的sender
+### Q: The sender configuration of the email sending plug-in is not the sender configured by me
 
-![](../../.gitbook/assets/image-20220301101202-gdDMH.png)
+![img](../../.gitbook/assets/image-20220301101202-gdDMH.png)
 
-sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sender
+sender needs to be set in the plug-in's "private configuration", independent of the ESB mail_sender
 
-「研发商店」-「流水线插件」-「工作台」-「选择发送邮件插件」-「基本设置」-「私有配置」-「增加sender字段」
+"R&d Store" - "Pipeline Plug-in" - "Workbench" - "Select Send Mail plug-in" - "Basic Settings" - "Private Configuration" - "Add sender Field"
 
-![](../../.gitbook/assets/wecom-temp-de1f999781431e708256b5e9a9ecc1d6.png)
+![img](../../.gitbook/assets/wecom-temp-de1f999781431e708256b5e9a9ecc1d6.png)
 
-![](../../.gitbook/assets/wecom-temp-79503b33558fb2f05c4579c99280f8e7.png)
+![img](../../.gitbook/assets/wecom-temp-79503b33558fb2f05c4579c99280f8e7.png)
 
-![](../../.gitbook/assets/wecom-temp-ad2da5032b4af609e41012bd4113bf84.png)
+![img](../../.gitbook/assets/wecom-temp-ad2da5032b4af609e41012bd4113bf84.png)
 
-![](../../.gitbook/assets/wecom-temp-888da4cdb34f2bbcdc3869f7f4ff6dda.png)
+![img](../../.gitbook/assets/wecom-temp-888da4cdb34f2bbcdc3869f7f4ff6dda.png)
 
-![](../../.gitbook/assets/wecom-temp-8f040f0a22d3e9b0ff75a6b3ff40410b.png)
+![img](../../.gitbook/assets/wecom-temp-8f040f0a22d3e9b0ff75a6b3ff40410b.png)
 
-![](../../.gitbook/assets/wecom-temp-db0217ab76483f286bfb63cd7047f353.png)
+![img](../../.gitbook/assets/wecom-temp-db0217ab76483f286bfb63cd7047f353.png)
 
-除了sender字段，还需要配置其他字段，请参考：[https://github.com/TencentBlueKing/ci-sendEmail](https://github.com/TencentBlueKing/ci-sendEmail)
+In addition to the sender field, but also need to configure the other fields, please refer to: https://github.com/TencentBlueKing/ci-sendEmail
 
-### Q: 配置平台里的业务，如何关联到容器管理平台？
+### Q: How do the services on the configuration platform relate to the container management platform?
 
-![](../../.gitbook/assets/企业微信截图\_16412880662873.png)
+![img](../../.gitbook/assets/企业微信截图_16412880662873.png)
 
-![](../../.gitbook/assets/企业微信截图\_16412881057362.png)
+![img](../../.gitbook/assets/企业微信截图_16412881057362.png)
 
-1. 权限中心中检查，该用户账号是否具有local-k8s」的配置平台权限
-2. 配置平台中检查，「资源-业务-运维人员」中是否有配置该账号用户
+1. In the rights center, check whether the user account has the local-k8s platform permission
+2. On the configuration platform, check whether the account is configured in Resources, Services, and Operation and Maintenance Personnel
 
-![](../../.gitbook/assets/wecom-temp-ac68ebc38b2022819c8540b00100d2fb.png)
+![img](../../.gitbook/assets/wecom-temp-ac68ebc38b2022819c8540b00100d2fb.png)
 
-### Q: 如何使用Merge-Request-Accept-Hook，我为什么没触发？我希望分支feature\_lzj\_test123123213合并到feature\_lzj\_test0117时触发流水线
+### Q: How do I use Merge-Request-Accept-Hook and why do I not trigger it? I want the pipeline to trigger when the branch feature_lzj_test123123213 is merged into feature_lzj_test0117
 
-![](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
+![img](../../.gitbook/assets/image-20220301101202-RtEPQ.png)
 
-Merge Request Accept Hook会在源分支**成功merge到目标分支时触发**
+The Merge Request Accept Hook is **triggered when the source branch is successfully merged into the target branch**
 
-比如，需要将feat\_1合并到dev分支时，分支名称写dev，监听源分支写feat\_1（也可以使用\*号的模糊匹配功能，如feat\_\*）
+For example, when you want to combine feat_1 into the dev branch, write dev for the branch name and listen for the source branch to write feat_1.
 
-![](../../.gitbook/assets/image-20220301101202-pxOZb.png)
+![img](../../.gitbook/assets/image-20220301101202-pxOZb.png)
 
-### Q: gitlab触发器在哪里配置webhook地址，jenkins是需要手动配置一个url的
+### Q: Where does a gitlab trigger configure a webhook address when jenkins needs to manually configure a url
 
-不需要配置这个hook，蓝蓝盾是会自己注册webhook，选择事件类型后保存，就会自动注册webhook
+You do not need to configure this hook. Blueshield will register Webhooks by itself. After selecting the event type and saving it, Webhooks will be automatically registered
 
-![](../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
+![img](../../.gitbook/assets/wecom-temp-d5c48ee99a96d373426491d14d56e404.png)
 
-### Q: gitlab触发失败
+### Q: gitlab fails to trigger
 
-1. 检查分支是否匹配
-2. 查看下devops\_ci\_process.T\_PIPELINE\_WEBHOOK表是否有注册这条流水线， SELECT \* FROM devops\_ci\_process.T\_PIPELINE\_WEBHOOK WHERE pipeline\_id = ${pipeline\_id}，${pipeline\_id}可以从url地址获取
-3. 如果gitlab webhook页面没有注册webhook的记录，如
+1. Check whether the branches match
 
-    ![](../../.gitbook/assets/image-20220128124536187.png)
+2. Check whether the pipeline_devops_ci_process. T_PIPELINE_WEBHOOK table is registered. SELECT * FROM devops_ci_process.T_PIPELINE_WEBHOOK WHERE pipeline_id = pipeline_id, {pipeline_id} can be obtained from the url
 
-    1. 查看repository服务到gitlab的网络是否能通，比如是否配置gitlab的域名解析
+3. If the gitlab webhook page has no record of registering WebHooks, e.g
 
-    2. 查看gitlab仓库的权限是否是master权限，即生成accesstoken的用户需要是仓库的`maintainer`角色，且accesstoken需要的Scopes是`api`
+   ![img](../../.gitbook/assets/image-20220128124536187.png)
 
-        ![](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
+   1. Check whether the repository service is connected to gitlab, for example, if gitlab domain name resolution is configured
 
-        ![需要选择maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-maintainer.png)
+   2. Check whether the permissions of gitlab warehouse are master permissions, that is, the user who generated accesstoken needs to be from the warehouse`maintainer`Roles, and accesstoken required Scopes`api`
 
-        ![需要是maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png)
+      ![img](../../.gitbook/assets/wecom-temp-fe0a7bc1e72a97ec39e0a4e51e3e1e58.png)
 
-    3. 在repository服务部署的机器上，执行`grep "add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`查找注册失败原因，$BK\_HOME默认是/data/bkce
+      ![需要选择maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-maintainer.png)maintainer needs to be selected
 
-4. 如果gitlab上有webhook注册记录，如
+      ![需要是maintainer](../../.gitbook/assets/image-trigger-gitlab-accesstoken-view.png)maintainer is required
 
-    ![](../../.gitbook/assets/image-gitlab-webhook-edit.png)
+   3. On the machine where the repository service is deployed, execute`grep "add the web hook of " $BK_HOME/logs/ci/repository/repository-devops.log`The default value of $BK_HOME is /data/bkce
 
-    如果还是没有触发：
+4. If there is a webhook registration record on gitlab, e.g
 
-    1. 点击对应webhook的Edit，查看webhook的发送详情，查看View detail
+   ![img](../../.gitbook/assets/image-gitlab-webhook-edit.png)
 
-        ![](../../.gitbook/assets/image-gitlab-webhook-viewdetail.png)
+   If it still doesn't trigger:
 
-    2. 查看发送的错误详情，检查gitlab到蓝盾机器的网络是否可达，如gitlab服务器是否能解析蓝盾域名
+   1. Click Edit of the corresponding webhook to View the sending details of the webhook and view View detail
 
-        ![](../../.gitbook/assets/image-gitlab-webhook-request-detail.png)
+      ![img](../../.gitbook/assets/image-gitlab-webhook-viewdetail.png)
 
-5. 如果上面都没问题，在process服务部署的机器上，执行grep "Trigger gitlab build" $BK\_HOME/logs/ci/process/process-devops.log 搜索日志，查找触发的入口日志。查看gitlab push过来的请求体，对比请求体中的`http_url`字段和代码库里代码仓库的地址是否**完全**匹配，如果一个是域名形式的url，另一个是ip形式的url，则不匹配，如下所示：
+   2. Check whether the network between gitlab and bkci is reachable. For example, whether the gitlab server can resolve the bkci domain name
 
-    ![](../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png)
+      ![img](../../.gitbook/assets/image-gitlab-webhook-request-detail.png)
 
-    ![](../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png)
+5. If above all no problem, in the process of service deployment machine, perform the grep "Trigger gitlab build" $BK_HOME/logs/ci/process/process - the conversation. The log search logs, find out the entry log Trigger. Check the request body from gitlab push and compare the request body`http_url`Whether the field matches the address of the code repository in the code base. If one is a domain name url and the other is an ip url, the field does not match the address of the code repository in the code base, as shown below:
 
-### Q: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
+   ![img](../../.gitbook/assets/image-trigger-gitlab-webhook-post-body.png)
 
-![](../../.gitbook/assets/企业微信截图\_16285831782937.png)
+   ![img](../../.gitbook/assets/image-trigger-gitlab-repo-ip-view.png)
 
-将对应的agent服务的启动用户改为当前用户，执行命令`services.msc`打开windows服务管理界面，找到服务`devops_agent_${agent_id}`(注意：每个agent\_id是不同的，agent\_id的值可以在配置文件.agent.properties中找到)
+### Q: The batchscript plug-in cannot execute the bat file. The bat file contains variables that are read from the system and are set by the current user
 
-右键->属性，在登录页签下选择此账户
+![img](../../.gitbook/assets/企业微信截图_16285831782937.png)
 
-如果是如入域构建机，账户名填写`域名\用户名`，例如`tencent\zhangsan`;如果没有入域的构建机，账户名填入`.\用户名`,例如`.\admin、.\administrator、.\bkdevops`，输入密码后，点击确认按钮
+To change the startup user of the agent service to the current user, run the following command`services.msc`Open the windows Service management page and locate the service`devops_agent_${agent_id}`(Note: each agent_id is different and the value of agent_id can be found in the configuration file.agent.properties)
 
-![](../../.gitbook/assets/image-20220128181627246.png)
+Right-click -> Properties and select this account on the login TAB
 
-右键 -> 重新启动，重启服务
+In the case of the domain builder, enter the account name`Domain name \ User name`, for example`tencent\zhangsan`; If there is no in-domain builder, enter the account name`.\ User name`, for example`.\admin,.administrator,.bkdevops`After entering the password, click the Confirm button
 
-![](../../.gitbook/assets/image-20220128181720819.png)
+![img](../../.gitbook/assets/image-20220128181627246.png)
 
-打开任务管理器，查看进程devopsDaemon.exe和的vopsAgent.exe是否存在，查看两个进程的启动的用户名是否为当前登录用户
+Right-click -> Restart to restart the service
 
-### Q: batchscript中的命令路径有空格，执行失败
+![img](../../.gitbook/assets/image-20220128181720819.png)
 
-![](../../.gitbook/assets/企业微信截图\_16285852671573.png)
+Open the task Manager, and check whether the devopsDaemon.exe and vopsAgent.exe processes exist, and check whether the startup user name of the two processes is the current login user
 
-可以将有空格的命令用引号""括起来
+### Q: The command path in batchscript has Spaces, and execution fails
 
-### Q: 如何通过接口获取项目**
+![img](../../.gitbook/assets/企业微信截图_16285852671573.png)
 
-curl -X GET [https://devops.bktencent.com/prod/v3/apigw-app/projects/](https://devops.bktencent.com/prod/v3/apigw-app/projects/) -H "Content-Type: application/json" -H "X-DEVOPS-UID: admin"
+You can enclose commands with Spaces in quotation marks
 
-### Q: 这个「只有在前面插件运行失败才执行」条件，感觉没有用，成功了也执行了
+### Q: How do I get items ** through the interface
 
+The curl -x GET https://devops.bktencent.com/prod/v3/apigw-app/projects/ - H "content-type: application/json "-H" X-DEVOPS-UID: admin"
 
-![](../../.gitbook/assets/wecom-temp-c6aa0d74275116c38ff7f592563616c7.png)
+### Q: The "execute only if the previous plug-in failed" condition felt useless and was executed successfully
 
-这个条件的实际意思是：在这个插件前面的任何一个插件运行失败，就符合触发条件，而不是指『上一个』插件失败时运行
+![img](../../.gitbook/assets/wecom-temp-c6aa0d74275116c38ff7f592563616c7.png)
 
-### Q:项目的英文名称可以修改吗
+What this condition really means is that any plug-in that runs before this plug-in fails to be triggered, not that the "previous" plug-in failed to run
 
-暂不支持修改
+### Q: Can the English name of the project be changed
 
-### Q: 如何获取项目名称，我想要在企业微信通知消息里带上
+Modification is not supported
 
-使用全局变量`${BK_CI_PROJECT_NAME}`
+### Q: How do I get the project name that I want to include in the enterprise's wechat notification message
 
-### Q: 在浏览器里完成了蓝盾登录，在同一浏览器不同tab访问蓝盾，还需要再次登录
+Use global variables`${BK_CI_PROJECT_NAME}`
 
-这种情况是登录cookie过期了，现在默认应该是两小时，过期时间可调
+### Q: After logging in to bkci in the browser, you need to log in again if you access bkci in a different tab of the same browser
 
-### Q: 有条流水线是通过gitlab触发的，但查看代码变更记录为空，说明此次触发的构建，并没有新代码变更，那为啥为触发
+In this case, the login cookie has expired, which should now default to two hours with an adjustable expiration time
 
-可能的原因是，触发器监听了整个代码库的commit事件，但代码拉取插件只拉取了某一个特定分支的代码，而此分支并没有代码变更，比如，插件监听了整个代码库commit事件，但代码拉取插件只拉取了master分支的代码，而提交commit的是dev分支，代码变更记录显示的是所拉取的分支相交上一次体检的变更，master分支没有变更，所以没有变更记录。
+### Q: There is a pipeline triggered by gitlab, but the code change record is empty, indicating that there is no new code change in the construction triggered this time, so why is it triggered
 
-### Q: 流水线跟流水线可以设置互斥吗? 或者流水线A 启动, 流水线B启动的时候, 流水线B等待流水线A结束
+The possible reason is that the trigger listens for commit events for the entire codebase, but the code pull plug-in only pulls code for a specific branch that has no code changes. For example, if the plug-in listens for commit events for the entire codebase, but the code pull plug-in only pulls code for the master branch, While the commit is for the dev branch, the code change log shows the changes from the pulled branch that intersected the last checkup, and the master branch has no changes, so there is no change log.
 
-现在只能对流水线中的JOB进行互斥组配置，如果这两个流水线只有一个JOB，那就这个JOB配置一个相同的互斥组就可以了。如果流水线有多个JOB，需要给两个流水线上再套一个流水线，然后在两条主流水线上配置互斥组，通过这个主流水线拉起任务。
+### Q: Can pipelining and pipelining be mutually exclusive? Or pipeline A starts, and when pipeline B starts, pipeline B waits for pipeline A to end
 
-![](../../.gitbook/assets/wecom-temp-0427b67401a386578f79c2495a2009f8.png)
+Only jobs in the pipeline can be configured with a mutex group. If the two pipelines have only one JOB, configure the same mutex group for this JOB. If the pipeline has more than one JOB, you need to set a pipeline on both pipelines, then configure a mutex group on the two main waterlines, and pull tasks through the main waterlines.
 
-### Q: 蓝盾脚本里会起一个gradle daemon进程。最近发现，构建完就关闭。怀疑是不是devops agent处理的？
+![img](../../.gitbook/assets/wecom-temp-0427b67401a386578f79c2495a2009f8.png)
 
-![](../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
+### Q: bkci scripts start gradle daemon. Recently, it was discovered that build is closed. Wondering if it was the devops agent?
 
-蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS\_DONT\_KILL\_PROCESS\_TREE=true，在bash脚本里设置`setEnv "DEVOPS_DONT_KILL_PROCESS_TREE" "true"`
+![img](../../.gitbook/assets/wecom-temp-d4178631b527e498ee7d8a0778c1fb09.png)
 
-### Q: 可以设置 一个变量值, 根据这个变量, 判断是否运行某个 插件 吗
+After the bkci agent completes the build task, all sub-processes started by the agent are automatically stopped. If you do not need to end the sub-processes, set the environment variable set in the bash script before starting the process: set DEVOPS_DONT_KILL_PROCESS_TREE=true`setEnv "DEVOPS_DONT_KILL_PROCESS_TREE" "true"`
 
-在插件下方选择「自定义变量全部满足时才运行」，自定义变量写需要依赖的变量名称和值
+### Q: Can I set a variable value to determine whether to run a plug-in
 
-![](../../.gitbook/assets/image-20220210120321712.png)
+Under the plug-in, select Run only when all custom variables are met. The name and value of the variable that the custom variable write depends on are displayed
 
-### Q: 插件变量的值如何获取、如何写才对，比如我想获取插件里flushDB的值，然后在脚本里进行判断，我发现这么写是错误的？
+![img](../../.gitbook/assets/image-20220210120321712.png)
 
-![](../../.gitbook/assets/企业微信截图\_16318512177997.png)
+### Q: How do I obtain and write the correct value for the plugin variable? For example, if I want to obtain the flushDB value in the plugin, then I find out in the script that it is incorrect?
 
-![](../../.gitbook/assets/企业微信截图\_16318512474377.png)
+![img](../../.gitbook/assets/企业微信截图_16318512177997.png)
 
-![](../../.gitbook/assets/企业微信截图\_16318513189348.png)
+![img](../../.gitbook/assets/企业微信截图_16318512474377.png)
 
-右上角点击引用变量，然后点右边复制变量，然后粘贴到你需要的地方就可以
+![img](../../.gitbook/assets/企业微信截图_16318513189348.png)
 
-![](../../.gitbook/assets/wecom-temp-edfeb72810d972dae34d3f8d98232ec6.png)
+Click on the reference variable in the top right corner, then click on the right to copy the variable and paste it wherever you want
 
-### Q: 如何在日志每一行前面加上时间戳
+![img](../../.gitbook/assets/wecom-temp-edfeb72810d972dae34d3f8d98232ec6.png)
 
-占位，待解决
+### Q: How do I put a time stamp before each line of a log
 
-### Q:运行锁定, 有没有同一个时间最多运行一个构建任务, 后执行的强制取消先执行的任务
+Occupied space, to be resolved
 
-目前还没有这样的功能
+### Q: Run lock, whether a maximum of one build task is run at a time, and the later task is forced to cancel the earlier task
 
-### Q: 我们有用一个 cat 去显示Log, 这个方式能用, 但有个问题, 每次打开速度都很慢, 差不多要3秒以上才显示Log 数据, 有没什么其他的比较好的方式显示log
+There is currently no such feature
 
-关于3秒以上的问题，主要因为这个task对应的日志数据较大，日志内容在3MB，所以时间花在download上
+### Q: We use a cat to display Log, this way can be used, but there is a problem, every time open the speed is very slow, it takes more than 3 seconds to display Log data, is there any other better way to display log
 
-### Q: 流水线在执行中，unity的构建日志不会实时显示
+For the problem that the task is longer than 3 seconds, the main reason is that the log data corresponding to the task is large, and the log content is 3MB, so the time is spent on download
 
-其原因是「脚本中先执行unity编译构建操作，同时将日志写入文件，但在该操作结束前，不会执行后续的cat命令，导致日志无法实时在web页面上显示」。 针对此场景，可尝试以下解决方式：
+### Q: The unity build log is not displayed in real time during pipeline execution
+
+The cause is that "the unity compilation and construction operation is performed in the script and logs are written to the file. However, the subsequent cat command is not executed before the operation is complete. As a result, logs cannot be displayed on the web page in real time. For this scenario, try the following solutions:
 
 ```
  nohup $UNITY_PATH -quit -batchmode -projectPath $UNITY_PROJECT_PATH -logFile $UNITY_LOG_PATH -executeMethod CNC.Editor.PackageBuilderMenu.BuildPC "${isMono} ${isDevelop} $UNITY_OUT_PATH" & echo $! > /tmp/unity_${BK_CI_BUILD_ID}.pid unity_main_pid=$(cat /tmp/unity_${BK_CI_BUILD_ID}.pid) tail -f --pid ${unity_main_pid} $UNITY_LOG_PATH
 ```
 
-### Q:如何有条件的执行CallPipeline插件
+### Q: How do I conditionally execute the CallPipeline plug-in
 
-插件下面有一个流程控制，在流程控制中根据需要添加运行条件可以满足需求
+Under the plug-in, there is a flow control, where you can add running conditions as needed to meet the requirements
 
-![](../../.gitbook/assets/wecom-temp-70083f622bd2a6c839f9eb1b9436aac2.png)
+![img](../../.gitbook/assets/wecom-temp-70083f622bd2a6c839f9eb1b9436aac2.png)
 
-### Q: CallPipeline 这样传递参数好像不行？
+### Q: Does CallPipeline seem to be unable to pass parameters like this?
 
-![](../../.gitbook/assets/wecom-temp-3d80fac2503d5be8620e76b0d8175798.png)
+![img](../../.gitbook/assets/wecom-temp-3d80fac2503d5be8620e76b0d8175798.png)
 
-需要这样引用变量`${flushDB}`
+The variable needs to be referenced in this way`${flushDB}`
 
-### Q: 如何引用全局变量，我这么引用$BK\_CI\_BUILD\_FAIL\_TASKS好像不行
+### Q: How do I refer to global variables? I don't think I can refer to $BK_CI_BUILD_FAIL_TASKS
 
-变量引用需要加花括号`${BK_CI_BUILD_FAIL_TASKS}`
+Variable references need curly braces`${BK_CI_BUILD_FAIL_TASKS}`
 
-### Q: 选中的参数改变的时候能不能隐藏其他参数，比如我operator选中build，tag参数隐藏掉，就像js里option组件的change event
+### Q: Can other parameters be hidden when the selected parameter is changed? For example, I select build for operator and hide tag parameter, just like the change event of option component in js
 
-![](../../.gitbook/assets/企业微信截图\_1634710197325.png)
+![img](../../.gitbook/assets/企业微信截图_1634710197325.png)
 
-暂时还不支持
+Not yet
 
-### Q: 我点击执行的时候，参数下拉列表里的值是能通过自定义的接口获取来吗？
+### Q: When I click Execute, can the value in the parameter drop-down list be obtained through the custom interface?
 
-不支持接口自定义
+Interface customization is not supported
 
-### Q: 服务器磁盘满了，这些目录文件可以删吗
+### Q: The server disk is full. Can I delete files in these directories
 
-![](../../.gitbook/assets/企业微信截图\_1635304491832.png)
+![img](../../.gitbook/assets/企业微信截图_1635304491832.png)
 
-这些都是构建产物，目前对构建产物没有过期清理策略，用户可以视情况删除
+These are build artifacts, and there is currently no expiration cleanup policy for build artifacts, which users can delete as appropriate
 
-### Q: 如何在流水线执行过程中改变参数的值？
+### Q: How do I change parameter values during pipelining?
 
-如果是shell插件的话，可以这么修改参数的值`setEnv "{KEY}" "{VALUE}"`
+If you are a shell plug-in, you can change the value of the parameter this way`setEnv "{KEY}" "{VALUE}"`
 
-### Q: 1.5.4版本CI，如何调用openapi
+### Q: 1.5.4 CI, how do I call openapi
 
-版本还未开启OpenAPI。可以升级到1.5.30及以上版本，该版本已开启OpenAPI。
+Version does not have OpenAPI enabled. You can upgrade to version 1.5.30 or later, which has OpenAPI enabled.
 
-### Q: 如何查看凭证里的信息
+### Q: How do I view the information in the credentials
 
-![](../../.gitbook/assets/企业微信截图\_16372883269771-4480877.png)
+![img](../../.gitbook/assets/企业微信截图_16372883269771-4480877.png)
 
-出于安全考虑，该内容为加密的，不支持查看
+For security reasons, this content is encrypted and cannot be viewed
 
-### Q: 代码检查是否支持lua
+### Q: The code checks whether lua is supported
 
-代码检查暂不支持lua
+Code review does not support lua yet
 
-### Q: 我是否可以自行扩展代码检查的规则
+### Q: Can I extend the code review rules myself
 
-目前自行扩展功能还在开发中，暂不支持用户自行扩展代码检查的规则
+At present, the self-extension function is still under development, and users do not support self-extension code check rules
 
-### Q: 如何让流水线task变成可选
-
-`在插件里选择「Skip some on manual trigger」`
-
-![](../../.gitbook/assets/wecom-temp-ef4f873c64f962cc9582479c26442f2f.png)
-
-### Q: 让蓝盾的日志窗口保留颜色吗？想让失败的案例更明显点
-
-参考[https://docs.bkci.net/reference/faqs/log-colors](https://docs.bkci.net/reference/faqs/log-colors)
-
-### Q:job-作业执行插件是灰色的，但我已经安装了
-
-![](../../.gitbook/assets/企业微信截图\_16384260669700.png)
-
-这个是无编译环境使用的插件，需要在选择JOB类型时选择linux编译环境
-
-![](../../.gitbook/assets/image-20220210193855866.png)
-
-### Q: 这个业务ID是啥
-
-![](../../.gitbook/assets/企业微信截图\_1638426248456.png)
-
-配置平台中的「业务ID」，作业平台里也可看到
-
-![](../../.gitbook/assets/image-20220210194131021.png)
-
-![](../../.gitbook/assets/image-20220210194135210.png)
-
-### Q: 如果我想通过shell或者bat执行一个python任务，那么蓝盾的变量我只有通过python命令行透传进去嘛,而且无法将变量回写到蓝盾？
-
-问题一：可以通过获取环境变量的方式来获取蓝盾的变量
+### Q: How do I make pipelining tasks optional
 
 ```
- # 单行python例子，var为用户在本步骤或者其他步骤定义的变量名，BK_CI_START_USER_NAME是蓝盾的全局变量 python -c "import os; print(os.environ.get('var'))" python -c "import os; print(os.environ.get('BK_CI_START_USER_NAME'))" ​ # 如果你知道自己定义的变量名字，也可以在自己的python文件里通过os.envion.get('var')来获取 cat << EOF > test.py import os print(os.environ.get('var')) EOF python test.py
+In the plugin, select "Skip some on manual trigger"
 ```
 
-问题二：如何将变量回写到蓝盾
+![img](../../.gitbook/assets/wecom-temp-ef4f873c64f962cc9582479c26442f2f.png)
+
+### Q: Do you want bkci's log window to retain color? I want to make the failures more obvious
+
+Refer to https://docs.bkci.net/reference/faqs/log-colors
+
+### Q:job- Job execution plugin is grey, but I have installed it
+
+![img](../../.gitbook/assets/企业微信截图_16384260669700.png)
+
+This is a plug-in for non-compiler environments. You need to select a linux compiler when selecting the JOB type
+
+![img](../../.gitbook/assets/image-20220210193855866.png)
+
+### Q: What is the service ID
+
+![img](../../.gitbook/assets/企业微信截图_1638426248456.png)
+
+Service ID in the configuration platform is also displayed in the job platform
+
+![img](../../.gitbook/assets/image-20220210194131021.png)
+
+![img](../../.gitbook/assets/image-20220210194135210.png)
+
+### Q: If I want to execute a python task through a shell or bat, can I only pass the bkci variable through the python command line and not write the variable back to bkci?
+
+Problem 1: bkci variables can be obtained by obtaining environment variables
 
 ```
- # 如果是常量，shell可以使用setEnv，bat可以使用call:setEnv来将变量回写到蓝盾 setEnv "var_name" "var_value" # shell call:setEnv "var_name" "var_value"  # bat ​ # 将python脚本输出结果写回蓝盾 var_value=`python script.py` # script.py里需要有print输出，如print("test") setEnv "var_name" "${var_value}" # var_name="test" ​ # 把变量写到一个文件中，然后在shell中读取这个文件，然后setEnv python script.py > env.sh # 假设env.sh里为file_name="test.txt" source env.sh setEnv "var_name" "${file_name}"
+# Single line python example, var is the name of a variable defined by the user in this or other steps，
+# BK_CI_START_USER_NAME is global var of bkci
+python -c "import os; print(os.environ.get('var'))"
+python -c "import os; print(os.environ.get('BK_CI_START_USER_NAME'))"
+
+# If you know the name of the variable you defined, you can also get it in your own python file via os.envion.get('var') 
+cat << EOF > test.py
+import os
+print(os.environ.get('var'))
+EOF
+python test.py
 ```
 
-### Q: gitlab webhook 报错 URL '**[**http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit**](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)**' is blocked: Host cannot be resolved or invalid
-
-需要在gitlab的机器上配置devops.bktencent.com的hosts解析
-
-### Q: 请问这个红框框如何进入？
-
-![](../../.gitbook/assets/企业微信截图\_16257162702433.png)
-
-「研发商店 」-「工作台」
-
-![](../../.gitbook/assets/wecom-temp-f1631f05683e7125be01a6b4e79492dd.png)
-
-### Q: 我看每个job是有自己独立的workspace的，那是否存在多个job公用一个workspace的情况呢？
-
-如果用的单构建机（私有构建机），多个job就会共用一个workspace
-
-### Q: 请问下使用 "git拉取代码" 这个插件的时候，报这个错是啥原因呀。使用的是ssh私钥
-
-![](../../.gitbook/assets/企业微信截图\_16266633248073.png)
-
-这是因为旧版git拉取代码插件不支持在windows构建机上使用，最新版插件已经支持
-
-### Q: bkiam v3 failed错误？
-
-![](../../.gitbook/assets/企业微信截图\_16273862334714.png)
-
-这个问题一般是由于机器重启导致权限中心的saas容器没有启动导致，将容器重新拉起即可解决
-
-### Q: 如果我想在提pr的时候强制做一次代码扫描，应该如何配置？
-
-如果是使用gitlab托管代码，直接配置gitlab触发器，触发的事件类型有：
-
-1. Commit Push Hook 代码提交时触发
-2. Tag Push Hook 提交有tag的代码时触发
-3. Merge Request Hook 当有代码合并时触发
-4. Merge Request Accept Hook 当代码合并后触发
-
-### Q: 代码检查里某些规则不适用于我们公司，如何修改规则？
-
-规则的内容不支持修改，但是规则集可以修改。代码检查是以规则集为单位进行代码扫描的，如果发现有些规则不适用，可以将其从规则集中去掉，如果该规则集是默认规则集不允许用户增删，可以选择在此基础上创建自定义规则集，创建的规则集就可以由用户自行增删其中的某些具体的规则了
-
-### Q: 代码检查失败，Unknown Error：Unexpected char 0x5468 at 0 in X-DEVOPS-UID value：xxx
-
-![](../../.gitbook/assets/企业微信截图\_1630326503372.png)
-
-这一步会读取gitlab 的fullname，设置为英文可以解决问题，暂时还不支持中文的gitlab fullname，个人信息用户名显示上方就是fullname，如这里的vinco huang，可以通过这里的「Edit profile」进入修改页面
-
-![](../../.gitbook/assets/企业微信截图\_16303286841990.png)
-
-### Q: 我想在发送的企微消息通知里面附带当前build的一个artifacts文件的链接，该如何构造附件的下载链接？
-
-[http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/](http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/)${BK\_CI\_PIPELINE\_ID}/${BK\_CI\_BUILD\_ID}/{你的artifacts文件名}
-
-### Q: docker公共构建 支持自己的镜像吗？
-
-支持，参考[https://docs.bkci.net/store/ci-images](https://docs.bkci.net/store/ci-images)
-
-### Q: 蓝盾支持私有构建集群里选一台空闲的机器运行流水线吗，比如我们编译打包服务器，可能同时会有多个人操作不同分支的打包。
-
-如果有多台私有构建机，可以构成私有构建集群，选择这个集群后，蓝盾流水线按照一定的算法选择其中一台进行构建：
-
-**算法如下：**
-
-**最高优先级的agent:**
-
-1. 最近构建任务中使用过这个构建机
-2. 当前没有任何构建任务
-
-**次高优先级的agent:**
-
-1. 最近构建任务中使用过这个构建机
-2. 当前有构建任务，但是构建任务数量没有达到当前构建机的最大并发数
-
-**第三优先级的agent:**
-
-1. 当前没有任何构建任务
-
-**第四优先级的agent:**
-
-1. 当前有构建任务，但是构建任务数量没有达到当前构建机的最大并发数
-
-**最低优先级：**
-
-1. 都没有满足以上条件的
-
-### Q: [**https://docs.bkci.net/**](https://docs.bkci.net)打不开
-
-![](../../.gitbook/assets/企业微信截图\_16342628987332.png)
-
-这个文档是由gitbook托管的，需要访问谷歌的一些资源，如果用户网络访问不了谷歌，会出现这样的问题
-
-### Q: 机器断电后重启，但蓝鲸有些服务没起来，这些服务没有设置开机自启动吗？
-
-服务之间有依赖关系，比如蓝鲸的一些服务依赖于mysql，如果这些服务先于mysql启动，那就会出现启动失败的情况
-
-### Q: 我有pipeline A,可单独执行，我又有pipeline B,B里面会去调用A，等待A的一个结果，这种如何做互斥呢
-
-**占位，待补充**
-
-### Q: 可以针对流水线设置权限嘛，比如一个项目下的十个流水线，A可以看到一部分，B只能看到另一部分，想根据职能划分一下
-
-权限中心可以针对单个流水线进行管理，首先要给特定用户授予项目的权限，然后再授予单个流水线的权限
-
-![](../../.gitbook/assets/wecom-temp-478bbf51b9813c4ec50828781038028b.png)
-
-![](../../.gitbook/assets/wecom-temp-d29b308520dfa33da51158b2d5c055a9.png)
-
-![](../../.gitbook/assets/wecom-temp-1e44f6048453bb9873ad1cc81c869a5e.png)
-
-### Q: 请问流水线的变量能联动吗，比如我下拉选择了变量1的值为A，变量2的值自动变为A？
-
-暂时还不支持联动，如果值没什么变化，可以设置默认值
-
-### Q: 有支持git push的插件吗，想push一些东西到代码仓库上
-
-可以试着用账密的方式push： git push [http://username:passwd@xxx](http://username:passwd@xxx)，username和passwd可以使用凭证管理起来，username和passwd不允许有特殊字符，蓝盾在渲染变量的时候，不会转义特殊字符
-
-### Q: 如何重启私有构建上的蓝盾agent
-
-可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
-
-### Q: 私有构建机如何重装蓝盾agent
-
-1. 在linux/Mac上，可以支持重新执行安装命令，如果之前遇到安装错误，建议先uninstall，然后删除干净安装目录，重新跑安装命令
-2. windows上需要先uninstall，然后删除安装目录，重新下载安装包，重复安装过程即可
-
-### Q: 如何使用流水线的视图功能
-
-视图可以将流水线分类，允许用户根据流水线的创建人或者流水线的名称来进行分类，多个条件之间支持与/或关系，条件的键值是include的逻辑，不支持模糊匹配以及正则表达式，比如当流水线的名称对应的键值为`vinco`时，会匹配到该项目中所有流水线名称中包含`vinco`字样的流水线
-
-![](../../.gitbook/assets/image-20220125152014075.png)
-
-![](../../.gitbook/assets/image-20220125152350168.png)
-
-### Q: TGit插件无法选择gitlab代码库
-
-TGit对接的是腾讯的工蜂代码库，无法使用gitlab代码库
-
-### Q: 定时触发的流水线，时间显示不对，触发时间也不对
-
-![](../../.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)
-
-请检查蓝盾服务器的时间是否正常
-
-### Q:流水线的历史页面，能显示自定义内容吗，比如同一条流水线，有时候是打包安卓，有时候是打包ios，单看历史页面，无法分辨出来构建内容
-
-![](../../.gitbook/assets/企业微信截图\_16364221097534.png)
-
-可以在流水线里加个shell**插件**，通过设置`BK_CI_BUILD_REMARK`这全局变量的值，来实现想要的备注，流水线结束了，该字段才会显示
-
-![](../../.gitbook/assets/wecom-temp-a4453da39a470d74b7ed3d6da14120c0.png)
-
-![](../../.gitbook/assets/wecom-temp-9418a7960b89c65268c6947f46d95f72.png)
-
-### Q: windows构建机上安装蓝盾agent失败，子目录或文件已经存在，拒绝访问
-
-![](../../.gitbook/assets/企业微信截图\_16393825053890-3096967.png)
-
-这种情况一般是由于用户重复安装蓝盾agent导致，可以先执行uninstall脚本，卸载当前agent，然后删除该agent的安装目录，然后重新下载agent包，再次安装
-
-### Q: 蓝盾的执行历史有设置上限的地方，我这个定时流水线可能1分钟一次，数据会浪费磁盘
-
-频率高的定时任务，建议使用蓝鲸的作业平台
-
-### Q: Ubuntu蓝鲸agent安装失败，no enough space left in /tmp，但机器是有磁盘空间剩余的
-
-![](../../.gitbook/assets/企业微信截图\_16316948048063.png)
-
-一般是由于Ubuntu机器无法正常执行awk命令导致的，执行awk会有如下报错：
-
-`awk: symbol lookup error: /usr/local/lib/libreadline.so.8: undefined symbol: UP`
-
-可以参考这个方法，进行替换：
-
-![](../../.gitbook/assets/wecom-temp-62020c1b6e41f1f9e6e421bfe0a7dc70.png)
-
-### Q: 关联镜像的时候，镜像验证不通过
-
-![](../../.gitbook/assets/企业微信截图\_16328099498489.png)
-
-![](../../.gitbook/assets/wecom-temp-96f388a0cface3bdddafa174084719a1.png)
-
-镜像在私有仓库，docker默认不支持非https协议的私有仓库，需要修改公共构建机上的/etc/docker/daemon.json，在`insecure-registries`字段里添加私有仓库地址，然后重启docker服务
-
-![](../../.gitbook/assets/image-20220301101202-lncwv.png)
-
-### Q: bkci的镜像有基于Ubuntu系统的吗
-
-没有现成的基于Ubuntu的bkci镜像，用户可以根据指引来打包自己的镜像：[https://bk.tencent.com/docs/document/6.0/129/7518](https://bk.tencent.com/docs/document/6.0/129/7518)
-
-### Q: 如果我有多个公共构建机，公共构建机的调度算法是什么样的，什么情况任务会调度到另一台构建机上执行？
-
-算法会优先选择上一次构建的机器（亲和性），上一次构建的机器的某一项资源超过以下阈值，就会寻找另一台构建机进行构建任务
+Question 2: How do I write variables back to bkci
 
 ```
- 内存阈值：80% 磁盘IO：85% 磁盘空间：90%
+# If it's a constant, the shell can use setEnv and bat can use call:setEnv to write the variable back to Randle
+setEnv "var_name" "var_value" # shell
+call:setEnv "var_name" "var_value"  # bat
+
+# Write the python script output back to Randle
+var_value=`python script.py` # The script.py needs to have print output，如print("test")
+setEnv "var_name" "${var_value}" # var_name="test"
+
+# Write the variables to a file, then read the file in the shell and setEnv
+python script.py > env.sh # Assumptions file_name="test.txt" in env.sh
+source env.sh
+setEnv "var_name" "${file_name}"
 ```
 
-### Q: 如何调整调度算法中的资源阈值
+### Q: gitlab webhook error URL "**[http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit](http://devops.bktencent.com/ms/process/api/external/scm/gitlab/commit)**" is blocked: Host cannot be resolved or invalid
 
-目前只支持调整内存阈值，默认是80%，即当公共构建机的内存使用率达到80%时，如果其他构建机还有空闲资源，任务会被调度到其他构建机，这个阈值是可以修改的，修改方法如下，登录到蓝盾dispatch-docker服务的机器上， 执行：
+hosts resolution for devops.bktencent.com needs to be configured on the gitlab machine
+
+### Q: How do I enter the red box?
+
+![img](../../.gitbook/assets/企业微信截图_16257162702433.png)
+
+"R&d Shop" - "Workbench"
+
+![img](../../.gitbook/assets/wecom-temp-f1631f05683e7125be01a6b4e79492dd.png)
+
+### Q: I think each job has its own workspace. Do multiple jobs share a workspace?
+
+If a single build machine (private build machine) is used, multiple jobs share a workspace
+
+### Q: What is the reason for this error when using the "git pull code" plug-in? The ssh private key is used
+
+![img](../../.gitbook/assets/企业微信截图_16266633248073.png)
+
+This is because the old git pull code plug-in is not supported for use on the windows build machine. The latest version of the Git pull code plug-in is supported
+
+### Q: Does bkiam v3 failed?
+
+![img](../../.gitbook/assets/企业微信截图_16273862334714.png)
+
+This problem is usually caused by the restart of the machine and the saas container in the permission center does not start. The problem can be solved by pulling the container back up
+
+### Q: What if I want to force a code scan when I mention pr?
+
+If you are using gitlab managed code, configure the gitlab trigger directly. The event types are as follows:
+
+1. Commit Push Hook Triggered when the code is committed
+2. Tag Push Hook Triggered when the tagged code is submitted
+3. Merge Request Hook Merge request hook is triggered when code is merged
+4. Merge Request Accept Hook The merge request accepts hook
+
+### Q: Some rules in the code review do not apply to our company. How to modify the rules?
+
+The content of a rule cannot be modified, but the rule set can be modified. The code check is based on the rule set. If some rules are not applicable, you can remove them from the rule set. If the rule set is the default rule set, you can create a custom rule set based on the rule set
+
+### Q: The code check fails. Unknown Error: Unexpected char 0x5468 at 0 in X-DEVOPS-UID value: xxx
+
+![img](../../.gitbook/assets/企业微信截图_1630326503372.png)
+
+This step will read the fullname of gitlab, set to English can solve the problem, Chinese gitlab fullname is not supported for the time being, fullname above the display of personal information user name, such as vinco huang here, You can access the modification page by clicking Edit profile here
+
+![img](../../.gitbook/assets/企业微信截图_16303286841990.png)
+
+### Q: I want to send an artifacts file with a link from the current build in the company micromessage notification. How do I construct the download link for the attachment?
+
+*[http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/BK_CI_P](http://devops.bktencent.com/ms/artifactory/api/user/artifactories/file/download/local?filePath=/bk-archive/panda/)* IPELINE_ID/{BK_CI_BUILD_ID}/{file name of your artifacts}
+
+### Q: Does the docker public build support its own mirror?
+
+Support, refer to https://docs.bkci.net/store/ci-images
+
+### Q: Does bkci support pipelining on an idle machine in a private build cluster? For example, if we compile a packaging server, there may be multiple people working on the packaging of different branches at the same time?
+
+If there are multiple private construction machines, a private construction cluster can be formed. After selecting this cluster, the bkci pipeline selects one of them to build according to a certain algorithm:
+
+**The algorithm is as follows:**
+
+**The highest priority agent:**
+
+1. This builder was used in a recent build task
+2. There are currently no build tasks
+
+**agent of the second highest priority:**
+
+1. This builder was used in a recent build task
+2. There are currently build tasks, but the number of build tasks does not reach the maximum concurrency of the current builder
+
+**agent of the third priority:**
+
+1. There are currently no build tasks
+
+**agent of the fourth priority:**
+
+1. There are currently build tasks, but the number of build tasks does not reach the maximum concurrency of the current builder
+
+**Lowest priority:**
+
+1. None of them meet the above criteria
+
+### Q: [**https://docs.bkci.net/**](https://docs.bkci.net) won't open
+
+![img](../../.gitbook/assets/企业微信截图_16342628987332.png)
+
+This document is hosted by gitbook and requires access to some of Google's resources, which can be a problem if the user doesn't have web access to Google
+
+### Q: The machine restarted after power failure, but some services of BK did not work. Are these services not set to start from the boot?
+
+There are dependencies between services. For example, some BK services depend on mysql. If these services are started before mysql, they will fail to start
+
+### Q: I have pipeline A, which can be executed separately, and I have pipeline B, which will call A and wait for A result of A. How can I make this mutually exclusive
+
+**Space occupied, to be filled**
+
+### Q: You can set permissions for pipelines. For example, for ten pipelines under A project, A can see part of them, while B can only see the other part. I want to divide them according to functions
+
+Permission centers can be managed on a single pipeline by first granting permissions to a specific user for a project and then to a single pipeline
+
+![img](../../.gitbook/assets/wecom-temp-478bbf51b9813c4ec50828781038028b.png)
+
+![img](../../.gitbook/assets/wecom-temp-d29b308520dfa33da51158b2d5c055a9.png)
+
+![img](../../.gitbook/assets/wecom-temp-1e44f6048453bb9873ad1cc81c869a5e.png)
+
+### Q: Can the variables of the pipeline be linked? For example, if I select the value of variable 1 as A, the value of variable 2 will automatically change to A?
+
+Linkage is not supported yet. If the value does not change, can we set the default value
+
+### Q: Are there any plugins that support git push? I want to push something to the repository
+
+You can try to push it by keeping the account close: git push http://username:passwd@xxx, username, and passwd can be managed using credentials. username and passwd do not allow special characters. bkci does not escape special characters when rendering variables
+
+### Q: How do I restart bkci agent on a private build
+
+In the installation directory of the bkci agent, run the stop.sh script (stop.bat file on windows) and then start.sh (start.bat file on windows).
+
+### Q: How do I reinstall bkci agent on a private builder
+
+1. On linux/Mac, you can run the installation command again. If an installation error occurs, you are advised to uninstall, delete the installation directory, and run the installation command again
+2. uninstall on windows, delete the installation directory, download the installation package, and repeat the installation process
+
+### Q: How do I use the pipelined view function
+
+The view can classify pipelinesby the creator of the pipelinesor by the pipelinesname. It supports and/or relationships between multiple conditions. The key value of a condition is the logic of include`vinco`Is matched to all pipeline names included in the project`vinco`Line of letters
+
+![img](../../.gitbook/assets/image-20220125152014075.png)
+
+![img](../../.gitbook/assets/image-20220125152350168.png)
+
+### Q: The TGit plug-in cannot select the gitlab codebase
+
+TGit is connected with Tencent's worker bee code base, and gitlab code base cannot be used
+
+### Q: Timed trigger pipeline. The time display is incorrect, and the trigger time is incorrect
+
+![img](../../.gitbook/assets/wecom-temp-26d5087b12647b6801f5d8471eeb3ee6.png)
+
+Check whether the time of the bkci server is normal
+
+### Q: Can the history page of pipeline display custom content? For example, the same pipeline is sometimes packaged for Android and sometimes for ios. By looking at the history page, the built content cannot be distinguished
+
+![img](../../.gitbook/assets/企业微信截图_16364221097534.png)
+
+You can add a shell **plug-in** to the pipeline by setting `BK_CI_BUILD_REMARK`The value of the global variable to implement the desired remarks. The field will not be displayed until the pipeline is finished
+
+![img](../../.gitbook/assets/wecom-temp-a4453da39a470d74b7ed3d6da14120c0.png)
+
+![img](../../.gitbook/assets/wecom-temp-9418a7960b89c65268c6947f46d95f72.png)
+
+### Q: The bkci agent fails to be installed on the windows builder because the subdirectory or file already exists and access is denied
+
+![img](../../.gitbook/assets/企业微信截图_16393825053890-3096967.png)
+
+In this case, the agent is repeatedly installed. To uninstall the agent, run Uninstall script, delete the installation directory of the agent, download the agent package, and install the Agent again
+
+### Q: bkci's execution history has a place to set the upper limit, my timing pipeline may be once a minute, data will waste disk
+
+BK's platform is recommended for high frequency timing tasks
+
+### Q: Ubuntu BK agent installation failed. There is no enough space left in /tmp, but there is disk space left
+
+![img](../../.gitbook/assets/企业微信截图_16316948048063.png)
+
+The awk command cannot be executed normally on the Ubuntu machine. The following error occurs when awk is executed:
 
 ```
- # threshold的值即为阈值百分比，这里以将内存阈值调整为70%为例 curl -H 'Accept:application/json;charset="utf-8"' -H 'Content-Type:application/json;charset="utf-8"' -H "X-DEVOPS-UID: admin" -X POST --data '{"threshold":"70"}' http://127.0.0.1:21938/api/op/dispatchDocker/docker/threshold/update
+awk: symbol lookup error: /usr/local/lib/libreadline.so.8: undefined symbol: UP
 ```
 
-### Q: 偶现启动构建机启动失败，Get credential failed
+You can refer to this method to replace:
 
-已知问题，将dispatch-docker/lib/bcprov-jdk15on-1.64.jar删除，这是个软链，删除即可，然后重启dispatch-docker服务`systemctl restart bk-ci-dispatch-docker.service`
+![img](../../.gitbook/assets/wecom-temp-62020c1b6e41f1f9e6e421bfe0a7dc70.png)
 
-### Q: 如何删除公共构建机
+### Q: The image authentication fails when a mirror is associated
 
-登录到蓝盾dispatch-docker服务的机器上，执行`/data/src/ci/scripts/bkci-op.sh list`获取所有的公共构建机，执行`/data/src/ci/scripts/bkci-op.sh del`操作
+![img](../../.gitbook/assets/企业微信截图_16328099498489.png)
 
-### Q: 构建步骤卡在准备构建环境这一环
+![img](../../.gitbook/assets/wecom-temp-96f388a0cface3bdddafa174084719a1.png)
 
-![](../../.gitbook/assets/企业微信截图\_16419529383724.png)
+By default, docker does not support non-HTTPS private repositories. Therefore, you need to modify /etc/docker/daem. json on the public builder`insecure-registries`Add the private repository address to the field and restart docker
 
-如果是公共构建机，优先考虑公共构建机bk-ci-dockerhost.service服务是否正常
+![img](../../.gitbook/assets/image-20220301101202-lncwv.png)
 
-这种情况多见于私有构建机，多为agent安装异常导致，这里列举一些已知的原因：
+### Q: Are there any images of bkci based on Ubuntu
 
-1. 网络原因，如无法解析蓝盾域名、蓝盾服务不可达等
-2. agent版本安装错误，如在mac上安装linux的agent包，这种情况，将蓝盾agent安装包删除，重新安装对应版本agent即可
-3. 在蓝盾agent安装目录的logs下的agentDaemon.log日志里可见`too many open files`,在机器上执行`ulimit -n`结果显示，可打开的文件数值太小，默认为1024，将其数值调大，重新安装蓝盾agent即可
+No ready-made bkci image based on Ubuntu, users can according to the guide to package their own mirror image: https://bk.tencent.com/docs/document/6.0/129/7518
 
-![](../../.gitbook/assets/wecom-temp-2cf366a83acf24ef09ae7dff30c47354.png)
+### Q: If I have more than one common builder, what is the scheduling algorithm for the common builder, and in what cases will tasks be scheduled to be executed on another builder?
 
-![](../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
+The algorithm preferentially selects the last built machine (affinity). If a resource of the last built machine exceeds the following threshold, the algorithm finds another build machine to perform the build task
 
-### Q: 流水线构建失败，Agent心跳超时/Agent Dead，请检查构建机状态
+```
+ Memory threshold: 80% Disk I/O: 85% Disk space: 90%
+```
 
-常见于在公共构建机上运行耗费内存的编译任务，导致容器oom，在公共构建机上执行`grep oom /var/log/messages`通常能看到匹配记录，如果是因为多个任务同时跑在同一台构建机上导致oom，可以通过调整调度算法的内存阈值，避免单台构建机上运行过多任务；如果单个编译任务就触发oom，建议调高构建机的内存，或者使用内存更高的私有构建机
+### Q: How do I adjust the resource threshold in the scheduling algorithm
+
+Currently, only the memory threshold can be adjusted, and the default value is 80%. That is, when the memory usage of a common builder reaches 80% and other builders have free resources, tasks will be scheduled to other builders. The threshold can be modified by logging in to the bkci dispatch-docker server and performing the following operations:
+
+```
+ # The value of threshold is the threshold percentage, here the memory threshold is adjusted to 70% for example 
+curl -H 'Accept:application/json;charset="utf-8"' -H 'Content-Type:application/json;charset="utf-8"' -H "X-DEVOPS-UID: admin" -X POST --data '{"threshold":"70"}' http://127.0.0.1:21938/api/op/dispatchDocker/docker/threshold/update
+```
+
+### Q: Occasionally, the startup build machine fails to start and Get credential failed
+
+If the problem is known, delete dispatch-docker/lib/bcprov-jdk15on-1.64.jar. This is a soft chain. Just delete it and restart the dispatch-docker service`systemctl restart bk-ci-dispatch-docker.service`
+
+### Q: How do I delete a common builder
+
+Log in to the machine for the bkci dispatch-docker service and execute`/data/src/ci/scripts/bkci-op.sh list`Get all the public builders and execute`/data/src/ci/scripts/bkci-op.sh del`operation
+
+### Q: The build step is stuck in preparing the build environment
+
+![img](../../.gitbook/assets/企业微信截图_16419529383724.png)
+
+If it is a public builder, check whether the service of the public builder bk-ci-dockerhost.service is normal
+
+This is common on private build machines. It is usually caused by agent installation exceptions. Here are some known causes:
+
+1. For example, the bkci domain name cannot be resolved or the bkci service is unreachable
+2. The agent version is incorrectly installed. For example, if the linux agent package is installed on the mac, delete the bkci agent installation package and reinstall the agent of the corresponding version
+3. It can be found in the agentDaemon.log file under logs in the bkci agent installation directory`too many open files`, execute on the machine`ulimit -n`The result shows that the number of files that can be opened is too small. The default value is 1024. You can increase the value and reinstall the bkci agent
+
+![img](../../.gitbook/assets/wecom-temp-2cf366a83acf24ef09ae7dff30c47354.png)
+
+![img](../../.gitbook/assets/wecom-temp-2eadbe319d03b3049c6b4cf300cda012.png)
+
+### Q: Pipeline construction fails because the Agent heartbeat times out or the Agent is Dead. Check the status of the builder
+
+This is common when a memory-consuming compilation task is executed on a public build machine, resulting in an oom container`grep oom /var/log/messages`The matching record is usually displayed. If oom is caused by multiple tasks running on the same builder, you can adjust the memory threshold of the scheduling algorithm to prevent multiple tasks from running on a single builder. If a single compilation task triggers oom, you are advised to increase the memory of the builder or use a private builder with a higher memory

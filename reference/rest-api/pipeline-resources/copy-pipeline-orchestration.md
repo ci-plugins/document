@@ -1,79 +1,71 @@
-# 复制流水线编排
+# Copy pipelining
 
-### 请求方法/请求路径
+### Request method/request path
 
-#### POST  /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/copy
+#### POST /ms/openapi/api/apigw/v3/projects/{projectId}/pipelines/{pipelineId}/copy
 
-### 资源描述
+### Resource description
 
-#### 复制流水线编排
+#### Copy pipelining
 
-### 输入参数说明
+### Input parameter description
 
-#### Body参数
+#### Body parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| body | [流水线-COPY创建信息](copy-pipeline-orchestration.md) | 是 | 流水线COPY |  |
+| Parameter name | Parameter type                                               | must | Parameter description | Default value |
+| :------------- | :----------------------------------------------------------- | :--- | :-------------------- | :------------ |
+| body           | [Pipeline-copy Indicates the creation information](copy-pipeline-orchestration.md) | is   | Pipeline COPY         |               |
 
-#### Path参数
+#### Path parameter
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 | 默认值 |
-| :--- | :--- | :--- | :--- | :--- |
-| projectId | string | 是 | 项目ID |  |
-| pipelineId | string | 是 | 流水线模型 |  |
+| Parameter name | Parameter type | must | Parameter description | Default value |
+| :------------- | :------------- | :--- | :-------------------- | :------------ |
+| projectId      | string         | is   | Item ID               |               |
+| pipelineId     | string         | is   | Pipeline model        |               |
 
-#### 响应
+#### response
 
-| HTTP代码 | 说明 | 参数类型 |
-| :--- | :--- | :--- |
-| 200 | successful operation | [数据返回包装模型流水线模型-ID](copy-pipeline-orchestration.md) |
+| HTTP code | description          | Parameter type                                               |
+| :-------- | :------------------- | :----------------------------------------------------------- |
+| 200       | successful operation | [The data is returned to the wrapper model pipelining model-ID](copy-pipeline-orchestration.md) |
 
-#### 请求样例
+#### Request sample
 
-```javascript
-curl -X POST '[请替换为API地址栏请求地址]'
+```
+curl -X POST '[Please replace API address bar request address]' 
 ```
 
-#### HEADER样例
+#### HEADER example
 
-```javascript
-accept: application/json
-Content-Type: application/json
+```
+accept: application/json Content-Type: application/json 
 ```
 
-### 返回样例-200
+### Return example -200
 
-```javascript
-{
-  "data" : {
-    "id" : "String"
-  },
-  "message" : "String",
-  "status" : 0
-}
+```
+{  "data" : {  "id" : "String"  },  "message" : "String",  "status" : 0 } 
 ```
 
-## 流水线-COPY创建信息
+## Pipeline-copy Indicates the creation information
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| name | string | 是 | 名称 |
-| hasCollect | boolean | 否 | 是否收藏 |
-| desc | string | 否 | 描述 |
-| group | string | 否 | 分组名称 |
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| name           | string         | is   | name                  |
+| hasCollect     | boolean        | no   | Collection or not     |
+| desc           | string         | no   | description           |
+| group          | string         | no   | Group name            |
 
-## 数据返回包装模型流水线模型-ID
+## The data is returned to the wrapper model pipelining model-ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| data | [流水线模型-ID](copy-pipeline-orchestration.md) | 否 | 数据 |
-| message | string | 否 | 错误信息 |
-| status | integer | 是 | 状态码 |
+| Parameter name | Parameter type                                       | must | Parameter description |
+| :------------- | :--------------------------------------------------- | :--- | :-------------------- |
+| data           | [Pipeline model -ID](copy-pipeline-orchestration.md) | no   | data                  |
+| message        | string                                               | no   | Error message         |
+| status         | integer                                              | is   | Status code           |
 
-## 流水线模型-ID
+## Pipeline model -ID
 
-| 参数名称 | 参数类型 | 必须 | 参数说明 |
-| :--- | :--- | :--- | :--- |
-| id | string | 是 | 流水线ID |
-
+| Parameter name | Parameter type | must | Parameter description |
+| :------------- | :------------- | :--- | :-------------------- |
+| id             | string         | is   | Pipeline ID           |
