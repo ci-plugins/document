@@ -1,4 +1,4 @@
-## Q1 如何卸载 agent
+## Q1：如何卸载 agent
 
 目前蓝盾 agent 没有限定安装目录，在 windows 系统上，agent安装包解压目录即为 agent 安装目录；在 linux 和 mac 系统上，执行 agent 安装脚本的目录即为agent安装目录。
 
@@ -41,7 +41,7 @@ RM -RF WORKSPACE```
 
 ---
 
-## Q2 如何重装 agent
+## Q2：如何重装 agent
 
 **1.**   **用户数据安全注意事项：**
 
@@ -81,18 +81,35 @@ RM -RF WORKSPACE```
 
 ---
 
-## Q3 如何重启构建机agent
+## Q3：如何重启构建机agent
 
 可以到蓝盾agent的安装目录下，先执行stop.sh脚本（在windows上是stop.bat批处理文件），再执行start.sh（在windows上时start.bat文件）
 
 
 
-## Q4 私有构建机，一台mac只能装一个agent吗，一个构建机可以给多个项目使用吗
+## Q4：私有构建机，一台mac只能装一个agent吗，一个构建机可以给多个项目使用吗
 
 可以多个, 在不同目录启动agent即可. 每个agent实例需要全新安装, 不能直接复制已有agent目录。
 
 
 
-## Q5 私有构建机必须是物理机吗？可以是docker容器吗?
+## Q5：私有构建机必须是物理机吗？可以是docker容器吗?
 
 私有构建机和项目绑定, 且需安装agent并注册. 建议使用物理机/虚拟机等变动少的场景. 容器化使用公共构建机即可.
+
+
+
+## Q6：构建机的详情信息都没有显示
+
+![](../../../.gitbook/assets/environment_monitor.png)
+
+没有启用. 这个监控并无意义, 也不影响调度。建议使用蓝鲸监控等专门的监控系统负责。
+
+如果一定要启用
+
+1. 配置 bin/03-userdef/ci.env 
+
+2. 添加 BK_CI_ENVIRONMENT_AGENT_COLLECTOR_ON=true
+3. 然后添加 influxdb相关的配置项
+4. 重新安装ci-environment. 可以直接使用 ./bk_install ci 安装
+5. 修改已有agent:编辑.agent.properties , 配置devops.agent.collectorOn=true, 重启agent

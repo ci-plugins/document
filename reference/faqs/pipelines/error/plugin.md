@@ -144,6 +144,8 @@ windows下，agent无法拉起有UI界面的exe
 print(r'${workspace}')
 ```
 
+
+
 ---
 
 # executeJobScript
@@ -186,7 +188,7 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 
 ## Q1: batchscript插件无法执行bat文件，bat文件里有从系统中读取的变量，是当前用户设置的
 
-![](../../../../.gitbook/assets/企业微信截图/16285831782937.png)
+![](../../../../.gitbook/assets/企业微信截图_16285831782937.png)
 
 将对应的agent服务的启动用户改为当前用户，执行命令`services.msc`打开windows服务管理界面，找到服务`devops_agent_${agent_id}`(注意：每个agent\_id是不同的，agent\_id的值可以在配置文件.agent.properties中找到)
 
@@ -245,6 +247,40 @@ sender需要在插件的「私有配置」里设置，独立于ESB的mail\_sende
 **注2：蓝盾agent执行完构建任务后，会自动停止所有由agent启动的子进程，如果不需要结束子进程，可以在启动进程前设置环境变量：set DEVOPS_DONT_KILL_PROCESS_TREE=true**
 
 **目前只有这种临时解决方式， 因为agent最开始设计就是如此**
+
+---
+
+## Q5:batch插件，无法识别带回车的文本框变量
+
+蓝盾是通过一种提前渲染的方式进行变量渲染。已经把变量渲染好，替换插件中内容。
+
+batch 插件模拟命令行执行，碰到了带回车的文本框时，就会识别为执行。
+
+![](../../../../.gitbook/assets/QQ截图20221228175342.png)
+
+例如：
+
+此时 batch 插件执行   echo ${{a}}
+
+结果将等于在命令行如下输入：
+
+echo a
+b
+c
+
+---
+
+## Q6：本地执行 coscmd 正常，使用插件执行会报错
+
+![](../../../../.gitbook/assets/batch_coscmd_error.png)
+
+本地执行时，和使用 agent 执行时用的用户不同导致此问题。agent 执行时的用户可通过环境管理查看
+
+![](../../../../.gitbook/assets/agent_start_user.png)
+
+需要使用本地执行时成功的账户，重装 agent，使其用户一致。
+
+
 
 
 

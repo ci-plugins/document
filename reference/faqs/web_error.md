@@ -83,4 +83,24 @@ cd ${CTRL_DIR:-/data/install}
 ./bin/sql_migrate.sh -n mysql-ci /data/src/ci/support-files/sql/*.sql
 ```
 
-### 
+
+
+## Q6：pipeline start failed 并行上限
+
+![](../../.gitbook/assets/max_parallel_view.png)
+
+单条流水线同时并发在跑任务超过50条，会影响性能，还有可能失败。所以限制。
+
+
+
+可以修改数据库限制
+update devops_process.T_PIPELINE_SETTING set MAX_CON_RUNNING_QUEUE_SIZE=100 where PIPELINE_ID='${pipeline_id}'; 
+建议最大不超过100
+
+---
+
+## Q7:使用流水线文件变量，报错2102004
+
+![](../../.gitbook/assets/var_error_2102004.png)
+
+上传时需要给变量填写包含文件名的完整的路径。该功能依赖于蓝盾制品库。
