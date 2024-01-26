@@ -1,0 +1,19 @@
+# 流水线互斥及排队
+
+## 关键词：互斥、排队 <a href="#zhun-bei-shi-xiang" id="zhun-bei-shi-xiang"></a>
+
+## 业务挑战 <a href="#zhun-bei-shi-xiang" id="zhun-bei-shi-xiang"></a>
+
+业务在执行构建时，通常会碰到不同流水线需要互斥执行的情况；比如：业务有两条流水线，一条负责客户端打包，一条负责服务端打包，这两条流水线必须互斥执行，不然会出错。
+
+## 蓝盾优势 <a href="#zhun-bei-shi-xiang" id="zhun-bei-shi-xiang"></a>
+
+蓝盾互斥组功能，可以实现在同一台构建机上，设置相同的互斥组后，先启动的执行，后启动的排队。
+
+## 解决方案 <a href="#zhun-bei-shi-xiang" id="zhun-bei-shi-xiang"></a>
+
+1、 请参考下图，在两条不同的流水线设置中，勾选“设置互斥组”，互斥组名称相同即可。
+
+![图1](../../.gitbook/assets/scene-Pipeline-exclusion-queue-a.png)
+
+![图1](../../.gitbook/assets/scene-Pipeline-exclusion-queue-b.png)

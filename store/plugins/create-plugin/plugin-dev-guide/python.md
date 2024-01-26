@@ -1,6 +1,6 @@
 # Python 插件开发指引
 
-## 插件开发框架说明 <a id="%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%E8%AF%B4%E6%98%8E"></a>
+## 插件开发框架说明 <a href="#e6-8f-92-e4-bb-b6-e5-bc-80-e5-8f-91-e6-a1-86-e6-9e-b6-e8-af-b4-e6-98-8e" id="e6-8f-92-e4-bb-b6-e5-bc-80-e5-8f-91-e6-a1-86-e6-9e-b6-e8-af-b4-e6-98-8e"></a>
 
 * 开发者可以使用自己喜欢的框架开发，没有硬性要求
 * 示例以源码发布包的方式来组织插件
@@ -9,7 +9,7 @@
 
 **一、插件代码工程的整体结构示例如下：**
 
-```text
+```
 |- ${你的插件标识}             # 插件包名
     |- ${你的插件标识}         # 插件包名
         |- __init__.py py     # py包标识
@@ -25,13 +25,14 @@
 
 > 参考 [plugin-demo-python](https://github.com/ci-plugins/plugin-demo-python)
 
-* 创建插件代码工程，可直接git clone plugin-demo-python代码到本地，插件代码建议统一管理。通用的开源插件可以放到 [ci-plugins](https://github.com/ci-plugins) 下
-  ```bash
-  git clone https://github.com/ci-plugins/plugin-demo-python.git
-  ```
+*   创建插件代码工程，可直接git clone plugin-demo-python代码到本地，插件代码建议统一管理。通用的开源插件可以放到 [ci-plugins](https://github.com/ci-plugins) 下
 
-* 修改包名为有辨识度的名称，建议可以和插件标识一致
-    ```text
+    ```bash
+    git clone https://github.com/ci-plugins/plugin-demo-python.git
+    ```
+*   修改包名为有辨识度的名称，建议可以和插件标识一致
+
+    ```
     |- plugin-demo-python         # 改成和你的插件标识一致
         |- demo                   # 改成和你的插件标识一致
             |- __init__.py py     # py包标识
@@ -44,7 +45,7 @@
     ```
 * 实现插件功能
   * 配置task.json，参考[插件配置规范](../plugin-config.md)
-  * 编写插件逻辑代码，参考[插件开发逻辑代码](#插件开发逻辑代码)和[python_atom_sdk接口示例](../python-atom-sdk-examples.md)
+  * 编写插件逻辑代码，参考[插件开发逻辑代码](python.md#插件开发逻辑代码)和[python\_atom\_sdk接口示例](../python-atom-sdk-examples.md)
 * 规范：
   * [插件开发规范](../plugin-specification.md)
   * [插件输出规范](../plugin-output.md)
@@ -52,41 +53,38 @@
 **三、如何打包发布：**
 
 1. 进入插件代码工程根目录下
-2. 执行打包命令打包
+2.  执行打包命令打包
 
-   ```text
-   # 本示例以 setuptools 的 sdist 命令为例
+    ```
+    # 本示例以 setuptools 的 sdist 命令为例
 
-   python setup.py sdist
-   ```
-
+    python setup.py sdist
+    ```
 3. 在任意位置新建文件夹，命名示例：release\_pkg = ${你的插件标识}\_release
 4. 将步骤 2 生产的执行包拷贝到 ${release\_pkg} 下
 5. 添加 task.json 文件到 ${release\_pkg} 下
-
 6. 在 `${release_pkg}` 目录下，执行`zip -r ${你的插件标识}_release.zip ${你的插件标识}_release` 把所有文件打成zip包即可
 
 `zip` 包结构示例：
 
-```text
+```
 |- demo_release.zip         # 发布包
    |- demo-1.1.0.tar.gz    # 插件执行包
    |- task.json            # 插件配置文件
 ```
 
-打包完成后，在插件工作台提单发布，即可测试或发布插件，参考[常用插件安装](../../plugin_install_demo.md)，插件在正式发布之前，可以反复测试迭代的插件包。
-
+打包完成后，在插件工作台提单发布，即可测试或发布插件，参考[常用插件安装](../../plugin\_install\_demo.md)，插件在正式发布之前，可以反复测试迭代的插件包。
 
 ## 插件开发逻辑代码
-插件的逻辑代码主要在command_line.py里，以下demo示例，演示了一个简单的插件，从输入框input_demo获取用户输入值，将用户输入内容打印到日志中，并输出到插件结果中。
-1. `sdk.input().get("key")`是python_atom_sdk提供的获取插件输入的方法，key是输入组件的名称，在task.json里的input定义，在本例中输入组件为input_demo
-2. output_demo是输出组件，作为插件输出结果，流水线后续JOB可以引用output_demo的值
+
+插件的逻辑代码主要在command\_line.py里，以下demo示例，演示了一个简单的插件，从输入框input\_demo获取用户输入值，将用户输入内容打印到日志中，并输出到插件结果中。
+
+1. `sdk.input().get("key")`是python\_atom\_sdk提供的获取插件输入的方法，key是输入组件的名称，在task.json里的input定义，在本例中输入组件为input\_demo
+2. output\_demo是输出组件，作为插件输出结果，流水线后续JOB可以引用output\_demo的值
 3. task.json里input代表UI输入组件，所有和用户交互的输入UI组件都要放在input里，组件名称需唯一，在蓝盾「研发商店」-「控制台」-「调试task.json」可以查看task.json可视化结果
 
-更多sdk接口，请参考：[python_atom_sdk接口示例](../python-atom-sdk-examples.md)
-更多task.json配置信息，请参考：[插件配置规范](../plugin-config.md)
-更多UI组件使用案例，请参考：[UI组件示例](../UI-components-examples.md)
-更多的插件开发案例，请参考：[插件开发案例](../../case-stduy/README.md)
+更多sdk接口，请参考：[python\_atom\_sdk接口示例](../python-atom-sdk-examples.md) 更多task.json配置信息，请参考：[插件配置规范](../plugin-config.md) 更多UI组件使用案例，请参考：[UI组件示例](../ui-components-examples.md) 更多的插件开发案例，请参考：[插件开发案例](../case-stduy/)
+
 ```python
 # -*- coding: utf-8 -*-
 
@@ -184,6 +182,7 @@ def main():
 ```
 
 对应的task.json:
+
 ```json
 {
     "atomCode": "demo",
@@ -215,6 +214,4 @@ def main():
 }
 ```
 
-执行结果：
-![输入](../../../../.gitbook/assets/image-demo-plugin-input.png)
-![执行](../../../../.gitbook/assets/image-demo-plugin-exec.png)
+执行结果： ![输入](../../../../.gitbook/assets/image-demo-plugin-input.png) ![执行](../../../../.gitbook/assets/image-demo-plugin-exec.png)

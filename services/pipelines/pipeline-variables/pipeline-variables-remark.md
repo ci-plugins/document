@@ -9,10 +9,6 @@
     <img src="../../../.gitbook/assets/image-variables-set-remark.png" alt="设置备注变量" data-size="original">
 2.  展示备注变量
 
-    <img src="../../../.gitbook/assets/image-variables-config-column.png" alt="设置显示列" data-size="original">
-
-    <img src="../../../.gitbook/assets/image-variables-select-remark.png" alt="选择备注" data-size="original">
-
-    <img src="../../../.gitbook/assets/image-variables-remark-view.png" alt="展示备注变量" data-size="original">
+    <img src="../../../.gitbook/assets/image-variables-config-column.png" alt="设置显示列" data-size="original"> <img src="../../../.gitbook/assets/image-variables-select-remark.png" alt="选择备注" data-size="original"> <img src="../../../.gitbook/assets/image-variables-remark-view.png" alt="展示备注变量" data-size="original">
 
 **注意**：备注变量只有当流水线执行结束才会展示

@@ -37,13 +37,13 @@ accesstoken 使用「凭证管理」来进行注册，如果在「凭证管理�
 
 ![](../../.gitbook/assets/image-20211130151014566.png)
 
-![](../../.gitbook/assets/image-20220301101202-KMSOc.png)
+![](<../../.gitbook/assets/image-20220301101202-KMSOc (2).png>)
 
 gitlab accesstoken创建请参考：[创建accesstoken](https://docs.gitlab.com/ee/user/profile/personal\_access\_tokens.html)
 
 然后回到关联代码库页面，选中刚创建的accesstoken，确定
 
-![](<../../.gitbook/assets/image-20220301101202-KMSOc (1).png>)
+![](../../.gitbook/assets/image-20220301101202-KMSOc.png)
 
 **其他类型凭证使用请参考：**[凭证管理](../ticket.md)
 
